@@ -1,0 +1,92 @@
+<div class="separator" style="clear: both; text-align: center;"><div class="separator" style="clear: both; text-align: center;">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJJy5nDoW4v7NbTBftBxgDRio2gdC6hJSXSo1ZazMkkFUu_AD5uA2I4MzTyzys-psY9l2_03Z0lG0-dH6s13X00WV67wlSoToIORCo8I6oxtvC1eZPpzhLDS0hK3gUiUfodty4J00eNtFUhPwe4Ayo0EhdP97BiflhwzOUl2F9YT6lLzz-1wtN-6ONT-6e/s320/online%20broadcasting%20film%20and%20video%20sites.png" alt="Platform resmi - fikirnesel blog" width="160" height="160" loading="lazy" border="0" /></div><br />
+  <div class="separator" style="clear: both; text-align: center;"></div></div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform Abonelik Ücretleri (2025)</title>
+<style>
+.abonelik-tablo {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* kritik */
+}
+
+.abonelik-tablo th,
+.abonelik-tablo td {
+  border: 1px solid #000;
+  padding: 6px;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+/* Sütun genişlikleri */
+.abonelik-tablo th:nth-child(1),
+.abonelik-tablo td:nth-child(1) {
+  width: 20%;
+}
+
+.abonelik-tablo th:nth-child(2),
+.abonelik-tablo td:nth-child(2) {
+  width: 25%;
+}
+
+.abonelik-tablo th:nth-child(3),
+.abonelik-tablo td:nth-child(3) {
+  width: 10%;
+  text-align: right;
+}
+
+.abonelik-tablo th:nth-child(4),
+.abonelik-tablo td:nth-child(4) {
+  width: 45%;
+}
+</style>
+
+  <h2>Aralık 2025 Abonelik Ücretleri</h2>
+<div style="overflow-x:auto">
+  <div id="abonelik-tablo"></div>
+</div>
+
+<script>
+  // Google Apps Script web app URL'ini buraya yapıştır
+  const URL = "https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
+
+  fetch(URL)
+    .then(r => r.json())
+    .then(data => {
+      let html = `
+        <table class="abonelik-tablo" border="1" cellpadding="6" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Servis</th>
+              <th>Plan</th>
+              <th>Fiyat</th>
+              <th>Not</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      data.forEach(row => {
+        html += `
+          <tr>
+            <td>${row["Servis"] || ""}</td>
+            <td>${row["Plan"] || ""}</td>
+            <td>${row["Fiyat"] || ""}</td>
+            <td>${row["Not"] || ""}</td>
+          </tr>
+        `;
+      });
+
+      html += `</tbody></table>`;
+      document.getElementById("abonelik-tablo").innerHTML = html;
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("abonelik-tablo").innerHTML =
+        "<p>Tablo yüklenirken hata oluştu.</p>";
+    });
+</script>
+
+<p style="color:red;" >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+	<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. <br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz. </p>
