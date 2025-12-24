@@ -34,9 +34,10 @@
 
 /* ✅ SABİT ÜST + ALT KAYDIRMA (media DIŞINDA olmalı) */
 body{margin:0;overflow:hidden;}
-#ustBar{position:fixed;top:0;left:0;right:0;z-index:999;background:#fff;padding:8px 10px;border-bottom:1px solid #e5e5e5;}
-#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:220px;overflow:auto;padding:10px;}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;padding:10px;border-bottom:1px solid #ddd;}
+#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:200px;overflow:auto;padding:10px;}
 #sonuclar table{width:100%;border-collapse:collapse;}
+
 </style>
 
 </head>
@@ -362,6 +363,13 @@ document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textCon
 }
   }
 window.addEventListener("resize",mobilSegmentBaslik);
+function fixLayout(){
+  const u=document.getElementById("ustBar");
+  const s=document.getElementById("sonuclarWrap");
+  if(u&&s){s.style.top=(u.offsetHeight+10)+"px";}
+}
+window.addEventListener("load",fixLayout);
+window.addEventListener("resize",fixLayout);
 </script>
   </body>
   </html>
