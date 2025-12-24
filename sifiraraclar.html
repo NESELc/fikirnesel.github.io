@@ -40,7 +40,10 @@
     @media screen and (max-width:768px){
 #sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size: 8px;}
 #sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size: 10px;}
-      #sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size: 8px;}
+#sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size: 8px;}
+#ustBar{position:sticky;top:0;z-index:999;background:#fff;padding:8px 0 10px;border-bottom:1px solid #e5e5e5;}body{margin:0;}
+#sonuclarWrap{height:calc(100vh - 210px);overflow-y:auto;overflow-x:auto;padding-top:10px;}
+#sonuclar th{position:sticky;top:0;background:#fff;z-index:5;}
 
   </style>
 </head>
@@ -122,6 +125,7 @@
     alt="Araç resmi - fikirnesel blog" width="160" height="160" loading="lazy" border="0">
 </div>
 <div id="aracFiltreleme">
+<div id="ustBar">
   <h3>🚗 Sıfır Araç Fiyatları</h3>
   
 
@@ -138,7 +142,10 @@
     </select></label>
     <button id="markaButon">🔗 Marka Linkleri</button>
   </div>
+</div>
+<div id="sonuclarWrap">
   <div id="sonuclar"></div>
+</div>
   <div class="tarihinfo" id="tarihYazi"></div>
   <div class="tarihinfo">
     * Bu sayfada yer alan araç fiyat ve özellikleri, Aralık 2025 itibarıyla kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
