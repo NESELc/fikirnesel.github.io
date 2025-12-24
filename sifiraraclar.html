@@ -9,8 +9,8 @@
 .filtre-grup{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:15px;}
 .filtre-grup label{display:flex;flex-direction:column;font-size:11px;min-width:110px;}
 .filtre-grup select{padding:3px;font-size:11px;width:130px;}
-#sonuclar{overflow-x:auto;margin-top:15px;}
-#sonuclar table{border-collapse:collapse;width:100%;font-size:11px;table-layout:fixed;}
+#sonuclar{margin-top:0;}
+#sonuclar table{border-collapse:separate;border-spacing:0;width:100%;font-size:11px;table-layout:fixed;}
 #sonuclar th,#sonuclar td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
 #sonuclar th{font-weight:bold;}
 #sonuclar td.fiyat{font-weight:bold;color:darkgreen;white-space:nowrap;}
@@ -64,17 +64,18 @@ body{margin:0;overflow:hidden;}
 </div>
 <div id="sonuclarWrap">
   <div id="sonuclar"></div>
-</div>
+
   <div class="tarihinfo" id="tarihYazi"></div>
-  <div class="tarihinfo">
+  	<div class="tarihinfo">
     * Bu sayfada yer alan araç fiyat ve özellikleri, Aralık 2025 itibarıyla kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
     <br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir.
     <br>* Farklı versiyon, donanım seviyesi veya opsiyonlara göre fiyatlar değişebilir. Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
     <br>* Her bir marka ve model için, aynı sınıf, segment ve yakıt türüne sahip versiyonlar arasından en düşük anahtar teslim fiyatlı olan seçilmiştir.
     <br>* Bentley,Ferrari,Jaguar ve Maserari marka araçlar için resmi kaynaklarda fiyat bilgileri bulunmamaktadır.Bu markalar için yapay zeka destekli tahmini fiyat ve özellikler yer almaktadır. 
     <br>* Sayfa kodları ve verileri ChatGPT, DeepSeek ve GROK kullanılarak derlenmiştir.
+  	</div>
   </div>
-  </div>
+</div>
 <!-- Marka Modalı -->
 <div id="markaModal">
   <h4>🚘 Marka Resmi Siteleri</h4>
