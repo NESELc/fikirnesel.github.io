@@ -36,7 +36,8 @@ body{margin:0;overflow:hidden;}
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;padding:10px;border-bottom:1px solid #ddd;}
 #sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:200px;overflow:auto;padding:10px;}
 #sonuclar table{width:100%;border-collapse:collapse;}
-#sonuclar th{position:sticky;top:0;z-index:10;background:#fff;border-bottom:2px solid #999;background-clip:padding-box;}
+#sonuclar thead th{position:sticky;top:0;z-index:20;background:#fff;border-bottom:2px solid #999;}
+
 
 </style>
 
@@ -215,7 +216,7 @@ return `${ay}.${yil}`;
 
     filtreli.sort((a, b) => parseInt(siralama === "artan" ? a.fiyat - b.fiyat : b.fiyat - a.fiyat));
 
-    let html = "<table><tr><th>Fiyat - binTL</th><th>Marka</th><th>Model</th><th>Sınıf</th><th>Segment</th><th>Yakıt</th><th>Vites</th><th>Güncelleme</th></tr>";
+	let html = "<table><thead><tr><th>Fiyat - binTL</th><th>Marka</th><th>Model</th><th>Sınıf</th><th>Segment</th><th>Yakıt</th><th>Vites</th><th>Güncelleme</th></tr></thead><tbody>";
     filtreli.forEach(item => {
       const fiyat = Math.round(Number(item.fiyat) / 1000).toLocaleString("tr-TR");
       html += `<tr>
@@ -229,7 +230,7 @@ return `${ay}.${yil}`;
         <td>${formatTarih(item.guncelleme) || ""}</td>
       </tr>`;
     });
-    html += "</table>";
+    html += "</tbody></table>";
     document.getElementById("sonuclar").innerHTML = html;
     mobilSegmentBaslik();
 	  const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
