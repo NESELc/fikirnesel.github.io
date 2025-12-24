@@ -5,47 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sıfır Araçlar</title>
   <style>
-  #seo-giris{
-    position:absolute;
-    left:-9999px;
-    width:1px;
-    height:1px;
-    overflow:hidden;}
+#seo-giris{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+#aracFiltreleme{font-family:Arial;max-width:50%;padding:10px;font-size:11px;}
+.filtre-grup{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:15px;}
+.filtre-grup label{display:flex;flex-direction:column;font-size:11px;min-width:110px;}
+.filtre-grup select{padding:3px;font-size:11px;width:130px;}
+#sonuclar{overflow-x:auto;margin-top:15px;}
+#sonuclar table{border-collapse:collapse;width:100%;font-size:11px;table-layout:fixed;}
+#sonuclar th,#sonuclar td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
+#sonuclar th{font-weight:bold;}
+#sonuclar td.fiyat{font-weight:bold;color:darkgreen;white-space:nowrap;}
+.tarihinfo{margin-top:15px;font-size:15px;color:red;}
+#markaButon{margin-bottom:10px;font-size:12px;padding:6px 10px;cursor:pointer;}
+#markaModal{display:none;position:fixed;top:50px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #ccc;padding:20px;z-index:9999;max-width:400px;width:90%;box-shadow:0 0 10px rgba(0,0,0,0.2);border-radius:8px;}
+#markaModal h4{margin-top:0;}
+#markaModal ul{list-style:none;padding:0;font-size:13px;}
+#markaModal ul li{margin-bottom:8px;}
 
-    #aracFiltreleme {font-family: Arial;max-width: 50%;padding: 10px;font-size: 11px;}
-    .filtre-grup {display: flex;flex-wrap: wrap;gap: 12px;align-items: center;margin-bottom: 15px;}
-    .filtre-grup label {display: flex;flex-direction: column;font-size: 11px;min-width: 110px;}
-    .filtre-grup select {padding: 3px;font-size: 11px;width: 130px;}
-    #sonuclar {overflow-x: auto;margin-top: 15px;}
-    #sonuclar table {border-collapse: collapse;width: 100%;font-size: 11px;table-layout: fixed;}
-    #sonuclar th, #sonuclar td {border: 1px solid #ccc; padding: 6px;text-align: left;vertical-align: middle;white-space: normal;word-break: break-word;}
-    #sonuclar th {font-weight: bold;}
-    #sonuclar td.fiyat {font-weight: bold;color: darkgreen; white-space: nowrap;}
-    .tarihinfo {margin-top: 15px; font-size: 15px; color: red;}
-    #markaButon {margin-bottom: 10px; font-size: 12px; padding: 6px 10px; cursor: pointer;}
-    #markaModal {
-      display: none; position: fixed; top: 50px; left: 50%; transform: translateX(-50%);
-      background: #fff; border: 1px solid #ccc; padding: 20px; z-index: 9999; max-width: 400px; width: 90%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2); border-radius: 8px;
-    }
-    #markaModal h4 {margin-top: 0;} 
-    #markaModal ul {list-style: none; padding: 0; font-size: 13px;}
-    #markaModal ul li {margin-bottom: 8px;}
-    @media screen and (max-width: 768px) {
-      .filtre-grup {flex-direction: column;align-items: flex-start;}
-      .filtre-grup label {width: 100%;}
-      .filtre-grup select {width: 100%;}
-      #sonuclar table {font-size: 10px;}
-    }
-    @media screen and (max-width:768px){
-#sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size: 8px;}
-#sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size: 10px;}
-#sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size: 8px;}
-#ustBar{position:sticky;top:0;z-index:999;background:#fff;padding:8px 0 10px;border-bottom:1px solid #e5e5e5;}body{margin:0;}
-#sonuclarWrap{height:calc(100vh - 210px);overflow-y:auto;overflow-x:auto;padding-top:10px;}
-#sonuclar th{position:sticky;top:0;background:#fff;z-index:5;}
+@media screen and (max-width:768px){
+.filtre-grup{flex-direction:column;align-items:flex-start;}
+.filtre-grup label{width:100%;}
+.filtre-grup select{width:100%;}
+#sonuclar table{font-size:10px;}
+#sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size:8px;}
+#sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size:10px;}
+#sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size:8px;}
+}
 
-  </style>
+/* ✅ SABİT ÜST + ALT KAYDIRMA (media DIŞINDA olmalı) */
+body{margin:0;overflow:hidden;}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:999;background:#fff;padding:8px 10px;border-bottom:1px solid #e5e5e5;}
+#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:220px;overflow:auto;padding:10px;}
+#sonuclar table{width:100%;border-collapse:collapse;}
+</style>
+
 </head>
 <body>
   <!-- ✅ SEO STATİK BLOK (JS yüklenmeden önce görünen içerik) -->
