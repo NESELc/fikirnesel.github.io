@@ -23,6 +23,8 @@
 
 @media screen and (max-width:768px){
 .filtre-grup{flex-direction:row;flex-wrap:wrap;align-items:center;gap:1px;}
+.filtre-grup label{width:32%;}
+.filtre-grup select{width:100%;}
 #sonuclar table{font-size:10px;}
 #sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size:8px;}
 #sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size:10px;}
@@ -118,11 +120,14 @@ body{margin:0;overflow:hidden;}
 </div>
 
 <script>
-  document.getElementById("markaButon").addEventListener("click", function() {
-    document.getElementById("markaModal").style.display = "block";
-  });
+	
+  	document.getElementById("markaButon").addEventListener("click", function(e){
+  	e.preventDefault();
+  	e.stopPropagation();   // ✅ şart
+  	document.getElementById("markaModal").style.display="block";
+	});
   
-window.addEventListener("click", function(event) {
+window.addEventListener("pointerdown", function(event) {
   const modal = document.getElementById("markaModal");
   if (
     modal.style.display === "block" &&
@@ -172,27 +177,21 @@ window.addEventListener("click", function(event) {
     });
 
     ["markaSec", "sinifSec", "segmentSec", "yakitSec", "vitesSec", "siralaSec"].forEach(id => {
-      document.getElementById(id).addEventListener("change", filtreleVeGoster);
+		document.getElementById(id).addEventListener("change", filtreleVeGoster);
     });
 
     filtreleVeGoster();
-    if (guncellemeTarihi) {
-      document.getElementById("tarihYazi").textContent = "Son güncelleme tarihi: " + guncellemeTarihi;
-    }
+    if (guncellemeTarihi) { document.getElementById("tarihYazi").textContent = "Son güncelleme tarihi: " + guncellemeTarihi;  }
   }
 
 function formatTarih(isoStr) {
   if (!isoStr) return "";
   const d = new Date(isoStr);
-
-  // Tarihi Türkiye saatine göre al
   const gun  = String(d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", day: "2-digit" }));
   const ay   = String(d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", month: "2-digit" }));
   const yil  = d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", year: "numeric" });
 
-  if(window.innerWidth<=768){
-return `${ay}.${yil.slice(2)}`;
-}
+  if(window.innerWidth<=768){return `${ay}.${yil.slice(2)}`;}
 return `${ay}.${yil}`;
 }
 
