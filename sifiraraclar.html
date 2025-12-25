@@ -4,42 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sıfır Araçlar</title>
-  <style>
-#aracFiltreleme{font-family:Arial;max-width:50%;padding:10px;font-size:11px;}
-.filtre-grup{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:15px;}
-.filtre-grup label{display:flex;flex-direction:column;font-size:11px;min-width:110px;}
-.filtre-grup select{padding:3px;font-size:11px;width:130px;}
-#sonuclar{margin-top:0;}
-#sonuclar table{border-collapse:separate;border-spacing:0;width:100%;font-size:11px;table-layout:fixed;}
+<style>
+/* GENEL */
+body{margin:0;}
+#aracFiltreleme{font-family:Arial;padding:10px;font-size:11px;max-width:100%;}
+#sonuclar{overflow:auto;margin-top:10px;}
+#sonuclar table{border-collapse:collapse;width:100%;font-size:11px;table-layout:fixed;}
 #sonuclar th,#sonuclar td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
-#sonuclar th{font-weight:bold;}
 #sonuclar td.fiyat{font-weight:bold;color:darkgreen;white-space:nowrap;}
-.tarihinfo{margin-top:15px;font-size:15px;color:red;}
-#markaButon{margin-bottom:10px;font-size:12px;padding:6px 10px;cursor:pointer;}
-#markaModal{display:none;position:fixed;top:50px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #ccc;padding:20px;z-index:9999;max-width:400px;width:90%;box-shadow:0 0 10px rgba(0,0,0,0.2);border-radius:8px;}
-#markaModal h4{margin-top:0;}
-#markaModal ul{list-style:none;padding:0;font-size:13px;}
-#markaModal ul li{margin-bottom:8px;}
 
-@media screen and (max-width:768px){
-.filtre-grup{flex-direction:column;align-items:flex-start;}
-.filtre-grup label{width:100%;}
-.filtre-grup select{width:100%;}
-#sonuclar table{font-size:10px;}
-#sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size:8px;}
-#sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size:10px;}
-#sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size:8px;}
+/* ✅ ÜST BAR SABİT: fixed değil, sticky */
+#ustBar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  padding:10px 0 8px;
+  border-bottom:1px solid #e5e5e5;
 }
 
-/* ✅ SABİT ÜST + ALT KAYDIRMA (media DIŞINDA olmalı) */
-body{margin:0;overflow:hidden;}
-#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;padding:10px;border-bottom:1px solid #ddd;}
-#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:200px;overflow:auto;padding:10px;}
-#sonuclar table{width:100%;border-collapse:collapse;}
-#sonuclar thead th{position:sticky;top:0;z-index:20;background:#fff;border-bottom:2px solid #999;}
+/* ✅ TABLO BAŞLIĞI DA SABİT (üst barın ALTINDA) */
+#sonuclar thead th{
+  position:sticky;
+  top:0; /* JS ile aşağıda dinamik ayarlayacağız */
+  z-index:900;
+  background:#fff;
+  border-bottom:2px solid #999;
+}
 
-
+/* MOBİL */
+@media (max-width:768px){
+  .filtre-grup{display:flex;flex-direction:column;gap:10px;align-items:stretch;}
+  .filtre-grup label{width:100%;}
+  .filtre-grup select{width:100%;}
+  #sonuclar table{font-size:10px;}
+  #sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size:8px;}
+  #sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size:10px;}
+  #sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size:8px;}
+}
 </style>
+
 
 </head>
 <body>
@@ -294,8 +298,17 @@ function fixLayout(){
   const s=document.getElementById("sonuclarWrap");
   if(u&&s){s.style.top=(u.offsetHeight+10)+"px";}
 }
-window.addEventListener("load",fixLayout);
-window.addEventListener("resize",fixLayout);
+function syncStickyHead(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  const h=u.offsetHeight;
+  document.documentElement.style.setProperty("--ustbar-h", h+"px");
+  document.querySelectorAll("#sonuclar thead th").forEach(th=>{
+    th.style.top = h + "px";
+  });
+}
+window.addEventListener("load", syncStickyHead);
+window.addEventListener("resize", syncStickyHead);
 </script>
   </body>
   </html>
