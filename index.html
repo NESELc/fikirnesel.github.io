@@ -1,113 +1,149 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NESEL — Pratik Bilgi Merkezi</title>
   <meta name="description" content="NESEL: Güncel sıfır araç fiyatları, pratik hesaplamalar ve araç/bütçe odaklı araçlar.">
   <meta name="robots" content="index,follow">
   <link rel="icon" href="data:,">
+
   <style>
-    :root{--bg:#0b1220;--card:#0f1a33;--txt:#e9eefc;--muted:#b9c3e6;--line:rgba(255,255,255,.08);--accent:#6ee7ff;}
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071024 0%,#070b14 100%);color:var(--txt);}
-    a{color:inherit;text-decoration:none;}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px;}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;}
-    .brand{display:flex;align-items:center;gap:10px;}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#2dd4bf,#60a5fa);box-shadow:0 10px 30px rgba(0,0,0,.25);}
-    .brand b{letter-spacing:.6px;}
-    .nav{display:flex;gap:10px;flex-wrap:wrap;}
-    .nav a{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03);}
-    .hero{margin-top:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch;}
-    .heroCard{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.25);}
-    .kicker{color:var(--muted);font-size:13px;letter-spacing:.4px;}
-    h1{margin:8px 0 10px;font-size:32px;line-height:1.15;}
-    .lead{margin:0 0 14px;color:var(--muted);line-height:1.55;}
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;}
-    .btn.primary{background:linear-gradient(135deg,#22d3ee,#60a5fa);border:none;color:#071024;font-weight:700;}
-    .btn small{opacity:.9;font-weight:600;}
-    .grid{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-    .card{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);padding:14px;min-height:110px;}
-    .card h3{margin:6px 0 6px;font-size:16px;}
-    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45;}
-    .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
-    .dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 6px rgba(110,231,255,.12);}
-    footer{margin-top:22px;padding:16px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--line);}
-    @media (max-width:900px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:1fr;}}
+    :root{
+      --bg:#f6f7fb;
+      --txt:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#2563eb;
+      --ustH:64px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+    a{color:inherit;text-decoration:none}
+
+    /* ÜST SABİT MENÜ */
+    #ustBar{
+      position:fixed; top:0; left:0; right:0; z-index:9999;
+      background:#fff; border-bottom:1px solid var(--line);
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:12px 16px;}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;min-width:170px}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2dd4bf,#60a5fa)}
+    .brand b{letter-spacing:.6px}
+    .kicker{color:var(--muted);font-size:12px}
+
+    .nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{
+      padding:8px 10px;border:1px solid var(--line);
+      border-radius:10px;background:#fff;
+      font-size:13px;
+    }
+    .nav a:hover{border-color:#cbd5e1}
+    .nav a.active{border-color:rgba(37,99,235,.45); background:rgba(37,99,235,.06); color:#1d4ed8; font-weight:600}
+
+    /* ALT FRAME ALANI */
+    main{
+      padding-top:calc(var(--ustH) + 10px);
+    }
+    .frameWrap{
+      max-width:1100px;margin:0 auto;padding:10px 16px 16px;
+    }
+    .frameBox{
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      height:calc(100vh - var(--ustH) - 36px);
+      min-height:520px;
+    }
+    iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    @media (max-width:900px){
+      .brand{min-width:auto}
+      .nav a{font-size:12px;padding:7px 9px}
+      .frameBox{height:calc(100vh - var(--ustH) - 28px)}
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <b>NESEL</b><div class="kicker">Pratik bilgi merkezi</div>
+  <!-- ÜST BAR -->
+  <header id="ustBar">
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <b>NESEL</b>
+            <div class="kicker">Pratik bilgi merkezi</div>
+          </div>
         </div>
+
+        <nav class="nav" id="menu">
+          <a href="#sifiraraclar" data-src="/sifiraraclar.html">Sıfır Araçlar</a>
+          <a href="#platformucretleri" data-src="/platformucretleri.html">Platform Ücretleri</a>
+          <a href="#doviz" data-src="/doviz.html">Döviz Çevirici</a>
+          <a href="#gelirvergisi" data-src="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
+          <a href="#ankara" data-src="/ankara.html">Ankara</a>
+        </nav>
       </div>
-      <nav class="nav">
-        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
-        <a href="/platformucretleri.html">Platform Ücretleri</a>
-        <a href="/doviz.html">Döviz Çevirici</a>
-        <a href="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
-        <a href="/ankara.html">Ankara</a>
-      </nav>
     </div>
+  </header>
 
-    <section class="hero">
-      <div class="heroCard">
-        <div class="tag"><span class="dot"></span> Canlı liste • Filtreli • Hızlı</div>
-        <h1>Güncel sıfır araç fiyatlarını tek ekranda karşılaştır.</h1>
-        <p class="lead">
-          Marka, sınıf, segment, yakıt türü ve vites filtreleriyle aradığın aracı daralt.
-          Fiyatı artan/azalan sırala, hızlı kıyasla.
-        </p>
-        <div class="ctaRow">
-          <a class="btn primary" href="/sifiraraclar.html">🚗 Sıfır Araç Fiyatları</a>
-          <a class="btn" href="/sifiraraclar.html#sonuclar"><small>Tabloya in</small> ↓</a>
-        </div>
+  <!-- ALT FRAME -->
+  <main>
+    <div class="frameWrap">
+      <div class="frameBox">
+        <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
       </div>
-
-      <div class="heroCard">
-        <div class="kicker">Yakında eklenecek modüller</div>
-        <h2 style="margin:8px 0 10px;font-size:18px;">Hızlı araçlar</h2>
-        <div style="display:grid;gap:10px;">
-          <div class="card" style="min-height:auto;">
-            <h3> Geleceğin Teknolojileri</h3>
-            <p>Bazı gelecek fikirleri. (yakında)</p>
-          </div>
-          <div class="card" style="min-height:auto;">
-            <h3> Yeni içerikler</h3>
-            <p>Tavsiye kitaplar, filmler</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid">
-      <a class="card" href="/sifiraraclar.html">
-        <h3>🚘 Sıfır Araçlar</h3>
-        <p>Filtrele, sırala, karşılaştır. Tek tablo.</p>
-      </a>
-      <a class="card" href="/elektrik.html">
-        <h3>⚡ Elektrik / Yardımcılar/h3>
-        <p>Pratik hesaplar ve mini notlar.</p>
-      </div>
-      <div class="card">
-        <h3>📌 Kısa Rehberler</h3>
-        <p>Az laf, çok iş: “nasıl yapılır?” içerikleri. (yakında)</p>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="yil"></span> NESEL • GitHub Pages üzerinde yayınlanır.
-    </footer>
-  </div>
+    </div>
+  </main>
 
   <script>
-    document.getElementById("yil").textContent = new Date().getFullYear();
+    // Üst bar yüksekliği (senin setUstH mantığı)
+    function setUstH(){
+      const u=document.getElementById("ustBar");
+      if(!u) return;
+      document.documentElement.style.setProperty("--ustH", (u.offsetHeight)+"px");
+    }
+    window.addEventListener("resize", setUstH);
+    setUstH();
+
+    const frame = document.getElementById("sayfaFrame");
+    const links = Array.from(document.querySelectorAll("#menu a[data-src]"));
+
+    function setActiveBySrc(src){
+      links.forEach(a => a.classList.toggle("active", a.getAttribute("data-src") === src));
+    }
+
+    function openByHash(){
+      const hash = (location.hash || "#sifiraraclar").replace("#","");
+      const a = links.find(x => x.getAttribute("href") === ("#"+hash)) || links[0];
+      const src = a.getAttribute("data-src");
+      if(frame.getAttribute("src") !== src) frame.setAttribute("src", src);
+      setActiveBySrc(src);
+    }
+
+    // Menü tıkla → iframe yükle (hash zaten değişiyor)
+    links.forEach(a => {
+      a.addEventListener("click", () => {
+        const src = a.getAttribute("data-src");
+        setActiveBySrc(src);
+        // iframe src, hash-change'den sonra openByHash ile de setlenir, ama hızlı his için burada da setliyoruz:
+        frame.setAttribute("src", src);
+        setUstH();
+      });
+    });
+
+    window.addEventListener("hashchange", openByHash);
+    openByHash();
   </script>
 </body>
 </html>
