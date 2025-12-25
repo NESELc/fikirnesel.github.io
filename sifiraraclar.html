@@ -5,47 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sıfır Araçlar</title>
 <style>
-#markaModal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:rgba(0,0,0,.3);
-}
-#markaModal .modalBox{
-  background:#fff;
-  max-width:420px;
-  margin:80px auto;
-  padding:20px;
-  border-radius:10px;
-}
+#markaModal{ display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.3);}
+#markaModal .modalBox{ background:#fff; max-width:420px; margin:80px auto; padding:20px;  border-radius:10px;}
 
 /* GENEL */
 body{margin:0;}
-#aracFiltreleme{font-family:Arial;padding:10px;font-size:11px;max-width:100%;}
+#aracFiltreleme{font-family:Arial;padding:10px;font-size:11px;max-width:50%;}
 #sonuclar{overflow:auto;margin-top:10px;}
 #sonuclar table{border-collapse:collapse;width:100%;font-size:11px;table-layout:fixed;}
-#sonuclar th,#sonuclar td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
+#sonuclar th,td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
 #sonuclar td.fiyat{font-weight:bold;color:darkgreen;white-space:nowrap;}
 
 /* ✅ ÜST BAR SABİT: fixed değil, sticky */
-#ustBar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#fff;
-  padding:10px 0 8px;
-  border-bottom:1px solid #e5e5e5;
-}
+#ustBar{ position:sticky; top:0; z-index:1000; background:#fff; padding:10px 0 8px; border-bottom:1px solid e5e5e5;}
 
 /* ✅ TABLO BAŞLIĞI DA SABİT (üst barın ALTINDA) */
-#sonuclar thead th{
-  position:sticky;
-  top:0; /* JS ile aşağıda dinamik ayarlayacağız */
-  z-index:900;
-  background:#fff;
-  border-bottom:2px solid #999;
-}
+#sonuclar thead th{ position:sticky; top:0; z-index:900; background:#fff;border-bottom:2px solid #999;}
 
 /* MOBİL */
 @media (max-width:768px){
@@ -58,7 +33,6 @@ body{margin:0;}
   #sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size:8px;}
 }
 </style>
-
 
 </head>
 <body>
@@ -148,7 +122,7 @@ body{margin:0;}
 <script>
   document.getElementById("markaButon").addEventListener("click", function(e) {
   e.preventDefault();
-  e.stopPropagation(); // ✅ kritik: window click'e gitmesin
+  e.stopPropagation();
   document.getElementById("markaModal").style.display = "block";
 	});
   
@@ -253,7 +227,6 @@ return `${ay}.${yil}`;
     });
     html += "</tbody></table>";
     document.getElementById("sonuclar").innerHTML = html;
-	syncStickyHead(); 
     mobilSegmentBaslik();
 	  const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
 
@@ -274,9 +247,7 @@ return `${ay}.${yil}`;
 
   // 🚀 AraçSayisi yazısına araç+marka bilgisi + filtre özetini yaz
   let yazı = `${filtreli.length} araç, ${markaSayisi} farklı marka listelendi.`;
-  if (filtreAciklamalari.length > 0) {
-    yazı += " | " + filtreAciklamalari.join(" | ");
-  }
+  if (filtreAciklamalari.length > 0) {yazı += " | " + filtreAciklamalari.join(" | "); }
 
   document.getElementById("aracSayisi").textContent = yazı;
   }
@@ -288,27 +259,27 @@ return `${ay}.${yil}`;
     }
   });
   
-  function mobilSegmentBaslik(){
-if(window.innerWidth<=768){
-document.querySelectorAll("#sonuclar th")[4].textContent="Sg";
-  document.querySelectorAll("#sonuclar th")[7].textContent="Gün.";
-document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
-  document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
-    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="benzinli"&&(td.textContent="Benz."));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
-}else{
-document.querySelectorAll("#sonuclar th")[4].textContent="Segment";
-  document.querySelectorAll("#sonuclar th")[7].textContent="Güncelleme";
-document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
-document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
+function mobilSegmentBaslik(){
+	if(window.innerWidth<=768){
+		document.querySelectorAll("#sonuclar th")[4].textContent="Sg";
+	  	document.querySelectorAll("#sonuclar th")[7].textContent="Gün.";
+		document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
+	    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="benzinli"&&(td.textContent="Benz."));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
+	}else{
+		document.querySelectorAll("#sonuclar th")[4].textContent="Segment";
+	  	document.querySelectorAll("#sonuclar th")[7].textContent="Güncelleme";
+		document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
+		document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
+	  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
+	}
 }
-  }
 window.addEventListener("resize",mobilSegmentBaslik);
 function fixLayout(){
   const u=document.getElementById("ustBar");
