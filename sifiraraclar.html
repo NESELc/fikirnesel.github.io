@@ -150,13 +150,9 @@ body{margin:0;}
     document.getElementById("markaModal").style.display = "block";
   });
   
-window.addEventListener("click", function(event) {
+window.addEventListener("click", function (e) {
   const modal = document.getElementById("markaModal");
-  if (
-    modal.style.display === "block" &&
-    !modal.contains(event.target) &&
-    event.target.id !== "markaButon"
-  ) {
+  if (modal.style.display === "block" && !modal.contains(e.target)) {
     modal.style.display = "none";
   }
 });
