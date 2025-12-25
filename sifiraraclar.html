@@ -253,10 +253,11 @@ return `${ay}.${yil}`;
   }
 
   veriYukle();
-  syncStickyHead;
+  syncStickyHead();
   window.addEventListener("pageshow", function(event) {
     if (event.persisted) {
       	veriYukle();
+		syncStickyHead();
     }
   });
   
