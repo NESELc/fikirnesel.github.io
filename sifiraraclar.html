@@ -146,9 +146,11 @@ body{margin:0;}
 </div>
 
 <script>
-  document.getElementById("markaButon").addEventListener("click", function() {
-    document.getElementById("markaModal").style.display = "block";
-  });
+  document.getElementById("markaButon").addEventListener("click", function(e) {
+  e.preventDefault();
+  e.stopPropagation(); // ✅ kritik: window click'e gitmesin
+  document.getElementById("markaModal").style.display = "block";
+	});
   
 window.addEventListener("click", function (e) {
   const modal = document.getElementById("markaModal");
