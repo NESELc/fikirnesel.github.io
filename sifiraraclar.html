@@ -11,7 +11,7 @@
 /* GENEL */
 body{margin:0;}
 #aracFiltreleme{font-family:Arial;padding:10px;font-size:11px;max-width:50%;}
-#sonuclar{overflow:auto;margin-top:10px;}
+#sonuclar{margin-top:10px;}
 #sonuclar table{border-collapse:collapse;width:100%;font-size:11px;table-layout:fixed;}
 #sonuclar th,td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
 #sonuclar td.fiyat{font-weight:bold;color:darkgreen;white-space:nowrap;}
@@ -227,9 +227,7 @@ return `${ay}.${yil}`;
     });
     html += "</tbody></table>";
     document.getElementById("sonuclar").innerHTML = html;
-	syncStickyHead();
     mobilSegmentBaslik();
-	syncStickyHead();
 	const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
 	const filtreAciklamalari = [];
   	const filtreEtiketi = (id, baslik) => {
@@ -281,22 +279,6 @@ function mobilSegmentBaslik(){
 	}
 }
 window.addEventListener("resize",mobilSegmentBaslik);
-function fixLayout(){
-  const u=document.getElementById("ustBar");
-  const s=document.getElementById("sonuclarWrap");
-  if(u&&s){s.style.top=(u.offsetHeight+10)+"px";}
-}
-function syncStickyHead(){
-  const u=document.getElementById("ustBar");
-  if(!u) return;
-  const h=u.offsetHeight;
-  document.documentElement.style.setProperty("--ustbar-h", h+"px");
-  document.querySelectorAll("#sonuclar thead th").forEach(th=>{
-    th.style.top = h + "px";
-  });
-}
-window.addEventListener("load", syncStickyHead);
-window.addEventListener("resize", syncStickyHead);
 </script>
   </body>
   </html>
