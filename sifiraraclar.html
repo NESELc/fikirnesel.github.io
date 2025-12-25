@@ -253,6 +253,7 @@ return `${ay}.${yil}`;
     });
     html += "</tbody></table>";
     document.getElementById("sonuclar").innerHTML = html;
+	syncStickyHead(); 
     mobilSegmentBaslik();
 	  const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
 
