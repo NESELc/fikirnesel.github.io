@@ -227,12 +227,12 @@ return `${ay}.${yil}`;
     });
     html += "</tbody></table>";
     document.getElementById("sonuclar").innerHTML = html;
+	syncStickyHead();
     mobilSegmentBaslik();
-	  const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
-
-  // 🏷️ Seçili filtreleri hazırla
-  const filtreAciklamalari = [];
-  const filtreEtiketi = (id, baslik) => {
+	syncStickyHead();
+	const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
+	const filtreAciklamalari = [];
+  	const filtreEtiketi = (id, baslik) => {
     const secim = document.getElementById(id).value.trim();
     if (secim) {
       filtreAciklamalari.push(`${baslik}: ${secim.charAt(0).toUpperCase() + secim.slice(1)}`);
@@ -253,11 +253,9 @@ return `${ay}.${yil}`;
   }
 
   veriYukle();
-  syncStickyHead();
   window.addEventListener("pageshow", function(event) {
     if (event.persisted) {
       	veriYukle();
-		syncStickyHead();
     }
   });
   
