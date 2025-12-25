@@ -292,7 +292,7 @@ window.addEventListener("resize",mobilSegmentBaslik);
 function fixLayout(){
   const u=document.getElementById("ustBar");
   const s=document.getElementById("sonuclarWrap");
-  if(u&&s){s.style.top=(u.offsetHeight+10)+"px";}
+  if(u&&s){s.style.top=(u.offsetHeight)+"px";}
 }
 window.addEventListener("load",fixLayout);
 window.addEventListener("resize",fixLayout);
