@@ -267,6 +267,7 @@ return `${ay}.${yil}`;
   
   function mobilSegmentBaslik(){
 if(window.innerWidth<=768){
+	document.querySelectorAll("#sonuclar th")[0].textContent="Fiyat";
 	document.querySelectorAll("#sonuclar th")[4].textContent="Sg";
   	document.querySelectorAll("#sonuclar th")[7].textContent="Gün.";
 	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
@@ -276,6 +277,7 @@ if(window.innerWidth<=768){
   	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
   	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
 }else{
+	document.querySelectorAll("#sonuclar th")[0].textContent="Fiyat-binTL";
 	document.querySelectorAll("#sonuclar th")[4].textContent="Segment";
   	document.querySelectorAll("#sonuclar th")[7].textContent="Güncelleme";
 	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
