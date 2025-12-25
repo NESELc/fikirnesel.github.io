@@ -23,22 +23,18 @@
 
 @media screen and (max-width:768px){
 .filtre-grup{flex-direction:column;align-items:flex-start;}
-.filtre-grup label{width:100%;}
-.filtre-grup select{width:100%;}
+.filtre-grup label{width:15%;}
+.filtre-grup select{width:15%;}
 #sonuclar table{font-size:10px;}
 #sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size:8px;}
 #sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size:10px;}
 #sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size:8px;}
 }
-
-/* ✅ SABİT ÜST + ALT KAYDIRMA (media DIŞINDA olmalı) */
 body{margin:0;overflow:hidden;}
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;padding:10px;border-bottom:1px solid #ddd;}
 #sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:200px;overflow:auto;padding:10px;}
 #sonuclar table{width:100%;border-collapse:collapse;}
 #sonuclar thead th{position:sticky;top:0;z-index:20;background:#fff;border-bottom:2px solid #999;}
-
-
 </style>
 
 </head>
@@ -47,7 +43,6 @@ body{margin:0;overflow:hidden;}
 <div id="aracFiltreleme">
 <div id="ustBar">
   <h3>🚗 Sıfır Araç Fiyatları</h3>
-  
   <div class="tarihinfo" id="aracSayisi" style="margin-bottom: 10px;"></div>
   <div class="filtre-grup">
     <label>Marka:<select id="markaSec"><option value="">Tümü</option></select></label>
@@ -269,24 +264,24 @@ return `${ay}.${yil}`;
   
   function mobilSegmentBaslik(){
 if(window.innerWidth<=768){
-document.querySelectorAll("#sonuclar th")[4].textContent="Sg";
-  document.querySelectorAll("#sonuclar th")[7].textContent="Gün.";
-document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
-  document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
+	document.querySelectorAll("#sonuclar th")[4].textContent="Sg";
+  	document.querySelectorAll("#sonuclar th")[7].textContent="Gün.";
+	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
     document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="benzinli"&&(td.textContent="Benz."));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
 }else{
-document.querySelectorAll("#sonuclar th")[4].textContent="Segment";
-  document.querySelectorAll("#sonuclar th")[7].textContent="Güncelleme";
-document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
-document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
-  document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
-}
+	document.querySelectorAll("#sonuclar th")[4].textContent="Segment";
+  	document.querySelectorAll("#sonuclar th")[7].textContent="Güncelleme";
+	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
+	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
+  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
+	}
   }
 window.addEventListener("resize",mobilSegmentBaslik);
 function fixLayout(){
