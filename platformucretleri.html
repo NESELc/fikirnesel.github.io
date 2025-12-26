@@ -5,10 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Platform Abonelik Ücretleri (2025)</title>
 <style>
+	:root{--ustH:200px;}
 	body{background:#EEEEEE;}
+	#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
+	#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:10px;}
 	#label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;padding: 6px;width: 100%;}
 	.abonelik-tablo {font-family:Comic Sans MS;font-size:13px; width: 100%; border-collapse: collapse; table-layout: fixed; }
-	.abonelik-tablo th{background:#BDBDBD;},
+	.abonelik-tablo th{position:sticky;top:0;z-index:20;background:#BDBDBD;font-size:13px;border-bottom:2px solid #999;},
 	.abonelik-tablo td { border: 1px solid #000; padding: 6px; text-align: left; word-wrap: break-word;}
 	.abonelik-tablo th:nth-child(1),
 	.abonelik-tablo td:nth-child(1) { width: 20%;}
@@ -26,10 +29,15 @@
 </style>
 </head>
 <body>
-<div id="label">Aralık 2025 Platform Abonelik Ücretleri</div>
-<div style="overflow-x:auto">
-  <div id="abonelik-tablo"></div>
-</div>
+	<div id="ustBar">
+		<div id="label">Aralık 2025 Platform Abonelik Ücretleri</div>
+	</div>
+	<div id="sonuclarWrap">
+		<div style="overflow-x:auto">
+  			<div id="abonelik-tablo"></div>
+		</div>
+	</div>
+	
 
 <script>
   // Google Apps Script web app URL'ini buraya yapıştır
@@ -70,9 +78,15 @@
       document.getElementById("abonelik-tablo").innerHTML =
         "<p>Tablo yüklenirken hata oluştu.</p>";
     });
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH", (u.offsetHeight)+"px");
+}
+setUstH();
 </script>
 
-<p style="color:red;" >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+<p  >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
 	<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. <br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz. 
 </p>
 </body>
