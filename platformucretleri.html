@@ -19,10 +19,10 @@
 .abonelik-tablo tbody tr.geven td{background:#EEEEEE;}
 
 @media screen and (max-width:768px){
-	.abonelik-tablo col.c1{width:18%!important;}
-	.abonelik-tablo col.c2{width:20%!important;}
-	.abonelik-tablo col.c3{width:16%!important;}
-	.abonelik-tablo col.c4{width:46%!important;}
+	.abonelik-tablo col.c1{width:20%!important;}
+	.abonelik-tablo col.c2{width:22%!important;}
+	.abonelik-tablo col.c3{width:15%!important;}
+	.abonelik-tablo col.c4{width:43%!important;}
 	.abonelik-tablo td.fiyat,.abonelik-tablo th.fiyat{white-space:nowrap;}
 	.abonelik-tablo{font-size:12px}}
 </style>
@@ -48,7 +48,7 @@
 function temizFiyat(v){ if(!v) return ""; return v.toString().replace(/([.,]\d+)(?!\d)/,"");}
 const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
 fetch(URL).then(r=>r.json()).then(data=>{
-let html=`<table class="abonelik-tablo"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+let html=`<table class="abonelik-tablo"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:10%"><col style="width:50%"></colgroup>
 <thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
 let i=0,g=0;
 while(i<data.length){
