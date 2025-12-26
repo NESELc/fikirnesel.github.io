@@ -35,12 +35,14 @@
 		<div>
 			<p  >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
 			<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. 
-			<br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz. 
+			<br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
+			<br>* Tabloda yer alan fiyatlar sadeleştirme amacıyla virgülden sonraki kuruşlar gösterilmeden sunulmuştur.
 			</p>
 		</div>
 	</div>
 	
 <script>
+function temizFiyat(v){ if(!v) return ""; return v.toString().replace(/([.,]\d+)(?!\d)/,"");}
 const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
 fetch(URL).then(r=>r.json()).then(data=>{
 let html=`<table class="abonelik-tablo"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:15%"><col style="width:45%"></colgroup><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
@@ -49,8 +51,21 @@ while(i<data.length){
 const servis=data[i]["Servis"]||"";
 let span=1;while(i+span<data.length&&(data[i+span]["Servis"]||"")===servis)span++;
 const gc=(g%2===0)?"godd":"geven";
-html+=`<tr class="${gc}"><td class="servis" rowspan="${span}">${servis}</td><td class="plan">${data[i]["Plan"]||""}</td><td class="fiyat">${data[i]["Fiyat"]||""}</td><td class="not">${data[i]["Not"]||""}</td></tr>`;
-for(let k=1;k<span;k++){const row=data[i+k];html+=`<tr class="${gc}"><td class="plan">${row["Plan"]||""}</td><td class="fiyat">${row["Fiyat"]||""}</td><td class="not">${row["Not"]||""}</td></tr>`;}
+html+=`<tr class="${gc}">
+<td class="servis" rowspan="${span}">${servis}</td>
+<td class="plan">${data[i]["Plan"]||""}</td>
+<td class="fiyat">${temizFiyat(data[i]["Fiyat"])}</td>
+<td class="not">${data[i]["Not"]||""}</td>
+</tr>`;
+
+for(let k=1;k<span;k++){
+ const row=data[i+k];
+ html+=`<tr class="${gc}">
+ <td class="plan">${row["Plan"]||""}</td>
+ <td class="fiyat">${temizFiyat(row["Fiyat"])}</td>
+ <td class="not">${row["Not"]||""}</td>
+ </tr>`;
+}
 i+=span;g++;
 }
 html+=`</tbody></table>`;
