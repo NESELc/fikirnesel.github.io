@@ -45,7 +45,7 @@
 function temizFiyat(v){ if(!v) return ""; return v.toString().replace(/([.,]\d+)(?!\d)/,"");}
 const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
 fetch(URL).then(r=>r.json()).then(data=>{
-let html=`<table class="abonelik-tablo"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:15%"><col style="width:45%"></colgroup><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
+let html=`<table class="abonelik-tablo"><colgroup><col style="width:18%"><col style="width:20%"><col style="width:8%"><col style="width:54%"></colgroup><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
 let i=0,g=0;
 while(i<data.length){
 const servis=data[i]["Servis"]||"";
