@@ -5,9 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Platform Abonelik Ücretleri (2025)</title>
 <style>
+	body{background:#EEEEEE;}
 	#label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;padding: 6px;width: 100%;}
 	.abonelik-tablo {font-family:Comic Sans MS;font-size:13px; width: 100%; border-collapse: collapse; table-layout: fixed; }
-	.abonelik-tablo th,
+	.abonelik-tablo th{background:#BDBDBD;},
 	.abonelik-tablo td { border: 1px solid #000; padding: 6px; text-align: left; word-wrap: break-word;}
 	.abonelik-tablo th:nth-child(1),
 	.abonelik-tablo td:nth-child(1) { width: 20%;}
@@ -17,6 +18,8 @@
 	.abonelik-tablo td:nth-child(3) {  width: 15%;  text-align: right;}
 	.abonelik-tablo th:nth-child(4),
 	.abonelik-tablo td:nth-child(4) {  width: 45%;}
+	.abonelik-tablo tr:nth-child(odd)  { background:#FFFFFF; }
+	.abonelik-tablo tr:nth-child(even) { background:#EEEEEE; }
 	@media screen and (max-width:768px){
 		.abonelik-tablo{font-size:12px}
 	}
