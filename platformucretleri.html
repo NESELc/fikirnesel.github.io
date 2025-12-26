@@ -11,8 +11,9 @@
 	#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:10px;}
 	#label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;padding: 6px;width: 100%;}
 	.abonelik-tablo {font-family:Comic Sans MS;font-size:13px; width: 100%; border-collapse: collapse; table-layout: fixed; }
-	.abonelik-tablo th{position:sticky;top:0;z-index:20;background:#BDBDBD;font-size:13px;border-bottom:2px solid #999;},
+	.abonelik-tablo th{position:sticky;top:0;z-index:20;background:#BDBDBD;font-size:13px;border-bottom:2px solid #999;}
 	.abonelik-tablo td { border: 1px solid #000; padding: 6px; text-align: left; word-wrap: break-word;}
+	.abonelik-tablo td[rowspan]{vertical-align:middle;font-weight:bold;}
 	.abonelik-tablo th:nth-child(1),
 	.abonelik-tablo td:nth-child(1) { width: 20%;}
 	.abonelik-tablo th:nth-child(2),
@@ -21,8 +22,8 @@
 	.abonelik-tablo td:nth-child(3) {  width: 15%;  text-align: right;}
 	.abonelik-tablo th:nth-child(4),
 	.abonelik-tablo td:nth-child(4) {  width: 45%;}
-	.abonelik-tablo tr:nth-child(odd)  { background:#FFFFFF; }
-	.abonelik-tablo tr:nth-child(even) { background:#EEEEEE; }
+	.abonelik-tablo tbody tr:nth-child(odd){background:#FFFFFF;}
+	.abonelik-tablo tbody tr:nth-child(even){background:#EEEEEE;}
 	@media screen and (max-width:768px){
 		.abonelik-tablo{font-size:12px}
 	}
@@ -64,20 +65,42 @@
           <tbody>
       `;
 
-      data.forEach(row => {
-        html += `
-          <tr>
-            <td>${row["Servis"] || ""}</td>
-            <td>${row["Plan"] || ""}</td>
-            <td>${row["Fiyat"] || ""}</td>
-            <td>${row["Not"] || ""}</td>
-          </tr>
-        `;
-      });
+      let i = 0;
+while (i < data.length) {
+  const servis = data[i]["Servis"] || "";
 
-      html += `</tbody></table>`;
-      document.getElementById("abonelik-tablo").innerHTML = html;
-		setUstH();
+  // ardışık aynı servis sayısı
+  let span = 1;
+  while (i + span < data.length && (data[i + span]["Servis"] || "") === servis) span++;
+
+  // ilk satır (rowspan'lı)
+  html += `
+    <tr>
+      <td rowspan="${span}">${servis}</td>
+      <td>${data[i]["Plan"] || ""}</td>
+      <td>${data[i]["Fiyat"] || ""}</td>
+      <td>${data[i]["Not"] || ""}</td>
+    </tr>
+  `;
+
+  // devam satırları (Servis sütunu yok)
+  for (let k = 1; k < span; k++) {
+    const row = data[i + k];
+    html += `
+      <tr>
+        <td>${row["Plan"] || ""}</td>
+        <td>${row["Fiyat"] || ""}</td>
+        <td>${row["Not"] || ""}</td>
+      </tr>
+    `;
+  }
+
+  i += span;
+}
+
+html += `</tbody></table>`;
+document.getElementById("abonelik-tablo").innerHTML = html;
+setUstH();
     })
     .catch(err => {
       console.error(err);
