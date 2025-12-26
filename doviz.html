@@ -4,43 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <style>
-        body { font-family:Comic Sans MS; margin: 40px;background:#EEEEEE; }
-        .container { max-width: 500px; margin: auto; text-align: center; }
-        input, select { padding: 8px;   width: 32%;    box-sizing: border-box; margin-top: 10px; display: inline-block;     }
-        .result { font-size: 18px; font-weight: bold;  color: red;   border: 1px solid red;  padding: 10px;    border-radius: 4px;   margin: 20px;      }
-        .footer-info {margin-top: 20px;   font-size: 14px;color: red; text-align: left; }
-    </style>
-</head>
-<body>
-<div class="separator" style="clear: both; text-align: center">
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXyM7LQiZJBdXPKYUKIey0WIQXfgYWhpLOgiI8eI5FFkuRxhklAdFsdrrCE2dO6y2HQ0hR6aPaOrXYcAWp98XfRUX6YL3zLmETTc-FEpDBztsDf5wEFGj8ib1NfQM8rTaDyUUZuE5PuNK2BQwM71_xv3gEKXarbBXY8kGErT9yjNWWypWdnkWn960PE6j/s320/ac65c997-a928-4370-b895-7cd33260d789.webp" 
-    alt="Döviz resmi - fikirnesel blog" width="160" height="160" loading="lazy" border="0">
-</div>
-  
-<div class="container" style="max-width:500px;margin:auto;text-align:center;">
-    <label class="result" id="result" ">Yükleniyor...</label>
+<style>
+  body { font-family: Comic Sans MS; margin: 40px; background:#EEEEEE; }
+  .container { max-width: 500px; margin: auto; text-align: center; }
+  .hero { display:block; margin: 0 auto 14px; width:160px; height:160px; }
+  .result { display:inline-block; font-size:18px; font-weight:bold; color:red; border:1px solid red;
+            padding:10px; border-radius:4px; margin: 10px 0 16px; }
+  input, select { padding:8px; width:32%; box-sizing:border-box; margin-top:10px; display:inline-block; }
+  .footer-info { margin-top: 20px; font-size: 14px; text-align: left; color:#b00000; }
+</style>
 
-    <div style="width:100%;text-align:center;">
-        <input type="number" id="amount" placeholder="Tutar" style="width:32%;padding:8px;box-sizing:border-box;" oninput="convertCurrency()" />
-        <select id="fromCurrency" onchange="convertCurrency()" style="width:32%;padding:8px;box-sizing:border-box;">
-            <option value="USD" selected>USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option><option value="GBP">GBP</option>
-            <option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option>
-            <option value="SEK">SEK</option> <option value="NOK">NOK</option> <option value="DKK">DKK</option> <option value="SAR">SAR</option>
-            <option value="RUB">RUB</option>
-        </select>
-        <select id="toCurrency" onchange="convertCurrency()" style="width:32%;padding:8px;box-sizing:border-box;">
-            <option value="TRY" selected>TRY</option> <option value="USD">USD</option> <option value="EUR">EUR</option> <option value="GBP">GBP</option>
-            <option value="CHF">CHF</option> <option value="JPY">JPY</option> <option value="CAD">CAD</option>  <option value="AUD">AUD</option>
-            <option value="DKK">DKK</option>  <option value="SEK">SEK</option>  <option value="NOK">NOK</option> <option value="SAR">SAR</option>
-            <option value="RUB">RUB</option>
-        </select>
-    </div>
+<div class="container">
+  <img class="hero"
+       src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXyM7LQiZJBdXPKYUKIey0WIQXfgYWhpLOgiI8eI5FFkuRxhklAdFsdrrCE2dO6y2HQ0hR6aPaOrXYcAWp98XfRUX6YL3zLmETTc-FEpDBztsDf5wEFGj8ib1NfQM8rTaDyUUZuE5PuNK2BQwM71_xv3gEKXarbBXY8kGErT9yjNWWypWdnkWn960PE6j/s320/ac65c997-a928-4370-b895-7cd33260d789.webp"
+       alt="Döviz resmi - fikirnesel blog" loading="lazy">
 
-    <div style="margin-top:20px;font-size:14px;color:red;text-align:left;">
-        * ExchangeRate-API tarafından sağlanan kurlar görüntülenmektedir.
-    </div>
+  <div class="result" id="result">Yükleniyor...</div>
+
+  <div style="width:100%;text-align:center;">
+    <input type="number" id="amount" placeholder="Tutar" oninput="convertCurrency()" />
+    <select id="fromCurrency" onchange="convertCurrency()">
+      <option value="USD" selected>USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option><option value="GBP">GBP</option>
+      <option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option>
+      <option value="SEK">SEK</option><option value="NOK">NOK</option><option value="DKK">DKK</option><option value="SAR">SAR</option>
+      <option value="RUB">RUB</option>
+    </select>
+    <select id="toCurrency" onchange="convertCurrency()">
+      <option value="TRY" selected>TRY</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option>
+      <option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option>
+      <option value="DKK">DKK</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="SAR">SAR</option>
+      <option value="RUB">RUB</option>
+    </select>
+  </div>
+
+  <div class="footer-info">
+    * ExchangeRate-API tarafından sağlanan kurlar görüntülenmektedir.
+  </div>
 </div>
+
 
 <script>
 async function fetchRates(base) {
