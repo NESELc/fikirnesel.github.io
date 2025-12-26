@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NESEL — Pratik Bilgi Merkezi</title>
+  <title>NESEL — Bilgi Merkezi</title>
   <meta name="description" content="NESEL: Güncel sıfır araç fiyatları, pratik hesaplamalar ve araç/bütçe odaklı araçlar.">
   <meta name="robots" content="index,follow">
   <link rel="icon" href="data:,">
@@ -47,7 +47,7 @@
           <div class="logo" aria-hidden="true"></div>
           <div>
             <b>NESEL</b>
-            <div class="kicker">Pratik bilgi merkezi</div>
+            <div class="kicker">Bilgi Merkezi</div>
           </div>
         </div>
 
@@ -76,7 +76,7 @@
     function setUstH(){
       const u=document.getElementById("ustBar");
       if(!u) return;
-      document.documentElement.style.setProperty("--ustH", (u.offsetHeight)+"px");
+      document.documentElement.style.setProperty("--ustH", (u.offsetHeight+10)+"px");
     }
     window.addEventListener("resize", setUstH);
     setUstH();
