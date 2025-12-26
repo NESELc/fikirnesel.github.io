@@ -36,6 +36,11 @@
 		<div style="overflow-x:auto">
   			<div id="abonelik-tablo"></div>
 		</div>
+		<div>
+		<p  >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+		<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. <br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz. 
+		</p>
+		</div>
 	</div>
 	
 
@@ -72,6 +77,7 @@
 
       html += `</tbody></table>`;
       document.getElementById("abonelik-tablo").innerHTML = html;
+		setUstH();
     })
     .catch(err => {
       console.error(err);
@@ -86,8 +92,6 @@ function setUstH(){
 setUstH();
 </script>
 
-<p  >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
-	<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. <br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz. 
-</p>
+
 </body>
 </html>
