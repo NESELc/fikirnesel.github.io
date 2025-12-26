@@ -5,20 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Platform Abonelik Ücretleri (2025)</title>
 <style>
-:root{--ustH:200px;}
-body{background:#EEEEEE;}
+:root{--ustH:200px;}body{background:#EEEEEE;}
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
-#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:10px;}
+#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:0 10px 10px;}
 #label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;padding:6px;width:100%;}
+#aboneWrap{padding-top:10px;} /* tabloyu aşağıdan başlatmak istersen */
+
 .abonelik-tablo{font-family:Comic Sans MS;font-size:13px;width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;}
 .abonelik-tablo thead th{position:sticky;top:0;z-index:50;background:#BDBDBD;font-size:13px;border:1px solid #000;border-bottom:2px solid #999;padding:6px;text-align:left;}
 .abonelik-tablo td{border:1px solid #000;padding:6px;text-align:left;vertical-align:middle;word-break:break-word;}
-.abonelik-tablo td.servis{font-weight:bold;}
+.abonelik-tablo td.servis{font-weight:bold;background:inherit;}
 .abonelik-tablo td.fiyat,.abonelik-tablo th.fiyat{text-align:right;}
-.abonelik-tablo tbody tr:nth-child(odd) td{background:#FFFFFF;}
-.abonelik-tablo tbody tr:nth-child(even) td{background:#EEEEEE;}
+
+/* Zebra’yı grup bazlı yapacağız (rowspan düzgün boyansın diye) */
+.abonelik-tablo tbody tr.godd td{background:#FFFFFF;}
+.abonelik-tablo tbody tr.geven td{background:#EEEEEE;}
+
 @media screen and (max-width:768px){.abonelik-tablo{font-size:12px}}
 </style>
+
 
 </head>
 <body>
@@ -26,8 +31,8 @@ body{background:#EEEEEE;}
 		<div id="label">Aralık 2025 Platform Abonelik Ücretleri</div>
 	</div>
 	<div id="sonuclarWrap">
-		<div id="abonelik-tablo"></div>
-	<div>
+		<div id="aboneWrap"><div id="abonelik-tablo"></div></div>
+		<div>
 			<p  >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
 			<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. 
 			<br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz. 
@@ -39,28 +44,23 @@ body{background:#EEEEEE;}
 const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
 fetch(URL).then(r=>r.json()).then(data=>{
 let html=`<table class="abonelik-tablo"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:15%"><col style="width:45%"></colgroup><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
-let i=0;
+let i=0,g=0;
 while(i<data.length){
 const servis=data[i]["Servis"]||"";
-let span=1;
-while(i+span<data.length&&(data[i+span]["Servis"]||"")===servis)span++;
-html+=`<tr><td class="servis" rowspan="${span}">${servis}</td><td class="plan">${data[i]["Plan"]||""}</td><td class="fiyat">${data[i]["Fiyat"]||""}</td><td class="not">${data[i]["Not"]||""}</td></tr>`;
-for(let k=1;k<span;k++){
-const row=data[i+k];
-html+=`<tr><td class="plan">${row["Plan"]||""}</td><td class="fiyat">${row["Fiyat"]||""}</td><td class="not">${row["Not"]||""}</td></tr>`;
-}
-i+=span;
+let span=1;while(i+span<data.length&&(data[i+span]["Servis"]||"")===servis)span++;
+const gc=(g%2===0)?"godd":"geven";
+html+=`<tr class="${gc}"><td class="servis" rowspan="${span}">${servis}</td><td class="plan">${data[i]["Plan"]||""}</td><td class="fiyat">${data[i]["Fiyat"]||""}</td><td class="not">${data[i]["Not"]||""}</td></tr>`;
+for(let k=1;k<span;k++){const row=data[i+k];html+=`<tr class="${gc}"><td class="plan">${row["Plan"]||""}</td><td class="fiyat">${row["Fiyat"]||""}</td><td class="not">${row["Not"]||""}</td></tr>`;}
+i+=span;g++;
 }
 html+=`</tbody></table>`;
 document.getElementById("abonelik-tablo").innerHTML=html;
 setUstH();
-}).catch(err=>{
-console.error(err);
-document.getElementById("abonelik-tablo").innerHTML="<p>Tablo yüklenirken hata oluştu.</p>";
-});
+}).catch(err=>{console.error(err);document.getElementById("abonelik-tablo").innerHTML="<p>Tablo yüklenirken hata oluştu.</p>";});
 function setUstH(){const u=document.getElementById("ustBar");if(!u)return;document.documentElement.style.setProperty("--ustH",(u.offsetHeight)+"px");}
 setUstH();
 </script>
+
 
 </body>
 </html>
