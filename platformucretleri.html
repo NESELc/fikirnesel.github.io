@@ -9,23 +9,18 @@
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
 #sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:0 10px 10px;}
 #label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;padding:6px;width:100%;}
-#aboneWrap{padding-top:10px;} 
+#aboneWrap{padding-top:10px;}
 .abonelik-tablo{font-family:Comic Sans MS;font-size:13px;width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;}
+.abonelik-tablo col.c1{width:20%;}.abonelik-tablo col.c2{width:20%;}.abonelik-tablo col.c3{width:10%;}.abonelik-tablo col.c4{width:50%;}
 .abonelik-tablo thead th{position:sticky;top:0;z-index:50;background:#BDBDBD;font-size:13px;border:1px solid #000;border-bottom:2px solid #999;padding:6px;text-align:left;}
 .abonelik-tablo td{border:1px solid #000;padding:6px;text-align:left;vertical-align:middle;word-break:break-word;}
 .abonelik-tablo td.servis{font-weight:bold;background:inherit;}
-.abonelik-tablo td.fiyat,.abonelik-tablo th.fiyat{text-align:right;}
+.abonelik-tablo td.fiyat,.abonelik-tablo th.fiyat{text-align:right;white-space:nowrap;word-break:normal;}
 .abonelik-tablo tbody tr.godd td{background:#FFFFFF;}
 .abonelik-tablo tbody tr.geven td{background:#EEEEEE;}
-
-@media screen and (max-width:768px){
-	.abonelik-tablo col.c1{width:20%!important;}
-	.abonelik-tablo col.c2{width:22%!important;}
-	.abonelik-tablo col.c3{width:15%!important;}
-	.abonelik-tablo col.c4{width:43%!important;}
-	.abonelik-tablo td.fiyat,.abonelik-tablo th.fiyat{white-space:nowrap;}
-	.abonelik-tablo{font-size:12px}}
+@media screen and (max-width:768px){.abonelik-tablo col.c1{width:20%!important;}.abonelik-tablo col.c2{width:22%!important;}.abonelik-tablo col.c3{width:20%!important;}.abonelik-tablo col.c4{width:38%!important;}.abonelik-tablo{font-size:12px}}
 </style>
+
 
 
 </head>
@@ -48,7 +43,7 @@
 function temizFiyat(v){ if(!v) return ""; return v.toString().replace(/([.,]\d+)(?!\d)/,"");}
 const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
 fetch(URL).then(r=>r.json()).then(data=>{
-let html=`<table class="abonelik-tablo"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:10%"><col style="width:50%"></colgroup>
+let html=`<table class="abonelik-tablo"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
 <thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
 let i=0,g=0;
 while(i<data.length){
