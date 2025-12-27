@@ -88,12 +88,6 @@ async function fillTable(){
   const set=(id,ccy)=>{const v=tryFromUsd(r,ccy);document.getElementById(id).textContent=(v?Number(v).toFixed(2):"—");};
   set("t_eurtry","EUR");set("t_gbptry","GBP");set("t_chftry","CHF");set("t_cadtry","CAD");set("t_audtry","AUD");set("t_sartry","SAR");set("t_rubtry","RUB");set("t_jpytry","JPY");
   const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
-  if(ts){
-  const mob = window.innerWidth<=768;
-  kurTarih.textContent = mob
-    ? "Son güncelleme: " + ts.toLocaleDateString("tr-TR",{day:"2-digit",month:"2-digit",year:"2-digit"})
-    : "Son güncelleme: " + ts.toLocaleString("tr-TR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
-  }
   (async function(){await fillTable();})();
 </script>
 </body>
