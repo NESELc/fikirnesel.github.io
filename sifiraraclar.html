@@ -33,14 +33,13 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 #markaModal ul li{margin-bottom:8px;}
 
 @media (max-width:768px){
-  #aracFiltreleme{width:100%;max-width:100%;}
-  .filtre-grup{flex-direction:row;flex-wrap:wrap;gap:4px;align-items:flex-end;}
-  .filtre-grup label{width:32%;min-width:0;}
-  .filtre-grup select{width:100%;}
-  #sonuclar table{font-size:10px;}
-  #sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:12px;max-width:12px;font-size:8px;}
-  #sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:54px;max-width:54px;font-size:10px;}
-  #sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:42px;max-width:42px;font-size:8px;}
+#aracFiltreleme{width:100%;max-width:100%;}
+.filtre-grup{display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:end;}
+.filtre-grup label{width:100%;min-width:0;}
+#markaButon{grid-column:1/-1;width:100%;}
+#sonuclar{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+#sonuclar table{min-width:720px;table-layout:auto;font-size:11px;}
+#sonuclar th,#sonuclar td{white-space:nowrap;word-break:normal;}
 }
 
 </style>
