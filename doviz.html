@@ -30,6 +30,7 @@ input,select{font-family:Comic Sans MS;padding:8px;width:32%;box-sizing:border-b
 .kurtablo td:nth-child(2),.kurtablo td:nth-child(3){text-align:right}
 .kurtablo tbody tr:nth-child(odd){background:#FFFFFF}
 .kurtablo tbody tr:nth-child(even){background:#EEEEEE}
+.kurtablo th:nth-child(2),.kurtablo th:nth-child(3),.kurtablo td:nth-child(2),.kurtablo td:nth-child(3){  text-align:center;}
 .smallnote{margin-top:10px;font-size:13px;color:#b00000;text-align:left}
 @media(max-width:768px){
 body{margin:18px}
@@ -67,6 +68,7 @@ input,select{width:32%}
 <tr><td>AUD/TRY</td><td>1 AUD</td><td id="t_audtry">—</td></tr>
 <tr><td>SAR/TRY</td><td>1 SAR</td><td id="t_sartry">—</td></tr>
 <tr><td>RUB/TRY</td><td>1 RUB</td><td id="t_rubtry">—</td></tr>
+<tr> <td>JPY/TRY</td>  <td>1 JPY</td>  <td id="t_jpytry">—</td></tr>
 </tbody>
 </table>
 <div class="smallnote" id="kurTarih"></div>
@@ -80,8 +82,19 @@ function fmt2(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDi
 function tryFromUsd(usdRates,ccy){const u=usdRates||{};if(!u.TRY||!u[ccy])return null;return u.TRY/u[ccy];}
 async function ensureUsd(){if(!ratesCache.USD){ratesCache.USD=await fetchRates("USD");}return ratesCache.USD;}
 async function convertCurrency(){const amount=parseFloat(document.getElementById("amount").value)||0;const from=document.getElementById("fromCurrency").value;const to=document.getElementById("toCurrency").value;if(!ratesCache[from]){ratesCache[from]=await fetchRates(from);}const rates=(ratesCache[from]&&ratesCache[from].rates)||{};const conv=amount*(rates[to]||0);document.getElementById("result").innerHTML=`${amount.toLocaleString()} ${from} = ${fmt2(conv)} ${to}`;}
-async function fillTable(){const usd=await ensureUsd();const r=usd.rates||{};const usdtry=r.TRY||0;document.getElementById("t_usdtry").textContent=usdtry?usdtry.toFixed(2):"—";const set=(id,ccy)=>{const v=tryFromUsd(r,ccy);document.getElementById(id).textContent=(v?Number(v).toFixed(2):"—");};set("t_eurtry","EUR");set("t_gbptry","GBP");set("t_chftry","CHF");set("t_cadtry","CAD");set("t_audtry","AUD");set("t_sartry","SAR");set("t_rubtry","RUB");const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
-(async function(){await fillTable();})();
+async function fillTable(){
+  const usd=await ensureUsd();const r=usd.rates||{};
+  const usdtry=r.TRY||0;document.getElementById("t_usdtry").textContent=usdtry?usdtry.toFixed(2):"—";
+  const set=(id,ccy)=>{const v=tryFromUsd(r,ccy);document.getElementById(id).textContent=(v?Number(v).toFixed(2):"—");};
+  set("t_eurtry","EUR");set("t_gbptry","GBP");set("t_chftry","CHF");set("t_cadtry","CAD");set("t_audtry","AUD");set("t_sartry","SAR");set("t_rubtry","RUB");set("t_jpytry","JPY");
+  const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
+  if(ts){
+  const mob = window.innerWidth<=768;
+  kurTarih.textContent = mob
+    ? "Son güncelleme: " + ts.toLocaleDateString("tr-TR",{day:"2-digit",month:"2-digit",year:"2-digit"})
+    : "Son güncelleme: " + ts.toLocaleString("tr-TR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
+  }
+  (async function(){await fillTable();})();
 </script>
 </body>
 </html>
