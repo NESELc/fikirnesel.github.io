@@ -31,14 +31,24 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 #markaModal h4{margin-top:0;}
 #markaModal ul{list-style:none;padding:0;font-size:13px;}
 #markaModal ul li{margin-bottom:8px;}
+#filtreAcKapa{display:none;font-family:Comic Sans MS;font-size:13px;background:#EEE;cursor:pointer;}
 
 @media (max-width:768px){
+#filtreAcKapa{display:inline-block;margin:0 0 6px 0;padding:4px 8px;border:1px solid #bbb;border-radius:8px;}
+body.filtreKapali .filtre-grup{display:none;}
 #sonuclarWrap{overflow:auto;-webkit-overflow-scrolling:touch;}
-#sonuclar{overflow:visible;}
-#sonuclar table{min-width:720px;table-layout:fixed;}
-#sonuclar th,#sonuclar td{white-space:nowrap;}
-#sonuclar th:nth-child(3),#sonuclar td:nth-child(3){max-width:140px;white-space:normal;word-break:break-word;line-height:1.2;}
+#sonuclar table{min-width:680px;table-layout:fixed;}
+#sonuclar th,#sonuclar td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#sonuclar th:nth-child(1),#sonuclar td:nth-child(1){width:70px;}
+#sonuclar th:nth-child(2),#sonuclar td:nth-child(2){width:78px;}
+#sonuclar th:nth-child(3),#sonuclar td:nth-child(3){width:170px;white-space:normal;word-break:break-word;line-height:1.2;}
+#sonuclar th:nth-child(4),#sonuclar td:nth-child(4){width:54px;}
+#sonuclar th:nth-child(5),#sonuclar td:nth-child(5){width:44px;}
+#sonuclar th:nth-child(6),#sonuclar td:nth-child(6){width:62px;}
+#sonuclar th:nth-child(7),#sonuclar td:nth-child(7){width:54px;}
+#sonuclar th:nth-child(8),#sonuclar td:nth-child(8){width:64px;}
 }
+
 
 </style>
 
@@ -48,6 +58,7 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 <div id="aracFiltreleme">
 <div id="ustBar">
   <div class="tarihinfo" id="aracSayisi" style="margin-bottom: 10px;"></div>
+  <button id="filtreAcKapa">🔽 Filtre</button>
   <div class="filtre-grup">
     <label>Marka:<select id="markaSec"><option value="">Tümü</option></select></label>
     <label>Sınıf:<select id="sinifSec"><option value="">Tümü</option></select></label>
@@ -301,6 +312,9 @@ function setUstH(){
   document.documentElement.style.setProperty("--ustH", (u.offsetHeight)+"px");
 }
 setUstH();
+document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{e.preventDefault();document.body.classList.toggle("filtreKapali");setUstH();});
+if(window.innerWidth<=768)document.body.classList.add("filtreKapali");
+
 </script>
   </body>
   </html>
