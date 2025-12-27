@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
-	<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
-	<meta name="google-adsense-account" content="ca-pub-1268402107177386">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>Sıfır Araç Fiyatları | Tüm Markalar</title>
-	<meta name="description" content="Sıfır araç fiyatları tüm markalar için listelendi. Segment, yakıt türü ve vites tipine göre arabaları karşılaştırın.">
-	<meta name="robots" content="index,follow">
-	<link rel="canonical" href="https://nesel.tr/sifiraraclar.html">
-	<meta property="og:title" content="Sıfır Araç Fiyatları">
-	<meta property="og:description" content="Segment, yakıt türü ve vites tipine göre arabaları karşılaştırın.">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
-
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+<meta name="google-adsense-account" content="ca-pub-1268402107177386">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sıfır Araç Fiyatları | Tüm Markalar</title>
+<meta name="description" content="Sıfır araç fiyatları tüm markalar için listelendi. Segment, yakıt türü ve vites tipine göre arabaları karşılaştırın.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nesel.tr/sifiraraclar.html">
+<meta property="og:title" content="Sıfır Araç Fiyatları">
+<meta property="og:description" content="Segment, yakıt türü ve vites tipine göre arabaları karşılaştırın.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
 <style>
 body{margin:0;overflow:hidden;background:#EEEEEE;}
 :root{--ustH:200px;}
-
 #aracFiltreleme{font-family:Comic Sans MS;width:50%;max-width:50%;padding:10px;font-size:13px;}
 .filtre-grup{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:15px;}
 .filtre-grup label{font-weight:bold;display:flex;flex-direction:column;font-size:13px;min-width:110px;}
 .filtre-grup select{font-family:Comic Sans MS;padding:3px;font-size:13px;width:130px;}
-
+.marka-box{max-height:120px;overflow:auto;border:1px solid #ccc;padding:6px;font-size:13px;background:#fff;min-width:130px;}
+.marka-box label{display:block;font-weight:normal;white-space:nowrap;}
+.marka-box input{margin-right:6px;vertical-align:middle;}
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
 #sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:10px;}
-
 #sonuclar{margin-top:0;}
 #sonuclar table{font-family:Comic Sans MS;width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
 #sonuclar th,#sonuclar td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
 #sonuclar th{font-weight:bold;}
 #sonuclar td.fiyat{font-weight:bold;color:darkgreen;white-space:nowrap;}
 #sonuclar thead th{position:sticky;top:0;z-index:30;background:#BDBDBD;font-size:13px;}
-#sonuclar tbody tr:nth-child(odd)  { background:#FFFFFF; }
-#sonuclar tbody tr:nth-child(even) { background:#EEEEEE; }
-
+#sonuclar tbody tr:nth-child(odd){background:#FFFFFF;}
+#sonuclar tbody tr:nth-child(even){background:#EEEEEE;}
 .tarihinfo{margin-top:0px;font-size:13px;min-height:8px;}
 #markaButon{font-family:Comic Sans MS;font-size:13px;background:#EEEEEE;cursor:pointer;}
 #markaModal{display:none;position:fixed;top:50px;left:50%;transform:translateX(-50%);background:#EEEEEE;border:1px solid #ccc;padding:20px;z-index:9999;max-width:400px;width:90%;box-shadow:0 0 10px rgba(0,0,0,0.2);border-radius:8px;}
@@ -44,7 +41,6 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 #markaModal ul{list-style:none;padding:0;font-size:13px;}
 #markaModal ul li{margin-bottom:8px;}
 #filtreAcKapa{display:none;font-family:Comic Sans MS;font-size:13px;background:#EEE;cursor:pointer;}
-
 @media (max-width:768px){
 #filtreAcKapa{display:inline-block;margin:0 0 6px 0;padding:4px 8px;border:1px solid #bbb;border-radius:8px;}
 body.filtreKapali .filtre-grup{display:none;}
@@ -60,273 +56,102 @@ body.filtreKapali .filtre-grup{display:none;}
 #sonuclar th:nth-child(7),#sonuclar td:nth-child(7){width:54px;}
 #sonuclar th:nth-child(8),#sonuclar td:nth-child(8){width:64px;}
 }
-
-
 </style>
-
 </head>
 <body>
- 
 <div id="aracFiltreleme">
 <div id="ustBar">
-  <div class="tarihinfo" id="aracSayisi" style="margin-bottom: 10px;"></div>
-  <button id="filtreAcKapa">🔽 Filtre</button>
-  <div class="filtre-grup">
-    <label>Marka:<select id="markaSec"><option value="">Tümü</option></select></label>
-    <label>Sınıf:<select id="sinifSec"><option value="">Tümü</option></select></label>
-    <label>Segment:<select id="segmentSec"><option value="">Tümü</option></select></label>
-    <label>Yakıt Türü:<select id="yakitSec"><option value="">Tümü</option></select></label>
-    <label>Vites:<select id="vitesSec"><option value="">Tümü</option></select></label>
-    <label>Fiyat:<select id="siralaSec">
-      <option value="artan">Artan</option>
-      <option value="azalan">Azalan</option>
-    </select></label>
-    <button id="markaButon">🔗 Marka Linkleri</button>
-  </div>
+<div class="tarihinfo" id="aracSayisi" style="margin-bottom:10px;"></div>
+<button id="filtreAcKapa">🔽 Filtre</button>
+<div class="filtre-grup">
+<label>Marka:<div id="markaBox" class="marka-box"></div></label>
+<label>Sınıf:<select id="sinifSec"><option value="">Tümü</option></select></label>
+<label>Segment:<select id="segmentSec"><option value="">Tümü</option></select></label>
+<label>Yakıt Türü:<select id="yakitSec"><option value="">Tümü</option></select></label>
+<label>Vites:<select id="vitesSec"><option value="">Tümü</option></select></label>
+<label>Fiyat:<select id="siralaSec"><option value="artan">Artan</option><option value="azalan">Azalan</option></select></label>
+<button id="markaButon">🔗 Marka Linkleri</button>
+</div>
 </div>
 <div id="sonuclarWrap">
-  <div id="sonuclar"></div>
-
-  <div class="tarihinfo" id="tarihYazi"></div>
-  	<div class="tarihinfo">
-    * Bu sayfada yer alan araç fiyat ve özellikleri, Aralık 2025 itibarıyla kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
-    <br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir.
-    <br>* Farklı versiyon, donanım seviyesi veya opsiyonlara göre fiyatlar değişebilir. Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
-    <br>* Her bir marka ve model için, aynı sınıf, segment ve yakıt türüne sahip versiyonlar arasından en düşük anahtar teslim fiyatlı olan seçilmiştir.
-    <br>* Bentley,Ferrari,Jaguar ve Maserari marka araçlar için resmi kaynaklarda fiyat bilgileri bulunmamaktadır.Bu markalar için yapay zeka destekli tahmini fiyat ve özellikler yer almaktadır. 
-    <br>* Sayfa kodları ve verileri ChatGPT, DeepSeek ve GROK kullanılarak derlenmiştir.
-  	</div>
-  </div>
+<div id="sonuclar"></div>
+<div class="tarihinfo" id="tarihYazi"></div>
+<div class="tarihinfo">
+* Bu sayfada yer alan araç fiyat ve özellikleri, Aralık 2025 itibarıyla kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir.
+<br>* Farklı versiyon, donanım seviyesi veya opsiyonlara göre fiyatlar değişebilir. Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
+<br>* Her bir marka ve model için, aynı sınıf, segment ve yakıt türüne sahip versiyonlar arasından en düşük anahtar teslim fiyatlı olan seçilmiştir.
+<br>* Bentley,Ferrari,Jaguar ve Maserari marka araçlar için resmi kaynaklarda fiyat bilgileri bulunmamaktadır.Bu markalar için yapay zeka destekli tahmini fiyat ve özellikler yer almaktadır.
+<br>* Sayfa kodları ve verileri ChatGPT, DeepSeek ve GROK kullanılarak derlenmiştir.
 </div>
-<!-- Marka Modalı -->
+</div>
+</div>
 <div id="markaModal">
-  <h4>🚘 Marka Resmi Siteleri</h4>
-  <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px;">
-  <label><a href="https://www.alfaromeo.com.tr" target="_blank">🚗 Alfa Romeo</a></label>
-  <label><a href="https://www.audi.com.tr" target="_blank">🚗 Audi</a></label>
-  <label><a href="https://istanbul.bentleymotors.com/eu/tr/home" target="_blank">🚗 Bentley</a></label>
-  <label><a href="https://www.bmw.com.tr" target="_blank">🚗 BMW</a></label>
-  <label><a href="https://www.bydauto.com.tr" target="_blank">🚗 BYD</a></label>
-  <label><a href="https://cherytr.com" target="_blank">🚗 Chery</a></label>
-  <label><a href="https://www.citroen.com.tr" target="_blank">🚗 Citroën</a></label>
-  <label><a href="https://www.cupraofficial.com.tr" target="_blank">🚗 Cupra</a></label>
-  <label><a href="https://www.dacia.com.tr" target="_blank">🚗 Dacia</a></label>
-  <label><a href="https://www.dsautomobiles.com.tr" target="_blank">🚗 DS</a></label>
-  <label><a href="https://istanbul.ferraridealers.com/en-GB" target="_blank">🚗 Ferrari</a></label>
-  <label><a href="https://www.fiat.com.tr" target="_blank">🚗 Fiat</a></label>
-  <label><a href="https://www.ford.com.tr" target="_blank">🚗 Ford</a></label>
-  <label><a href="https://www.honda.com.tr" target="_blank">🚗 Honda</a></label>
-  <label><a href="https://www.hyundai.com.tr" target="_blank">🚗 Hyundai</a></label>
-  <label><a href="https://www.jaguar.com.tr" target="_blank">🚗 Jaguar</a></label>
-  <label><a href="https://www.jeep.com.tr" target="_blank">🚗 Jeep</a></label>
-  <label><a href="https://www.kia.com.tr" target="_blank">🚗 Kia</a></label>
-  <label><a href="https://www.landrover.com.tr" target="_blank">🚗 Land Rover</a></label>
-  <label><a href="https://www.lexus.com.tr" target="_blank">🚗 Lexus</a></label>
-  <label><a href="https://www.maserati.com/tr/tr" target="_blank">🚗 Maserati</a></label>
-  <label><a href="https://www.mazda.com.tr" target="_blank">🚗 Mazda</a></label>
-  <label><a href="https://www.mercedes-benz.com.tr" target="_blank">🚗 Mercedes</a></label>
-  <label><a href="https://www.mg-turkey.com/tr/" target="_blank">🚗 MG</a></label>
-  <label><a href="https://www.mini.com.tr/tr_TR/home.html" target="_blank">🚗 Mini</a></label>
-  <label><a href="https://www.nissan.com.tr" target="_blank">🚗 Nissan</a></label>
-  <label><a href="https://www.opel.com.tr" target="_blank">🚗 Opel</a></label>
-  <label><a href="https://www.peugeot.com.tr" target="_blank">🚗 Peugeot</a></label>
-  <label><a href="https://www.porsche.com.tr" target="_blank">🚗 Porsche</a></label>
-  <label><a href="https://www.renault.com.tr" target="_blank">🚗 Renault</a></label>
-  <label><a href="https://www.seat.com.tr" target="_blank">🚗 SEAT</a></label>
-  <label><a href="https://www.skoda.com.tr" target="_blank">🚗 Skoda</a></label>
-  <label><a href="https://ssangyong2yoto.com/" target="_blank">🚗 Ssangyong</a></label>
-  <label><a href="https://www.subaru.com.tr/index" target="_blank">🚗 Subaru</a></label>
-  <label><a href="https://www.suzuki.com.tr" target="_blank">🚗 Suzuki</a></label>
-  <label><a href="https://www.tesla.com/tr_tr" target="_blank">🚗 Tesla</a></label>
-  <label><a href="https://www.toyota.com.tr" target="_blank">🚗 Toyota</a></label>
-  <label><a href="https://www.togg.com.tr" target="_blank">🚗 TOGG</a></label>
-  <label><a href="https://www.vw.com.tr/" target="_blank">🚗 Volkswagen</a></label>
-  <label><a href="https://www.volvocars.com/tr" target="_blank">🚗 Volvo</a></label>
-
-	</div>
+<h4>🚘 Marka Resmi Siteleri</h4>
+<div style="display:flex;flex-wrap:wrap;gap:10px;font-size:13px;">
+<label><a href="https://www.alfaromeo.com.tr" target="_blank">🚗 Alfa Romeo</a></label><label><a href="https://www.audi.com.tr" target="_blank">🚗 Audi</a></label><label><a href="https://istanbul.bentleymotors.com/eu/tr/home" target="_blank">🚗 Bentley</a></label><label><a href="https://www.bmw.com.tr" target="_blank">🚗 BMW</a></label><label><a href="https://www.bydauto.com.tr" target="_blank">🚗 BYD</a></label><label><a href="https://cherytr.com" target="_blank">🚗 Chery</a></label><label><a href="https://www.citroen.com.tr" target="_blank">🚗 Citroën</a></label><label><a href="https://www.cupraofficial.com.tr" target="_blank">🚗 Cupra</a></label><label><a href="https://www.dacia.com.tr" target="_blank">🚗 Dacia</a></label><label><a href="https://www.dsautomobiles.com.tr" target="_blank">🚗 DS</a></label><label><a href="https://istanbul.ferraridealers.com/en-GB" target="_blank">🚗 Ferrari</a></label><label><a href="https://www.fiat.com.tr" target="_blank">🚗 Fiat</a></label><label><a href="https://www.ford.com.tr" target="_blank">🚗 Ford</a></label><label><a href="https://www.honda.com.tr" target="_blank">🚗 Honda</a></label><label><a href="https://www.hyundai.com.tr" target="_blank">🚗 Hyundai</a></label><label><a href="https://www.jaguar.com.tr" target="_blank">🚗 Jaguar</a></label><label><a href="https://www.jeep.com.tr" target="_blank">🚗 Jeep</a></label><label><a href="https://www.kia.com.tr" target="_blank">🚗 Kia</a></label><label><a href="https://www.landrover.com.tr" target="_blank">🚗 Land Rover</a></label><label><a href="https://www.lexus.com.tr" target="_blank">🚗 Lexus</a></label><label><a href="https://www.maserati.com/tr/tr" target="_blank">🚗 Maserati</a></label><label><a href="https://www.mazda.com.tr" target="_blank">🚗 Mazda</a></label><label><a href="https://www.mercedes-benz.com.tr" target="_blank">🚗 Mercedes</a></label><label><a href="https://www.mg-turkey.com/tr/" target="_blank">🚗 MG</a></label><label><a href="https://www.mini.com.tr/tr_TR/home.html" target="_blank">🚗 Mini</a></label><label><a href="https://www.nissan.com.tr" target="_blank">🚗 Nissan</a></label><label><a href="https://www.opel.com.tr" target="_blank">🚗 Opel</a></label><label><a href="https://www.peugeot.com.tr" target="_blank">🚗 Peugeot</a></label><label><a href="https://www.porsche.com.tr" target="_blank">🚗 Porsche</a></label><label><a href="https://www.renault.com.tr" target="_blank">🚗 Renault</a></label><label><a href="https://www.seat.com.tr" target="_blank">🚗 SEAT</a></label><label><a href="https://www.skoda.com.tr" target="_blank">🚗 Skoda</a></label><label><a href="https://ssangyong2yoto.com/" target="_blank">🚗 Ssangyong</a></label><label><a href="https://www.subaru.com.tr/index" target="_blank">🚗 Subaru</a></label><label><a href="https://www.suzuki.com.tr" target="_blank">🚗 Suzuki</a></label><label><a href="https://www.tesla.com/tr_tr" target="_blank">🚗 Tesla</a></label><label><a href="https://www.toyota.com.tr" target="_blank">🚗 Toyota</a></label><label><a href="https://www.togg.com.tr" target="_blank">🚗 TOGG</a></label><label><a href="https://www.vw.com.tr/" target="_blank">🚗 Volkswagen</a></label><label><a href="https://www.volvocars.com/tr" target="_blank">🚗 Volvo</a></label>
 </div>
-
+</div>
 <script>
-	
-  	document.getElementById("markaButon").addEventListener("click", function(e){
-  	e.preventDefault();
-  	e.stopPropagation();   // ✅ şart
-  	document.getElementById("markaModal").style.display="block";
-	});
-  
-window.addEventListener("pointerdown", function(event) {
-  const modal = document.getElementById("markaModal");
-  if (
-    modal.style.display === "block" &&
-    !modal.contains(event.target) &&
-    event.target.id !== "markaButon"
-  ) {
-    modal.style.display = "none";
-  }
-});
-
-  var tumVeri = [], guncellemeTarihi = "";
-  async function veriYukle() {
-    const url = "https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
-    const response = await fetch(url);
-    const data = await response.json();
-    tumVeri = data.filter(d => d.marka);
-    guncellemeTarihi = data.find(d => d.guncelleme)?.guncelleme || "";
-
-    const unique = key => [...new Set(tumVeri.map(item => item[key]?.toLowerCase().trim()).filter(Boolean))];
-    const secimYukle = (id, key) => {
-      const select = document.getElementById(id);
-      select.innerHTML = '<option value="">Tümü</option>';
-      unique(key).sort().forEach(val => {
-        const opt = document.createElement("option");
-        opt.value = val;
-        opt.textContent = val.charAt(0).toUpperCase() + val.slice(1);
-        select.appendChild(opt);
-      });
-    };
-
-    secimYukle("markaSec", "marka");
-    secimYukle("sinifSec", "sınıf");
-    secimYukle("yakitSec", "yakıt türü");
-    secimYukle("vitesSec", "vites");
-
-    const segmentSirasi = ["a", "b", "c", "d", "e", "f", "s"];
-    const segmentler = unique("segment");
-    const segmentSelect = document.getElementById("segmentSec");
-    segmentSelect.innerHTML = '<option value="">Tümü</option>';
-    segmentSirasi.forEach(seg => {
-      if (segmentler.includes(seg)) {
-        const opt = document.createElement("option");
-        opt.value = seg;
-        opt.textContent = seg.toUpperCase();
-        segmentSelect.appendChild(opt);
-      }
-    });
-
-    ["markaSec", "sinifSec", "segmentSec", "yakitSec", "vitesSec", "siralaSec"].forEach(id => {
-		document.getElementById(id).addEventListener("change", filtreleVeGoster);
-    });
-
-    filtreleVeGoster();
-    if (guncellemeTarihi) { document.getElementById("tarihYazi").textContent = "Son güncelleme tarihi: " + guncellemeTarihi;  }
-  }
-
-function formatTarih(isoStr) {
-  if (!isoStr) return "";
-  const d = new Date(isoStr);
-  const gun  = String(d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", day: "2-digit" }));
-  const ay   = String(d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", month: "2-digit" }));
-  const yil  = d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", year: "numeric" });
-
-  if(window.innerWidth<=768){return `${ay}.${yil.slice(2)}`;}
-return `${ay}.${yil}`;
+document.getElementById("markaButon").addEventListener("click",function(e){e.preventDefault();e.stopPropagation();document.getElementById("markaModal").style.display="block";});
+window.addEventListener("pointerdown",function(event){const modal=document.getElementById("markaModal");if(modal.style.display==="block"&&!modal.contains(event.target)&&event.target.id!=="markaButon"){modal.style.display="none";}});
+var tumVeri=[],guncellemeTarihi="";
+async function veriYukle(){
+const url="https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
+const response=await fetch(url);const data=await response.json();tumVeri=data.filter(d=>d.marka);guncellemeTarihi=data.find(d=>d.guncelleme)?.guncelleme||"";
+const unique=key=>[...new Set(tumVeri.map(item=>item[key]?.toLowerCase().trim()).filter(Boolean))];
+const secimYukle=(id,key)=>{const select=document.getElementById(id);select.innerHTML='<option value="">Tümü</option>';unique(key).sort().forEach(val=>{const opt=document.createElement("option");opt.value=val;opt.textContent=val.charAt(0).toUpperCase()+val.slice(1);select.appendChild(opt);});};
+const markaBox=document.getElementById("markaBox");markaBox.innerHTML="";unique("marka").sort().forEach(m=>{const lbl=document.createElement("label");lbl.innerHTML=`<input type="checkbox" value="${m}"> ${m.charAt(0).toUpperCase()+m.slice(1)}`;markaBox.appendChild(lbl);});
+markaBox.querySelectorAll("input").forEach(i=>i.addEventListener("change",filtreleVeGoster));
+secimYukle("sinifSec","sınıf");secimYukle("yakitSec","yakıt türü");secimYukle("vitesSec","vites");
+const segmentSirasi=["a","b","c","d","e","f","s"];const segmentler=unique("segment");const segmentSelect=document.getElementById("segmentSec");segmentSelect.innerHTML='<option value="">Tümü</option>';
+segmentSirasi.forEach(seg=>{if(segmentler.includes(seg)){const opt=document.createElement("option");opt.value=seg;opt.textContent=seg.toUpperCase();segmentSelect.appendChild(opt);}});
+["sinifSec","segmentSec","yakitSec","vitesSec","siralaSec"].forEach(id=>{document.getElementById(id).addEventListener("change",filtreleVeGoster);});
+filtreleVeGoster();if(guncellemeTarihi){document.getElementById("tarihYazi").textContent="Son güncelleme tarihi: "+guncellemeTarihi;}
 }
-
-  function filtreleVeGoster() {
-    const getVal = id => document.getElementById(id).value.trim().toLowerCase();
-    const siralama = getVal("siralaSec");
-
-    let filtreli = tumVeri.filter(item => {
-      return (!getVal("markaSec") || item.marka.toLowerCase().trim() === getVal("markaSec")) &&
-             (!getVal("sinifSec") || item["sınıf"].toLowerCase().trim() === getVal("sinifSec")) &&
-             (!getVal("segmentSec") || item.segment.toLowerCase().trim() === getVal("segmentSec")) &&
-             (!getVal("yakitSec") || item["yakıt türü"].toLowerCase().trim() === getVal("yakitSec")) &&
-             (!getVal("vitesSec") || item.vites.toLowerCase().trim() === getVal("vitesSec"));
-    });
-
-    filtreli.sort((a, b) => parseInt(siralama === "artan" ? a.fiyat - b.fiyat : b.fiyat - a.fiyat));
-
-	let html = "<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th></tr></thead><tbody>";
-    filtreli.forEach(item => {
-      const fiyat = Math.round(Number(item.fiyat) / 1000).toLocaleString("tr-TR");
-      html += `<tr>
-        <td class="fiyat">${fiyat}</td>
-        <td>${item.marka}</td>
-        <td>${item.model}</td>
-        <td>${item["sınıf"]}</td>
-        <td>${item.segment?.toUpperCase() || ""}</td>
-        <td>${item["yakıt türü"]}</td>
-        <td>${item.vites}</td>
-        <td>${formatTarih(item.guncelleme) || ""}</td>
-      </tr>`;
-    });
-    html += "</tbody></table>";
-    document.getElementById("sonuclar").innerHTML = html;
-    mobilSegmentBaslik();
-	  const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
-
-  // 🏷️ Seçili filtreleri hazırla
-  const filtreAciklamalari = [];
-  const filtreEtiketi = (id, baslik) => {
-    const secim = document.getElementById(id).value.trim();
-    if (secim) {
-      filtreAciklamalari.push(`${baslik}: ${secim.charAt(0).toUpperCase() + secim.slice(1)}`);
-    }
-  };
-
-  filtreEtiketi("markaSec", "Marka");
-  filtreEtiketi("sinifSec", "Sınıf");
-  filtreEtiketi("segmentSec", "Segment");
-  filtreEtiketi("yakitSec", "Yakıt");
-  filtreEtiketi("vitesSec", "Vites");
-
-  // 🚀 AraçSayisi yazısına araç+marka bilgisi + filtre özetini yaz
-  let yazı = `${filtreli.length} araç, ${markaSayisi} farklı marka listelendi.`;
-  if (filtreAciklamalari.length > 0) {
-    yazı += " | " + filtreAciklamalari.join(" | ");
-  }
-
-  document.getElementById("aracSayisi").textContent = yazı;
-	setUstH();
-  }
-
-  veriYukle();
-  window.addEventListener("pageshow", function(event) {
-    if (event.persisted) {
-      veriYukle();
-    }
-  });
-  
-  function mobilSegmentBaslik(){
+function formatTarih(isoStr){if(!isoStr)return"";const d=new Date(isoStr);const ay=String(d.toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",month:"2-digit"}));const yil=d.toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",year:"numeric"});if(window.innerWidth<=768){return`${ay}.${yil.slice(2)}`;}return`${ay}.${yil}`;}
+function filtreleVeGoster(){
+const getVal=id=>document.getElementById(id).value.trim().toLowerCase();const siralama=getVal("siralaSec");
+const seciliMarkalar=[...document.querySelectorAll("#markaBox input:checked")].map(i=>i.value.trim().toLowerCase());
+let filtreli=tumVeri.filter(item=>{const m=(item.marka||"").toLowerCase().trim();return(!seciliMarkalar.length||seciliMarkalar.includes(m))&&(!getVal("sinifSec")||item["sınıf"].toLowerCase().trim()===getVal("sinifSec"))&&(!getVal("segmentSec")||item.segment.toLowerCase().trim()===getVal("segmentSec"))&&(!getVal("yakitSec")||item["yakıt türü"].toLowerCase().trim()===getVal("yakitSec"))&&(!getVal("vitesSec")||item.vites.toLowerCase().trim()===getVal("vitesSec"));});
+filtreli.sort((a,b)=>parseInt(siralama==="artan"?a.fiyat-b.fiyat:b.fiyat-a.fiyat));
+let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th></tr></thead><tbody>";
+filtreli.forEach(item=>{const fiyat=Math.round(Number(item.fiyat)/1000).toLocaleString("tr-TR");html+=`<tr><td class="fiyat">${fiyat}</td><td>${item.marka}</td><td>${item.model}</td><td>${item["sınıf"]}</td><td>${item.segment?.toUpperCase()||""}</td><td>${item["yakıt türü"]}</td><td>${item.vites}</td><td>${formatTarih(item.guncelleme)||""}</td></tr>`;});
+html+="</tbody></table>";document.getElementById("sonuclar").innerHTML=html;mobilSegmentBaslik();
+const markaSayisi=new Set(filtreli.map(item=>item.marka)).size;
+const filtreAciklamalari=[];const filtreEtiketi=(id,baslik)=>{const secim=document.getElementById(id).value.trim();if(secim){filtreAciklamalari.push(`${baslik}: ${secim.charAt(0).toUpperCase()+secim.slice(1)}`);}};
+if(seciliMarkalar.length){const shown=seciliMarkalar.slice(0,3).map(s=>s.charAt(0).toUpperCase()+s.slice(1)).join(", ");filtreAciklamalari.push(`Marka: ${shown}${seciliMarkalar.length>3?" +"+(seciliMarkalar.length-3):""}`);}
+filtreEtiketi("sinifSec","Sınıf");filtreEtiketi("segmentSec","Segment");filtreEtiketi("yakitSec","Yakıt");filtreEtiketi("vitesSec","Vites");
+let yazi=`${filtreli.length} araç, ${markaSayisi} farklı marka listelendi.`;if(filtreAciklamalari.length>0){yazi+=" | "+filtreAciklamalari.join(" | ");}document.getElementById("aracSayisi").textContent=yazi;setUstH();
+}
+veriYukle();
+window.addEventListener("pageshow",function(event){if(event.persisted){veriYukle();}});
+function mobilSegmentBaslik(){
 if(window.innerWidth<=768){
-	document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT";
-	document.querySelectorAll("#sonuclar th")[4].textContent="SG";
-  	document.querySelectorAll("#sonuclar th")[7].textContent="GÜN.";
-	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
-    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="benzinli"&&(td.textContent="Benz."));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
+document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT";document.querySelectorAll("#sonuclar th")[4].textContent="SG";document.querySelectorAll("#sonuclar th")[7].textContent="GÜN.";
+document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
+document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
+document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
+document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="benzinli"&&(td.textContent="Benz."));
+document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
+document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
 }else{
-	document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT-binTL";
-	document.querySelectorAll("#sonuclar th")[4].textContent="SEGMENT";
-  	document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCELLEME";
-	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
-	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
-  	document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
-	}
-  }
+document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT-binTL";document.querySelectorAll("#sonuclar th")[4].textContent="SEGMENT";document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCELLEME";
+document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
+document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
+document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
+document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
+document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
+document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
+}
+}
 window.addEventListener("resize",mobilSegmentBaslik);
-function fixLayout(){
-  const u=document.getElementById("ustBar");
-  const s=document.getElementById("sonuclarWrap");
-  if(u&&s){s.style.top=(u.offsetHeight)+"px";}
-}
-window.addEventListener("load",fixLayout);
-window.addEventListener("resize",fixLayout);
-function setUstH(){
-  const u=document.getElementById("ustBar");
-  if(!u) return;
-  document.documentElement.style.setProperty("--ustH", (u.offsetHeight)+"px");
-}
+function fixLayout(){const u=document.getElementById("ustBar");const s=document.getElementById("sonuclarWrap");if(u&&s){s.style.top=(u.offsetHeight)+"px";}}
+window.addEventListener("load",fixLayout);window.addEventListener("resize",fixLayout);
+function setUstH(){const u=document.getElementById("ustBar");if(!u)return;document.documentElement.style.setProperty("--ustH",(u.offsetHeight)+"px");}
 setUstH();
 document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{e.preventDefault();document.body.classList.toggle("filtreKapali");setUstH();});
 if(window.innerWidth<=768)document.body.classList.add("filtreKapali");
-
 </script>
-  </body>
-  </html>
+</body>
+</html>
