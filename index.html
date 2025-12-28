@@ -80,6 +80,7 @@
   #solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
   #solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
   #solIcerik .badge.kredi{background:#e0f2fe;color:#075985}
+  #solIcerik .badge.0kredi{background:#e0f2fe;color:#075985}
   #solIcerik .badge.takas{background:#ecfeff;color:#155e75}
   #solIcerik .badge.indirim{background:#dcfce7;color:#166534}
 
@@ -308,7 +309,8 @@ function kampanyalariKartYap(){
     const s=Array.from(m.querySelectorAll('small')).map(x=>x.textContent.trim()).join(' ').toLowerCase();
     const row=document.createElement('div');row.className='badges';
     const ekle=(cls,txt)=>{const sp=document.createElement('span');sp.className='badge '+cls;sp.textContent=txt;row.appendChild(sp);};
-    if(s.includes('%0')||s.includes('0 kredi')||s.includes('kredi')) ekle('kredi','%0 Kredi');
+    if(s.includes('%0')) ekle('0kredi','%0 Kredi');
+    if(s.includes('faiz')) ekle('kredi','Kredi Avantajı');
     if(s.includes('takas')) ekle('takas','Takas');
     if(s.includes('indirim')||s.includes('peşin')) ekle('indirim','Peşin İndirim');
     m.insertBefore(row,m.querySelector('small')||null);
