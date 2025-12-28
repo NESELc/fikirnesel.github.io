@@ -24,7 +24,7 @@
   body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
   a{color:inherit;text-decoration:none}
   #ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
-  .wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
+  .wrap{max-width:1500px;margin:0 auto;padding:12px 16px}
   .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .brand{display:flex;align-items:center;gap:10px;min-width:170px}
   .logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
@@ -43,10 +43,9 @@
   .frameWrap{margin:0}
   .frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);height:calc(100vh - var(--ustH) - 26px);min-height:520px}
   iframe{width:100%;height:100%;border:0;display:block}
-  #solIcerik{width:280px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto}
   #ortaAlan{flex:1;max-width:1120px}
   #sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
-  #solIcerik{display:flex;flex-direction:column;gap:12px}
+  #solIcerik{width:280px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
   #solIcerik .blok{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
   #solIcerik .blok h2{margin:0 0 8px;font-size:16px}
   #solIcerik .blok h3{margin:0 0 6px;font-size:13px}
@@ -54,10 +53,21 @@
   #solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
   #solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
   #solIcerik .btn:hover{border-color:#cbd5e1}
+  #solIcerik details.blok{padding:0}
+  #solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
+  #solIcerik details.blok>summary::-webkit-details-marker{display:none}
+  #solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
+  #solIcerik details.blok[open]>summary:after{content:"▴"}
+  #solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
+  #solIcerik .icerik{padding:0 12px 12px}
+  #solIcerik .madde{padding:10px 0;border-bottom:1px dashed var(--line)}
+  #solIcerik .madde:last-child{border-bottom:0}
+  #solIcerik .madde b{display:block;margin:0 0 4px}
+  #solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
 
-  
   @media (max-width:1200px){
   #layout{flex-direction:column;align-items:stretch}
+  #solIcerik,#sagReklam{position:static;max-height:none}
   #ortaAlan{order:1;width:100%;max-width:none}
   #solIcerik{order:2;width:100%}
   #sagReklam{order:3;width:100%}
@@ -96,24 +106,41 @@
 
 <main>
   <div id="layout">
-    <aside id="solIcerik">
+  <aside id="solIcerik">
       <div class="blok">
         <h2>NESEL Bilgi Merkezi</h2>
         <p>Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
         
       </div>
-    
-      <div class="blok">
-        <h2>Sıfır Araç Kampanyaları</h2>
-        <h3>Alfa Romeo</h3>
-        <p><b>Junior Ibrida</b> için Aralık ayına özel takas desteği avantajı.</p>
-        <p>*Takas desteği MY25 Ibrida Speciale donanımında 121.529 TL olarak uygulanacaktır. </p>
-        <h3>Audi</h3>
-        <p><b>Audi A6 e-tron</b> %0 kredi avantajı.</p>
-        <p>Audi A6 e-tron 2.000.000 TL'ye kadar 6 ay vade %0 kredi fırsatıyla Audi Yetkili Satıcılarında. </p>
-        <p><b>Audi Q4 e-tron ve Q4 Sportback e-tron</b> %0 kredi avantajı.</p>
-        <p>Audi Q4 e-tron ve Q4 Sportback e-tron 1.000.000 TL'ye kadar 6 ay vade %0 kredi </p>
-      </div>
+      
+      <details class="blok" open>
+        <summary>Sıfır Araç Kampanyaları</summary>
+        <div class="icerik">
+          <div class="madde"><b>Alfa Romeo Junior Ibrida</b>
+            <small>Takas desteği</small>
+            <small>MY25 Ibrida Speciale donanımında 121.529 TL olarak uygulanacaktır.</small>
+          </div>
+          <div class="madde"><b>Audi A6 e-tron</b>
+            <small>%0 kredi avantajı</small>
+            <small>2.000.000 TL'ye kadar 6 ay vade %0 kredi</small>
+          </div>
+          <div class="madde"><b>Audi Q4 e-tron ve Q4 Sportback e-tron</b>
+            <small>%0 kredi avantajı</small>
+            <small>1.000.000 TL'ye kadar 6 ay vade %0</small>
+          </div>
+
+        </div>
+      </details>
+      
+      <details class="blok">
+        <summary>Döviz</summary>
+        <div class="icerik">USD/EUR kısa not…</div>
+      </details>
+      
+      <details class="blok">
+        <summary>Ankara</summary>
+        <div class="icerik">Bugün etkinlik / pratik…</div>
+      </details>
     
       <div class="blok">
         <h2>Not</h2>
