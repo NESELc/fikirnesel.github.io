@@ -68,6 +68,8 @@
   <tr><td>CAD/TRY</td><td id="t_cadtry">—</td></tr>
   <tr><td>AUD/TRY</td><td id="t_audtry">—</td></tr>
   <tr><td>DKK/TRY</td><td id="t_dkktry">—</td></tr>
+  <tr><td>SEK/TRY</td><td id="t_sektry">—</td></tr>
+  <tr><td>NOK/TRY</td><td id="t_noktry">—</td></tr>
   <tr><td>SAR/TRY</td><td id="t_sartry">—</td></tr>
   <tr><td>RUB/TRY</td><td id="t_rubtry">—</td></tr>
   
@@ -89,7 +91,7 @@
   const usdtry=r.TRY||0;document.getElementById("t_usdtry").textContent=usdtry?usdtry.toFixed(2):"—";
   const set=(id,ccy)=>{const v=tryFromUsd(r,ccy);document.getElementById(id).textContent=(v?Number(v).toFixed(2):"—");};
     set("t_eurtry","EUR");set("t_gbptry","GBP");set("t_chftry","CHF");set("t_cadtry","CAD");set("t_audtry","AUD");set("t_sartry","SAR");set("t_rubtry","RUB");
-    set("t_jpytry","JPY");set("t_dkktry","DKK");
+    set("t_jpytry","JPY");set("t_dkktry","DKK");set("t_sektry","SEK");set("t_noktry","NOK");
   const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
   (async function(){await fillTable();})();
   </script>
