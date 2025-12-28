@@ -39,17 +39,18 @@
       height:calc(100vh - var(--ustH) - 36px);min-height:520px}
     iframe{width:100%;height:100%;border:0;display:block}
 
-    #layout{display:flex;justify-content:center;gap:16px;padding:10px 16px 16px}
+    #layout{display:flex;gap:16px;padding:10px 16px 16px;align-items:flex-start}
     #solIcerik,#sagReklam{display:none}
     #solIcerik{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
     #solIcerik h1{margin:0 0 8px;font-size:18px}
     #solIcerik p{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
     @media(min-width:1480px){
-      #solIcerik{display:block;width:280px;position:sticky;top:calc(var(--ustH) + 8px);align-self:flex-start;
-      max-height:calc(100vh - var(--ustH) - 16px);overflow:auto}
-      #ortaAlan{width:920px}
-      #sagReklam{display:block;width:300px;position:sticky;top:calc(var(--ustH) + 8px);align-self:flex-start}
-    }
+	  #solIcerik{display:block;width:280px;position:sticky;top:calc(var(--ustH) + 8px);
+	  max-height:calc(100vh - var(--ustH) - 16px);overflow:auto}
+	  #ortaAlan{flex:1;max-width:1000px}
+	  #sagReklam{display:block;width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
+	}
+
     @media(max-width:1479px){
       #layout{flex-direction:column;max-width:1100px;margin:0 auto}
       #solIcerik,#sagReklam{display:block}
