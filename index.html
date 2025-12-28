@@ -170,7 +170,7 @@
           <div class="madde"><b>Opel Combo Cargo</b><small>%0 kredi veya nakit indirim </small><small>600.000 TL • 12 ay vade</small></div>
           
           <div class="madde"><b>Peugeot 2008</b><small>%0 kampanya faizi </small><small>200.000 TL • 12 ay vade</small></div>
-          <div class="madde"><b>Peugeot 408</b><small>Avantajlı kampanya faizi </small><small>250.000 TL • 6 ay vade (%0,49)</small></div>
+          <div class="madde"><b>Peugeot 408</b><small>Kredi avantajı </small><small>250.000 TL • 6 ay vade (%0,49)</small></div>
           
           <div class="madde"><b>Renault 5 E-Tech</b><small>%0 kredi avantajı </small><small>Bireysel: 350.000 TL • 6 ay vade</small></div>
           <div class="madde"><b>Renault Duster (Yeni)</b><small>%0 kredi avantajı </small><small>200.000 TL • 6 ay vade</small></div>
@@ -309,7 +309,7 @@ function kampanyalariKartYap(){
     const s=Array.from(m.querySelectorAll('small')).map(x=>x.textContent.trim()).join(' ').toLowerCase();
     const row=document.createElement('div');row.className='badges';
     const ekle=(cls,txt)=>{const sp=document.createElement('span');sp.className='badge '+cls;sp.textContent=txt;row.appendChild(sp);};
-    if(s.includes('%0')) ekle('0kredi','%0 Kredi');
+    if(s.includes('%0')&& !s.includes('%0,') && !s.includes('%0.')) ekle('kredi','%0 Kredi');
     if(s.includes('faiz')) ekle('kredia','Kredi Avantajı');
     if(s.includes('takas')) ekle('takas','Takas');
     if(s.includes('indirim')||s.includes('peşin')) ekle('indirim','Peşin İndirim');
