@@ -43,6 +43,19 @@
 	#dinamik{flex:1}
 	#statik h1{font-size:18px;margin:0 0 8px}
 	#statik p{font-size:13px;color:var(--muted);line-height:1.5}
+	#statikSol{display:none}
+	@media(min-width:1200px){
+	  #statikSol{display:block;position:fixed;top:calc(var(--ustH) + 12px);left:24px;width:320px;
+	  max-height:calc(100vh - var(--ustH) - 24px);overflow:auto;background:#fff;border:1px solid var(--line);
+	  border-radius:14px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+	  #statikSol h1{margin:0 0 8px;font-size:18px}
+	  #statikSol p{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
+	}
+	@media(max-width:1199px){
+	  #statikSol{display:block;position:static;width:auto;max-height:none;margin:0 0 12px;background:#fff;
+	  border:1px solid var(--line);border-radius:14px;padding:14px}
+	}
+
     @media (max-width:768px){
       .logo{width:120px;height:36px;}
       .brand{min-width:auto}
@@ -79,21 +92,21 @@
     </div>
   </header>
 
-  <!-- ALT FRAME -->
 <main>
-  <div class="frameWrap" id="wrap">
-    <aside class="frameBox" id="statik">
-      <h1>Sıfır Araç Fiyatları</h1>
-      <p>Bu sayfada Türkiye’de satılan sıfır araçların fiyatları; marka, sınıf, segment, yakıt ve vites türüne göre listelenir.</p>
-      <p>Veriler resmi marka siteleri ve güvenilir kaynaklardan derlenir. Fiyatlar bilgilendirme amaçlıdır.</p>
-      <p>Filtreleri kullanarak bütçene ve ihtiyacına uygun araçları hızlıca karşılaştırabilirsin.</p>
-      <!-- ADSENSE BURAYA (statik içerikten sonra) -->
-    </aside>
-    <div class="frameBox" id="dinamik">
+  <aside id="statikSol">
+    <h1>Sıfır Araç Fiyatları</h1>
+    <p>Bu sayfada Türkiye’de satılan sıfır araçların fiyatları; marka, sınıf, segment, yakıt ve vites türüne göre listelenir.</p>
+    <p>Veriler resmi marka siteleri ve güvenilir kaynaklardan derlenir. Fiyatlar bilgilendirme amaçlıdır.</p>
+    <!-- ADSENSE BURAYA -->
+  </aside>
+
+  <div class="frameWrap">
+    <div class="frameBox">
       <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
     </div>
   </div>
 </main>
+
 
   <script>
     // Üst bar yüksekliği (senin setUstH mantığı)
