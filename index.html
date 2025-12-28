@@ -4,6 +4,7 @@
   	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
 	<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
 	<meta name="google-adsense-account" content="ca-pub-1268402107177386">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1268402107177386" crossorigin="anonymous"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>NESEL | Araç Fiyatları, Vergiler, Abonelikler</title>
@@ -16,74 +17,69 @@
 	<meta property="og:url" content="https://nesel.tr/">
 	<link rel="icon" href="/favicon.ico">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-	
   <style>
-    :root{ --bg:#f6f7fb; --txt:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#2563eb; --ustH:64px;  }
+    :root{ --bg:#f6f7fb; --txt:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#2563eb; --ustH:64px; }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
     a{color:inherit;text-decoration:none}
-    #ustBar{ position:fixed; top:0; left:0; right:0; z-index:9999; background:#fff; border-bottom:1px solid var(--line); }
-    .wrap{max-width:1100px;margin:0 auto;padding:12px 16px;}
+    #ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
+    .wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
     .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;min-width:170px}
-    .logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat;}
+    .logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
     .brand b{letter-spacing:.6px}
     .kicker{color:var(--muted);font-size:12px}
     .nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-    .nav a{ padding:8px 10px;border:1px solid var(--line); border-radius:10px;background:#fff;font-size:13px;  }
-    .nav a:hover{border-color:#cbd5e1}
-    .nav a.active{border-color:rgba(37,99,235,.45); background:rgba(37,99,235,.06); color:#1d4ed8; font-weight:600}
-    main{   padding-top:calc(var(--ustH) + 10px); }
-    .frameWrap{  max-width:1100px;margin:0 auto;padding:10px 16px 16px;    }
-    .frameBox{  border:1px solid var(--line);border-radius:14px; overflow:hidden;  background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);
-      height:calc(100vh - var(--ustH) - 36px); min-height:520px;  }
-    iframe{ width:100%;height:100%; border:0; display:block; }
-	#wrap{display:flex;gap:16px}
-	#statik{flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-	#dinamik{flex:1}
-	#statik h1{font-size:18px;margin:0 0 8px}
-	#statik p{font-size:13px;color:var(--muted);line-height:1.5}
-	#statikSol{display:none}
-	@media(min-width:1480px){
-	  #statikSol{display:block;position:fixed;top:calc(var(--ustH) + 8px);left:8px;width:280px;
-	  max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;background:#fff;border:1px solid var(--line);
-	  border-radius:14px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-	  #statikSol h1{margin:0 0 8px;font-size:18px}
-	  #statikSol p{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
-	}
-	@media(max-width:1479px){
-	  #statikSol{display:block;position:static;width:auto;max-height:none;margin:0 0 12px;background:#fff;
-	  border:1px solid var(--line);border-radius:14px;padding:14px}
-	}
+    .nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
+    .nav a:hover{border-color:#bdc5e1}
+    .nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
+    main{padding-top:calc(var(--ustH) + 10px)}
+    .frameWrap{margin:0;padding:0}
+    .frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);
+      height:calc(100vh - var(--ustH) - 36px);min-height:520px}
+    iframe{width:100%;height:100%;border:0;display:block}
+
+    #layout{display:flex;justify-content:center;gap:16px;padding:10px 16px 16px}
+    #solIcerik,#sagReklam{display:none}
+    #solIcerik{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+    #solIcerik h1{margin:0 0 8px;font-size:18px}
+    #solIcerik p{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
+    @media(min-width:1480px){
+      #solIcerik{display:block;width:280px;position:sticky;top:calc(var(--ustH) + 8px);align-self:flex-start;
+      max-height:calc(100vh - var(--ustH) - 16px);overflow:auto}
+      #ortaAlan{width:920px}
+      #sagReklam{display:block;width:300px;position:sticky;top:calc(var(--ustH) + 8px);align-self:flex-start}
+    }
+    @media(max-width:1479px){
+      #layout{flex-direction:column;max-width:1100px;margin:0 auto}
+      #solIcerik,#sagReklam{display:block}
+      #solIcerik{margin:0 16px 12px}
+      #ortaAlan{margin:0 16px}
+      #sagReklam{margin:12px 16px 0}
+    }
 
     @media (max-width:768px){
       .logo{width:120px;height:36px;}
       .brand{min-width:auto}
       .nav a{font-size:10px;padding:7px 9px}
-      .frameBox{height:calc(100vh - var(--ustH) - 28px)}
-      .brand b,.brand .kicker{display:none;}
-      .brand{gap:0;}
-		#wrap{flex-direction:column}#statik{order:2}#dinamik{order:1}
+      .brand b,.brand .kicker{display:none}
     }
   </style>
 </head>
-
 <body>
-  <!-- ÜST BAR -->
   <header id="ustBar">
     <div class="wrap">
       <div class="top">
         <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
+          <a class="logo" href="/" aria-label="NESEL"></a>
           <div>
             <b>NESEL</b>
             <div class="kicker">Bilgi Merkezi</div>
           </div>
         </div>
-
         <nav class="nav" id="menu">
-          <a href="#sifiraraclar" data-src="/sifiraraclar.html">Sıfır Araçlar</a>
-          <a href="#platformucretleri" data-src="/platformucretleri.html">Platform Ücretleri</a>
+          <a href="#sifiraraclar" data-src="/sifiraraclar.html" class="active">Sıfır Araçlar</a>
+          <a href="#abonelikler" data-src="/abonelik.html">Platform Ücretleri</a>
           <a href="#doviz" data-src="/doviz.html">Döviz Çevirici</a>
           <a href="#gelirvergisi" data-src="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
           <a href="#ankara" data-src="/ankara.html">Ankara</a>
@@ -92,59 +88,59 @@
     </div>
   </header>
 
-<main>
-  <aside id="statikSol">
-    <h1>Sıfır Araç Fiyatları</h1>
-    <p>Bu sayfada Türkiye’de satılan sıfır araçların fiyatları; marka, sınıf, segment, yakıt ve vites türüne göre listelenir.</p>
-    <p>Veriler resmi marka siteleri ve güvenilir kaynaklardan derlenir. Fiyatlar bilgilendirme amaçlıdır.</p>
-    <!-- ADSENSE BURAYA -->
-  </aside>
+  <main id="layout">
+    <aside id="solIcerik">
+      <h1>Sıfır Araç Fiyatları</h1>
+      <p>Bu sayfada Türkiye’de satılan sıfır araçların fiyatları; marka, sınıf, segment, yakıt ve vites türüne göre listelenir.</p>
+      <p>Veriler resmi marka siteleri ve güvenilir kaynaklardan derlenir. Fiyatlar bilgilendirme amaçlıdır.</p>
+    </aside>
 
-  <div class="frameWrap">
-    <div class="frameBox">
-      <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
-    </div>
-  </div>
-</main>
+    <section id="ortaAlan">
+      <div class="frameWrap">
+        <div class="frameBox">
+          <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
+        </div>
+      </div>
+    </section>
 
+    <aside id="sagReklam">
+      <!-- ADSENSE BURAYA -->
+    </aside>
+  </main>
 
   <script>
-    // Üst bar yüksekliği (senin setUstH mantığı)
     function setUstH(){
       const u=document.getElementById("ustBar");
       if(!u) return;
-      document.documentElement.style.setProperty("--ustH", (u.offsetHeight+10)+"px");
+      document.documentElement.style.setProperty("--ustH",(u.offsetHeight+10)+"px");
     }
-    window.addEventListener("resize", setUstH);
+    window.addEventListener("resize",setUstH);
     setUstH();
 
-    const frame = document.getElementById("sayfaFrame");
-    const links = Array.from(document.querySelectorAll("#menu a[data-src]"));
+    const frame=document.getElementById("sayfaFrame");
+    const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
 
     function setActiveBySrc(src){
-      links.forEach(a => a.classList.toggle("active", a.getAttribute("data-src") === src));
+      links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
     }
 
     function openByHash(){
-      const hash = (location.hash || "#sifiraraclar").replace("#","");
-      const a = links.find(x => x.getAttribute("href") === ("#"+hash)) || links[0];
-      const src = a.getAttribute("data-src");
-      if(frame.getAttribute("src") !== src) frame.setAttribute("src", src);
+      const hash=(location.hash||"#sifiraraclar").replace("#","");
+      const a=links.find(x=>(x.getAttribute("href")||"").replace("#","")===hash);
+      const src=(a?a.getAttribute("data-src"):null)||"/sifiraraclar.html";
+      frame.src=src;
       setActiveBySrc(src);
     }
 
-    // Menü tıkla → iframe yükle (hash zaten değişiyor)
-    links.forEach(a => {
-      a.addEventListener("click", () => {
-        const src = a.getAttribute("data-src");
-        setActiveBySrc(src);
-        // iframe src, hash-change'den sonra openByHash ile de setlenir, ama hızlı his için burada da setliyoruz:
-        frame.setAttribute("src", src);
-        setUstH();
+    links.forEach(a=>{
+      a.addEventListener("click",e=>{
+        const src=a.getAttribute("data-src");
+        if(!src) return;
+        setTimeout(()=>{frame.src=src;setActiveBySrc(src);},0);
       });
     });
 
-    window.addEventListener("hashchange", openByHash);
+    window.addEventListener("hashchange",openByHash);
     openByHash();
   </script>
 </body>
