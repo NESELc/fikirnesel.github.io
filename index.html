@@ -46,7 +46,12 @@
   #solIcerik{width:280px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto}
   #ortaAlan{flex:1;max-width:1120px}
   #sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
-  
+  @media (max-width:1200px){
+  #layout{flex-direction:column}
+  #ortaAlan{order:1}
+  #solIcerik{order:2}
+  #sagReklam{order:3}
+  }
   @media (max-width:768px){
     .logo{width:120px;height:36px;}
     .brand{min-width:auto}
