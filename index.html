@@ -66,8 +66,10 @@
   #solIcerik .madde b{display:block;margin:0 0 4px}
   #solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
   #solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
-  .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;padding:0;margin:8px 0}
-  .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;text-align:left}
+  .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
+  .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+  .platformlar li .acik{font-size:10px;color:#666}
+
   .dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
   .dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
   .dovizler li span{font-size:10px;color:#555}
@@ -169,16 +171,28 @@
         </div>
       </details>
       <details class="blok">
-      <summary>Platformlar</summary>
+        <summary>Platformlar</summary>
         <div class="icerik">
         <div class="madde"><b>Türkiye’de Yayında Olan Platformlar</b></div>
-          <ul class="platformlar">
-          <li>YouTube</li><li>Apple iCloud</li><li>Netflix</li><li>Exxen</li><li>ChatGPT</li>
-          <li>Disney+</li><li>Amazon</li><li>Spotify</li><li>Max</li><li>Gain</li>
-          <li>Mubi</li><li>Tabii</li><li>TV+</li><li>Grok</li>
+        <ul class="platformlar">
+        <li><b>YouTube</b><span class="acik">Video</span></li>
+        <li><b>Apple iCloud</b><span class="acik">Bulut</span></li>
+        <li><b>Netflix</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Exxen</b><span class="acik">Dizi/Film</span></li>
+        <li><b>ChatGPT</b><span class="acik">Yapay Zeka</span></li>
+        <li><b>Disney+</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Amazon</b><span class="acik">Prime</span></li>
+        <li><b>Spotify</b><span class="acik">Müzik</span></li>
+        <li><b>Max</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Gain</b><span class="acik">Dijital TV</span></li>
+        <li><b>Mubi</b><span class="acik">Sinema</span></li>
+        <li><b>Tabii</b><span class="acik">TR Dijital</span></li>
+        <li><b>TV+</b><span class="acik">IPTV</span></li>
+        <li><b>Grok</b><span class="acik">Yapay Zeka</span></li>
         </ul>
         </div>
       </details>
+
       <details class="blok">
         <summary>Döviz</summary>
         <div class="icerik">
