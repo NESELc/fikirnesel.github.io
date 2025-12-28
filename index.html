@@ -38,14 +38,24 @@
   main{padding-top:var(--ustH)}
   #layout{display:flex;gap:12px;padding:10px 16px 16px;align-items:flex-start}
   #solIcerik,#sagReklam{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-  #solIcerik h1,#sagReklam h1{font-family:Comic Sans MS;margin:0 0 8px;font-size:18px}
-  #solIcerik p,#sagReklam p{font-family:Comic Sans MS;margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
+  #sagReklam h1{font-family:Comic Sans MS;margin:0 0 8px;font-size:18px}
+  #sagReklam p{font-family:Comic Sans MS;margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
   .frameWrap{margin:0}
   .frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);height:calc(100vh - var(--ustH) - 26px);min-height:520px}
   iframe{width:100%;height:100%;border:0;display:block}
   #solIcerik{width:280px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto}
   #ortaAlan{flex:1;max-width:1120px}
   #sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
+  #solIcerik{display:flex;flex-direction:column;gap:12px}
+  #solIcerik .blok{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+  #solIcerik .blok h2{margin:0 0 8px;font-size:16px}
+  #solIcerik .blok h3{margin:0 0 6px;font-size:13px}
+  #solIcerik .blok p{margin:0 0 8px;font-size:12.5px;color:var(--muted);line-height:1.5}
+  #solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
+  #solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  #solIcerik .btn:hover{border-color:#cbd5e1}
+
+  
   @media (max-width:1200px){
   #layout{flex-direction:column;align-items:stretch}
   #ortaAlan{order:1;width:100%;max-width:none}
@@ -87,15 +97,25 @@
 <main>
   <div id="layout">
     <aside id="solIcerik">
-      <h1>NESEL Bilgi Merkezi</h1>
-      <p>Sıfır araç fiyatları, döviz çevirici, vergi dilimleri ve platform ücretleri tek ekranda.</p>
-      <p>Menüden başlık seçince içerik altta güncellenir. Fiyatlar bilgilendirme amaçlıdır.</p>
-      <h3>Sıfır Araç Kampanyaları</h3>
-      <h4>Alfa Romeo</h4>
-      <h5>ALFA ROMEO JUNIOR IBRIDA, ARALIK AYINA ÖZEL TAKAS DESTEĞİ AVANTAJIYLA</h5>
-      <p>Benzersiz sürüş deneyimi, kalite ve sportifliği bir arada sunan Alfa Romeo Junior Ibrida, takas desteği* ayrıcalığı ile sizlerle buluşuyor! </p>
-      <p>*Takas desteği MY25 Ibrida Speciale donanımında 121.529 TL olarak uygulanacaktır. </p>
+      <div class="blok">
+        <h2>NESEL Bilgi Merkezi</h2>
+        <p>Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
+        <span class="etiket">Güncel</span><span class="etiket">Türkiye</span><span class="etiket">Karşılaştırma</span>
+      </div>
+    
+      <div class="blok">
+        <h2>Sıfır Araç Kampanyaları</h2>
+        <h3>Alfa Romeo</h3>
+        <p><b>Junior Ibrida</b> için Aralık ayına özel takas desteği avantajı.</p>
+        <a class="btn" href="/alfa-romeo-junior-kampanya.html" target="_blank" rel="noopener">Detay</a>
+      </div>
+    
+      <div class="blok">
+        <h2>Not</h2>
+        <p>Fiyatlar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
+      </div>
     </aside>
+
 
     <section id="ortaAlan">
       <div class="frameWrap">
