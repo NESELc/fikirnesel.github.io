@@ -67,7 +67,11 @@
   #solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
   #solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
   .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;padding:0;margin:8px 0}
-  .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;text-align:center}
+  .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;text-align:left}
+  .dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
+  .dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
+  .dovizler li span{font-size:10px;color:#555}
+
 
 
   @media (max-width:1200px){
@@ -178,20 +182,22 @@
       <details class="blok">
         <summary>Döviz</summary>
         <div class="icerik">
-          <div class="madde"><b>Para Birimleri</b>
-            <small>TL(Türk Lirası)</small>
-            <small>USD(Amerikan Doları)</small>
-            <small>EUR(Euro)</small>
-            <small>GBP(İngiliz Sterlini)</small>
-            <small>CHF(İsviçre Frangı)</small>
-            <small>CAD(Kanada Doları)</small>
-            <small>AUD(Avustralya Doları)</small>
-            <small>SAR(Suudi Arabistan Riyali)</small>
-            <small>RUB(Rus Rublesi)</small>
-            <small>JPY(Japon Yeni)</small>
-          </div>
-       </div>
+        <div class="madde"><b>Para Birimleri</b></div>
+        <ul class="dovizler">
+        <li>TL<br><span>Türk Lirası</span></li>
+        <li>USD<br><span>Amerikan Doları</span></li>
+        <li>EUR<br><span>Euro</span></li>
+        <li>GBP<br><span>İngiliz Sterlini</span></li>
+        <li>CHF<br><span>İsviçre Frangı</span></li>
+        <li>CAD<br><span>Kanada Doları</span></li>
+        <li>AUD<br><span>Avustralya Doları</span></li>
+        <li>SAR<br><span>Suudi Riyali</span></li>
+        <li>RUB<br><span>Rus Rublesi</span></li>
+        <li>JPY<br><span>Japon Yeni</span></li>
+        </ul>
+        </div>
       </details>
+
       
       <details class="blok">
         <summary>Ankara</summary>
