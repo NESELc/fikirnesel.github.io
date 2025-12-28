@@ -16,7 +16,7 @@
 	<meta property="og:url" content="https://nesel.tr/">
 	<link rel="icon" href="/favicon.ico">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-
+	
   <style>
     :root{ --bg:#f6f7fb; --txt:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#2563eb; --ustH:64px;  }
     *{box-sizing:border-box}
@@ -38,7 +38,11 @@
     .frameBox{  border:1px solid var(--line);border-radius:14px; overflow:hidden;  background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);
       height:calc(100vh - var(--ustH) - 36px); min-height:520px;  }
     iframe{ width:100%;height:100%; border:0; display:block; }
-
+	#wrap{display:flex;gap:16px}
+	#statik{flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+	#dinamik{flex:1}
+	#statik h1{font-size:18px;margin:0 0 8px}
+	#statik p{font-size:13px;color:var(--muted);line-height:1.5}
     @media (max-width:768px){
       .logo{width:120px;height:36px;}
       .brand{min-width:auto}
@@ -46,6 +50,7 @@
       .frameBox{height:calc(100vh - var(--ustH) - 28px)}
       .brand b,.brand .kicker{display:none;}
       .brand{gap:0;}
+		#wrap{flex-direction:column}#statik{order:2}#dinamik{order:1}
     }
   </style>
 </head>
@@ -75,13 +80,20 @@
   </header>
 
   <!-- ALT FRAME -->
-  <main>
-    <div class="frameWrap">
-      <div class="frameBox">
-        <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
-      </div>
+<main>
+  <div class="frameWrap" id="wrap">
+    <aside class="frameBox" id="statik">
+      <h1>Sıfır Araç Fiyatları</h1>
+      <p>Bu sayfada Türkiye’de satılan sıfır araçların fiyatları; marka, sınıf, segment, yakıt ve vites türüne göre listelenir.</p>
+      <p>Veriler resmi marka siteleri ve güvenilir kaynaklardan derlenir. Fiyatlar bilgilendirme amaçlıdır.</p>
+      <p>Filtreleri kullanarak bütçene ve ihtiyacına uygun araçları hızlıca karşılaştırabilirsin.</p>
+      <!-- ADSENSE BURAYA (statik içerikten sonra) -->
+    </aside>
+    <div class="frameBox" id="dinamik">
+      <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
     </div>
-  </main>
+  </div>
+</main>
 
   <script>
     // Üst bar yüksekliği (senin setUstH mantığı)
