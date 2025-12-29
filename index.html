@@ -69,6 +69,7 @@
   .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
   .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
   .platformlar li .acik{font-size:10px;color:#666}
+  .madde b.arac{font-size:13px;font-weight:600}.madde .deger{font-size:12px;color:var(--muted)}
 
   .dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
   .dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
@@ -135,51 +136,50 @@
       <details class="blok" >
         <summary>Sıfır Araç Kampanyaları</summary>
         <div class="icerik">
-          <div class="madde"><b>Alfa Romeo Junior Ibrida Speciale</b><small>• Takas 121.529 TL</small></div>
-          <div class="madde"><b>Audi A6 e-tron</b><small>• %0 Kredi 2.000.000 TL / 6 ay</small></div>
-          <div class="madde"><b>Audi Q4 e-tron, Q4 Sportback e-tron</b><small>• %0 Kredi 1.000.000 TL / 6 ay</small></div>
-          
-          <div class="madde"><b>BMW 120</b><small>• %0 Kredi + Takas 2.000.000 TL / 6 ay</small></div>
-          <div class="madde"><b>BMW 220 Gran Coupe</b><small>• %0 Kredi 750.000 TL / 6 ay + Takas 150.000 TL</small></div>
-          <div class="madde"><b>BMW 320i Sedan, Sport Line, M Sport</b><small>• %0 Kredi 4.000.000 TL / 8 ay + Takas 900.000 TL</small></div>
-          
-          <div class="madde"><b>BYD Dolphin</b><small>• %0 Kredi 300.000 TL / 12 ay • Peşin 109.000 TL indirim</small></div>
-          
-          <div class="madde"><b>Citroen Ami</b><small>• %0 Kredi 270.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Citroen e-C3, C4, e-C4, C4 X</b><small>• %0 Kredi 150.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Citroen C3 Aircross, e-C3 Aircross</b><small>• %0 Kredi 300.000 TL / 12 ay</small></div>
-          
-          <div class="madde"><b>Dacia Sandero Stepway, Jogger</b><small>• Kredi 150.000 TL / 6 ay (%0,99)</small></div>
-          
-          <div class="madde"><b>Fiat 600</b><small>• %0 Kredi 200.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Fiat Topolino</b><small>• %0 Kredi 200.000 TL / 12 ay • 90.000 TL indirim</small></div>
-          
-          <div class="madde"><b>Ford Focus</b><small>• %0 Kredi 300.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Ford Puma, Puma Gen-E</b><small>• %0 Kredi 400.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Ford Explorer, Capri</b><small>• %0 Kredi 400.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Ford Ticari (Transit, Custom, Ranger, Courier*)</b><small>• %0 Kredi 1.000.000 TL / 9 ay (*E-Tourneo Courier hariç)</small></div>
-          
-          <div class="madde"><b>Kia Stonic</b><small>• %0 Kredi veya Takas (Aralık 2025)</small></div>
-          <div class="madde"><b>Kia EV9</b><small>• %0 Kredi veya Takas (Aralık 2025)</small></div>
-          
-          <div class="madde"><b>Nissan Juke</b><small>• %0 Kredi 240.000 TL / 12 ay veya Nakit İndirim</small></div>
-          <div class="madde"><b>Nissan X-Trail Platinum Premium</b><small>• %0 Ticari Kredi 600.000 TL / 12 ay + Nakit İndirim</small></div>
-          
-          <div class="madde"><b>Opel Astra, Astra Electric</b><small>• %0 Kredi 300.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Opel Combo Cargo</b><small>• %0 Kredi 600.000 TL / 12 ay veya Nakit</small></div>
-          
-          <div class="madde"><b>Peugeot 2008</b><small>• %0 Kredi 200.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Peugeot 408</b><small>• Kredi 250.000 TL / 6 ay (%0,49)</small></div>
-          
-          <div class="madde"><b>Renault 5 E-Tech</b><small>• %0 Kredi 350.000 TL / 6 ay (Bireysel)</small></div>
-          <div class="madde"><b>Renault Duster (Yeni)</b><small>• %0 Kredi 200.000 TL / 6 ay</small></div>
-          
-          <div class="madde"><b>Toyota Proace City</b><small>• %0 Kredi 290.000 TL / 6 ay</small></div>
-          <div class="madde"><b>Toyota Proace Verso</b><small>• %0 Kredi 315.000 TL / 12 ay</small></div>
-          <div class="madde"><b>Toyota Proace City Cargo</b><small>• %0 Kredi 150.000 TL / 6 ay</small></div>
-          
-          <div class="madde"><b>Volkswagen Transporter Kombi</b><small>• %0 Kredi 500.000 TL / 12 ay</small></div>
-
+            <div class="madde"><b class="arac">Alfa Romeo Junior Ibrida Speciale</b><small class="badge">Takas</small><small class="deger">121.529 TL</small></div>
+            <div class="madde"><b class="arac">Audi A6 e-tron</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small></div>
+            <div class="madde"><b class="arac">Audi Q4 e-tron, Q4 Sportback e-tron</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 6 ay</small></div>
+            
+            <div class="madde"><b class="arac">BMW 120</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay • Takas</small></div>
+            <div class="madde"><b class="arac">BMW 220 Gran Coupe</b><small class="badge">%0 Kredi</small><small class="deger">750.000 TL • 6 ay • Takas 150.000 TL</small></div>
+            <div class="madde"><b class="arac">BMW 320i Sedan, Sport Line, M Sport</b><small class="badge">%0 Kredi</small><small class="deger">4.000.000 TL • 8 ay • Takas 900.000 TL</small></div>
+            
+            <div class="madde"><b class="arac">BYD Dolphin</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay • Peşin 109.000 TL indirim</small></div>
+            
+            <div class="madde"><b class="arac">Citroen Ami</b><small class="badge">%0 Kredi</small><small class="deger">270.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Citroen e-C3, C4, e-C4, C4 X</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Citroen C3 Aircross, e-C3 Aircross</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+            
+            <div class="madde"><b class="arac">Dacia Sandero Stepway, Jogger</b><small class="badge">Kredi</small><small class="deger">150.000 TL • 6 ay (%0,99)</small></div>
+            
+            <div class="madde"><b class="arac">Fiat 600</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Fiat Topolino</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay • 90.000 TL indirim</small></div>
+            
+            <div class="madde"><b class="arac">Ford Focus</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Ford Puma, Puma Gen-E</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Ford Explorer, Capri</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Ford Ticari (Transit, Custom, Ranger, Courier*)</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 9 ay (*E-Tourneo Courier hariç)</small></div>
+            
+            <div class="madde"><b class="arac">Kia Stonic</b><small class="badge">%0 Kredi</small><small class="deger">veya Takas • Aralık 2025</small></div>
+            <div class="madde"><b class="arac">Kia EV9</b><small class="badge">%0 Kredi</small><small class="deger">veya Takas • Aralık 2025</small></div>
+            
+            <div class="madde"><b class="arac">Nissan Juke</b><small class="badge">%0 Kredi</small><small class="deger">240.000 TL • 12 ay veya Nakit</small></div>
+            <div class="madde"><b class="arac">Nissan X-Trail Platinum Premium</b><small class="badge">%0 Ticari Kredi</small><small class="deger">600.000 TL • 12 ay + Nakit</small></div>
+            
+            <div class="madde"><b class="arac">Opel Astra, Astra Electric</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Opel Combo Cargo</b><small class="badge">%0 Kredi</small><small class="deger">600.000 TL • 12 ay veya Nakit</small></div>
+            
+            <div class="madde"><b class="arac">Peugeot 2008</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Peugeot 408</b><small class="badge">Kredi</small><small class="deger">250.000 TL • 6 ay (%0,49)</small></div>
+            
+            <div class="madde"><b class="arac">Renault 5 E-Tech</b><small class="badge">%0 Kredi</small><small class="deger">350.000 TL • 6 ay (Bireysel)</small></div>
+            <div class="madde"><b class="arac">Renault Duster (Yeni)</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 6 ay</small></div>
+            
+            <div class="madde"><b class="arac">Toyota Proace City</b><small class="badge">%0 Kredi</small><small class="deger">290.000 TL • 6 ay</small></div>
+            <div class="madde"><b class="arac">Toyota Proace Verso</b><small class="badge">%0 Kredi</small><small class="deger">315.000 TL • 12 ay</small></div>
+            <div class="madde"><b class="arac">Toyota Proace City Cargo</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 6 ay</small></div>
+            
+            <div class="madde"><b class="arac">Volkswagen Transporter Kombi</b><small class="badge">%0 Kredi</small><small class="deger">500.000 TL • 12 ay</small></div>
 
         </div>
       </details>
