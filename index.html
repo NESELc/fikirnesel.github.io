@@ -265,7 +265,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 function setUstH(){
   const u=document.getElementById("ustBar");
   if(!u) return;
-  document.documentElement.style.setProperty("--ustH",u.offsetHeight++"px");
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
 }
 window.addEventListener("resize",setUstH);
 setUstH();
