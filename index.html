@@ -19,90 +19,80 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <style>
-  html{scrollbar-gutter:stable}
-  :root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px;}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
-  a{color:inherit;text-decoration:none}
-  #ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
-  .wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
-  .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .brand{display:flex;align-items:center;gap:10px;min-width:170px}
-  .logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
-  .brand b{letter-spacing:.6px}
-  .kicker{color:var(--muted);font-size:12px}
-  .nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-  .nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
-  .nav a:hover{border-color:#cbd5e1}
-  .nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
-    
-  main{padding-top:var(--ustH)}
-  #layout{display:flex;gap:12px;padding:10px 16px 16px;align-items:flex-start}
-  #solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-  #sagReklam h1{font-family:Comic Sans MS;margin:0 0 8px;font-size:18px}
-  #sagReklam p{font-family:Comic Sans MS;margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
-  .frameWrap{margin:0}
-  .frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);height:calc(100vh - var(--ustH) - 26px);min-height:520px}
-  iframe{width:100%;height:100%;border:0;display:block}
-  #ortaAlan{flex:1;max-width:1120px}
-  #sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
-  #solIcerik{width:300px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
-  #solIcerik .blok{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
-  #solIcerik .blok h2{margin:0 0 8px;font-size:16px}
-  #solIcerik .blok h3{margin:0 0 6px;font-size:13px}
-  #solIcerik .blok p{margin:0 0 8px;font-size:12.5px;color:var(--muted);line-height:1.5}
-  #solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
-  #solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
-  #solIcerik .btn:hover{border-color:#cbd5e1}
-  #solIcerik details.blok{padding:0}
-  #solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
-  #solIcerik details.blok>summary::-webkit-details-marker{display:none}
-  #solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
-  #solIcerik details.blok[open]>summary:after{content:"▴"}
-  #solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
-  #solIcerik .icerik{padding:0 12px 12px}
-  #solIcerik .madde{padding:10px 0;border-bottom:1px dashed var(--line)}
-  #solIcerik .madde:last-child{border-bottom:0}
-  #solIcerik .madde b{display:block;margin:0 0 4px}
-  #solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
-  #solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
-  .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
-  .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
-  .platformlar li .acik{font-size:10px;color:#666}
-  .madde b.arac{font-size:13px;font-weight:600}.madde .deger{font-size:12px;color:var(--muted)}
-
-  .dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
-  .dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
-  .dovizler li span{font-size:10px;color:#555}
-  #solIcerik .kampSayac{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb;font-size:12px;color:#0f172a;display:flex;align-items:center;gap:8px;margin:10px 0}
-  #solIcerik .kampSayac b{font-size:12px}
-  #solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;border-bottom:0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
-  #solIcerik .madde b{font-size:14px}
-  #solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
-  #solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
-  #solIcerik .badge.kredi{background:#e0f2fe;color:#075985}
-  #solIcerik .badge.kredia{background:#e0f2fe;color:#075985}
-  #solIcerik .badge.takas{background:#ecfeff;color:#155e75}
-  #solIcerik .badge.indirim{background:#dcfce7;color:#166534}
-
-  @media (max-width:1200px){
-  #layout{flex-direction:column;align-items:stretch}
-  #solIcerik,#sagReklam{position:static;max-height:none}
-  #ortaAlan{order:1;width:100%;max-width:none}
-  #solIcerik{order:2;width:100%}
-  #sagReklam{order:3;width:100%}
-  .frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
-  }
-
-  @media (max-width:768px){
-    .logo{width:120px;height:36px;}
-    .brand{min-width:auto}
-    .nav a{font-size:10px;padding:7px 9px}
-    .frameBox{height:calc(100vh - var(--ustH) - 28px)}
-    .brand b,.brand .kicker{display:none;}
-    .brand{gap:0;}
-  }
+html{scrollbar-gutter:stable}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+a{color:inherit;text-decoration:none}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:170px}
+.logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
+.brand b{letter-spacing:.6px}
+.kicker{color:var(--muted);font-size:12px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
+.nav a:hover{border-color:#cbd5e1}
+.nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
+main{padding-top:var(--ustH)}
+#layout{display:flex;gap:12px;padding:10px 16px 16px;align-items:flex-start}
+#ortaAlan{flex:1;max-width:1120px}
+#solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+#sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
+#sagReklam h1{margin:0 0 8px;font-size:18px}
+#sagReklam p{margin:0 0 10px;font-size:13px;color:var(--muted);line-height:1.5}
+#solIcerik{width:300px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
+.frameWrap{margin:0}
+.frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06);height:calc(100vh - var(--ustH) - 26px);min-height:520px}
+iframe{width:100%;height:100%;border:0;display:block}
+#solIcerik .blok{border:1px solid var(--line);border-radius:12px;background:#fff}
+#solIcerik details.blok{padding:0}
+#solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
+#solIcerik details.blok>summary::-webkit-details-marker{display:none}
+#solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
+#solIcerik details.blok[open]>summary:after{content:"▴"}
+#solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
+#solIcerik .icerik{padding:0 12px 12px}
+#solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
+#solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+#solIcerik .btn:hover{border-color:#cbd5e1}
+#solIcerik .kampSayac{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb;font-size:12px;color:#0f172a;display:flex;align-items:center;gap:8px;margin:10px 0}
+#solIcerik .kampSayac b{font-size:12px}
+#solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+#solIcerik .madde b{display:block;margin:0 0 6px;font-size:13px;font-weight:600}
+#solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
+#solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
+#solIcerik .madde b.arac{font-size:13px;font-weight:600}
+#solIcerik .madde small.deger{font-size:12px;color:var(--muted)}
+#solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+#solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
+#solIcerik .badge.kredi,#solIcerik .badge.kredia{background:#e0f2fe;color:#075985}
+#solIcerik .badge.takas{background:#ecfeff;color:#155e75}
+#solIcerik .badge.indirim{background:#dcfce7;color:#166534}
+.platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
+.platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.platformlar li .acik{font-size:10px;color:#666}
+.dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
+.dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
+.dovizler li span{font-size:10px;color:#555}
+@media (max-width:1200px){
+#layout{flex-direction:column;align-items:stretch}
+#solIcerik,#sagReklam{position:static;max-height:none;width:100%}
+#ortaAlan{order:1;width:100%;max-width:none}
+#solIcerik{order:2}
+#sagReklam{order:3}
+.frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+}
+@media (max-width:768px){
+.logo{width:120px;height:36px}
+.brand{min-width:auto;gap:0}
+.nav a{font-size:10px;padding:7px 9px}
+.frameBox{height:calc(100vh - var(--ustH) - 28px)}
+.brand b,.brand .kicker{display:none}
+}
 </style>
+
 </head>
 
 <body>
@@ -136,50 +126,52 @@
       <details class="blok" >
         <summary>Sıfır Araç Kampanyaları</summary>
         <div class="icerik">
-            <div class="madde"><b class="arac">Alfa Romeo Junior Ibrida Speciale</b><small class="badge">Takas</small><small class="deger">121.529 TL</small></div>
-            <div class="madde"><b class="arac">Audi A6 e-tron</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small></div>
-            <div class="madde"><b class="arac">Audi Q4 e-tron, Q4 Sportback e-tron</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 6 ay</small></div>
-            
-            <div class="madde"><b class="arac">BMW 120</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay • Takas</small></div>
-            <div class="madde"><b class="arac">BMW 220 Gran Coupe</b><small class="badge">%0 Kredi</small><small class="deger">750.000 TL • 6 ay • Takas 150.000 TL</small></div>
-            <div class="madde"><b class="arac">BMW 320i Sedan, Sport Line, M Sport</b><small class="badge">%0 Kredi</small><small class="deger">4.000.000 TL • 8 ay • Takas 900.000 TL</small></div>
-            
-            <div class="madde"><b class="arac">BYD Dolphin</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay • Peşin 109.000 TL indirim</small></div>
-            
-            <div class="madde"><b class="arac">Citroen Ami</b><small class="badge">%0 Kredi</small><small class="deger">270.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Citroen e-C3, C4, e-C4, C4 X</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Citroen C3 Aircross, e-C3 Aircross</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
-            
-            <div class="madde"><b class="arac">Dacia Sandero Stepway, Jogger</b><small class="badge">Kredi</small><small class="deger">150.000 TL • 6 ay (%0,99)</small></div>
-            
-            <div class="madde"><b class="arac">Fiat 600</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Fiat Topolino</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay • 90.000 TL indirim</small></div>
-            
-            <div class="madde"><b class="arac">Ford Focus</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Ford Puma, Puma Gen-E</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Ford Explorer, Capri</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Ford Ticari (Transit, Custom, Ranger, Courier*)</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 9 ay (*E-Tourneo Courier hariç)</small></div>
-            
-            <div class="madde"><b class="arac">Kia Stonic</b><small class="badge">%0 Kredi</small><small class="deger">veya Takas • Aralık 2025</small></div>
-            <div class="madde"><b class="arac">Kia EV9</b><small class="badge">%0 Kredi</small><small class="deger">veya Takas • Aralık 2025</small></div>
-            
-            <div class="madde"><b class="arac">Nissan Juke</b><small class="badge">%0 Kredi</small><small class="deger">240.000 TL • 12 ay veya Nakit</small></div>
-            <div class="madde"><b class="arac">Nissan X-Trail Platinum Premium</b><small class="badge">%0 Ticari Kredi</small><small class="deger">600.000 TL • 12 ay + Nakit</small></div>
-            
-            <div class="madde"><b class="arac">Opel Astra, Astra Electric</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Opel Combo Cargo</b><small class="badge">%0 Kredi</small><small class="deger">600.000 TL • 12 ay veya Nakit</small></div>
-            
-            <div class="madde"><b class="arac">Peugeot 2008</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Peugeot 408</b><small class="badge">Kredi</small><small class="deger">250.000 TL • 6 ay (%0,49)</small></div>
-            
-            <div class="madde"><b class="arac">Renault 5 E-Tech</b><small class="badge">%0 Kredi</small><small class="deger">350.000 TL • 6 ay (Bireysel)</small></div>
-            <div class="madde"><b class="arac">Renault Duster (Yeni)</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 6 ay</small></div>
-            
-            <div class="madde"><b class="arac">Toyota Proace City</b><small class="badge">%0 Kredi</small><small class="deger">290.000 TL • 6 ay</small></div>
-            <div class="madde"><b class="arac">Toyota Proace Verso</b><small class="badge">%0 Kredi</small><small class="deger">315.000 TL • 12 ay</small></div>
-            <div class="madde"><b class="arac">Toyota Proace City Cargo</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 6 ay</small></div>
-            
-            <div class="madde"><b class="arac">Volkswagen Transporter Kombi</b><small class="badge">%0 Kredi</small><small class="deger">500.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Alfa Romeo Junior Ibrida Speciale</b><small class="badge">Takas</small><small class="deger">121.529 TL</small></div>
+
+<div class="madde"><b class="arac">Audi A6 e-tron</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small></div>
+<div class="madde"><b class="arac">Audi Q4 e-tron, Q4 Sportback e-tron</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">BMW 120</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+<div class="madde"><b class="arac">BMW 220 Gran Coupe</b><small class="badge">%0 Kredi</small><small class="deger">750.000 TL • 6 ay</small><small class="badge">Takas</small><small class="deger">150.000 TL</small></div>
+<div class="madde"><b class="arac">BMW 320i Sedan, Sport Line, M Sport</b><small class="badge">%0 Kredi</small><small class="deger">4.000.000 TL • 8 ay</small><small class="badge">Takas</small><small class="deger">900.000 TL</small></div>
+
+<div class="madde"><b class="arac">BYD Dolphin</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small><small class="badge">Peşin</small><small class="deger">109.000 TL indirim</small></div>
+
+<div class="madde"><b class="arac">Citroen Ami</b><small class="badge">%0 Kredi</small><small class="deger">270.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Citroen e-C3, C4, e-C4, C4 X</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Citroen C3 Aircross, e-C3 Aircross</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+
+<div class="madde"><b class="arac">Dacia Sandero Stepway, Jogger</b><small class="badge">Kredi</small><small class="deger">150.000 TL • 6 ay (%0,99)</small></div>
+
+<div class="madde"><b class="arac">Fiat 600</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Fiat Topolino</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small><small class="badge">İndirim</small><small class="deger">90.000 TL</small></div>
+
+<div class="madde"><b class="arac">Ford Focus</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Puma, Puma Gen-E</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Explorer, Capri</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Ticari (Transit, Custom, Ranger, Courier*)</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 9 ay</small></div>
+
+<div class="madde"><b class="arac">Kia Stonic</b><small class="badge">%0 Kredi</small><small class="deger">Var</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+<div class="madde"><b class="arac">Kia EV9</b><small class="badge">%0 Kredi</small><small class="deger">Var</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+
+<div class="madde"><b class="arac">Nissan Juke</b><small class="badge">%0 Kredi</small><small class="deger">240.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+<div class="madde"><b class="arac">Nissan X-Trail Platinum Premium</b><small class="badge">%0 Ticari Kredi</small><small class="deger">600.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+
+<div class="madde"><b class="arac">Opel Astra, Astra Electric</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Opel Combo Cargo</b><small class="badge">%0 Kredi</small><small class="deger">600.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+
+<div class="madde"><b class="arac">Peugeot 2008</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Peugeot 408</b><small class="badge">Kredi</small><small class="deger">250.000 TL • 6 ay (%0,49)</small></div>
+
+<div class="madde"><b class="arac">Renault 5 E-Tech</b><small class="badge">%0 Kredi</small><small class="deger">350.000 TL • 6 ay (Bireysel)</small></div>
+<div class="madde"><b class="arac">Renault Duster (Yeni)</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">Toyota Proace City</b><small class="badge">%0 Kredi</small><small class="deger">290.000 TL • 6 ay</small></div>
+<div class="madde"><b class="arac">Toyota Proace Verso</b><small class="badge">%0 Kredi</small><small class="deger">315.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Toyota Proace City Cargo</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">Volkswagen Transporter Kombi</b><small class="badge">%0 Kredi</small><small class="deger">500.000 TL • 12 ay</small></div>
+
 
         </div>
       </details>
@@ -297,26 +289,14 @@ links.forEach(a=>{
 });
 window.addEventListener("hashchange",openByHash);
 function kampanyalariKartYap(){
-  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');
-  if(!det) return;
-  const ic=det.querySelector('.icerik'); if(!ic) return;
+  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
+  const ic=det.querySelector('.icerik');if(!ic)return;
   const maddeler=Array.from(ic.querySelectorAll('.madde'));
-  let sayac=ic.querySelector('.kampSayac');
-  if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
+  let sayac=ic.querySelector('.kampSayac');if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
   sayac.innerHTML='✅ <b>'+maddeler.length+'</b> aktif kampanya';
-  maddeler.forEach(m=>{
-    if(m.querySelector('.badges')) return;
-    const s=Array.from(m.querySelectorAll('small')).map(x=>x.textContent.trim()).join(' ').toLowerCase();
-    const row=document.createElement('div');row.className='badges';
-    const ekle=(cls,txt)=>{const sp=document.createElement('span');sp.className='badge '+cls;sp.textContent=txt;row.appendChild(sp);};
-    if(s.includes('%0')&& !s.includes('%0,') && !s.includes('%0.')) ekle('kredi','%0 Kredi');
-    if(s.includes('faiz')) ekle('kredia','Kredi Avantajı');
-    if(s.includes('takas')) ekle('takas','Takas');
-    if(s.includes('indirim')||s.includes('peşin')) ekle('indirim','Peşin İndirim');
-    m.insertBefore(row,m.querySelector('small')||null);
-  });
 }
 kampanyalariKartYap();
+
 
 openByHash();
 </script>
