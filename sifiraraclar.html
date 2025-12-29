@@ -196,13 +196,15 @@ body.filtreKapali .filtre-grup{display:none;}
 
 <script>
 document.getElementById("markaButon").addEventListener("click",function(e){
-  e.preventDefault();e.stopPropagation();
-  document.getElementById("markaModal").style.display="block";
+e.preventDefault();e.stopPropagation();
+document.getElementById("markaModal").style.display="block";
 });
-window.addEventListener("pointerdown",function(event){
-  const modal=document.getElementById("markaModal");
-  if(modal.style.display==="block"&&!modal.contains(event.target)&&event.target.id!=="markaButon"){modal.style.display="none";}
+document.addEventListener("pointerdown",function(e){
+const modal=document.getElementById("markaModal");
+const btn=document.getElementById("markaButon");
+if(modal.style.display==="block"&&!modal.contains(e.target)&&!btn.contains(e.target))modal.style.display="none";
 });
+
 
 var tumVeri=[],guncellemeTarihi="";
 
