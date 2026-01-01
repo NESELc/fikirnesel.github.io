@@ -112,7 +112,7 @@
     <h3> Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
 	<table class="tbl">
 		<tr><th> Tarih </th><th> Kullanıcı </th><th> Birim Fiyat </th></tr>
-	    <tr><td> 27/03/2025 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2.33" /> TL</td></tr>
+	    <tr><td> 27/03/2025 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2.33" /> &#8378 </td></tr>
   	</table>
 	<table class="tbl">
 	<tr><th class="besya"> Cinsi </th><th> Etiket kWh/yıl </th>	<th> Aylık Faturaya Etkisi </th></tr>
@@ -163,10 +163,10 @@ function ctuketimhesap(){
   let sumK=0,sumTL=0;
   ids.forEach(k=>{
     const kwh=n($(k+"tuketim").value); const tut=(kwh/12)*tl; sumK+=kwh; sumTL+=tut;
-    $(k+"tl").innerHTML=`${fmt(tut,1)} &#8378`;
+    $(k+"tl").innerHTML=`&#8378${fmt(tut,1)}`;
   });
   $("toplamtuketim").textContent=`${fmt(sumK,0)} kWh`;
-  $("toplamtl").innerHTML=`${fmt(sumTL,1)} &#8378`;
+  $("toplamtl").innerHTML=`&#8378 ${fmt(sumTL,1)}`;
 }
 ["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
 ["kabkesit","kabseviye"].forEach(id=>$(id).addEventListener("change",kablohesap));
