@@ -163,7 +163,7 @@ function ctuketimhesap(){
   let sumK=0,sumTL=0;
   ids.forEach(k=>{
     const kwh=n($(k+"tuketim").value); const tut=(kwh/12)*tl; sumK+=kwh; sumTL+=tut;
-    $(k+"tl").innerHTML=`&#8378${fmt(tut,1)}`;
+    $(k+"tl").innerHTML=`&#8378 ${fmt(tut,1)}`;
   });
   $("toplamtuketim").textContent=`${fmt(sumK,0)} kWh`;
   $("toplamtl").innerHTML=`&#8378 ${fmt(sumTL,1)}`;
