@@ -41,50 +41,15 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 #filtreAcKapa{display:none;font-family:Comic Sans MS;font-size:13px;background:#EEE;cursor:pointer;}
 
 /* ✅ Marka çoklu seçim dropdown */
-.ddbtn{
-  font-family:Comic Sans MS;
-  font-size:13px;
-  padding:3px 6px;
-  border:1px solid #bbb;
-  background:#fff;
-  cursor:pointer;
-  min-width:130px;
-  text-align:left;
-}
-.ddpanel{
-  display:none;
-  position:fixed;
-  background:#fff;
-  border:1px solid #bbb;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-  border-radius:8px;
-  padding:8px;
-  z-index:9998;
-  min-width:240px;
-  max-width:320px;
-}
-.ddsearch{
-  width:100%;
-  font-family:Comic Sans MS;
-  font-size:13px;
-  padding:4px 6px;
-  border:1px solid #ccc;
-  border-radius:6px;
-  margin-bottom:6px;
-}
+.ddbtn{ font-family:Comic Sans MS;font-size:13px;padding:3px 6px; border:1px solid #bbb; background:#fff; cursor:pointer; min-width:130px;  text-align:left;}
+.ddpanel{ display:none;  position:fixed; background:#fff; border:1px solid #bbb; box-shadow:0 6px 18px rgba(0,0,0,.12); border-radius:8px; padding:8px;
+  z-index:9998; min-width:240px; max-width:320px;}
+.ddsearch{width:100%; font-family:Comic Sans MS;font-size:13px; padding:4px 6px; border:1px solid #ccc; border-radius:6px; margin-bottom:6px;}
 .ddlist{max-height:220px;overflow:auto;font-size:13px;}
 .ddlist label{display:block;font-weight:normal;white-space:nowrap;padding:2px 0;}
 .ddlist input{margin-right:6px;vertical-align:middle;}
 .ddact{display:flex;gap:6px;margin-top:6px;}
-.ddact button{
-  font-family:Comic Sans MS;
-  font-size:13px;
-  padding:3px 8px;
-  border:1px solid #bbb;
-  background:#eee;
-  border-radius:8px;
-  cursor:pointer;
-}
+.ddact button{ font-family:Comic Sans MS; font-size:13px; padding:3px 8px; border:1px solid #bbb; background:#eee; border-radius:8px;  cursor:pointer;}
 
 @media (max-width:768px){
 #filtreAcKapa{display:inline-block;margin:0 0 6px 0;padding:4px 8px;border:1px solid #bbb;border-radius:8px;}
@@ -135,14 +100,11 @@ body.filtreKapali .filtre-grup{display:none;}
 
   <div id="sonuclarWrap">
     <div id="sonuclar"></div>
-    <div class="tarihinfo" id="tarihYazi"></div>
     <div class="tarihinfo">
-      * Bu sayfada yer alan araç fiyat ve özellikleri, Aralık 2025 itibarıyla kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+      * Bu sayfada yer alan araç fiyat ve özellikleri, kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
       <br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir.
       <br>* Farklı versiyon, donanım seviyesi veya opsiyonlara göre fiyatlar değişebilir. Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
-      <br>* Her bir marka ve model için, aynı sınıf, segment ve yakıt türüne sahip versiyonlar arasından en düşük anahtar teslim fiyatlı olan seçilmiştir.
       <br>* Bentley,Ferrari,Jaguar ve Maserari marka araçlar için resmi kaynaklarda fiyat bilgileri bulunmamaktadır.Bu markalar için yapay zeka destekli tahmini fiyat ve özellikler yer almaktadır.
-      <br>* Sayfa kodları ve verileri ChatGPT, DeepSeek ve GROK kullanılarak derlenmiştir.
     </div>
   </div>
 </div>
