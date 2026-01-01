@@ -27,7 +27,7 @@
 	.tbl tbody tr:first-child td{background:#fff}
 	.tbl tr:last-child td{border-bottom:0}
 	.tbl .toplam{background:var(--tblH);font-weight:900}
-	.tbl .elk{background:#EEEEEE}
+	.tbl tbody tr.elk td{background:#EEEEEE}
 	.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800}
 	input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
 	input[type=number],input[type=text]{width:110px;text-align:center}
@@ -85,7 +85,7 @@
 <div class="card" style="margin-top:12px">
 	<table class="tbl">
 		<tr><th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
-		<tr><th> Kesit </th><th> Gerilim </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
+		<tr class="tbl elk"><th> Kesit </th><th> Gerilim </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
 		<tr>
 		<td>
 			<select id="kabkesit" name="kabkesit" onchange="kablohesap (this)">
