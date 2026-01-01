@@ -21,9 +21,9 @@
 		.wrap{max-width:1100px;margin:0 auto;padding:14px}
 		.hero{text-align:center;margin:6px 0 12px}
 		.hero img{width:140px;height:auto}
-		h3{margin:14px 0 10px;font-size:18px}
+		h3{margin:14px 0 10px;font-size:13px}
 		.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
-		.note{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+		.note{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.35}
 		.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;overflow:hidden;border:1px solid var(--line);border-radius:12px}
 		.tbl th,.tbl td{padding:10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
 		.tbl th{background:#f1f5f9;color:#0b3b7a;font-weight:700}
@@ -74,7 +74,7 @@
 		</tr>
 		
 	</table>
-	<label>*Değerler formüller ile hesaplanmaktadır. Katalog verileri kullanılmamıştır.</label>
+	<label>*Değerler formüller doğrultusunda hesaplanmaktadır.</label>
 </div>
 <div class="card" style="margin-top:12px">
 	<table >
@@ -110,17 +110,16 @@
 		</tr>
 	</table>
 	<label>*Bir kablo üreticisinin katalog verileri kullanılmıştır.</label>
-	<br /><br />	
 </div>
 <div class="card" style="margin-top:12px">
     <h3> Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
 	<table >
 		<tr><th> Tarih </th><th> Kullanıcı </th><th> Birim Fiyat </th></tr>
-	    <tr><td> 01/07/2024 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2.59" /> TL</td></tr>
+	    <tr><td> 01/07/2024 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2.33" /> TL</td></tr>
   	</table>
-  	<label>*Aşağıdaki tabloda hesaplamalar bu birim fiyat üzerinden yapılmaktadır.Vergi ve fonlar dahil yaklaşık bedeli gösterir.</label>
+  	<label>*Aşağıdaki tabloda hesaplamalar bu birim fiyat(mesken,8 kwh/gün ve altı için tek zamanlı tarife) üzerinden yapılmaktadır.Vergi ve fonlar dahil yaklaşık bedeli gösterir.</label>
   	<a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank">EPDK Fatura Hesaplama Sitesi</a>
-	<table bgcolor="#F3F3F3" style="width: 100%;">
+	<table >
 	<tr><th class="besya"> Cinsi </th><th> Etiket kWh/yıl </th>	<th> Aylık Faturaya Etkisi </th></tr>
 	<tr><td class="besya"> Bulaşık Makinesi </td><td><input id="bultuketim" onchange="ctuketimhesap (this)" type="text" value="270" /></td><td><div id="bultl"></div></td></tr>
 	<tr><td class="besya"> Buzdolabı </td><td><input id="buztuketim" onchange="ctuketimhesap (this)" type="text" value="350" /></td><td><div id="buztl"></div></td></tr>
