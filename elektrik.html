@@ -27,6 +27,7 @@
 	.tbl tbody tr:first-child td{background:#fff}
 	.tbl tr:last-child td{border-bottom:0}
 	.tbl .toplam{background:var(--tblH);font-weight:900}
+	.elk{background:#EEEEEE}
 	.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800}
 	input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
 	input[type=number],input[type=text]{width:110px;text-align:center}
@@ -48,7 +49,7 @@
 <div class="card">
 	<table class="tbl">
 		<tr><th colspan="5"> Trafo Primer(Ip)- Sekonder(Is) Akım Hesabı </th>	</tr>
-		<tr><th> Gücü </th><th> Up </th><th> Us </th><th> Ip </th><th> Is </th>	</tr>
+		<tr class="elk"><th> Gücü </th><th> Up </th><th> Us </th><th> Ip </th><th> Is </th>	</tr>
 		<tr>
 		<td>
 			<select id="ogtr" name="ogtr" onchange="trhesap (this)">
