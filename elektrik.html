@@ -30,7 +30,7 @@
 		.tbl tr:last-child td{border-bottom:0}
 		.tbl tr:nth-child(even) td{background:#fafcff}
 		.tbl tr:hover td{background:#f3f7ff}
-		.tbl td.toplam,.tbl tr .toplam{background:#f1f5f9;color:#0b3b7a;font-weight:900}
+		.tbl .toplam{background:#f1f5f9;color:#0b3b7a;font-weight:900}
 		.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef6ff;border:1px solid var(--line);font-weight:800;color:#0b3b7a}
 		.left{text-align:left}
 		.kpi{font-weight:800;color:#0b3b7a}
@@ -47,8 +47,8 @@
 	<h3>Elektriksel Hesaplamalar</h3>
 	
 <div class="card">
-	Trafo Primer(Ip)- Sekonder(Is) Akım Hesabı
 	<table class="tbl">
+		<tr><th colspan="5"> Trafo Primer(Ip)- Sekonder(Is) Akım Hesabı </th>	</tr>
 		<tr><th> Gücü </th><th> Up </th><th> Us </th><th> Ip </th><th> Is </th>	</tr>
 		<tr>
 		<td>
@@ -87,28 +87,19 @@
 		<tr><th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
 		<tr><th> Kesit </th><th> Gerilim </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
 		<tr>
-		<td><select id="kabkesit" name="kabkesit" onchange="kablohesap (this)">
-			<option value="875">630 mm2</option>
-			<option value="786">500 mm2</option>
-			<option value="701">400 mm2</option>
-			<option value="627">300 mm2</option>
-			<option value="559">240 mm2</option>
-			<option value="484">185 mm2</option>
-			<option value="430">150 mm2</option>
-			<option value="385">120 mm2</option>
-			<option value="339">95 mm2</option>
-			<option value="284">70 mm2</option>
-			<option value="232">50 mm2</option>
-			<option value="165">35 mm2</option>
-		</select>	</td>	
-		<td><select id="kabseviye" name="kabseviye" onchange="kablohesap (this)">
-			<option value="34.5">34,5 kV</option>
-			<option value="33">33 kV</option>
-			<option value="31.5">31,5 kV</option>
-			<option value="15.8">15,8 kV</option>
-			<option value="10.5">10,5 kV</option>
-			<option value="6.3">6,3 kV</option>
-		</select></td>
+		<td>
+			<select id="kabkesit" name="kabkesit" onchange="kablohesap (this)">
+			<option value="875">630 mm2</option><option value="786">500 mm2</option><option value="701">400 mm2</option><option value="627">300 mm2</option>
+			<option value="559">240 mm2</option><option value="484">185 mm2</option><option value="430">150 mm2</option><option value="385">120 mm2</option>
+			<option value="339">95 mm2</option><option value="284">70 mm2</option><option value="232">50 mm2</option><option value="165">35 mm2</option>
+			</select>	
+		</td>	
+		<td>
+			<select id="kabseviye" name="kabseviye" onchange="kablohesap (this)">
+			<option value="34.5">34,5 kV</option><option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>
+			<option value="10.5">10,5 kV</option><option value="6.3">6,3 kV</option>
+			</select>
+		</td>
 		<td><div id="kabomaj"></div></td>
 		<td><div id="kabakim"></div></td>
 		<td><div id="kabakimH"></div></td>
@@ -140,11 +131,11 @@
 	</table>
 	<div class="bilgilendirme">
 		*Primer ve Sekonder akım hesaplamaları formüller doğrultusunda yapılmaktadır.
-		</br>*Kablo akım taşıma değerleri bir kablo üreticisinin katalog verilerinden alınmıştır.
-		</br>*Aşağıdaki tabloda hesaplamalar bu birim fiyat(mesken,8 kwh/gün ve altı için tek zamanlı tarife) üzerinden yapılmaktadır.
+		<br>*Kablo akım taşıma değerleri bir kablo üreticisinin katalog verilerinden alınmıştır.
+		<br>*Aşağıdaki tabloda hesaplamalar bu birim fiyat(mesken,3.000 kwh/yıl-8 kwh/gün ve altı için tek zamanlı tarife) üzerinden yapılmaktadır.
 		Vergi ve fonlar dahil yaklaşık bedeli gösterir.
 	  	<a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank">EPDK Fatura Hesaplama Sitesi</a>
-		</br>*İlk Etiket değerleri tahmini değerlerdir, etiket değerlerini bildiğiniz cihazlar için değerleri değiştirebilirsiniz.
+		<br>*İlk Etiket değerleri tahmini değerlerdir, etiket değerlerini bildiğiniz cihazlar için değerleri değiştirebilirsiniz.
 		Tarife uygulamaları nedeniyle daha düşük veya daha fazla ücretler ortaya çıkabilir.
 	</div>
 </div>
