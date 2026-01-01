@@ -15,29 +15,25 @@
 		  <meta property="og:type" content="website">
 		  <meta property="og:url" content="https://nesel.tr/elektrik.html">
 	<style>
-		:root{--bg:#EEEEEE;--card:#EEEEEE;--txt:#0f172a;--muted:#475569;--line:#9e9e9e;--a:#2563eb;--r:14px;--tblH:#bdbdbd;--tblZ:#ffffff;--pill:#e6e6e6}
-		*{box-sizing:border-box}body{margin:0;font-family:Comic Sans MS;background:var(--bg);color:var(--txt)}
-		a{color:var(--a);text-decoration:none}a:hover{text-decoration:underline}
-		.wrap{max-width:1100px;margin:0 auto;padding:14px}
-		h3{margin:14px 0 10px;font-size:13px}
-		.card{background:var(--card);border:0px;border-radius:var(--r);padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-		.note{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.35}
-		.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-		.tbl th,.tbl td{padding:10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
-		.tbl th{background:var(--tblH);color:#000;font-weight:700}
-		.tbl tr:nth-child(even) td{background:var(--tblZ)}
-		.tbl tr:last-child td{border-bottom:0}
-		.tbl .toplam{background:var(--tblH);color:#000;font-weight:900}
-		.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800;color:#000}
-		input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--pill);font-weight:700;color:#000}
-		input[type=number],input[type=text]{width:110px;text-align:center}
-		.left{text-align:left}.kpi{font-weight:800}
-		.bilgilendirme{font-family:Comic Sans MS;font-size:13px}
-		.card > .tbl{border-top:0}
-		.tbl tbody tr:first-child td{background:#fff}
-
-		@media(max-width:700px){.tbl th,.tbl td{padding:8px;font-size:12px}input,select{height:32px}}
+	:root{--bg:#EEEEEE;--card:transparent;--line:#9e9e9e;--tblH:#bdbdbd;--tblZ:#ffffff;--pill:#e6e6e6}
+	*{box-sizing:border-box}body{margin:0;font-family:Comic Sans MS;background:var(--bg)}
+	.wrap{max-width:1100px;margin:0 auto;padding:14px}
+	h3{margin:14px 0 10px;font-size:13px}
+	.card{background:transparent;border:0;padding:0;margin-bottom:12px}
+	.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+	.tbl th,.tbl td{padding:10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+	.tbl th{background:var(--tblH);font-weight:700}
+	.tbl tbody tr td{background:var(--tblZ)}
+	.tbl tbody tr:first-child td{background:#fff}
+	.tbl tr:last-child td{border-bottom:0}
+	.tbl .toplam{background:var(--tblH);font-weight:900}
+	.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800}
+	input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
+	input[type=number],input[type=text]{width:110px;text-align:center}
+	.bilgilendirme{font-family:Comic Sans MS;font-size:13px}
+	@media(max-width:700px){.tbl th,.tbl td{padding:8px;font-size:12px}input,select{height:32px}}
 	</style>
+
 
 
 </head>
@@ -115,7 +111,7 @@
 	    <tr><td> 27/03/2025 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2,33" /> &#8378 </td></tr>
   	</table>
 	<table class="tbl">
-	<tr><th class="besya"> Cinsi </th><th> Etiket kWh/yıl </th>	<th> Aylık Faturaya Etkisi </th></tr>
+	<tr><th class="besya"> Eşya </th><th> Etiket kWh/yıl </th>	<th> Aylık Faturaya Etkisi </th></tr>
 	<tr><td class="besya"> Bulaşık Makinesi </td><td><input id="bultuketim" onchange="ctuketimhesap (this)" type="text" value="270" /></td><td><div id="bultl"></div></td></tr>
 	<tr><td class="besya"> Buzdolabı </td><td><input id="buztuketim" onchange="ctuketimhesap (this)" type="text" value="350" /></td><td><div id="buztl"></div></td></tr>
 	<tr><td class="besya"> Çamaşır Makinesi </td><td><input id="camtuketim" onchange="ctuketimhesap (this)" type="text" value="120" /></td><td><div id="camtl"></div></td></tr>
