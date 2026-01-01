@@ -6,28 +6,35 @@
 		  <meta name="google-adsense-account" content="ca-pub-1268402107177386">
 		  <meta charset="UTF-8">
 		  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-		  <title>Sıfır Araç Fiyatları | Tüm Markalar</title>
-		  <meta name="description" content="Sıfır araç fiyatları tüm markalar için listelendi. Segment, yakıt türü ve vites tipine göre arabaları karşılaştırın.">
+		  <title>Elektriksel Hesaplamalar | Elektrik Tüketimi</title>
+		  <meta name="description" content="Ev eşyaları elektrik tüketimleri, verimlilik.Trafo güçlerine göre primer-sekonder akımlar. XLPE kablo akım taşıma kapasiteleri.">
 		  <meta name="robots" content="index,follow">
-		  <link rel="canonical" href="https://nesel.tr/sifiraraclar.html">
-		  <meta property="og:title" content="Sıfır Araç Fiyatları">
-		  <meta property="og:description" content="Segment, yakıt türü ve vites tipine göre arabaları karşılaştırın.">
+		  <link rel="canonical" href="https://nesel.tr/elektrik.html">
+		  <meta property="og:title" content="Elektriksel Hesaplamalar ve Tüketimler">
+		  <meta property="og:description" content="Elektrik tüketimlerinizi karşılaştırın, temel elektrik bilgilerine ulaşın.">
 		  <meta property="og:type" content="website">
-		  <meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
+		  <meta property="og:url" content="https://nesel.tr/elektrik.html">
 	<style>
-	label{width:100%; font-family: Calibri; font-size:2.5vmin;}
-	table{border: 1px solid black; color: black; font-family: Calibri; font-size:2.5vmin; font-weight: Bold; background-color: #F3F3F3;width: 100%;}
-	th {  background-color: #DDDDDD; color: #01579B;text-align: center;font-size:2.5vmin;}
-	td.besya {  text-align: left;width:15%;}
-	td.toplam {  background-color: #DDDDDD;text-align: center;width:15%;color: #01579B}
-	td {text-align: center; width:15%;font-size:2.5vmin;  }
-	input[type=button] {  background-color: #B8E8EF; border: 2px solid black ;padding: 0.5vw 0.5vw; color: black; text-decoration: none; cursor: pointer;}
-	input[type=button]:hover {  background-color: #DDDDDD; border: 2px solid black ;padding: 0.5vw 0.5vw; color: black; text-decoration: none; cursor: pointer;}
-	input[type=text] {  text-align:center; width:10vmin; background-color: #B8E8EF; cursor: pointer;}
-	select {  cursor: pointer; background-color: #B8E8EF;font-weight: Bold;font-size:2.5vmin;}
-	option{  padding: 1vw 1vw; cursor: pointer; font-weight: Bold;background-color: #B8E8EF;}
-	
+		:root{--bg:#f6f7fb;--card:#fff;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--a:#2563eb;--r:14px}
+		*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+		a{color:var(--a);text-decoration:none}a:hover{text-decoration:underline}
+		.wrap{max-width:1100px;margin:0 auto;padding:14px}
+		.hero{text-align:center;margin:6px 0 12px}
+		.hero img{width:140px;height:auto}
+		h3{margin:14px 0 10px;font-size:18px}
+		.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+		.note{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+		.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;overflow:hidden;border:1px solid var(--line);border-radius:12px}
+		.tbl th,.tbl td{padding:10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+		.tbl th{background:#f1f5f9;color:#0b3b7a;font-weight:700}
+		.tbl tr:last-child td{border-bottom:0}
+		.left{text-align:left}
+		.kpi{font-weight:800;color:#0b3b7a}
+		input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#eef6ff;font-weight:700}
+		input[type=number],input[type=text]{width:110px;text-align:center}
+		@media(max-width:700px){.tbl th,.tbl td{padding:8px;font-size:12px}input,select{height:32px}}
 	</style>
+
 </head>
 
 <body>
@@ -39,58 +46,33 @@
 	<table >
 		<tr><th colspan="5"> Trafo Primer(Ip)- Sekonder(Is) Akım Hesabı </th>		</tr>
 		
-		<tr>
-			<th> Gücü </th>
-			<th> Primer Gerilimi </th>
-			<th> Sekonder Gerilimi </th>
-			<th> Ip </th>
-			<th> Is </th>
-		</tr>
+		<tr><th> Gücü </th><th> Primer Gerilimi </th><th> Sekonder Gerilimi </th><th> Ip </th><th> Is </th>		</tr>
 		
 		<tr>
-		<td><select id="ogtr" name="ogtr" onchange="trhesap (this)">
-			<option value="100000">100 MVA</option>
-			<option value="50000">50 MVA</option>
-			<option value="25000">25 MVA</option>
-			<option value="10000">10 MVA</option>
-			<option value="5000">5 MVA</option>
-			<option value="2500">2.500 kVA</option>
-			<option value="2000">2.000 kVA</option>
-			<option value="1600">1.600 kVA</option>
-			<option value="1250">1.250 kVA</option>
-			<option value="1000">1.000 kVA</option>
-			<option value="800">800 kVA</option>
-			<option value="630">630 kVA</option>
-			<option value="400">400 kVA</option>
-			<option value="250">250 kVA</option>
-			<option value="160">160 kVA</option>
-			<option value="100">100 kVA</option>
-			<option value="50">50 kVA</option>
-			<option value="25">25 kVA</option>
-		</select>	</td>
+		<td>
+			<select id="ogtr" name="ogtr" onchange="trhesap (this)">
+			<option value="100000">100 MVA</option><option value="50000">50 MVA</option><option value="25000">25 MVA</option><option value="10000">10 MVA</option>
+			<option value="5000">5 MVA</option>	<option value="2500">2.500 kVA</option><option value="2000">2.000 kVA</option><option value="1600">1.600 kVA</option>
+			<option value="1250">1.250 kVA</option><option value="1000">1.000 kVA</option><option value="800">800 kVA</option><option value="630">630 kVA</option>
+			<option value="400">400 kVA</option><option value="250">250 kVA</option><option value="160">160 kVA</option><option value="100">100 kVA</option>
+			<option value="50">50 kVA</option><option value="25">25 kVA</option>
+			</select>	
+		</td>
 		
-		<td><select id="ogseviyeP" name="ogseviyeP" onchange="trhesap (this)">
-			<option value="380">380 kV</option>
-			<option value="154">154 kV</option>
-			<option value="66">66 kV</option>
-			<option value="34.5">34,5 kV</option>
-			<option value="33">33 kV</option>
-			<option value="31.5">31,5 kV</option>
-			<option value="15.8">15,8 kV</option>
-			<option value="10.5">10,5 kV</option>
+		<td>
+			<select id="ogseviyeP" name="ogseviyeP" onchange="trhesap (this)">
+			<option value="380">380 kV</option><option value="154">154 kV</option><option value="66">66 kV</option>	<option value="34.5">34,5 kV</option>
+			<option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>	<option value="10.5">10,5 kV</option>
 			<option value="6.3">6,3 kV</option>
-
-		</select></td>
+			</select>
+		</td>
 		
-		<td><select id="ogseviyeS" name="ogseviyeS" onchange="trhesap (this)">
-			<option value="34.5">34,5 kV</option>
-			<option value="33">33 kV</option>
-			<option value="31.5">31,5 kV</option>
-			<option value="15.8">15,8 kV</option>
-			<option value="10.5">10,5 kV</option>
-			<option value="6.3">6,3 kV</option>
-			<option value="0.4">0,4 kV</option>
-		</select></td>
+		<td>
+			<select id="ogseviyeS" name="ogseviyeS" onchange="trhesap (this)">
+			<option value="34.5">34,5 kV</option><option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>
+			<option value="10.5">10,5 kV</option><option value="6.3">6,3 kV</option><option value="0.4">0,4 kV</option>
+			</select>
+		</td>
 			<td><div id="ogPakim"></div></td>
 			<td><div id="ogSakim"></div></td>
 		</tr>
@@ -99,18 +81,8 @@
 	<label>*Değerler formüller ile hesaplanmaktadır. Katalog verileri kullanılmamıştır.</label>
 	<br /><br />
 	<table >
-		<tr>
-			<th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>
-		</tr>
-		
-		<tr>
-			<th> Kesit </th>
-			<th> Gerilim </th>
-			<th> Direnci </th>
-			<th> I-Toprak </th>
-			<th> I-Hava </th>
-			<th> P </th>
-		</tr>
+		<tr><th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
+		<tr><th> Kesit </th><th> Gerilim </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
 		<tr>
 		<td><select id="kabkesit" name="kabkesit" onchange="kablohesap (this)">
 			<option value="875">630 mm2</option>
@@ -143,32 +115,18 @@
 	<label>*Bir kablo üreticisinin katalog verileri kullanılmıştır.</label>
 	<br /><br />	
 	
-  
     <h3> Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
 	
   <table >
-		<tr>
-			<th> Tarih </th>
-			<th> Kullanıcı </th>
-			<th> Birim Fiyat </th>
-		</tr>
-    		<tr>
-			<td> 01/07/2024 </td>
-            <td> Mesken </td>
-			<td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2.59" /> TL</td>
-		</tr>
+	<tr><th> Tarih </th><th> Kullanıcı </th><th> Birim Fiyat </th></tr>
+    <tr><td> 01/07/2024 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2.59" /> TL</td></tr>
   </table>
   <label>*Aşağıdaki tabloda hesaplamalar bu birim fiyat üzerinden yapılmaktadır.Vergi ve fonlar dahil yaklaşık bedeli gösterir.</label>
   <br>
   <a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank">EPDK Fatura Hesaplama Sitesi</a>
   <br /><br />
    <table bgcolor="#F3F3F3" style="width: 100%;">
-		<tr>
-			<th class="besya"> Cinsi </th>
-			<th> Etiket kWh/yıl </th>
-			<th> Aylık Faturaya Etkisi </th>
-		</tr>
-		
+		<tr><th class="besya"> Cinsi </th><th> Etiket kWh/yıl </th>	<th> Aylık Faturaya Etkisi </th></tr>
 		<tr>
 			<td class="besya"> Bulaşık Makinesi </td>
 			<td><input id="bultuketim" onchange="ctuketimhesap (this)" type="text" value="270" /></td>
@@ -245,136 +203,39 @@
 <label>*İlk Etiket değerleri tahmini değerlerdir, etiket değerlerini bildiğiniz cihazlar için değerleri değiştirebilirsiniz.Tarife uygulamaları nedeniyle daha düşük veya daha fazla ücretler ortaya çıkabilir.  </label>
  
   
-  <script>	
-    	Number.prototype.formatSayi = function (fractionDigits, decimal, separator) 
-	{
-	fractionDigits = isNaN(fractionDigits = Math.abs(fractionDigits)) ? 2 : fractionDigits;
-	decimal = typeof (decimal) === "undefined" ? "." : decimal;
-	separator = typeof (separator) === "undefined" ? "," : separator;
-	var number = this;
-	var neg = number < 0 ? "-" : "";
-	var wholePart = parseInt(number = Math.abs(+number || 0).toFixed(fractionDigits)) + "";
-	var separtorIndex = (separtorIndex = wholePart.length) > 3 ? separtorIndex % 3 : 0;
-	return neg +
-	(separtorIndex ? wholePart.substr(0, separtorIndex) + separator : "") +
-	wholePart.substr(separtorIndex).replace(/(\d{3})(?=\d)/g, "$1" + separator) +
-	(fractionDigits ? decimal + Math.abs(number - wholePart).toFixed(fractionDigits).slice(2) : "");
-	};
-
-  function formatSayi (raw,ond) 
-	{
- 	return Number(raw).formatSayi(ond, ',', '.');
-	}
-		
-		function trhesap()
-		{
-			var ogtr1=Number(document.getElementById("ogtr").value);
-			var ogsevP=Number(document.getElementById("ogseviyeP").value);
-			var ogsevS=Number(document.getElementById("ogseviyeS").value);
-			var ogPakim= ogtr1/(ogsevP*1.73205);
-			var ogdonusum = 1*ogsevP/ogsevS;
-			var ogSakim= ogdonusum*ogPakim;
-			ogPakim= formatSayi(ogPakim,1);
-			ogSakim= formatSayi(ogSakim,1);	
-			document.getElementById("ogPakim").innerHTML= "" +ogPakim + " A";
-			document.getElementById("ogSakim").innerHTML= "" +ogSakim + " A";
-		}
-		trhesap(this);
-	
-		function kablohesap()
-		{
-			var kabakim=Number(document.getElementById("kabkesit").value);
-			var kabkes=Number(document.getElementById("kabkesit").value);
-			var kabsev=Number(document.getElementById("kabseviye").value);
-			var kabomaj=0.017857*(1000/kabkes);
-			var kabguc= (kabsev*1.73*kabkes)/1000;
-			var kabakimH=kabakim*1.2;
-			kabomaj= formatSayi(kabomaj,2);
-			kabakim= formatSayi(kabakim,1);
-			kabakimH= formatSayi(kabakimH,1);
-			kabguc=formatSayi(kabguc,1);
-			document.getElementById("kabomaj").innerHTML=""+kabomaj + " &#8486/km";
-			document.getElementById("kabakim").innerHTML=""+kabakim + " A";
-			document.getElementById("kabakimH").innerHTML=""+kabakimH + " A";
-			document.getElementById("kabguc").innerHTML=""+kabguc + " MW";
-		}
-		kablohesap(this);
-
-		function reset()
-		{
-		var sifir=0;
-		document.getElementById("sayi1").value = +sifir;
-		document.getElementById("sayi2").value = +sifir ;
-		document.getElementById("sayi3").value = +sifir;
-		basithesap(this);
-		}
-		
-		function ctuketimhesap()
-		{
-          	var mesken = Number(document.getElementById("meskentl").value);;
-			var buztuketim=Number(document.getElementById("buztuketim").value);
-			var camtuketim=Number(document.getElementById("camtuketim").value);
-			var bultuketim=Number(document.getElementById("bultuketim").value);
-			var tvtuketim=Number(document.getElementById("tvtuketim").value);
-			var firintuketim=Number(document.getElementById("firintuketim").value);
-			var ututuketim=Number(document.getElementById("ututuketim").value);
-			var supurgetuketim=Number(document.getElementById("supurgetuketim").value);
-			var modemtuketim=Number(document.getElementById("modemtuketim").value);
-			var sactuketim=Number(document.getElementById("sactuketim").value);
-			var klimatuketim=Number(document.getElementById("klimatuketim").value);
-			var kombituketim=Number(document.getElementById("kombituketim").value);
-			var buztl = (buztuketim/12)*mesken;
-			var camtl = (camtuketim/12)*mesken;
-			var bultl = (bultuketim/12)*mesken;
-			var tvtl = (tvtuketim/12)*mesken;
-			var firintl = (firintuketim/12)*mesken;
-			var ututl = (ututuketim/12)*mesken;
-			var supurgetl = (supurgetuketim/12)*mesken;
-			var modemtl = (modemtuketim/12)*mesken;
-			var sactl = (sactuketim/12)*mesken;
-			var klimatl = (klimatuketim/12)*mesken;
-			var kombitl = (kombituketim/12)*mesken;
-			
-			var toptl= (1*buztl) + (1*camtl)+ (1*bultl)+ (1*tvtl)+ (1*firintl)+ (1*ututl)+ (1*supurgetl)+ (1*modemtl)+ (1*sactl)+ (1*klimatl)+ (1*kombitl);
-			var toplamtl= toptl;
-			var toptuketim = (1*buztuketim) + (1*camtuketim) + (1*bultuketim)+ (1*tvtuketim)+(1*firintuketim) +(1*ututuketim)+(1*supurgetuketim)+(1*modemtuketim)+					(1*sactuketim)+(1*klimatuketim)+(1*kombituketim);
-			var toplamtuketim = toptuketim;
-			
-			buztl= formatSayi(buztl,1);
-			camtl= formatSayi(camtl,1);
-			bultl= formatSayi(bultl,1);
-			tvtl= formatSayi(tvtl,1);
-			firintl= formatSayi(firintl,1);
-			ututl= formatSayi(ututl,1);
-			supurgetl= formatSayi(supurgetl,1);
-			modemtl= formatSayi(modemtl,1);
-			sactl= formatSayi(sactl,1);
-			klimatl= formatSayi(klimatl,1);
-			kombitl= formatSayi(kombitl,1);
-			
-			toplamtl=formatSayi(toplamtl,1);
-			toplamtuketim=formatSayi(toplamtuketim,0);
-			
-			document.getElementById("buztl").innerHTML=""+buztl + " &#8378";
-			document.getElementById("camtl").innerHTML=""+camtl  + " &#8378";
-			document.getElementById("bultl").innerHTML=""+bultl + " &#8378";
-			document.getElementById("tvtl").innerHTML=""+tvtl + " &#8378";
-			document.getElementById("firintl").innerHTML=""+firintl + " &#8378";
-			document.getElementById("ututl").innerHTML=""+ututl + " &#8378";
-			document.getElementById("supurgetl").innerHTML=""+supurgetl + " &#8378";
-			document.getElementById("modemtl").innerHTML=""+modemtl + " &#8378";
-			document.getElementById("sactl").innerHTML=""+sactl + " &#8378";
-			document.getElementById("klimatl").innerHTML=""+klimatl + " &#8378";
-			document.getElementById("kombitl").innerHTML=""+kombitl + " &#8378";
-			
-			document.getElementById("toplamtl").innerHTML=""+toplamtl + " &#8378";
-			document.getElementById("toplamtuketim").innerHTML=""+toplamtuketim + " kWh";
-		}
-		ctuketimhesap(this);
-    
-
-	
+<script>
+const $=id=>document.getElementById(id);
+const n=v=>{v=(""+(v??"")).trim().replace(",",".");return Number(v)||0};
+const fmt=(v,d=1)=>new Intl.NumberFormat("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
+function trhesap(){
+  const S=n($("ogtr").value),Vp=n($("ogseviyeP").value),Vs=n($("ogseviyeS").value);
+  const Ip=S/(Vp*1.73205),Is=(Vp/Vs)*Ip;
+  $("ogPakim").textContent=`${fmt(Ip,1)} A`; $("ogSakim").textContent=`${fmt(Is,1)} A`;
+}
+function kablohesap(){
+  const I=n($("kabkesit").value),A=n($("kabkesit").value),V=n($("kabseviye").value);
+  const R=0.017857*(1000/A),P=(V*1.73*A)/1000;
+  $("kabomaj").innerHTML=`${fmt(R,2)} &#8486/km`;
+  $("kabakim").textContent=`${fmt(I,1)} A`; $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
+  $("kabguc").textContent=`${fmt(P,1)} MW`;
+}
+function ctuketimhesap(){
+  const tl=n($("meskentl").value);
+  const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi"];
+  let sumK=0,sumTL=0;
+  ids.forEach(k=>{
+    const kwh=n($(k+"tuketim").value); const tut=(kwh/12)*tl; sumK+=kwh; sumTL+=tut;
+    $(k+"tl").innerHTML=`${fmt(tut,1)} &#8378`;
+  });
+  $("toplamtuketim").textContent=`${fmt(sumK,0)} kWh`;
+  $("toplamtl").innerHTML=`${fmt(sumTL,1)} &#8378`;
+}
+["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
+["kabkesit","kabseviye"].forEach(id=>$(id).addEventListener("change",kablohesap));
+["meskentl","buztuketim","camtuketim","bultuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
+.forEach(id=>$(id).addEventListener("input",ctuketimhesap));
+trhesap();kablohesap();ctuketimhesap();
 </script>
 
-
 </body>
+</html>
