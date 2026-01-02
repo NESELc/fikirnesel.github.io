@@ -165,15 +165,14 @@ if(modal.style.display==="block"&&!modal.contains(e.target)&&!btn.contains(e.tar
 });
 
 
-var tumVeri=[],guncellemeTarihi="";
+var tumVeri=[];
 
 async function veriYukle(){
   const url="https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
   const response=await fetch(url);
   const data=await response.json();
   tumVeri=data.filter(d=>d.marka);
-  guncellemeTarihi=data.find(d=>d.guncelleme)?.guncelleme||"";
-
+  
   const unique=key=>[...new Set(tumVeri.map(item=>item[key]?.toLowerCase().trim()).filter(Boolean))];
   const secimYukle=(id,key)=>{
     const select=document.getElementById(id);
@@ -249,8 +248,7 @@ async function veriYukle(){
   });
 
   filtreleVeGoster();
-  if(guncellemeTarihi){document.getElementById("tarihYazi").textContent="Son güncelleme tarihi: "+guncellemeTarihi;}
-}
+  }
 
 function formatTarih(isoStr){
   if(!isoStr) return "";
