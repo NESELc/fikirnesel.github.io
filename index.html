@@ -74,6 +74,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 .dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
 .dovizler li span{font-size:10px;color:#555}
 .reklamEtiket{font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px}
+#fbk{margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}#fbk button{display:none;padding:4px 10px;cursor:pointer}.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
 
   @media (max-width:1200px){
 #layout{flex-direction:column;align-items:stretch}
@@ -252,6 +253,8 @@ iframe{width:100%;height:100%;border:0;display:block}
       </div>
     </aside>
 
+    <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea><button>Gönder</button></div>
+
 
     <section id="ortaAlan">
       <div class="frameWrap">
@@ -313,6 +316,13 @@ kampanyalariKartYap();
 
 
 openByHash();
+
+(()=>{const f=document.getElementById('fbk'),t=f.querySelector('textarea'),b=f.querySelector('button');let v=null;if(localStorage.getItem('fbk_'+location.pathname)){f.innerHTML='Geri bildirimin için teşekkürler ';return;}
+f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});
+b.onclick=()=>{if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem('fbk_'+location.pathname,1);
+fetch('https://script.google.com/macros/s/AKfycbwWxVho38Wh5AArXQP2qnGmrejQa45wlfa3pEWFUVVVJ_YXGljEzIUQrV8t1JmOxFZFsA/exec',{method:'POST',body:JSON.stringify({url:location.pathname,val:v,msg:t.value,ts:Date.now()})});
+f.innerHTML='Teşekkürler ';};
+})();
 </script>
 </body>
 </html>
