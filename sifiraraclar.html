@@ -40,7 +40,6 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 #markaModal ul li{margin-bottom:8px;}
 #filtreAcKapa{display:none;font-family:Comic Sans MS;font-size:13px;background:#EEE;cursor:pointer;}
 
-/* ✅ Marka çoklu seçim dropdown */
 .ddbtn{ font-family:Comic Sans MS;font-size:13px;padding:3px 6px; border:1px solid #bbb; background:#fff; cursor:pointer; min-width:130px;  text-align:left;}
 .ddpanel{ display:none;  position:fixed; background:#fff; border:1px solid #bbb; box-shadow:0 6px 18px rgba(0,0,0,.12); border-radius:8px; padding:8px;
   z-index:9998; min-width:240px; max-width:320px;}
@@ -75,8 +74,6 @@ body.filtreKapali .filtre-grup{display:none;}
     <div class="tarihinfo" id="aracSayisi" style="margin-bottom:10px;"></div>
     <button id="filtreAcKapa">🔽 Filtre</button>
     <div class="filtre-grup">
-
-      <!-- ✅ Marka: açılır panel + checkbox -->
       <label>Marka:
         <button type="button" id="markaDD" class="ddbtn">Tümü</button>
         <div id="markaPanel" class="ddpanel">
@@ -189,7 +186,6 @@ async function veriYukle(){
     });
   };
 
-  /* ✅ Marka dropdown+checkbox doldur */
   const markaBox=document.getElementById("markaBox");
   const markaDD=document.getElementById("markaDD");
   const markaPanel=document.getElementById("markaPanel");
@@ -203,36 +199,14 @@ async function veriYukle(){
     markaBox.appendChild(lbl);
   });
 
-  function markaOzet(){
-    const s=[...markaBox.querySelectorAll("input:checked")];
-    if(!s.length) return "Tümü";
-    if(s.length===1) return s[0].value.toUpperCase();
-    return s.length+" marka";
-  }
-  function markaFiltre(q){
-    q=(q||"").toLowerCase();
-    markaBox.querySelectorAll("label").forEach(l=>{
-      l.style.display=(!q||l.dataset.v.includes(q))?"block":"none";
-    });
-  }
+  function markaOzet(){const s=[...markaBox.querySelectorAll("input:checked")];if(!s.length) return "Tümü"; if(s.length===1) return s[0].value.toUpperCase();
+    return s.length+" marka"; }
+  function markaFiltre(q){q=(q||"").toLowerCase(); markaBox.querySelectorAll("label").forEach(l=>{l.style.display=(!q||l.dataset.v.includes(q))?"block":"none";});}
 
-  markaBox.querySelectorAll("input").forEach(i=>{
-    i.addEventListener("change",()=>{
-      markaDD.textContent=markaOzet();
-      filtreleVeGoster();
-    });
-  });
+  markaBox.querySelectorAll("input").forEach(i=>{i.addEventListener("change",()=>{ markaDD.textContent=markaOzet();filtreleVeGoster(); }); });
 
-  document.getElementById("markaTum").onclick=()=>{
-    markaBox.querySelectorAll("input").forEach(i=>i.checked=true);
-    markaDD.textContent=markaOzet();
-    filtreleVeGoster();
-  };
-  document.getElementById("markaTemiz").onclick=()=>{
-    markaBox.querySelectorAll("input").forEach(i=>i.checked=false);
-    markaDD.textContent="Tümü";
-    filtreleVeGoster();
-  };
+  document.getElementById("markaTum").onclick=()=>{ markaBox.querySelectorAll("input").forEach(i=>i.checked=true);markaDD.textContent=markaOzet();filtreleVeGoster();};
+  document.getElementById("markaTemiz").onclick=()=>{markaBox.querySelectorAll("input").forEach(i=>i.checked=false);markaDD.textContent="Tümü"; filtreleVeGoster();};
 
   markaDD.onclick=e=>{
     e.preventDefault();
@@ -253,8 +227,6 @@ async function veriYukle(){
 
   markaAra.oninput=()=>markaFiltre(markaAra.value);
   markaDD.textContent="Tümü";
-
-  /* ✅ Diğer selectler */
   secimYukle("sinifSec","sınıf");
   secimYukle("yakitSec","yakıt türü");
   secimYukle("vitesSec","vites");
@@ -378,26 +350,14 @@ function mobilSegmentBaslik(){
 
 window.addEventListener("resize",mobilSegmentBaslik);
 
-function fixLayout(){
-  const u=document.getElementById("ustBar");
-  const s=document.getElementById("sonuclarWrap");
-  if(u&&s){s.style.top=(u.offsetHeight)+"px";}
-}
+function fixLayout(){ const u=document.getElementById("ustBar"); const s=document.getElementById("sonuclarWrap"); if(u&&s){s.style.top=(u.offsetHeight)+"px";}}
 window.addEventListener("load",fixLayout);
 window.addEventListener("resize",fixLayout);
 
-function setUstH(){
-  const u=document.getElementById("ustBar");
-  if(!u) return;
-  document.documentElement.style.setProperty("--ustH",(u.offsetHeight)+"px");
-}
+function setUstH(){const u=document.getElementById("ustBar");if(!u) return; document.documentElement.style.setProperty("--ustH",(u.offsetHeight)+"px");}
 setUstH();
 
-document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{
-  e.preventDefault();
-  document.body.classList.toggle("filtreKapali");
-  setUstH();
-});
+document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstH();});
 if(window.innerWidth<=768) document.body.classList.add("filtreKapali");
 </script>
 </body>
