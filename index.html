@@ -251,7 +251,8 @@ iframe{width:100%;height:100%;border:0;display:block}
         <h2>Not</h2>
         <p>Sayfada yer alan fiyat ve kampanyalar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
       </div>
-      <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea><button>Gönder</button></div>
+  <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea>
+  <button type="button">Gönder</button></div>
   
   </aside>
 
@@ -318,12 +319,14 @@ kampanyalariKartYap();
 
 openByHash();
 
-(()=>{const f=document.getElementById('fbk'),t=f.querySelector('textarea'),b=f.querySelector('button');let v=null;if(localStorage.getItem('fbk_'+location.pathname)){f.innerHTML='Geri bildirimin için teşekkürler ';return;}
-f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});
-b.onclick=()=>{if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem('fbk_'+location.pathname,1);
-fetch('https://script.google.com/macros/s/AKfycbwWxVho38Wh5AArXQP2qnGmrejQa45wlfa3pEWFUVVVJ_YXGljEzIUQrV8t1JmOxFZFsA/exec',{method:'POST',body:JSON.stringify({url:location.pathname,val:v,msg:t.value,ts:Date.now()})});
-f.innerHTML='Teşekkürler ';};
-})();
+(()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');
+let v=null;if(localStorage.getItem('fbk_'+location.pathname+location.hash)){f.textContent='Geri bildirimin için teşekkürler';
+return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';
+t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');
+if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem('fbk_'+location.pathname+location.hash,1);
+const u='https://script.google.com/macros/s/AKfycbwWxVho38Wh5AArXQP2qnGmrejQa45wlfa3pEWFUVVVJ_YXGljEzIUQrV8t1JmOxFZFsA/exec',p=JSON.stringify({url:location.pathname+location.hash,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
+navigator.sendBeacon(u,new Blob([p],{type:'text/plain'}));f.textContent='Teşekkürler';};})();
+
 </script>
 </body>
 </html>
