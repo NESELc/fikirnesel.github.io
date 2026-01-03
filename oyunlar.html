@@ -16,13 +16,15 @@
   <meta property="og:url" content="https://nesel.tr/oyunlar.html">
 
   <style>
-    #oyunWrap{max-width:520px;margin:12px auto;padding:8px}
+    #oyunWrap{max-width:520px;margin:10px auto;padding:6px}
     #oyunBar{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;margin:0 0 6px}
-    #oyunBar button{width:36px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center}
-    #msg{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px;display:inline-block}
-    #shapeInfo{white-space:nowrap;margin-left:auto}
-    #game{height:460px}
-    @media(max-width:600px){#game{height:380px}#msg{max-width:140px}}
+    #btnReset{padding:7px 11px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer}
+    #btnPrev,#btnNext{width:34px;height:32px;padding:0;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    #msg{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px;display:inline-block}
+    #shapeInfo{white-space:nowrap;margin-left:auto;opacity:.85}
+    #game{width:100%;height:440px;display:block;border:1px solid #ddd;border-radius:10px;background:#fff;touch-action:manipulation}
+    @media(max-width:600px){#game{height:360px}#msg{max-width:110px}}
+
 
   </style>
 </head>
@@ -36,7 +38,6 @@
     <button id="btnNext" type="button" aria-label="Sonraki">▶</button>
     <small id="shapeInfo"></small>
 
-    <small id="shapeInfo"></small>
 
   </div>
   <canvas id="game"></canvas>
@@ -71,9 +72,10 @@ const SHAPES=[
   }
 
   function buildNodes(){
-  const w=R().width,h=R().height;
-  nodes=SHAPES[shapeId].pts.map(p=>({x:p[0]*w,y:p[1]*h}));
+  const w=R().width,h=R().height,mx=0.10,my=0.07,sw=w*(1-2*mx),sh=h*(1-2*my),ox=w*mx,oy=h*my;
+  nodes=SHAPES[shapeId].pts.map(p=>({x:ox+p[0]*sw,y:oy+p[1]*sh}));
 }
+
 
 
   function isAdj(a,b){
