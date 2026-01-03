@@ -39,122 +39,111 @@
   const cv=document.getElementById("game"),ctx=cv.getContext("2d");
   const msg=document.getElementById("msg"),stat=document.getElementById("stat"),btn=document.getElementById("btnReset");
   const S={pad:70,r:10,hit:18};
-  let nodes=[],edges=[],selected=-1,visited=new Set();
+  const E=[[0,1],[1,2],[2,3],[3,0]];
+  let nodes=[],selected=-1,walk=[],visitedE=new Set();
 
   const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
   const R=()=>cv.getBoundingClientRect();
+  const key=(a,b)=>{const x=Math.min(a,b),y=Math.max(a,b);return x+"-"+y;};
+  const isAdj=(a,b)=>E.some(e=>(e[0]===a&&e[1]===b)||(e[0]===b&&e[1]===a));
 
   function fit(){
     const r=R(),k=DPR();
     cv.width=Math.floor(r.width*k);cv.height=Math.floor(r.height*k);
     ctx.setTransform(k,0,0,k,0,0);
-    init();
+    reset();
   }
 
-  function init(){
+  function buildNodes(){
     const w=R().width,h=R().height,sz=Math.min(w,h)-S.pad*2;
     const x0=(w-sz)/2,y0=(h-sz)/2,x1=x0+sz,y1=y0+sz;
     nodes=[{x:x0,y:y0},{x:x1,y:y0},{x:x1,y:y1},{x:x0,y:y1}];
-    edges=[];selected=-1;visited=new Set();
-    msg.textContent="Bir köşe seç.";
-    draw();
   }
 
   function draw(){
     const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
     const a=nodes[0],b=nodes[2];
-    ctx.lineWidth=4;ctx.strokeStyle="#111";
+
+    ctx.lineWidth=5;ctx.strokeStyle="#111";
     ctx.strokeRect(a.x,a.y,b.x-a.x,b.y-a.y);
 
-    ctx.lineWidth=6;ctx.strokeStyle="#2f6fff";
-    edges.forEach(e=>{ctx.beginPath();ctx.moveTo(nodes[e.a].x,nodes[e.a].y);ctx.lineTo(nodes[e.b].x,nodes[e.b].y);ctx.stroke();});
+    ctx.lineWidth=7;ctx.lineCap="round";
+    for(const e of E){
+      const k=key(e[0],e[1]);
+      if(!visitedE.has(k))continue;
+      ctx.strokeStyle="#2f6fff";
+      ctx.beginPath();ctx.moveTo(nodes[e[0]].x,nodes[e[0]].y);ctx.lineTo(nodes[e[1]].x,nodes[e[1]].y);ctx.stroke();
+    }
+
+    ctx.lineWidth=4;
+    ctx.strokeStyle="rgba(46,213,115,.95)";
+    ctx.beginPath();
+    for(let i=0;i<walk.length;i++){
+      const p=nodes[walk[i]];
+      if(!i)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);
+    }
+    if(walk.length>1)ctx.stroke();
 
     nodes.forEach((p,i)=>{
       ctx.beginPath();
-      ctx.fillStyle=i===selected?"#ffcc00":(visited.has(i)?"#2ed573":"#111");
+      ctx.fillStyle=i===selected?"#ffcc00":"#111";
       ctx.arc(p.x,p.y,S.r,0,Math.PI*2);
       ctx.fill();
       ctx.lineWidth=2;ctx.strokeStyle="#fff";ctx.stroke();
     });
 
-    stat.textContent=`Ziyaret: ${visited.size}/${nodes.length} • Çizgi: ${edges.length}`;
+    stat.textContent=`Kenar: ${visitedE.size}/4`;
   }
 
   function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
   function hitNode(x,y){
-    for(let i=0;i<nodes.length;i++){
-      if(dist(nodes[i],{x,y})<=S.hit)return i;
-    }
+    for(let i=0;i<nodes.length;i++)if(dist(nodes[i],{x,y})<=S.hit)return i;
     return -1;
   }
 
-  function edgeExists(a,b){
-    return edges.some(e=>(e.a===a&&e.b===b)||(e.a===b&&e.b===a));
-  }
-
-  function orient(ax,ay,bx,by,cx,cy){
-    const v=(by-ay)*(cx-bx)-(bx-ax)*(cy-by);
-    return Math.abs(v)<1e-9?0:(v>0?1:2);
-  }
-
-  function onSeg(ax,ay,bx,by,cx,cy){
-    return Math.min(ax,bx)-1e-9<=cx&&cx<=Math.max(ax,bx)+1e-9&&Math.min(ay,by)-1e-9<=cy&&cy<=Math.max(ay,by)+1e-9;
-  }
-
-  function segIntersect(p1,p2,q1,q2){
-    const o1=orient(p1.x,p1.y,p2.x,p2.y,q1.x,q1.y);
-    const o2=orient(p1.x,p1.y,p2.x,p2.y,q2.x,q2.y);
-    const o3=orient(q1.x,q1.y,q2.x,q2.y,p1.x,p1.y);
-    const o4=orient(q1.x,q1.y,q2.x,q2.y,p2.x,p2.y);
-    if(o1!==o2&&o3!==o4)return true;
-    if(o1===0&&onSeg(p1.x,p1.y,p2.x,p2.y,q1.x,q1.y))return true;
-    if(o2===0&&onSeg(p1.x,p1.y,p2.x,p2.y,q2.x,q2.y))return true;
-    if(o3===0&&onSeg(q1.x,q1.y,q2.x,q2.y,p1.x,p1.y))return true;
-    if(o4===0&&onSeg(q1.x,q1.y,q2.x,q2.y,p2.x,p2.y))return true;
-    return false;
-  }
-
-  function crossesExisting(a,b){
-    const p1=nodes[a],p2=nodes[b];
-    for(const e of edges){
-      const c=e.a,d=e.b;
-      if(a===c||a===d||b===c||b===d)continue; 
-      const q1=nodes[c],q2=nodes[d];
-      if(segIntersect(p1,p2,q1,q2))return true;
-    }
-    return false;
-  }
-
   function winCheck(){
-    if(visited.size===nodes.length){
-      msg.textContent="Tamam! Tüm noktalara temas ettin ✅";
-    }
+    if(visitedE.size===4)msg.textContent="Tebrikler! 4 kenarın da üzerinden geçtin ✅";
   }
 
-  function addEdge(a,b){
-    if(a===b)return;
-    if(edgeExists(a,b)){msg.textContent="Bu çizgi zaten var.";return;}
-    if(crossesExisting(a,b)){msg.textContent="Kesişme var, olmaz.";return;}
-    edges.push({a,b});
-    visited.add(a);visited.add(b);
-    selected=b;
-    msg.textContent="Devam: başka bir köşe seç.";
-    draw();winCheck();
+  function reset(){
+    buildNodes();
+    selected=-1;
+    walk=[];
+    visitedE=new Set();
+    msg.textContent="Bir köşe seç (sonra komşu köşeye git).";
+    draw();
   }
 
   cv.addEventListener("click",e=>{
     const r=R(),x=e.clientX-r.left,y=e.clientY-r.top;
     const n=hitNode(x,y);
     if(n<0)return;
-    if(selected<0){selected=n;visited.add(n);msg.textContent="Şimdi başka bir köşe seç.";draw();return;}
-    addEdge(selected,n);
+
+    if(selected<0){
+      selected=n;walk=[n];
+      msg.textContent="Şimdi sadece komşu köşeyi seç (kenar boyunca).";
+      draw();return;
+    }
+
+    if(n===selected)return;
+    if(!isAdj(selected,n)){
+      msg.textContent="Kural: Sadece komşu köşeye gidebilirsin (tek kenar).";
+      draw();return;
+    }
+
+    visitedE.add(key(selected,n));
+    selected=n;
+    walk.push(n);
+    msg.textContent="Devam: komşu köşe seç. Amaç 4 kenarı da gezmek.";
+    draw();winCheck();
   });
 
-  btn.addEventListener("click",init);
+  btn.addEventListener("click",reset);
   window.addEventListener("resize",fit);
   fit();
 })();
 </script>
+
 
   </body>
 </html>
