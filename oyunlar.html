@@ -40,7 +40,7 @@
   const msg=document.getElementById("msg"),stat=document.getElementById("stat"),btn=document.getElementById("btnReset");
   const S={pad:70,r:10,hit:18};
   const E=[[0,1],[1,2],[2,3],[3,0]];
-  let nodes=[],selected=-1,walk=[],visitedE=new Set();
+  let nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false;
 
   const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
   const R=()=>cv.getBoundingClientRect();
@@ -75,8 +75,7 @@
       ctx.beginPath();ctx.moveTo(nodes[e[0]].x,nodes[e[0]].y);ctx.lineTo(nodes[e[1]].x,nodes[e[1]].y);ctx.stroke();
     }
 
-    ctx.lineWidth=4;
-    ctx.strokeStyle="rgba(46,213,115,.95)";
+    ctx.lineWidth=4;ctx.strokeStyle="rgba(46,213,115,.95)";
     ctx.beginPath();
     for(let i=0;i<walk.length;i++){
       const p=nodes[walk[i]];
@@ -101,8 +100,30 @@
     return -1;
   }
 
+  function possibleMoves(from){
+    return E
+      .map(e=>e[0]===from?e[1]:e[1]===from?e[0]:-1)
+      .filter(n=>n>=0)
+      .filter(n=>{
+        const k=key(from,n);
+        if(lastEdge && k===lastEdge) return false; // geri dönme yasağı
+        return true;
+      });
+  }
+
   function winCheck(){
-    if(visitedE.size===4)msg.textContent="Tebrikler! 4 kenarın da üzerinden geçtin ✅";
+    if(visitedE.size===4){
+      msg.textContent="Tebrikler! Tüm kenarlardan geçtin ✅";
+      dead=true;
+    }
+  }
+
+  function deadCheck(){
+    if(visitedE.size===4) return;
+    if(possibleMoves(selected).length===0){
+      msg.textContent="Olmadı ❌ (hamle kalmadı)";
+      dead=true;
+    }
   }
 
   function reset(){
@@ -110,32 +131,44 @@
     selected=-1;
     walk=[];
     visitedE=new Set();
-    msg.textContent="Bir köşe seç (sonra komşu köşeye git).";
+    lastEdge=null;
+    dead=false;
+    msg.textContent="Bir köşe seç.";
     draw();
   }
 
   cv.addEventListener("click",e=>{
+    if(dead)return;
     const r=R(),x=e.clientX-r.left,y=e.clientY-r.top;
     const n=hitNode(x,y);
     if(n<0)return;
 
     if(selected<0){
       selected=n;walk=[n];
-      msg.textContent="Şimdi sadece komşu köşeyi seç (kenar boyunca).";
+      msg.textContent="Komşu köşeye git (geri dönüş yasak).";
       draw();return;
     }
 
     if(n===selected)return;
     if(!isAdj(selected,n)){
-      msg.textContent="Kural: Sadece komşu köşeye gidebilirsin (tek kenar).";
-      draw();return;
+      msg.textContent="Sadece komşu köşeye gidebilirsin.";
+      return;
     }
 
-    visitedE.add(key(selected,n));
+    const k=key(selected,n);
+    if(lastEdge===k){
+      msg.textContent="Geri dönemezsin.";
+      return;
+    }
+
+    visitedE.add(k);
+    lastEdge=k;
     selected=n;
     walk.push(n);
-    msg.textContent="Devam: komşu köşe seç. Amaç 4 kenarı da gezmek.";
-    draw();winCheck();
+    msg.textContent="Devam et: 4 kenarı da tamamla.";
+    draw();
+    winCheck();
+    deadCheck();
   });
 
   btn.addEventListener("click",reset);
