@@ -29,8 +29,10 @@
     <button id="btnReset" type="button">Sıfırla</button>
     <span id="msg">Bir köşe seç.</span>
     <small id="stat"></small>
-    <button id="btnS1" type="button">Şekil 1 (4)</button>
-    <button id="btnS2" type="button">Şekil 2 (5)</button>
+    <button id="btnPrev" type="button">◀ Önceki</button>
+    <button id="btnNext" type="button">Sonraki ▶</button>
+    <small id="shapeInfo"></small>
+
   </div>
   <canvas id="game"></canvas>
 </div>
@@ -40,7 +42,8 @@
 (() => {
   const cv=document.getElementById("game"),ctx=cv.getContext("2d");
   const msg=document.getElementById("msg"),stat=document.getElementById("stat"),btn=document.getElementById("btnReset");
-  const b1=document.getElementById("btnS1"),b2=document.getElementById("btnS2");
+  const prev=document.getElementById("btnPrev"),next=document.getElementById("btnNext"),shapeInfo=document.getElementById("shapeInfo");
+
   const S={pad:70,r:10,hit:18};
 const SHAPES=[
   {name:"Kare",pts:[[.2,.2],[.8,.2],[.8,.8],[.2,.8]],edges:[[0,1],[1,2],[2,3],[3,0]]},
@@ -77,18 +80,19 @@ const SHAPES=[
   }
 
   function possibleMoves(from){
-    return edges
-      .map(e=>e[0]===from?e[1]:e[1]===from?e[0]:-1)
-      .filter(n=>n>=0)
-      .filter(n=>{
-        const k=key(from,n);
-        if(lastEdge && k===lastEdge) return false;
-        return true;
-      });
+  return edges.map(e=>e[0]===from?e[1]:e[1]===from?e[0]:-1).filter(n=>n>=0).filter(n=>{
+    const k=key(from,n);
+    if(lastEdge&&k===lastEdge)return false;      // geri dönüş yasak
+    if(visitedE.has(k))return false;             // aynı kenarı tekrar kullanma
+    return true;
+  });
   }
+
 
   function ui(){
     stat.textContent=`Kenar: ${visitedE.size}/${edges.length} • Şekil: ${SHAPES[shapeId].name}`;
+    shapeInfo.textContent=`Şekil: ${shapeId+1}/${SHAPES.length} • ${SHAPES[shapeId].name}`;
+
   }
 
   function draw(){
@@ -165,6 +169,7 @@ const SHAPES=[
 
     const k=key(selected,n);
     if(lastEdge===k){msg.textContent="Geri dönemezsin.";return;}
+    if(visitedE.has(k)){msg.textContent="Bu kenardan zaten geçtin.";return;}
 
     visitedE.add(k);
     lastEdge=k;
@@ -176,8 +181,9 @@ const SHAPES=[
   });
 
   btn.addEventListener("click",reset);
-  b1 && b1.addEventListener("click",()=>{shapeId=0;reset();});
-  b2 && b2.addEventListener("click",()=>{shapeId=1;reset();});
+  prev.addEventListener("click",()=>{shapeId=(shapeId-1+SHAPES.length)%SHAPES.length;reset();});
+  next.addEventListener("click",()=>{shapeId=(shapeId+1)%SHAPES.length;reset();});
+
   window.addEventListener("resize",fit);
   fit();
 })();
