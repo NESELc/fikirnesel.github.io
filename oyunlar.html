@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+  <meta name="google-adsense-account" content="ca-pub-1268402107177386">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Oyunlar | Online</title>
+  <meta name="description" content="Eğlenceli oyunlar">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://nesel.tr/oyunlar.html">
+  <meta property="og:title" content="Online Oyunlar">
+  <meta property="og:description" content="Çizim yap.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nesel.tr/oyunlar.html">
+<style>
+:root{--ustH:110px;}
+body{margin:0;background:#fff;}
+#aracFiltreleme{font-family:Comic Sans MS;padding:10px;font-size:13px;max-width:1100px;margin:0 auto;}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #ddd;}
+#ustBarIc{max-width:1100px;margin:0 auto;padding:10px;}
+.tarihinfo{font-size:12px;color:#333;}
+#ustBtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.ubtn,a.ubtn{display:inline-block;padding:6px 10px;border:1px solid #ddd;border-radius:8px;background:#f6f6f6;color:#111;text-decoration:none;cursor:pointer;}
+#icerik{padding-top:var(--ustH);}
+.kart{border:1px solid #ddd;border-radius:10px;background:#f6f6f6;padding:10px;margin:10px 0;}
+.kBaslik{font-weight:700;margin:2px 0 8px;}
+.kAcik{font-size:12px;color:#333;margin:0 0 8px;}
+.oyunBar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 10px;}
+.oyunBar small{opacity:.8;}
+#okCv{width:100%;height:380px;background:#101826;border:1px solid #243149;border-radius:10px;touch-action:none;}
+@media (max-width:600px){:root{--ustH:130px;}#okCv{height:320px;}}
+</style>
+</head>
+<body>
+<div id="aracFiltreleme">
+  <div id="ustBar">
+    <div id="ustBarIc">
+      <div class="tarihinfo"><b>Nesel</b> • Mini Oyunlar</div>
+      <div id="ustBtns">
+        <a class="ubtn" href="index.html">🏠 Ana Sayfa</a>
+        <a class="ubtn" href="sifiraraclar.html">🚗 Sıfır Araçlar</a>
+        <a class="ubtn" href="doviz.html">💱 Döviz</a>
+      </div>
+      <div class="tarihinfo" style="margin-top:6px;">Kural: Basılı tutarak çiz, kalemi kaldırma.</div>
+    </div>
+  </div>
+
+  <div id="icerik">
+    <div class="kart">
+      <div class="kBaslik">Kalemi Kaldırmadan Çiz</div>
+      <p class="kAcik">Hedef çizgiye yakın kal. Dışarı çıkarsan biter. %95 tamamla.</p>
+      <div class="oyunBar">
+        <button class="ubtn" id="okReset" type="button">Sıfırla</button>
+        <span id="okDurum">Basılı tut, kalemi kaldırma.</span>
+        <small id="okSkor"></small>
+      </div>
+      <canvas id="okCv"></canvas>
+    </div>
+
+    <div class="kart">
+      <div class="kBaslik">Yakında</div>
+      <p class="kAcik">Tepki süresi • Günlük quiz • Yazma hızı testi</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const cv=document.getElementById("okCv"),ctx=cv.getContext("2d");
+  const dur=document.getElementById("okDurum"),sk=document.getElementById("okSkor");
+  const bt=document.getElementById("okReset");
+  const cfg={tol:12,need:0.95,maxStep:18};
+  const shape=[{x:.2,y:.2},{x:.8,y:.2},{x:.8,y:.8},{x:.2,y:.8},{x:.2,y:.2}];
+  let st={down:false,ok:true,total:0,covered:0,last:null,trace:[]};
+
+  const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
+  const R=()=>cv.getBoundingClientRect();
+  const PX=p=>({x:p.x*R().width,y:p.y*R().height});
+
+  function fitCanvas(){
+    const r=R(),k=DPR();
+    cv.width=Math.floor(r.width*k);
+    cv.height=Math.floor(r.height*k);
+    ctx.setTransform(k,0,0,k,0,0);
+    draw(true);
+  }
+
+  function segDist(px,py,ax,ay,bx,by){
+    const vx=bx-ax,vy=by-ay,wx=px-ax,wy=py-ay;
+    const den=(vx*vx+vy*vy)||1;
+    const t=Math.max(0,Math.min(1,(wx*vx+wy*vy)/den));
+    const cx=ax+t*vx,cy=ay+t*vy;
+    return Math.hypot(px-cx,py-cy);
+  }
+
+  function nearestDist(x,y){
+    let best=1e9;
+    for(let i=0;i<shape.length-1;i++){
+      const a=PX(shape[i]),b=PX(shape[i+1]);
+      best=Math.min(best,segDist(x,y,a.x,a.y,b.x,b.y));
+    }
+    return best;
+  }
+
+  function pathLen(){
+    let L=0;
+    for(let i=0;i<shape.length-1;i++){
+      const a=PX(shape[i]),b=PX(shape[i+1]);
+      L+=Math.hypot(b.x-a.x,b.y-a.y);
+    }
+    return L;
+  }
+
+  const pct=()=>Math.max(0,Math.min(100,Math.round((st.covered/(st.total||1))*100)));
+  const ui=()=>{sk.textContent="Tamamlanan: %"+pct()+(st.ok?"":" (dışarı çıktın)");};
+
+  function drawShape(){
+    ctx.lineWidth=8;ctx.lineCap="round";ctx.strokeStyle="rgba(110,170,255,.25)";
+    ctx.beginPath();let p=PX(shape[0]);ctx.moveTo(p.x,p.y);
+    for(let i=1;i<shape.length;i++){p=PX(shape[i]);ctx.lineTo(p.x,p.y);}
+    ctx.stroke();
+    ctx.lineWidth=3;ctx.strokeStyle="rgba(110,170,255,.85)";
+    ctx.setLineDash([8,8]);ctx.stroke();ctx.setLineDash([]);
+  }
+
+  function drawTrace(){
+    ctx.lineWidth=4;
+    ctx.strokeStyle=st.ok?"rgba(46,213,115,.95)":"rgba(255,71,87,.95)";
+    ctx.beginPath();
+    for(let i=0;i<st.trace.length;i++){
+      const p=st.trace[i];
+      if(!i)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);
+    }
+    ctx.stroke();
+  }
+
+  function draw(clear){
+    const w=R().width,h=R().height;
+    if(clear)ctx.clearRect(0,0,w,h);
+    drawShape();drawTrace();ui();
+  }
+
+  function reset(){
+    st.down=false;st.ok=true;st.covered=0;st.last=null;st.trace=[];
+    st.total=pathLen();
+    dur.textContent="Basılı tut, kalemi kaldırma.";
+    sk.textContent="";
+    draw(true);
+  }
+
+  function pt(e){
+    const r=R();
+    return {x:e.clientX-r.left,y:e.clientY-r.top};
+  }
+
+  function addProgress(x,y){
+    if(!st.last)return;
+    const dx=x-st.last.x,dy=y-st.last.y;
+    st.covered+=Math.min(cfg.maxStep,Math.hypot(dx,dy));
+  }
+
+  function winCheck(){
+    if(st.ok && st.covered>=st.total*cfg.need){
+      st.down=false;
+      dur.textContent="Başardın! 🎯";
+    }
+  }
+
+  function step(x,y){
+    if(!st.down)return;
+    if(nearestDist(x,y)>cfg.tol){
+      st.ok=false;st.down=false;
+      dur.textContent="Dışarı çıktın! Sıfırla.";
+      draw(false);
+      return;
+    }
+    addProgress(x,y);
+    st.last={x,y};
+    st.trace.push({x,y});
+    draw(false);
+    winCheck();
+  }
+
+  bt.addEventListener("click",reset);
+  cv.addEventListener("pointerdown",e=>{
+    cv.setPointerCapture(e.pointerId);
+    st.down=true;st.ok=true;st.covered=0;st.last=null;st.trace=[];
+    dur.textContent="Çiziyorsun…";
+    const p=pt(e);step(p.x,p.y);
+  });
+  cv.addEventListener("pointermove",e=>{if(!st.down)return;const p=pt(e);step(p.x,p.y);});
+  cv.addEventListener("pointerup",e=>{if(!st.down)return;st.down=false;dur.textContent="Kalemi kaldırdın → olmadı. Sıfırla.";});
+
+  window.addEventListener("resize",fitCanvas);
+  fitCanvas();reset();
+})();
+</script>
+</body>
+</html>
