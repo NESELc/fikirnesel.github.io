@@ -14,188 +14,147 @@
   <meta property="og:description" content="Çizim yap.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nesel.tr/oyunlar.html">
-<style>
-:root{--ustH:110px;}
-body{margin:0;background:#fff;}
-#aracFiltreleme{font-family:Comic Sans MS;padding:10px;font-size:13px;max-width:1100px;margin:0 auto;}
-#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #ddd;}
-#ustBarIc{max-width:1100px;margin:0 auto;padding:10px;}
-.tarihinfo{font-size:12px;color:#333;}
-#ustBtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
-.ubtn,a.ubtn{display:inline-block;padding:6px 10px;border:1px solid #ddd;border-radius:8px;background:#f6f6f6;color:#111;text-decoration:none;cursor:pointer;}
-#icerik{padding-top:var(--ustH);}
-.kart{border:1px solid #ddd;border-radius:10px;background:#f6f6f6;padding:10px;margin:10px 0;}
-.kBaslik{font-weight:700;margin:2px 0 8px;}
-.kAcik{font-size:12px;color:#333;margin:0 0 8px;}
-.oyunBar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 10px;}
-.oyunBar small{opacity:.8;}
-#okCv{width:100%;height:380px;background:#101826;border:1px solid #243149;border-radius:10px;touch-action:none;}
-@media (max-width:600px){:root{--ustH:130px;}#okCv{height:320px;}}
-</style>
+
+  <style>
+    #oyunWrap{max-width:520px;margin:20px auto;padding:10px;border:1px solid #ddd;border-radius:10px;background:#f6f6f6}
+    #oyunBar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+    #oyunBar button{padding:7px 11px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer}
+    #oyunBar small{opacity:.8}
+    #game{width:100%;height:520px;border:1px solid #ddd;border-radius:10px;background:#fff;touch-action:manipulation}
+  </style>
 </head>
 <body>
-<div id="aracFiltreleme">
-  <div id="ustBar">
-    <div id="ustBarIc">
-      <div class="tarihinfo"><b>Nesel</b> • Mini Oyunlar</div>
-      <div id="ustBtns">
-        <a class="ubtn" href="index.html">🏠 Ana Sayfa</a>
-        <a class="ubtn" href="sifiraraclar.html">🚗 Sıfır Araçlar</a>
-        <a class="ubtn" href="doviz.html">💱 Döviz</a>
-      </div>
-      <div class="tarihinfo" style="margin-top:6px;">Kural: Basılı tutarak çiz, kalemi kaldırma.</div>
-    </div>
+  <div id="oyunWrap">
+  <div id="oyunBar">
+    <button id="btnReset" type="button">Sıfırla</button>
+    <span id="msg">Bir köşe seç.</span>
+    <small id="stat"></small>
   </div>
-
-  <div id="icerik">
-    <div class="kart">
-      <div class="kBaslik">Kalemi Kaldırmadan Çiz</div>
-      <p class="kAcik">Hedef çizgiye yakın kal. Dışarı çıkarsan biter. %95 tamamla.</p>
-      <div class="oyunBar">
-        <button class="ubtn" id="okReset" type="button">Sıfırla</button>
-        <span id="okDurum">Basılı tut, kalemi kaldırma.</span>
-        <small id="okSkor"></small>
-      </div>
-      <canvas id="okCv"></canvas>
-    </div>
-
-    <div class="kart">
-      <div class="kBaslik">Yakında</div>
-      <p class="kAcik">Tepki süresi • Günlük quiz • Yazma hızı testi</p>
-    </div>
-  </div>
+  <canvas id="game"></canvas>
 </div>
+
 
 <script>
 (() => {
-  const cv=document.getElementById("okCv"),ctx=cv.getContext("2d");
-  const dur=document.getElementById("okDurum"),sk=document.getElementById("okSkor");
-  const bt=document.getElementById("okReset");
-  const cfg={tol:12,need:0.95,maxStep:18};
-  const shape=[{x:.2,y:.2},{x:.8,y:.2},{x:.8,y:.8},{x:.2,y:.8},{x:.2,y:.2}];
-  let st={down:false,ok:true,total:0,covered:0,last:null,trace:[]};
+  const cv=document.getElementById("game"),ctx=cv.getContext("2d");
+  const msg=document.getElementById("msg"),stat=document.getElementById("stat"),btn=document.getElementById("btnReset");
+  const S={pad:70,r:10,hit:18};
+  let nodes=[],edges=[],selected=-1,visited=new Set();
 
   const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
   const R=()=>cv.getBoundingClientRect();
-  const PX=p=>({x:p.x*R().width,y:p.y*R().height});
 
-  function fitCanvas(){
+  function fit(){
     const r=R(),k=DPR();
-    cv.width=Math.floor(r.width*k);
-    cv.height=Math.floor(r.height*k);
+    cv.width=Math.floor(r.width*k);cv.height=Math.floor(r.height*k);
     ctx.setTransform(k,0,0,k,0,0);
-    draw(true);
+    init();
   }
 
-  function segDist(px,py,ax,ay,bx,by){
-    const vx=bx-ax,vy=by-ay,wx=px-ax,wy=py-ay;
-    const den=(vx*vx+vy*vy)||1;
-    const t=Math.max(0,Math.min(1,(wx*vx+wy*vy)/den));
-    const cx=ax+t*vx,cy=ay+t*vy;
-    return Math.hypot(px-cx,py-cy);
+  function init(){
+    const w=R().width,h=R().height,sz=Math.min(w,h)-S.pad*2;
+    const x0=(w-sz)/2,y0=(h-sz)/2,x1=x0+sz,y1=y0+sz;
+    nodes=[{x:x0,y:y0},{x:x1,y:y0},{x:x1,y:y1},{x:x0,y:y1}];
+    edges=[];selected=-1;visited=new Set();
+    msg.textContent="Bir köşe seç.";
+    draw();
   }
 
-  function nearestDist(x,y){
-    let best=1e9;
-    for(let i=0;i<shape.length-1;i++){
-      const a=PX(shape[i]),b=PX(shape[i+1]);
-      best=Math.min(best,segDist(x,y,a.x,a.y,b.x,b.y));
+  function draw(){
+    const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
+    const a=nodes[0],b=nodes[2];
+    ctx.lineWidth=4;ctx.strokeStyle="#111";
+    ctx.strokeRect(a.x,a.y,b.x-a.x,b.y-a.y);
+
+    ctx.lineWidth=6;ctx.strokeStyle="#2f6fff";
+    edges.forEach(e=>{ctx.beginPath();ctx.moveTo(nodes[e.a].x,nodes[e.a].y);ctx.lineTo(nodes[e.b].x,nodes[e.b].y);ctx.stroke();});
+
+    nodes.forEach((p,i)=>{
+      ctx.beginPath();
+      ctx.fillStyle=i===selected?"#ffcc00":(visited.has(i)?"#2ed573":"#111");
+      ctx.arc(p.x,p.y,S.r,0,Math.PI*2);
+      ctx.fill();
+      ctx.lineWidth=2;ctx.strokeStyle="#fff";ctx.stroke();
+    });
+
+    stat.textContent=`Ziyaret: ${visited.size}/${nodes.length} • Çizgi: ${edges.length}`;
+  }
+
+  function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
+  function hitNode(x,y){
+    for(let i=0;i<nodes.length;i++){
+      if(dist(nodes[i],{x,y})<=S.hit)return i;
     }
-    return best;
+    return -1;
   }
 
-  function pathLen(){
-    let L=0;
-    for(let i=0;i<shape.length-1;i++){
-      const a=PX(shape[i]),b=PX(shape[i+1]);
-      L+=Math.hypot(b.x-a.x,b.y-a.y);
+  function edgeExists(a,b){
+    return edges.some(e=>(e.a===a&&e.b===b)||(e.a===b&&e.b===a));
+  }
+
+  function orient(ax,ay,bx,by,cx,cy){
+    const v=(by-ay)*(cx-bx)-(bx-ax)*(cy-by);
+    return Math.abs(v)<1e-9?0:(v>0?1:2);
+  }
+
+  function onSeg(ax,ay,bx,by,cx,cy){
+    return Math.min(ax,bx)-1e-9<=cx&&cx<=Math.max(ax,bx)+1e-9&&Math.min(ay,by)-1e-9<=cy&&cy<=Math.max(ay,by)+1e-9;
+  }
+
+  function segIntersect(p1,p2,q1,q2){
+    const o1=orient(p1.x,p1.y,p2.x,p2.y,q1.x,q1.y);
+    const o2=orient(p1.x,p1.y,p2.x,p2.y,q2.x,q2.y);
+    const o3=orient(q1.x,q1.y,q2.x,q2.y,p1.x,p1.y);
+    const o4=orient(q1.x,q1.y,q2.x,q2.y,p2.x,p2.y);
+    if(o1!==o2&&o3!==o4)return true;
+    if(o1===0&&onSeg(p1.x,p1.y,p2.x,p2.y,q1.x,q1.y))return true;
+    if(o2===0&&onSeg(p1.x,p1.y,p2.x,p2.y,q2.x,q2.y))return true;
+    if(o3===0&&onSeg(q1.x,q1.y,q2.x,q2.y,p1.x,p1.y))return true;
+    if(o4===0&&onSeg(q1.x,q1.y,q2.x,q2.y,p2.x,p2.y))return true;
+    return false;
+  }
+
+  function crossesExisting(a,b){
+    const p1=nodes[a],p2=nodes[b];
+    for(const e of edges){
+      const c=e.a,d=e.b;
+      if(a===c||a===d||b===c||b===d)continue; 
+      const q1=nodes[c],q2=nodes[d];
+      if(segIntersect(p1,p2,q1,q2))return true;
     }
-    return L;
-  }
-
-  const pct=()=>Math.max(0,Math.min(100,Math.round((st.covered/(st.total||1))*100)));
-  const ui=()=>{sk.textContent="Tamamlanan: %"+pct()+(st.ok?"":" (dışarı çıktın)");};
-
-  function drawShape(){
-    ctx.lineWidth=8;ctx.lineCap="round";ctx.strokeStyle="rgba(110,170,255,.25)";
-    ctx.beginPath();let p=PX(shape[0]);ctx.moveTo(p.x,p.y);
-    for(let i=1;i<shape.length;i++){p=PX(shape[i]);ctx.lineTo(p.x,p.y);}
-    ctx.stroke();
-    ctx.lineWidth=3;ctx.strokeStyle="rgba(110,170,255,.85)";
-    ctx.setLineDash([8,8]);ctx.stroke();ctx.setLineDash([]);
-  }
-
-  function drawTrace(){
-    ctx.lineWidth=4;
-    ctx.strokeStyle=st.ok?"rgba(46,213,115,.95)":"rgba(255,71,87,.95)";
-    ctx.beginPath();
-    for(let i=0;i<st.trace.length;i++){
-      const p=st.trace[i];
-      if(!i)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);
-    }
-    ctx.stroke();
-  }
-
-  function draw(clear){
-    const w=R().width,h=R().height;
-    if(clear)ctx.clearRect(0,0,w,h);
-    drawShape();drawTrace();ui();
-  }
-
-  function reset(){
-    st.down=false;st.ok=true;st.covered=0;st.last=null;st.trace=[];
-    st.total=pathLen();
-    dur.textContent="Basılı tut, kalemi kaldırma.";
-    sk.textContent="";
-    draw(true);
-  }
-
-  function pt(e){
-    const r=R();
-    return {x:e.clientX-r.left,y:e.clientY-r.top};
-  }
-
-  function addProgress(x,y){
-    if(!st.last)return;
-    const dx=x-st.last.x,dy=y-st.last.y;
-    st.covered+=Math.min(cfg.maxStep,Math.hypot(dx,dy));
+    return false;
   }
 
   function winCheck(){
-    if(st.ok && st.covered>=st.total*cfg.need){
-      st.down=false;
-      dur.textContent="Başardın! 🎯";
+    if(visited.size===nodes.length){
+      msg.textContent="Tamam! Tüm noktalara temas ettin ✅";
     }
   }
 
-  function step(x,y){
-    if(!st.down)return;
-    if(nearestDist(x,y)>cfg.tol){
-      st.ok=false;st.down=false;
-      dur.textContent="Dışarı çıktın! Sıfırla.";
-      draw(false);
-      return;
-    }
-    addProgress(x,y);
-    st.last={x,y};
-    st.trace.push({x,y});
-    draw(false);
-    winCheck();
+  function addEdge(a,b){
+    if(a===b)return;
+    if(edgeExists(a,b)){msg.textContent="Bu çizgi zaten var.";return;}
+    if(crossesExisting(a,b)){msg.textContent="Kesişme var, olmaz.";return;}
+    edges.push({a,b});
+    visited.add(a);visited.add(b);
+    selected=b;
+    msg.textContent="Devam: başka bir köşe seç.";
+    draw();winCheck();
   }
 
-  bt.addEventListener("click",reset);
-  cv.addEventListener("pointerdown",e=>{
-    cv.setPointerCapture(e.pointerId);
-    st.down=true;st.ok=true;st.covered=0;st.last=null;st.trace=[];
-    dur.textContent="Çiziyorsun…";
-    const p=pt(e);step(p.x,p.y);
+  cv.addEventListener("click",e=>{
+    const r=R(),x=e.clientX-r.left,y=e.clientY-r.top;
+    const n=hitNode(x,y);
+    if(n<0)return;
+    if(selected<0){selected=n;visited.add(n);msg.textContent="Şimdi başka bir köşe seç.";draw();return;}
+    addEdge(selected,n);
   });
-  cv.addEventListener("pointermove",e=>{if(!st.down)return;const p=pt(e);step(p.x,p.y);});
-  cv.addEventListener("pointerup",e=>{if(!st.down)return;st.down=false;dur.textContent="Kalemi kaldırdın → olmadı. Sıfırla.";});
 
-  window.addEventListener("resize",fitCanvas);
-  fitCanvas();reset();
+  btn.addEventListener("click",init);
+  window.addEventListener("resize",fit);
+  fit();
 })();
 </script>
-</body>
+
+  </body>
 </html>
