@@ -23,6 +23,7 @@
     #btnReset{padding:7px 11px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer}
     #btnPrev,#btnNext{width:34px;height:32px;padding:0;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
     #game{width:100%;height:440px;display:block;border:1px solid #ddd;border-radius:10px;background:#fff;touch-action:manipulation}
+    .bilgilendirme{font-family:Comic Sans MS;font-size:13px;}
     @media(max-width:600px){#game{height:360px}#msg{max-width:110px}}
   </style>
 </head>
@@ -37,7 +38,13 @@
   </div>    
     <canvas id="game"></canvas>
   </div>
-
+  <div class="bilgilendirme">
+			<p  >*Herhangi bir noktadan başlanabilir.
+			<br>*Sadece komşu noktalar seçilerek kenarlar aktif hale getirilir.
+			<br>*Tüm kenarlardan geçildiğinde oyun biter.
+			<br>*İki nokta arasında kenar oluştuysa geri dönülemez.
+			</p>
+	</div>
 
 <script>
 (() => {
