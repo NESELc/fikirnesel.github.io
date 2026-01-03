@@ -104,7 +104,7 @@ const SHAPES=[
     return true;
   });
   }
-  function ui(){info.textContent=`Şekil ${shapeId+1}`;}
+  function ui(){info.textContent=`Şekil ${shapeId+1}/${SHAPES.length}`;}
   function draw(){
     const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
 
