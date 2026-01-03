@@ -49,7 +49,7 @@
 
 <script>
 (() => {
-  const TXT={  start:"Seç", move:"Komşu",  back:"Yasak",  used:"Kullanıldı",  win:"Kazandın ✓",  lose:"Olmadı ✗"};
+  const TXT={  start:"Nokta seç", move:"Komşu nokta",  back:"Yasak Hamle",  used:"Kullanıldı",  win:"Kazandın ✓",  lose:"Olmadı ✗"};
 
   const cv=document.getElementById("game"),ctx=cv.getContext("2d");
   const msg=document.getElementById("msg"),info=document.getElementById("info"),btn=document.getElementById("btnReset");
@@ -65,10 +65,6 @@ const SHAPES=[
 {pts:[[.5,.15],[.8,.35],[.7,.75],[.3,.75],[.2,.35]],edges:[[0,1],[1,2],[2,3],[3,4],[4,0],[0,2],[1,3],[0,3]]},
 {pts:[[.5,.12],[.78,.28],[.78,.62],[.5,.82],[.22,.62],[.22,.28]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,3],[1,4],[1,3]]}
 ];
-
-
-
-
 
   let shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
 
@@ -108,7 +104,7 @@ const SHAPES=[
     return true;
   });
   }
-  function ui(){info.textContent=`lvl${shapeId+1} • K:${visitedE.size}/${edges.length}`;}
+  function ui(){info.textContent=`Şekil ${shapeId+1}`;}
   function draw(){
     const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
 
