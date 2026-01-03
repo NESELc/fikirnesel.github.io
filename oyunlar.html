@@ -16,11 +16,14 @@
   <meta property="og:url" content="https://nesel.tr/oyunlar.html">
 
   <style>
-    #oyunWrap{max-width:520px;margin:20px auto;padding:10px;border:1px solid #ddd;border-radius:10px;background:#f6f6f6}
-    #oyunBar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
-    #oyunBar button{padding:7px 11px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer}
-    #oyunBar small{opacity:.8}
-    #game{width:100%;height:520px;border:1px solid #ddd;border-radius:10px;background:#fff;touch-action:manipulation}
+    #oyunWrap{max-width:520px;margin:12px auto;padding:8px}
+    #oyunBar{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;margin:0 0 6px}
+    #oyunBar button{width:36px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center}
+    #msg{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px;display:inline-block}
+    #shapeInfo{white-space:nowrap;margin-left:auto}
+    #game{height:460px}
+    @media(max-width:600px){#game{height:380px}#msg{max-width:140px}}
+
   </style>
 </head>
 <body>
@@ -29,8 +32,10 @@
     <button id="btnReset" type="button">Sıfırla</button>
     <span id="msg">Bir köşe seç.</span>
     <small id="stat"></small>
-    <button id="btnPrev" type="button">◀ Önceki</button>
-    <button id="btnNext" type="button">Sonraki ▶</button>
+    <button id="btnPrev" type="button" aria-label="Önceki">◀</button>
+    <button id="btnNext" type="button" aria-label="Sonraki">▶</button>
+    <small id="shapeInfo"></small>
+
     <small id="shapeInfo"></small>
 
   </div>
@@ -40,6 +45,8 @@
 
 <script>
 (() => {
+  const TXT={  start:"Seç", move:"Komşu",  back:"Yasak",  used:"Kullanıldı",  win:"Kazandın ✓",  lose:"Olmadı ✗"};
+
   const cv=document.getElementById("game"),ctx=cv.getContext("2d");
   const msg=document.getElementById("msg"),stat=document.getElementById("stat"),btn=document.getElementById("btnReset");
   const prev=document.getElementById("btnPrev"),next=document.getElementById("btnNext"),shapeInfo=document.getElementById("shapeInfo");
@@ -91,7 +98,8 @@ const SHAPES=[
 
   function ui(){
     stat.textContent=`Kenar: ${visitedE.size}/${edges.length} • Şekil: ${SHAPES[shapeId].name}`;
-    shapeInfo.textContent=`Şekil: ${shapeId+1}/${SHAPES.length} • ${SHAPES[shapeId].name}`;
+    shapeInfo.textContent=`${shapeId+1}/${SHAPES.length} • ${SHAPES[shapeId].name}`;
+
 
   }
 
@@ -129,56 +137,51 @@ const SHAPES=[
     ui();
   }
 
-  function winCheck(){
-    if(visitedE.size===edges.length){
-      msg.textContent="Tebrikler! Tüm kenarlardan geçtin ✅";
-      dead=true;
-    }
+function winCheck(){
+  if(visitedE.size===edges.length){msg.textContent=TXT.win;dead=true;}
+}
+function deadCheck(){
+  if(visitedE.size===edges.length)return;
+  if(possibleMoves(selected).length===0){msg.textContent=TXT.lose;dead=true;}
+}
+function reset(){
+  edges=SHAPES[shapeId].edges;
+  buildNodes();
+  selected=-1;walk=[];visitedE=new Set();lastEdge=null;dead=false;
+  msg.textContent=TXT.start;
+  draw();
+}
+
+cv.addEventListener("click",e=>{
+  if(dead)return;
+  const r=R(),x=e.clientX-r.left,y=e.clientY-r.top;
+  const n=hitNode(x,y);
+  if(n<0)return;
+
+  if(selected<0){
+    selected=n;walk=[n];
+    msg.textContent=TXT.move;
+    draw();return;
   }
 
-  function deadCheck(){
-    if(visitedE.size===edges.length) return;
-    if(possibleMoves(selected).length===0){
-      msg.textContent="Olmadı ❌ (hamle kalmadı)";
-      dead=true;
-    }
-  }
+  if(n===selected)return;
+  if(!isAdj(selected,n))return;
 
-  function reset(){
-    edges=SHAPES[shapeId].edges;
-    buildNodes();
-    selected=-1;walk=[];visitedE=new Set();lastEdge=null;dead=false;
-    msg.textContent="Bir nokta seç.";
-    draw();
-  }
+  const k=key(selected,n);
+  if(lastEdge===k){msg.textContent=TXT.back;return;}
+  if(visitedE.has(k)){msg.textContent=TXT.used;return;}
 
-  cv.addEventListener("click",e=>{
-    if(dead)return;
-    const r=R(),x=e.clientX-r.left,y=e.clientY-r.top;
-    const n=hitNode(x,y);
-    if(n<0)return;
+  visitedE.add(k);
+  lastEdge=k;
+  selected=n;
+  walk.push(n);
 
-    if(selected<0){
-      selected=n;walk=[n];
-      msg.textContent="Komşu noktaya git (geri dönüş yasak).";
-      draw();return;
-    }
+  msg.textContent=TXT.move;
+  draw();
+  winCheck();
+  deadCheck();
+});
 
-    if(n===selected)return;
-    if(!isAdj(selected,n)){msg.textContent="Sadece komşu noktaya gidebilirsin.";return;}
-
-    const k=key(selected,n);
-    if(lastEdge===k){msg.textContent="Geri dönemezsin.";return;}
-    if(visitedE.has(k)){msg.textContent="Bu kenardan zaten geçtin.";return;}
-
-    visitedE.add(k);
-    lastEdge=k;
-    selected=n;
-    walk.push(n);
-
-    msg.textContent=`Devam et: tüm kenarlar (${edges.length}) tamamlanacak.`;
-    draw();winCheck();deadCheck();
-  });
 
   btn.addEventListener("click",reset);
   prev.addEventListener("click",()=>{shapeId=(shapeId-1+SHAPES.length)%SHAPES.length;reset();});
