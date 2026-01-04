@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+	<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+	<meta name="google-adsense-account" content="ca-pub-1268402107177386">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Platform Abonelik Ücretleri | Güncel Liste</title>
+	<meta name="description" content="YouTube Premium, Netflix, ChatGPT, iCloud, Exxen, Disney+, Amazon Prime, Spotify, Max, Gain, Mubi, tabii ve TV+ abonelik ücretleri.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://nesel.tr/platformucretleri.html">
+	<meta property="og:title" content="Platform Abonelik Ücretleri">
+	<meta property="og:description" content="Popüler dijital platformların güncel abonelik ücretleri.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://nesel.tr/platformucretleri.html">
+
+<style>
+:root{--ustH:200px;}body{background:#EEEEEE;}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
+#sonuclarWrap{font-family:Comic Sans MS;position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:0 10px 10px;}
+#label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;padding:6px;width:100%;}
+#aboneWrap{padding-top:10px;}
+.abonelik-tablo{font-family:Comic Sans MS;font-size:13px;width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;}
+.abonelik-tablo col.c1{width:20%;}.abonelik-tablo col.c2{width:20%;}.abonelik-tablo col.c3{width:10%;}.abonelik-tablo col.c4{width:50%;}
+.abonelik-tablo thead th{position:sticky;top:0;z-index:50;background:#BDBDBD;font-size:13px;border:1px solid #000;border-bottom:2px solid #999;padding:6px;text-align:left;}
+.abonelik-tablo td{border:1px solid #000;padding:6px;text-align:left;vertical-align:middle;word-break:break-word;}
+.abonelik-tablo td.servis{font-weight:bold;background:inherit;}
+.abonelik-tablo td.fiyat,.abonelik-tablo th.fiyat{text-align:right;white-space:nowrap;word-break:normal;}
+.abonelik-tablo tbody tr.godd td{background:#FFFFFF;}
+.abonelik-tablo tbody tr.geven td{background:#EEEEEE;}
+.bilgilendirme{font-family:Comic Sans MS;font-size:13px;}
+@media screen and (max-width:768px){
+	.abonelik-tablo col.c1{width:22%!important;}
+	.abonelik-tablo col.c2{width:24%!important;}
+	.abonelik-tablo col.c3{width:14%!important;}
+	.abonelik-tablo col.c4{width:40%!important;}
+	.abonelik-tablo{font-size:12px}}
+</style>
+
+
+
+</head>
+<body>
+	<div id="ustBar">
+		<div id="label">Aralık 2025 Platform Abonelik Ücretleri</div>
+	</div>
+	<div id="sonuclarWrap">
+		<div id="aboneWrap"><div id="abonelik-tablo"></div></div>
+		<div class="bilgilendirme">
+			<p  >* Bu sayfada yer alan platform fiyat ve özellikleri ,kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+			<br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir. 
+			<br>* Güncel ve kesin fiyat bilgisi için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
+			<br>* Tabloda yer alan fiyatlar sadeleştirme amacıyla virgülden sonraki kuruşlar gösterilmeden sunulmuştur.
+			</p>
+		</div>
+	</div>
+	
+<script>
+function temizFiyat(v){ if(!v) return ""; return v.toString().replace(/([.,]\d+)(?!\d)/,"");}
+const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
+fetch(URL).then(r=>r.json()).then(data=>{
+let html=`<table class="abonelik-tablo"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+<thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat</th><th>Not</th></tr></thead><tbody>`;
+let i=0,g=0;
+while(i<data.length){
+const servis=data[i]["Servis"]||"";
+let span=1;while(i+span<data.length&&(data[i+span]["Servis"]||"")===servis)span++;
+const gc=(g%2===0)?"godd":"geven";
+html+=`<tr class="${gc}">
+<td class="servis" rowspan="${span}">
+<span class="servis-wrap">
+<span>${iconMap[servis]||"🔹"}</span>
+<span>${servis}</span>
+</span>
+</td>
+<td class="plan">${data[i]["Plan"]||""}</td>
+<td class="fiyat">${temizFiyat(data[i]["Fiyat"])}</td>
+<td class="not">${data[i]["Not"]||""}</td>
+</tr>`;
+
+for(let k=1;k<span;k++){
+ const row=data[i+k];
+ html+=`<tr class="${gc}">
+ <td class="plan">${row["Plan"]||""}</td>
+ <td class="fiyat">${temizFiyat(row["Fiyat"])}</td>
+ <td class="not">${row["Not"]||""}</td>
+ </tr>`;
+}
+i+=span;g++;
+}
+html+=`</tbody></table>`;
+document.getElementById("abonelik-tablo").innerHTML=html;
+setUstH();
+}).catch(err=>{console.error(err);document.getElementById("abonelik-tablo").innerHTML="<p>Tablo yüklenirken hata oluştu.</p>";});
+const iconMap={"Netflix":"🎬","Disney+":"🏰","Amazon Prime Video":"📦","Spotify":"🎵","YouTube Premium":"▶️","Apple iCloud":"☁️","ChatGPT Plus":"🤖","Exxen":"📺"};
+function setUstH(){const u=document.getElementById("ustBar");if(!u)return;document.documentElement.style.setProperty("--ustH",(u.offsetHeight)+"px");}
+setUstH();
+</script>
+
+
+</body>
+</html>
