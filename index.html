@@ -332,8 +332,6 @@ const ms=document.getElementById("mselect");if(ms)ms.onchange=()=>{history.pushS
 function syncMobileBySrc(src){if(!ms)return;const i=[...ms.options].findIndex(o=>o.value===src);if(i>=0)ms.selectedIndex=i;}
 const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src);syncMobileBySrc(src);};
 
-function syncMobileBySrc(src){if(!ms)return;const i=[...ms.options].findIndex(o=>o.value===src);if(i>=0)ms.selectedIndex=i;}
-const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src);syncMobileBySrc(src);};
 
 
 </script>
