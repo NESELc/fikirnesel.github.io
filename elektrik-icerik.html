@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+		  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+		  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+		  <meta name="google-adsense-account" content="ca-pub-1268402107177386">
+		  <meta charset="UTF-8">
+		  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+		  <title>Elektriksel Hesaplamalar | Elektrik Tüketimi</title>
+		  <meta name="description" content="Ev eşyaları elektrik tüketimleri, verimlilik.Trafo güçlerine göre primer-sekonder akımlar. XLPE kablo akım taşıma kapasiteleri.">
+		  <meta name="robots" content="index,follow">
+		  <link rel="canonical" href="https://nesel.tr/elektrik.html">
+		  <meta property="og:title" content="Elektriksel Hesaplamalar ve Tüketimler">
+		  <meta property="og:description" content="Elektrik tüketimlerinizi karşılaştırın, temel elektrik bilgilerine ulaşın.">
+		  <meta property="og:type" content="website">
+		  <meta property="og:url" content="https://nesel.tr/elektrik.html">
+	<style>
+	:root{--bg:#EEEEEE;--card:transparent;--line:#9e9e9e;--tblH:#bdbdbd;--tblZ:#ffffff;--pill:#e6e6e6}
+	*{box-sizing:border-box}body{margin:0;font-family:Comic Sans MS;background:var(--bg)}
+	.wrap{max-width:1100px;margin:0 auto;padding:14px}
+	h3{margin:14px 0 10px;font-size:13px}
+	.card{background:transparent;border:0;padding:0;margin-bottom:12px}
+	.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden;table-layout:fixed}
+	.tbl th,.tbl td{padding:10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+	.tbl th{background:var(--tblH);font-weight:700}
+	.tbl tbody tr td{background:var(--tblZ)}
+	.tbl tbody tr:first-child td{background:#fff}
+	.tbl tr:last-child td{border-bottom:0}
+	.tbl .toplam{background:var(--tblH);font-weight:900}
+	.tbl tbody tr.elk th{background:#fff}
+	.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800}
+	input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
+	input[type=number],input[type=text]{width:110px;text-align:center}
+	.bilgilendirme{font-family:Comic Sans MS;font-size:13px}
+	.tbl.beyazesya tbody tr:nth-child(odd) td{background:#EEEEEE}
+	.tbl.beyazesya tbody tr:nth-child(even) td{background:#ffffff}
+	.tbl th,.tbl td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+	@media(max-width:768px){
+		.wrap{padding:6px}.card{overflow-x:auto}
+		.tbl{font-size:10px;table-layout:auto}
+		.tbl th,.tbl td{padding:2px;line-height:1.1;white-space:normal}
+		select,input[type=text],input[type=number]{font-size:9px;height:22px;padding:0 4px;width:52px}}
+	</style>
+</head>
+
+<body>
+<div class="wrap">
+	<h3>Elektriksel Hesaplamalar</h3>
+	
+<div class="card">
+	<table class="tbl">
+		<tr><th colspan="5"> Transformatör Primer(Ip)- Sekonder(Is) Akım Hesabı </th>	</tr>
+		<tr class="tbl elk"><th> Gücü </th><th> Up </th><th> Us </th><th> Ip </th><th> Is </th>	</tr>
+		<tr>
+		<td>
+			<select id="ogtr" name="ogtr" onchange="trhesap (this)">
+			<option value="100000">100 MVA</option><option value="50000">50 MVA</option><option value="25000">25 MVA</option><option value="10000">10 MVA</option>
+			<option value="5000">5 MVA</option>	<option value="2500">2.500 kVA</option><option value="2000">2.000 kVA</option><option value="1600">1.600 kVA</option>
+			<option value="1250">1.250 kVA</option><option value="1000">1.000 kVA</option><option value="800">800 kVA</option><option value="630">630 kVA</option>
+			<option value="400">400 kVA</option><option value="250">250 kVA</option><option value="160">160 kVA</option><option value="100">100 kVA</option>
+			<option value="50">50 kVA</option><option value="25">25 kVA</option>
+			</select>	
+		</td>
+		
+		<td>
+			<select id="ogseviyeP" name="ogseviyeP" onchange="trhesap (this)">
+			<option value="380">380 kV</option><option value="154">154 kV</option><option value="66">66 kV</option>	<option value="34.5">34,5 kV</option>
+			<option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>	<option value="10.5">10,5 kV</option>
+			<option value="6.3">6,3 kV</option>
+			</select>
+		</td>
+		
+		<td>
+			<select id="ogseviyeS" name="ogseviyeS" onchange="trhesap (this)">
+			<option value="34.5">34,5 kV</option><option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>
+			<option value="10.5">10,5 kV</option><option value="6.3">6,3 kV</option><option value="0.4">0,4 kV</option>
+			</select>
+		</td>
+			<td><div id="ogPakim"></div></td>
+			<td><div id="ogSakim"></div></td>
+		</tr>
+		
+	</table>
+	
+</div>
+<div class="card" style="margin-top:12px">
+	<table class="tbl">
+		<tr><th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
+		<tr class="tbl elk"><th> Kesit </th><th> Gerilim </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
+		<tr>
+		<td>
+			<select id="kabkesit" name="kabkesit" onchange="kablohesap (this)">
+			<option value="875">630 mm2</option><option value="786">500 mm2</option><option value="701">400 mm2</option><option value="627">300 mm2</option>
+			<option value="559">240 mm2</option><option value="484">185 mm2</option><option value="430">150 mm2</option><option value="385">120 mm2</option>
+			<option value="339">95 mm2</option><option value="284">70 mm2</option><option value="232">50 mm2</option><option value="165">35 mm2</option>
+			</select>	
+		</td>	
+		<td>
+			<select id="kabseviye" name="kabseviye" onchange="kablohesap (this)">
+			<option value="34.5">34,5 kV</option><option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>
+			<option value="10.5">10,5 kV</option><option value="6.3">6,3 kV</option>
+			</select>
+		</td>
+		<td><div id="kabomaj"></div></td>
+		<td><div id="kabakim"></div></td>
+		<td><div id="kabakimH"></div></td>
+		<td><div id="kabguc"></div></td>
+		</tr>
+	</table>
+	
+</div>
+<div class="card" style="margin-top:12px">
+    <h3> Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
+	<table class="tbl">
+		<tr><th> Tarih </th><th> Kullanıcı </th><th> Birim Fiyat </th></tr>
+	    <tr><td> 27/03/2025 </td><td> Mesken </td><td><input id="meskentl" onchange="ctuketimhesap (this)" type="text" value="2,59" /> &#8378 </td></tr>
+  	</table>
+	<table class="tbl beyazesya">
+	<tr><th class="besya"> Eşya </th><th> Etiket kWh/yıl </th>	<th> Aylık Faturaya Etkisi </th></tr>
+	<tr><td class="besya"> Bulaşık Makinesi </td><td><input id="bultuketim" onchange="ctuketimhesap (this)" type="text" value="270" /></td><td><div id="bultl"></div></td></tr>
+	<tr><td class="besya"> Buzdolabı </td><td><input id="buztuketim" onchange="ctuketimhesap (this)" type="text" value="350" /></td><td><div id="buztl"></div></td></tr>
+	<tr><td class="besya"> Çamaşır Makinesi </td><td><input id="camtuketim" onchange="ctuketimhesap (this)" type="text" value="120" /></td><td><div id="camtl"></div></td></tr>
+	<tr><td class="besya"> Elektrik Süpürgesi </td><td><input id="supurgetuketim" onchange="ctuketimhesap (this)" type="text" value="80" /></td><td><div id="supurgetl"></div></td></tr>
+	<tr><td class="besya"> Fırın </td><td><input id="firintuketim" onchange="ctuketimhesap (this)" type="text" value="150" /></td><td><div id="firintl"></div></td></tr>
+	<tr><td class="besya"> Klima </td><td><input id="klimatuketim" onchange="ctuketimhesap (this)" type="text" value="0" /></td><td><div id="klimatl"></div></td></tr>
+	<tr><td class="besya"> Kombi </td><td><input id="kombituketim" onchange="ctuketimhesap (this)" type="text" value="400" /></td><td><div id="kombitl"></div></td></tr>
+	<tr><td class="besya"> Modem </td><td><input id="modemtuketim" onchange="ctuketimhesap (this)" type="text" value="150" /></td><td><div id="modemtl"></div></td></tr>
+	<tr><td class="besya"> Saç Kurutma Makinesi </td><td><input id="sactuketim" onchange="ctuketimhesap (this)" type="text" value="100" /></td><td><div id="sactl"></div></td></tr>
+	<tr><td class="besya"> Televizyon </td><td><input id="tvtuketim" onchange="ctuketimhesap (this)" type="text" value="260" /></td><td><div id="tvtl"></div></td></tr>
+	<tr><td class="besya"> Ütü </td><td><input id="ututuketim" onchange="ctuketimhesap (this)" type="text" value="200" /></td><td><div id="ututl"></div></td></tr>
+	<tr><td class="toplam"> Toplam </td><td class="toplam"><div  id="toplamtuketim"></div></td><td class="toplam"><div  id="toplamtl"></div></td></tr>
+	</table>
+	<div class="bilgilendirme">
+		*Primer ve Sekonder akım hesaplamaları formüller doğrultusunda yapılmaktadır.
+		<br>*Kablo akım taşıma değerleri bir kablo üreticisinin katalog verilerinden alınmıştır.
+		<br>*Beyaz Eşya ve Elektrikli Küçük Ev Aletleri hesaplamaları görünen birim fiyat(mesken,4.000 kwh/yıl-8 kwh/gün ve altı için tek zamanlı tarife) üzerinden yapılmaktadır.
+		vergi ve fonlar dahil yaklaşık bedeli gösterir, elle değiştirebilirsiniz.
+	  	<a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank">EPDK Fatura Hesaplama Sitesi</a>
+		<br>*İlk Etiket değerleri tahmini değerlerdir, etiket değerlerini bildiğiniz cihazlar için değerleri değiştirebilirsiniz.
+		Tarife uygulamaları nedeniyle daha düşük veya daha fazla ücretler ortaya çıkabilir.
+	</div>
+</div>
+</div>
+	
+<script>
+const $=id=>document.getElementById(id);
+const n=v=>{v=(""+(v??"")).trim().replace(",",".");return Number(v)||0};
+const fmt=(v,d=1)=>new Intl.NumberFormat("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
+function trhesap(){
+  const S=n($("ogtr").value),Vp=n($("ogseviyeP").value),Vs=n($("ogseviyeS").value);
+  const Ip=S/(Vp*1.73205),Is=(Vp/Vs)*Ip;
+  $("ogPakim").textContent=`${fmt(Ip,1)} A`; $("ogSakim").textContent=`${fmt(Is,1)} A`;
+}
+function kablohesap(){
+  const I=n($("kabkesit").value),A=n($("kabkesit").value),V=n($("kabseviye").value);
+  const R=0.017857*(1000/A),P=(V*1.73*A)/1000;
+  $("kabomaj").innerHTML=`${fmt(R,2)} &#8486/km`;
+  $("kabakim").textContent=`${fmt(I,1)} A`; $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
+  $("kabguc").textContent=`${fmt(P,1)} MW`;
+}
+function ctuketimhesap(){
+  const tl=n($("meskentl").value);
+  const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi"];
+  let sumK=0,sumTL=0;
+  ids.forEach(k=>{
+    const kwh=n($(k+"tuketim").value); const tut=(kwh/12)*tl; sumK+=kwh; sumTL+=tut;
+    $(k+"tl").innerHTML=`&#8378 ${fmt(tut,1)}`;
+  });
+  $("toplamtuketim").textContent=`${fmt(sumK,0)} kWh`;
+  $("toplamtl").innerHTML=`&#8378 ${fmt(sumTL,1)}`;
+}
+["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
+["kabkesit","kabseviye"].forEach(id=>$(id).addEventListener("change",kablohesap));
+["meskentl","buztuketim","camtuketim","bultuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
+.forEach(id=>$(id).addEventListener("input",ctuketimhesap));
+trhesap();kablohesap();ctuketimhesap();
+	["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
+.forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add("pill");});
+</script>
+
+</body>
+</html>
