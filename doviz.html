@@ -119,7 +119,7 @@ iframe{width:100%;height:100%;border:0;display:block}
       <nav class="nav" id="menu">
         <a href="#sifiraraclar" data-src="/sifiraraclar-icerik.html">Sıfır Araçlar</a>
         <a href="#platformucretleri" data-src="/platformucretleri-icerik.html">Platform Ücretleri</a>
-        <a href="#doviz" data-src="/doviz-icerik.html">Döviz Çevirici</a>
+        <a href="/doviz.html">Döviz Çevirici</a>
         <a href="#gelirvergisi" data-src="/gelirvergisi-icerik.html">Gelir Vergisi Dilimleri</a>
         <a href="#ankara" data-src="/ankara-icerik.html">Ankara</a>
         <a href="#elektrik" data-src="/elektrik-icerik.html">Elektrik</a>
@@ -128,7 +128,7 @@ iframe{width:100%;height:100%;border:0;display:block}
       <select id="mselect" aria-label="Menü">
         <option value="/sifiraraclar-icerik.html" data-h="#sifiraraclar">Sıfır Araçlar</option>
         <option value="/platformucretleri-icerik.html" data-h="#platformucretleri">Platform Ücretleri</option>
-        <option value="/doviz-icerik.html" data-h="#doviz">Döviz Çevirici</option>
+        <option value="/doviz.html">Döviz Çevirici</option>
         <option value="/gelirvergisi-icerik.html" data-h="#gelirvergisi">Gelir Vergisi Dilimleri</option>
         <option value="/ankara-icerik.html" data-h="#ankara">Ankara</option>
         <option value="/elektrik-icerik.html" data-h="#elektrik">Elektrik</option>
@@ -344,7 +344,7 @@ function setUstH(){
 window.addEventListener("resize",setUstH);
 setUstH();
 
-const frame=document.getElementById("sayfaFrame");
+const frame=document.getElementById("sayfaFrame")||null;
 const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
 
 function setActiveBySrc(src){
@@ -361,7 +361,7 @@ function kampanyalariKartYap(){
 kampanyalariKartYap();
 
 (()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');let v=null,k='fbk_'+location.pathname+location.hash,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);const p=JSON.stringify({url:location.pathname+location.hash,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
-const ms=document.getElementById("mselect");if(ms){ms.onchange=()=>{const o=ms.options[ms.selectedIndex],src=o.value,h=o.getAttribute("data-h")||"";if(h)history.replaceState(null,"",h);frame.setAttribute("src",src);setActiveBySrc(src);};}
+const ms=document.getElementById("mselect");if(ms)ms.onchange=()=>{const o=ms.options[ms.selectedIndex],src=o.value,h=o.getAttribute("data-h")||"";if(h)history.replaceState(null,"",h);if(frame)frame.setAttribute("src",src);setActiveBySrc(src);};
 function syncMobileBySrc(src){if(!ms)return;const i=[...ms.options].findIndex(o=>o.value===src);if(i>=0)ms.selectedIndex=i;}
 const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src);syncMobileBySrc(src);};
 
@@ -377,7 +377,8 @@ const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src)
   const set=(id,ccy)=>{const v=tryFromUsd(r,ccy);document.getElementById(id).textContent=(v?Number(v).toFixed(2):"—");};
     set("t_eurtry","EUR");set("t_gbptry","GBP");set("t_chftry","CHF");set("t_cadtry","CAD");set("t_audtry","AUD");set("t_sartry","SAR");set("t_rubtry","RUB");
     set("t_jpytry","JPY");set("t_dkktry","DKK");set("t_sektry","SEK");set("t_noktry","NOK");
-  const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
+  const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;
+    document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
   (async function(){await fillTable();})();
 
 </script>
