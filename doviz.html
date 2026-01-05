@@ -1,9 +1,97 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <title>Döviz Çevirici | Güncel Döviz Kurları</title>
-  <meta name="description" content="USD, EUR, TL ve diğer para birimleri arasında güncel döviz çevirici.">
-  <link rel="canonical" href="https://nesel.tr/doviz.html">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+  <meta name="google-adsense-account" content="ca-pub-1268402107177386">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1268402107177386" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>NESEL — Bilgi Merkezi</title>
+  <meta name="description" content="Güncel sıfır araç fiyatları, pratik hesaplamalar, gelir vergisi dilimleri, platform abonelik ücretleri, Ankara.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://nesel.tr/">
+  <meta property="og:title" content="NESEL — Bilgi Merkezi">
+  <meta property="og:description" content="Araç fiyatları, döviz, vergi dilimleri ve pratik bilgiler.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nesel.tr/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<style>
+html{scrollbar-gutter:stable}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+a{color:inherit;text-decoration:none}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:170px}
+.logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
+.brand b{letter-spacing:.6px}
+.kicker{color:var(--muted);font-size:12px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
+.nav a:hover{border-color:#cbd5e1}
+.nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
+main{padding-top:var(--ustH)}
+#layout{display:flex;gap:8px;padding:2px 16px 12px;align-items:flex-start}
+#ortaAlan{flex:1;max-width:1120px}
+#solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+#sagReklam{width:300px;position:sticky;top:var(--ustH)}
+#solIcerik{width:300px;position:sticky;top:var(--ustH);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
+.frameWrap{margin:0}
+.frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#eeeeee;box-shadow:0 10px 30px rgba(0,0,0,.06);height:calc(100vh - var(--ustH) - 26px);min-height:520px}
+iframe{width:100%;height:100%;border:0;display:block}
+#solIcerik .blok{font-size:13px;border:1px solid var(--line);border-radius:12px;background:#fff}
+#solIcerik details.blok{padding:0}
+#solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
+#solIcerik details.blok>summary::-webkit-details-marker{display:none}
+#solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
+#solIcerik details.blok[open]>summary:after{content:"▴"}
+#solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
+#solIcerik .icerik{padding:0 12px 12px}
+#solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
+#solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+#solIcerik .btn:hover{border-color:#cbd5e1}
+#solIcerik .kampSayac{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb;font-size:12px;color:#0f172a;display:flex;align-items:center;gap:8px;margin:10px 0}
+#solIcerik .kampSayac b{font-size:12px}
+#solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+#solIcerik .madde b{display:block;margin:0 0 6px;font-size:13px;font-weight:600}
+#solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
+#solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
+#solIcerik .madde b.arac{font-size:13px;font-weight:600}
+#solIcerik .madde small.deger{font-size:12px;color:var(--muted)}
+#solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+#solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
+#solIcerik .badge.kredi,#solIcerik .badge.kredia{background:#e0f2fe;color:#075985}
+#solIcerik .badge.takas{background:#ecfeff;color:#155e75}
+#solIcerik .badge.indirim{background:#dcfce7;color:#166534}
+.platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
+.platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.platformlar li .acik{font-size:10px;color:#666}
+.dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
+.dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
+.dovizler li span{font-size:10px;color:#555}
+.reklamEtiket{font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px}
+#fbk{ margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}#fbk button{display:none;padding:4px 10px;cursor:pointer}.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
+#mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:13px;max-width:220px}
+@media (max-width:1200px){
+#layout{flex-direction:column;align-items:stretch}
+#solIcerik,#sagReklam{position:static;max-height:none;width:100%}
+#ortaAlan{order:1;width:100%;max-width:none}
+#solIcerik{order:2}
+#sagReklam{order:3}
+.frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+}
+@media(max-width:768px){
+  #menu{display:none}
+  #mselect{display:block}
+  .logo{width:120px;height:36px}
+  .brand{min-width:auto;gap:0}
+  .brand b,.brand .kicker{display:none}}
+</style>
+
 </head>
 
 <body>
@@ -17,7 +105,7 @@
       <nav class="nav" id="menu">
         <a href="#sifiraraclar" data-src="/sifiraraclar-icerik.html">Sıfır Araçlar</a>
         <a href="#platformucretleri" data-src="/platformucretleri-icerik.html">Platform Ücretleri</a>
-<a href="/doviz.html" class="active">Döviz Çevirici</a>
+        <a href="#doviz" data-src="/doviz-icerik.html">Döviz Çevirici</a>
         <a href="#gelirvergisi" data-src="/gelirvergisi-icerik.html">Gelir Vergisi Dilimleri</a>
         <a href="#ankara" data-src="/ankara-icerik.html">Ankara</a>
         <a href="#elektrik" data-src="/elektrik-icerik.html">Elektrik</a>
@@ -26,7 +114,7 @@
       <select id="mselect" aria-label="Menü">
         <option value="/sifiraraclar-icerik.html" data-h="#sifiraraclar">Sıfır Araçlar</option>
         <option value="/platformucretleri-icerik.html" data-h="#platformucretleri">Platform Ücretleri</option>
-<option value="/doviz.html" selected>Döviz Çevirici</option>
+        <option value="/doviz-icerik.html" data-h="#doviz">Döviz Çevirici</option>
         <option value="/gelirvergisi-icerik.html" data-h="#gelirvergisi">Gelir Vergisi Dilimleri</option>
         <option value="/ankara-icerik.html" data-h="#ankara">Ankara</option>
         <option value="/elektrik-icerik.html" data-h="#elektrik">Elektrik</option>
@@ -181,63 +269,11 @@
 
 
     <section id="ortaAlan">
-          <style>
-  .dovizWrap{font-family:Comic Sans MS}
-  .dovizWrap .container{max-width:1050px;margin:auto}
-  .dovizWrap .hero{display:block;margin:0 auto 14px;width:160px;height:160px}
-  .dovizWrap .result{display:inline-block;font-size:18px;font-weight:bold;color:red;border:1px solid red;padding:10px;border-radius:4px;margin:10px 0 16px}
-  .dovizWrap .fxwrap{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .dovizWrap .fxbox{flex:1;min-width:280px;max-width:520px;text-align:center}
-  .dovizWrap input,.dovizWrap select{padding:8px;width:32%;margin-top:10px}
-  .dovizWrap .kurtablo{width:100%;border-collapse:collapse;font-size:13px}
-  .dovizWrap th,.dovizWrap td{border:1px solid #999;padding:6px}
-  .dovizWrap th{background:#BDBDBD}
-  .dovizWrap .smallnote{margin-top:10px;font-size:13px;color:#b00000;text-align:left}
-</style>
-
-<div class="dovizWrap">
-  <div class="container">
-    <div class="fxwrap">
-      <div class="fxbox">
-        <img class="hero" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXyM7LQiZJBdXPKYUKIey0WIQXfgYWhpLOgiI8eI5FFkuRxhklAdFsdrrCE2dO6y2HQ0hR6aPaOrXYcAWp98XfRUX6YL3zLmETTc-FEpDBztsDf5wEFGj8ib1NfQM8rTaDyUUZuE5PuNK2BQwM71_xv3gEKXarbBXY8kGErT9yjNWWypWdnkWn960PE6j/s320/ac65c997-a928-4370-b895-7cd33260d789.webp" alt="Döviz Çevirici">
-        <div class="result" id="result">Yükleniyor…</div>
-        <input type="number" id="amount" placeholder="Tutar" oninput="convertCurrency()">
-        <select id="fromCurrency" onchange="convertCurrency()">
-          <option value="USD">USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option>
-        </select>
-        <select id="toCurrency" onchange="convertCurrency()">
-          <option value="TRY">TRY</option><option value="USD">USD</option><option value="EUR">EUR</option>
-        </select>
+      <div class="frameWrap">
+        <div class="frameBox">
+          <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
+        </div>
       </div>
-
-      <div class="fxbox">
-        <table class="kurtablo">
-          <tr><th>Döviz</th><th>Kur</th></tr>
-          <tr><td>USD/TRY</td><td id="t_usdtry">—</td></tr>
-          <tr><td>EUR/TRY</td><td id="t_eurtry">—</td></tr>
-        </table>
-        <div class="smallnote" id="kurTarih"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-async function fetchRates(b){const r=await fetch(`https://api.exchangerate-api.com/v4/latest/${b}`);return r.json()}
-let cache={}
-async function convertCurrency(){
-  const a=+amount.value||0,f=fromCurrency.value,t=toCurrency.value
-  if(!cache[f])cache[f]=await fetchRates(f)
-  result.innerHTML=`${a} ${f} = ${(a*(cache[f].rates[t]||0)).toFixed(2)} ${t}`
-}
-(async()=>{
-  const d=await fetchRates("USD")
-  t_usdtry.textContent=d.rates.TRY.toFixed(2)
-  t_eurtry.textContent=(d.rates.TRY/d.rates.EUR).toFixed(2)
-  kurTarih.textContent="Son güncelleme: "+new Date(d.time_last_updated*1000).toLocaleString("tr-TR")
-})()
-</script>
-
     </section>
 
     <aside id="sagReklam">
@@ -251,11 +287,54 @@ async function convertCurrency(){
 </main>
 
 <script>
-function setUstH(){const u=document.getElementById("ustBar");if(!u)return;document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px")}
-addEventListener("resize",setUstH);setUstH();
-(()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);const p=JSON.stringify({url:location.pathname,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
-const ms=document.getElementById("mselect");if(ms){ms.onchange=()=>{location.href=ms.value;};}
-</script>
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
+}
+window.addEventListener("resize",setUstH);
+setUstH();
 
+const frame=document.getElementById("sayfaFrame");
+const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
+
+function setActiveBySrc(src){
+  links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
+}
+function openByHash(){
+  const hash=(location.hash||"#sifiraraclar").replace("#","");
+  const a=links.find(x=>x.getAttribute("href")==="#"+hash)||links[0];
+  const src=a.getAttribute("data-src");
+  if(frame.getAttribute("src")!==src) frame.setAttribute("src",src);
+  setActiveBySrc(src);
+}
+links.forEach(a=>{
+  a.addEventListener("click",()=>{
+    const src=a.getAttribute("data-src");
+    setActiveBySrc(src);
+    frame.setAttribute("src",src);
+    setUstH();
+  });
+});
+window.addEventListener("hashchange",openByHash);
+function kampanyalariKartYap(){
+  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
+  const ic=det.querySelector('.icerik');if(!ic)return;
+  const maddeler=Array.from(ic.querySelectorAll('.madde'));
+  let sayac=ic.querySelector('.kampSayac');if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
+  sayac.innerHTML='✅ <b>'+maddeler.length+'</b> aktif kampanya';
+}
+kampanyalariKartYap();
+
+
+openByHash();
+
+(()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');let v=null,k='fbk_'+location.pathname+location.hash,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);const p=JSON.stringify({url:location.pathname+location.hash,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
+const ms=document.getElementById("mselect");if(ms){ms.onchange=()=>{const o=ms.options[ms.selectedIndex],src=o.value,h=o.getAttribute("data-h")||"";if(h)history.replaceState(null,"",h);frame.setAttribute("src",src);setActiveBySrc(src);};}
+function syncMobileBySrc(src){if(!ms)return;const i=[...ms.options].findIndex(o=>o.value===src);if(i>=0)ms.selectedIndex=i;}
+const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src);syncMobileBySrc(src);};
+
+
+</script>
 </body>
 </html>
