@@ -84,6 +84,23 @@ iframe{width:100%;height:100%;border:0;display:block}
 #sagReklam{order:3}
 .frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
 }
+
+  .container{max-width:1050px;margin:auto}
+  .hero{display:block;margin:0 auto 14px;width:160px;height:160px}
+  .result{display:inline-block;font-size:18px;font-weight:bold;color:red;border:1px solid red;padding:10px;border-radius:4px;margin:10px 0 16px}
+  .fxwrap{display:flex;gap:14px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+  .fxbox{flex:1;min-width:280px;max-width:520px;text-align:center}
+  input,select{font-family:Comic Sans MS;padding:8px;width:32%;box-sizing:border-box;margin-top:10px;display:inline-block}
+  .footer-info{margin-top:12px;font-size:14px;text-align:left;color:#b00000}
+  .kurtablo{width:100%;border-collapse:collapse;font-family:Comic Sans MS;font-size:13px;table-layout:fixed}
+  .kurtablo th,.kurtablo td{border:1px solid #999;padding:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kurtablo th{background:#BDBDBD;text-align:left;position:sticky;top:0;z-index:5}
+  .kurtablo td:nth-child(1){text-align:left}
+  .kurtablo td:nth-child(2),.kurtablo td:nth-child(3){text-align:right}
+  .kurtablo tbody tr:nth-child(odd){background:#FFFFFF}
+  .kurtablo tbody tr:nth-child(even){background:#EEEEEE}
+  .kurtablo th:nth-child(2),.kurtablo th:nth-child(3),.kurtablo td:nth-child(2),.kurtablo td:nth-child(3){  text-align:center;}
+  .smallnote{margin-top:10px;font-size:13px;color:#b00000;text-align:left}
 @media(max-width:768px){
   #menu{display:none}
   #mselect{display:block}
@@ -269,11 +286,45 @@ iframe{width:100%;height:100%;border:0;display:block}
 
 
     <section id="ortaAlan">
-      <div class="frameWrap">
-        <div class="frameBox">
-          <iframe id="sayfaFrame" src="/sifiraraclar.html" loading="eager" referrerpolicy="no-referrer"></iframe>
-        </div>
-      </div>
+        <div class="container">
+  <div class="fxwrap">
+  <div class="fxbox">
+    <img class="hero" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXyM7LQiZJBdXPKYUKIey0WIQXfgYWhpLOgiI8eI5FFkuRxhklAdFsdrrCE2dO6y2HQ0hR6aPaOrXYcAWp98XfRUX6YL3zLmETTc-FEpDBztsDf5wEFGj8ib1NfQM8rTaDyUUZuE5PuNK2BQwM71_xv3gEKXarbBXY8kGErT9yjNWWypWdnkWn960PE6j/s320/ac65c997-a928-4370-b895-7cd33260d789.webp" alt="Döviz resmi - fikirnesel blog" loading="lazy">
+    <div class="result" id="result">Yükleniyor...</div>
+    <div style="width:100%;text-align:center;">
+  <input type="number" id="amount" placeholder="Tutar" oninput="convertCurrency()">
+  <select id="fromCurrency" onchange="convertCurrency()">
+  <option value="USD" selected>USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="DKK">DKK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
+  </select>
+  <select id="toCurrency" onchange="convertCurrency()">
+  <option value="TRY" selected>TRY</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="DKK">DKK</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
+  </select>
+  </div>
+  </div>
+  <div class="fxbox">
+  <table class="kurtablo" aria-label="Güncel döviz kurları tablosu">
+    <thead><tr><th>Döviz</th><th>Kur</th></tr></thead>
+    <tbody>
+      <tr><td>USD/TRY</td><td id="t_usdtry">Yükleniyor…</td></tr>
+      <tr><td>EUR/TRY</td><td id="t_eurtry">—</td></tr>
+      <tr><td>GBP/TRY</td><td id="t_gbptry">—</td></tr>
+      <tr><td>CHF/TRY</td><td id="t_chftry">—</td></tr>
+      <tr> <td>JPY/TRY</td><td id="t_jpytry">—</td></tr>
+      <tr><td>CAD/TRY</td><td id="t_cadtry">—</td></tr>
+      <tr><td>AUD/TRY</td><td id="t_audtry">—</td></tr>
+      <tr><td>DKK/TRY</td><td id="t_dkktry">—</td></tr>
+      <tr><td>SEK/TRY</td><td id="t_sektry">—</td></tr>
+      <tr><td>NOK/TRY</td><td id="t_noktry">—</td></tr>
+      <tr><td>SAR/TRY</td><td id="t_sartry">—</td></tr>
+      <tr><td>RUB/TRY</td><td id="t_rubtry">—</td></tr>
+    
+    </tbody>
+  </table>
+  <div class="smallnote" id="kurTarih">ExchangeRate-API tarafından sağlanan kurlar görüntülenmektedir.</div>
+  <div class="smallnote">Kurlar, ExchangeRate-API tarafından sağlanmaktadır.</div>
+  </div>
+  </div>
+  </div>
     </section>
 
     <aside id="sagReklam">
@@ -334,6 +385,20 @@ const ms=document.getElementById("mselect");if(ms){ms.onchange=()=>{const o=ms.o
 function syncMobileBySrc(src){if(!ms)return;const i=[...ms.options].findIndex(o=>o.value===src);if(i>=0)ms.selectedIndex=i;}
 const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src);syncMobileBySrc(src);};
 
+  async function fetchRates(base){const r=await fetch(`https://api.exchangerate-api.com/v4/latest/${base}`);const d=await r.json();return d;}
+  var ratesCache=window.ratesCache||{};window.ratesCache=ratesCache;
+  function fmt2(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2})}
+  function tryFromUsd(usdRates,ccy){const u=usdRates||{};if(!u.TRY||!u[ccy])return null;return u.TRY/u[ccy];}
+  async function ensureUsd(){if(!ratesCache.USD){ratesCache.USD=await fetchRates("USD");}return ratesCache.USD;}
+  async function convertCurrency(){const amount=parseFloat(document.getElementById("amount").value)||0;const from=document.getElementById("fromCurrency").value;const to=document.getElementById("toCurrency").value;if(!ratesCache[from]){ratesCache[from]=await fetchRates(from);}const rates=(ratesCache[from]&&ratesCache[from].rates)||{};const conv=amount*(rates[to]||0);document.getElementById("result").innerHTML=`${amount.toLocaleString()} ${from} = ${fmt2(conv)} ${to}`;}
+  async function fillTable(){
+  const usd=await ensureUsd();const r=usd.rates||{};
+  const usdtry=r.TRY||0;document.getElementById("t_usdtry").textContent=usdtry?usdtry.toFixed(2):"—";
+  const set=(id,ccy)=>{const v=tryFromUsd(r,ccy);document.getElementById(id).textContent=(v?Number(v).toFixed(2):"—");};
+    set("t_eurtry","EUR");set("t_gbptry","GBP");set("t_chftry","CHF");set("t_cadtry","CAD");set("t_audtry","AUD");set("t_sartry","SAR");set("t_rubtry","RUB");
+    set("t_jpytry","JPY");set("t_dkktry","DKK");set("t_sektry","SEK");set("t_noktry","NOK");
+  const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
+  (async function(){await fillTable();})();
 
 </script>
 </body>
