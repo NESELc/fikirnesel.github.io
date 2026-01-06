@@ -1,10 +1,497 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Oyunlar</title>
-<meta http-equiv="refresh" content="0;url=/#oyunlar">
-<script>location.replace("/#oyunlar");</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+  <meta name="google-adsense-account" content="ca-pub-1268402107177386">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Oyunlar | Online</title>
+  <meta name="description" content="Eğlenceli oyunlar">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://nesel.tr/oyunlar.html">
+  <meta property="og:title" content="Online Oyunlar">
+  <meta property="og:description" content="Çizim yap.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nesel.tr/oyunlar.html">
+<style>
+html{scrollbar-gutter:stable}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+a{color:inherit;text-decoration:none}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:170px}
+.logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
+.brand b{letter-spacing:.6px}
+.kicker{color:var(--muted);font-size:12px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
+.nav a:hover{border-color:#cbd5e1}
+.nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
+main{padding-top:var(--ustH)}
+#layout{display:flex;gap:8px;padding:2px 16px 12px;align-items:flex-start}
+#ortaAlan{flex:1;max-width:1120px}
+#solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+#sagReklam{width:300px;position:sticky;top:var(--ustH)}
+#solIcerik{width:300px;position:sticky;top:var(--ustH);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
+.frameWrap{margin:0}
+.frameBox{height:calc(100vh - var(--ustH) - 26px);min-height:0;padding:50px;background:#eeeeee;border-radius:14px;overflow:auto}
+iframe{width:100%;height:100%;border:0;display:block}
+#solIcerik .blok{font-size:13px;border:1px solid var(--line);border-radius:12px;background:#fff}
+#solIcerik details.blok{padding:0}
+#solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
+#solIcerik details.blok>summary::-webkit-details-marker{display:none}
+#solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
+#solIcerik details.blok[open]>summary:after{content:"▴"}
+#solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
+#solIcerik .icerik{padding:0 12px 12px}
+#solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
+#solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+#solIcerik .btn:hover{border-color:#cbd5e1}
+#solIcerik .kampSayac{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb;font-size:12px;color:#0f172a;display:flex;align-items:center;gap:8px;margin:10px 0}
+#solIcerik .kampSayac b{font-size:12px}
+#solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+#solIcerik .madde b{display:block;margin:0 0 6px;font-size:13px;font-weight:600}
+#solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
+#solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
+#solIcerik .madde b.arac{font-size:13px;font-weight:600}
+#solIcerik .madde small.deger{font-size:12px;color:var(--muted)}
+#solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+#solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
+#solIcerik .badge.kredi,#solIcerik .badge.kredia{background:#e0f2fe;color:#075985}
+#solIcerik .badge.takas{background:#ecfeff;color:#155e75}
+#solIcerik .badge.indirim{background:#dcfce7;color:#166534}
+.platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
+.platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.platformlar li .acik{font-size:10px;color:#666}
+.dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
+.dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
+.dovizler li span{font-size:10px;color:#555}
+.reklamEtiket{font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px}
+#fbk{ margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}#fbk button{display:none;padding:4px 10px;cursor:pointer}.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
+#mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:13px;max-width:220px}
+@media (max-width:1200px){
+#layout{flex-direction:column;align-items:stretch}
+#solIcerik,#sagReklam{position:static;max-height:none;width:100%}
+#ortaAlan{order:1;width:100%;max-width:none}
+#solIcerik{order:2}
+#sagReklam{order:3}
+.frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+}
+
+
+    #oyunWrap{max-width:520px;margin:10px auto;padding:6px}
+    #oyunBar{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:8px;align-items:center;margin:0 0 6px}
+    #msg{min-width:48px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    #info{white-space:nowrap;opacity:.85;text-align:right}
+    #btnReset{padding:7px 11px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer}
+    #btnPrev,#btnNext{width:34px;height:32px;padding:0;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    #game{width:100%;height:440px;display:block;border:1px solid #ddd;border-radius:10px;background:#fff;touch-action:manipulation}
+    .bilgilendirme{font-family:Comic Sans MS;font-size:13px;}
+
+@media(max-width:768px){
+  #solIcerik{overflow:visible;max-height:none;}
+  #menu{display:none}
+  #mselect{display:block}
+  .logo{width:120px;height:36px}
+  .brand{min-width:auto;gap:0}
+  .brand b,.brand .kicker{display:none}
+  .fxbox{max-width:540px}
+  #game{height:360px}
+  #msg{max-width:110px}
+}
+</style>
+
 </head>
-<body></body>
+
+<body>
+<header id="ustBar">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
+      </div>
+      <nav class="nav" id="menu">
+        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
+        <a href="/platformucretleri.html">Platform Ücretleri</a>
+        <a href="/doviz.html">Döviz Çevirici</a>
+        <a href="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
+        <a href="/ankara.html">Ankara</a>
+        <a href="/elektrik.html">Elektrik</a>
+        <a href="/oyunlar.html">Oyunlar</a>
+      </nav>
+      <select id="mselect" aria-label="Menü">
+        <option value="/sifiraraclar.html">Sıfır Araçlar</option>
+        <option value="/platformucretleri.html">Platform Ücretleri</option>
+        <option value="/doviz.html">Döviz Çevirici</option>
+        <option value="/gelirvergisi.html">Gelir Vergisi Dilimleri</option>
+        <option value="/ankara.html">Ankara</option>
+        <option value="/elektrik.html">Elektrik</option>
+        <option value="/oyunlar.html">Oyunlar</option>
+      </select>
+
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="layout">
+  <aside id="solIcerik">
+      <div class="blok">
+        <h2>NESEL Bilgi Merkezi</h2>
+        <p>Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
+        
+      </div>
+      
+      <details class="blok" >
+        <summary>Sıfır Araç Kampanyaları</summary>
+        <div class="icerik">
+<div class="madde"><b class="arac">Alfa Romeo Junior Ibrida Speciale</b><small class="badge">Takas</small><small class="deger">121.529 TL</small></div>
+
+<div class="madde"><b class="arac">Audi A6 e-tron</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small></div>
+<div class="madde"><b class="arac">Audi Q4 e-tron, Q4 Sportback e-tron</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">BMW 120</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+<div class="madde"><b class="arac">BMW 220 Gran Coupe</b><small class="badge">%0 Kredi</small><small class="deger">750.000 TL • 6 ay</small><small class="badge">Takas</small><small class="deger">150.000 TL</small></div>
+<div class="madde"><b class="arac">BMW 320i Sedan, Sport Line, M Sport</b><small class="badge">%0 Kredi</small><small class="deger">4.000.000 TL • 8 ay</small><small class="badge">Takas</small><small class="deger">900.000 TL</small></div>
+
+<div class="madde"><b class="arac">BYD Dolphin</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small><small class="badge">Peşin</small><small class="deger">109.000 TL indirim</small></div>
+
+<div class="madde"><b class="arac">Citroen Ami</b><small class="badge">%0 Kredi</small><small class="deger">270.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Citroen e-C3, C4, e-C4, C4 X</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Citroen C3 Aircross, e-C3 Aircross</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+
+<div class="madde"><b class="arac">Dacia Sandero Stepway, Jogger</b><small class="badge">Kredi</small><small class="deger">150.000 TL • 6 ay (%0,99)</small></div>
+
+<div class="madde"><b class="arac">Fiat 600</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Fiat Topolino</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small><small class="badge">İndirim</small><small class="deger">90.000 TL</small></div>
+
+<div class="madde"><b class="arac">Ford Focus</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Puma, Puma Gen-E</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Explorer, Capri</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Ticari (Transit, Custom, Ranger, Courier*)</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 9 ay</small></div>
+
+<div class="madde"><b class="arac">Kia Stonic</b><small class="badge">%0 Kredi</small><small class="deger">Var</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+<div class="madde"><b class="arac">Kia EV9</b><small class="badge">%0 Kredi</small><small class="deger">Var</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+
+<div class="madde"><b class="arac">Nissan Juke</b><small class="badge">%0 Kredi</small><small class="deger">240.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+<div class="madde"><b class="arac">Nissan X-Trail Platinum Premium</b><small class="badge">%0 Ticari Kredi</small><small class="deger">600.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+
+<div class="madde"><b class="arac">Opel Astra, Astra Electric</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Opel Combo Cargo</b><small class="badge">%0 Kredi</small><small class="deger">600.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+
+<div class="madde"><b class="arac">Peugeot 2008</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Peugeot 408</b><small class="badge">Kredi</small><small class="deger">250.000 TL • 6 ay (%0,49)</small></div>
+
+<div class="madde"><b class="arac">Renault 5 E-Tech</b><small class="badge">%0 Kredi</small><small class="deger">350.000 TL • 6 ay (Bireysel)</small></div>
+<div class="madde"><b class="arac">Renault Duster (Yeni)</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">Toyota Proace City</b><small class="badge">%0 Kredi</small><small class="deger">290.000 TL • 6 ay</small></div>
+<div class="madde"><b class="arac">Toyota Proace Verso</b><small class="badge">%0 Kredi</small><small class="deger">315.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Toyota Proace City Cargo</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">Volkswagen Transporter Kombi</b><small class="badge">%0 Kredi</small><small class="deger">500.000 TL • 12 ay</small></div>
+
+
+        </div>
+      </details>
+      <details class="blok">
+        <summary>Platformlar</summary>
+        <div class="icerik">
+        <div class="madde"><b>Türkiye’de Yayında Olan Platformlar</b></div>
+        <ul class="platformlar">
+        <li><b>YouTube</b><span class="acik">Video</span></li>
+        <li><b>Apple iCloud</b><span class="acik">Bulut</span></li>
+        <li><b>Netflix</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Exxen</b><span class="acik">Dizi/Film</span></li>
+        <li><b>ChatGPT</b><span class="acik">Yapay Zeka</span></li>
+        <li><b>Disney+</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Amazon</b><span class="acik">Prime</span></li>
+        <li><b>Spotify</b><span class="acik">Müzik</span></li>
+        <li><b>Max</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Gain</b><span class="acik">Dijital TV</span></li>
+        <li><b>Mubi</b><span class="acik">Sinema</span></li>
+        <li><b>Tabii</b><span class="acik">TR Dijital</span></li>
+        <li><b>TV+</b><span class="acik">IPTV</span></li>
+        <li><b>Grok</b><span class="acik">Yapay Zeka</span></li>
+        </ul>
+        </div>
+      </details>
+
+      <details class="blok">
+        <summary>Döviz</summary>
+        <div class="icerik">
+        <div class="madde"><b>Para Birimleri</b></div>
+        <ul class="dovizler">
+        <li>TL-TRY<br><span>Türk Lirası</span></li>
+        <li>USD<br><span>Amerikan Doları</span></li>
+        <li>EUR<br><span>Euro</span></li>
+        <li>GBP<br><span>İngiliz Sterlini</span></li>
+        <li>CHF<br><span>İsviçre Frangı</span></li>
+        <li>JPY<br><span>Japon Yeni</span></li>
+        <li>DKK<br><span>Danimarka Kronu</span></li>
+        <li>SEK<br><span>İsveç Kronu</span></li>
+        <li>NOK<br><span>Norveç Kronu</span></li>
+        <li>CAD<br><span>Kanada Doları</span></li>
+        <li>AUD<br><span>Avustralya Doları</span></li>
+        <li>SAR<br><span>Suudi Riyali</span></li>
+        <li>RUB<br><span>Rus Rublesi</span></li>
+        
+        </ul>
+        </div>
+      </details>
+
+      
+      <details class="blok">
+        <summary>Ankara</summary>
+        <div class="icerik">Ankara Merkez</div>
+        <div class="madde"><b>Ankara Kalesi</b>
+            <small>Bilgi</small>
+            <small>Galatlar’ın Ankara’ya yerleşmesi sırasında var olan ve Romalılar döneminde onarım gören kalenin ne zaman yapıldığı kesin olarak bilinmemektedir.
+              İç ve dış kale olmak üzere iki kısımdan oluşan kalenin iç surları, 7.yüzyılda Bizanslılar tarafından inşa edilmiştir. 
+              Bizans saldırıları sırasında tahribata uğramış ve 9. yüzyılda Bizanslılar tarafınan yeniden onarılmıştır. 
+              Dış surların ne zaman eklendiği kesin olarak saptanamamıştır. </small>
+          </div>
+      </details>
+
+      <details class="blok">
+        <summary>Elektrik</summary>
+        <div class="madde"><b>Thales,Benjamin Franklin, Edison,Tesla </b>
+            <small>Bilgi</small>
+            <small>Elektriğin keşfi, ilk kez M.Ö. 600 lü yıllarda Antik Yunanda ,Thales'in kehribarın çekim gücünü keşfi ile başlıyor. Benjamin Franklin'in 
+              uçurtma deneyi ile şimşeklerin elektrik yüklü olduğu keşfi,Michael Faraday'ın elektromanyetizma, Edison'un Doğru Akım, Tesla'nın Alternatif akım 
+              uygulamaları ile günümüze ulaşmıştır. Ülkemizde ilk elektrik üretimi Mersin'in Tarsus ilçesinde 1902 yılında yapılmıştır.
+              
+            </small>
+          </div>
+      </details>
+    
+      <div class="blok">
+        <h2>Not</h2>
+        <p>Sayfada yer alan fiyat ve kampanyalar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
+      </div>
+  <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea>
+  <button type="button">Gönder</button></div>
+  
+  </aside>
+
+    <section id="ortaAlan">
+      <div class="frameWrap">
+        <div class="frameBox">
+          <div id="oyunWrap">
+  <div id="oyunBar">
+    <button id="btnReset" type="button">Sıfırla</button>
+    <span id="msg">Seç</span>
+    <small id="info"></small>
+    <button id="btnPrev" type="button" aria-label="Önceki">◀</button>
+    <button id="btnNext" type="button" aria-label="Sonraki">▶</button>
+  </div>    
+    <canvas id="game"></canvas>
+  </div>
+  <div class="bilgilendirme">
+	  		<b>Kurallar</b>
+			<p  >*Herhangi bir noktadan başlayarak, komşu noktalar seçildiğinde kenarlar aktif hale gelir.
+			<br>*Tüm kenarlardan aktif hale geldiğinde oyun biter.
+			<br>*İki nokta arasında kenar oluştuysa geri dönülemez.
+			</p>
+	</div>
+
+        </div></div>
+    </section>
+
+    <aside id="sagReklam">
+      <ins class="adsbygoogle"
+        style="display:block;width:100%;height:600px"
+        data-ad-client="ca-pub-1268402107177386"
+        data-ad-slot="2157595670"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </aside>
+  </div>
+</main>
+
+<script>
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
+}
+window.addEventListener("resize",setUstH);
+setUstH();
+
+const frame=document.getElementById("sayfaFrame")||null;
+const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
+
+function setActiveBySrc(src){
+  links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
+}
+
+function kampanyalariKartYap(){
+  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
+  const ic=det.querySelector('.icerik');if(!ic)return;
+  const maddeler=Array.from(ic.querySelectorAll('.madde'));
+  let sayac=ic.querySelector('.kampSayac');if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
+  sayac.innerHTML='✅ <b>'+maddeler.length+'</b> aktif kampanya';
+}
+kampanyalariKartYap();
+
+  (() => {
+  const TXT={  start:"Nokta seç", move:"Komşu nokta",  back:"Yasak Hamle",  used:"Kullanıldı",  win:"Kazandın ✓",  lose:"Olmadı ✗"};
+
+  const cv=document.getElementById("game"),ctx=cv.getContext("2d");
+  const msg=document.getElementById("msg"),info=document.getElementById("info"),btn=document.getElementById("btnReset");
+  const prev=document.getElementById("btnPrev"),next=document.getElementById("btnNext"),shapeInfo=document.getElementById("shapeInfo");
+
+  const S={pad:70,r:10,hit:18};
+const SHAPES=[
+{pts:[[.25,.25],[.75,.25],[.25,.75],[.75,.75]],edges:[[0,1],[1,3],[3,2],[2,0],[1,2]]},
+{pts:[[.2,.3],[.2,.8],[.35,.55],[.65,.55],[.8,.3],[.8,.8]],edges:[[0,1],[1,2],[2,0],[3,4],[4,5],[5,3],[2,3]]},
+{pts:[[.2,.65],[.8,.65],[.8,.9],[.2,.9],[.5,.25]],edges:[[0,1],[1,2],[2,3],[3,0],[0,4],[1,4]]},
+{pts:[[.2,.3],[.4,.3],[.4,.6],[.2,.6],[.6,.45],[.8,.45]],edges:[[0,1],[1,2],[2,3],[3,0],[4,5],[1,4],[2,4],[0,2],[0,5]]},
+{pts:[[.5,.25],[.7,.4],[.6,.65],[.4,.65],[.3,.4],[.5,.5],[.85,.5]],edges:[[0,1],[1,2],[2,3],[3,4],[4,0],[0,5],[2,5],[4,5],[1,6],[0,2],[5,6]]},
+{pts:[[.5,.15],[.8,.35],[.7,.75],[.3,.75],[.2,.35]],edges:[[0,1],[1,2],[2,3],[3,4],[4,0],[0,2],[1,3],[0,3]]},
+{pts:[[.5,.12],[.78,.28],[.78,.62],[.5,.82],[.22,.62],[.22,.28]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,3],[1,4],[1,3]]},
+{pts:[[0.88, 0.5], [0.69, 0.829], [0.31, 0.829], [0.12, 0.5], [0.31, 0.171], [0.69, 0.171]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [2, 4], [0, 4], [0, 2]]},
+{pts:[[0.88, 0.5], [0.737, 0.797], [0.415, 0.87], [0.158, 0.665], [0.158, 0.335], [0.415, 0.13], [0.737, 0.203]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0], [0, 4], [0, 5], [0, 2], [2, 4]]},
+{pts:[[0.88, 0.5], [0.737, 0.797], [0.415, 0.87], [0.158, 0.665], [0.158, 0.335], [0.415, 0.13], [0.737, 0.203]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0], [2, 5], [2, 6], [1, 6]]},
+{pts:[[0.88, 0.5], [0.617, 0.861], [0.193, 0.723], [0.193, 0.277], [0.617, 0.139]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [1, 4], [1, 3], [2, 4]]},
+{pts:[[0.88, 0.5], [0.617, 0.861], [0.193, 0.723], [0.193, 0.277], [0.617, 0.139]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [1, 3], [0, 3], [2, 4], [0, 2], [1, 4]]},	
+{pts:[[0.88, 0.5], [0.769, 0.769], [0.5, 0.88], [0.231, 0.769], [0.12, 0.5], [0.231, 0.231], [0.5, 0.12], [0.769, 0.231]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 0], [3, 7], [0, 6], [5, 7], [1, 4], [4, 6], [0, 3], [1, 5]]},
+{pts:[[0.88, 0.5], [0.769, 0.769], [0.5, 0.88], [0.231, 0.769], [0.12, 0.5], [0.231, 0.231], [0.5, 0.12], [0.769, 0.231]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 0], [0, 4], [4, 6], [0, 2], [2, 6]]},
+{pts:[[0.88, 0.5], [0.69, 0.829], [0.31, 0.829], [0.12, 0.5], [0.31, 0.171], [0.69, 0.171]],edges:[[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [1, 5], [1, 3], [0, 4], [0, 3]]}
+];
+
+  let shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
+
+  const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
+  const R=()=>cv.getBoundingClientRect();
+  const key=(a,b)=>{const x=Math.min(a,b),y=Math.max(a,b);return x+"-"+y;};
+
+  function fit(){
+    const r=R(),k=DPR();
+    cv.width=Math.floor(r.width*k);cv.height=Math.floor(r.height*k);
+    ctx.setTransform(k,0,0,k,0,0);
+    reset();
+  }
+
+  function buildNodes(){
+  const w=R().width,h=R().height,mx=0.10,my=0.07,sw=w*(1-2*mx),sh=h*(1-2*my),ox=w*mx,oy=h*my;
+  nodes=SHAPES[shapeId].pts.map(p=>({x:ox+p[0]*sw,y:oy+p[1]*sh}));
+}
+
+
+
+  function isAdj(a,b){
+    return edges.some(e=>(e[0]===a&&e[1]===b)||(e[0]===b&&e[1]===a));
+  }
+
+  function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
+  function hitNode(x,y){
+    for(let i=0;i<nodes.length;i++)if(dist(nodes[i],{x,y})<=S.hit)return i;
+    return -1;
+  }
+
+  function possibleMoves(from){
+  return edges.map(e=>e[0]===from?e[1]:e[1]===from?e[0]:-1).filter(n=>n>=0).filter(n=>{
+    const k=key(from,n);
+    if(lastEdge&&k===lastEdge)return false;      // geri dönüş yasak
+    if(visitedE.has(k))return false;             // aynı kenarı tekrar kullanma
+    return true;
+  });
+  }
+  function ui(){info.textContent=`Şekil ${shapeId+1}/${SHAPES.length}`;}
+  function draw(){
+    const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
+
+    ctx.lineWidth=5;ctx.strokeStyle="#111";
+    edges.forEach(e=>{
+      ctx.beginPath();ctx.moveTo(nodes[e[0]].x,nodes[e[0]].y);ctx.lineTo(nodes[e[1]].x,nodes[e[1]].y);ctx.stroke();
+    });
+
+    ctx.lineWidth=7;ctx.lineCap="round";ctx.strokeStyle="#2f6fff";
+    edges.forEach(e=>{
+      const k=key(e[0],e[1]);
+      if(!visitedE.has(k))return;
+      ctx.beginPath();ctx.moveTo(nodes[e[0]].x,nodes[e[0]].y);ctx.lineTo(nodes[e[1]].x,nodes[e[1]].y);ctx.stroke();
+    });
+
+    ctx.lineWidth=4;ctx.strokeStyle="rgba(46,213,115,.95)";
+    ctx.beginPath();
+    for(let i=0;i<walk.length;i++){
+      const p=nodes[walk[i]];
+      if(!i)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);
+    }
+    if(walk.length>1)ctx.stroke();
+
+    nodes.forEach((p,i)=>{
+      ctx.beginPath();
+      ctx.fillStyle=i===selected?"#ffcc00":"#111";
+      ctx.arc(p.x,p.y,S.r,0,Math.PI*2);
+      ctx.fill();
+      ctx.lineWidth=2;ctx.strokeStyle="#fff";ctx.stroke();
+    });
+
+    ui();
+  }
+
+function winCheck(){
+  if(visitedE.size===edges.length){msg.textContent=TXT.win;dead=true;}
+}
+function deadCheck(){
+  if(visitedE.size===edges.length)return;
+  if(possibleMoves(selected).length===0){msg.textContent=TXT.lose;dead=true;}
+}
+function reset(){
+  edges=SHAPES[shapeId].edges;
+  buildNodes();
+  selected=-1;walk=[];visitedE=new Set();lastEdge=null;dead=false;
+  msg.textContent=TXT.start;
+  draw();
+}
+
+cv.addEventListener("click",e=>{
+  if(dead)return;
+  const r=R(),x=e.clientX-r.left,y=e.clientY-r.top;
+  const n=hitNode(x,y);
+  if(n<0)return;
+
+  if(selected<0){
+    selected=n;walk=[n];
+    msg.textContent=TXT.move;
+    draw();return;
+  }
+
+  if(n===selected)return;
+  if(!isAdj(selected,n))return;
+
+  const k=key(selected,n);
+  if(lastEdge===k){msg.textContent=TXT.back;return;}
+  if(visitedE.has(k)){msg.textContent=TXT.used;return;}
+
+  visitedE.add(k);
+  lastEdge=k;
+  selected=n;
+  walk.push(n);
+
+  msg.textContent=TXT.move;
+  draw();
+  winCheck();
+  deadCheck();
+});
+
+
+  btn.addEventListener("click",reset);
+  prev.addEventListener("click",()=>{shapeId=(shapeId-1+SHAPES.length)%SHAPES.length;reset();});
+  next.addEventListener("click",()=>{shapeId=(shapeId+1)%SHAPES.length;reset();});
+
+  window.addEventListener("resize",fit);
+  fit();
+})();
+
+
+</script>
+</body>
 </html>
