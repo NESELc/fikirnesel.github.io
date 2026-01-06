@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
 <style>
 html{scrollbar-gutter:stable}
-:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px;--ustHa:200px;}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
 a{color:inherit;text-decoration:none}
@@ -87,7 +87,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 .filtre-grup{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:15px;position:relative;}
 .filtre-grup label{font-weight:bold;display:flex;flex-direction:column;font-size:13px;min-width:110px;}
 .filtre-grup select{font-family:Comic Sans MS;padding:3px;font-size:13px;width:130px;}
-#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
+#ustBara{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
 #sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:10px;}
 #sonuclar{margin-top:8px;}
 #sonuclar table{font-family:Comic Sans MS;width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
@@ -151,7 +151,7 @@ body.filtreKapali .filtre-grup{display:none;}
         <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
       </div>
       <nav class="nav" id="menu">
-        <a href="#sifiraraclar" data-src="/sifiraraclar-icerik.html">Sıfır Araçlar</a>
+        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
         <a href="#platformucretleri" data-src="/platformucretleri-icerik.html">Platform Ücretleri</a>
         <a href="/doviz.html">Döviz Çevirici</a>
         <a href="#gelirvergisi" data-src="/gelirvergisi-icerik.html">Gelir Vergisi Dilimleri</a>
@@ -160,7 +160,7 @@ body.filtreKapali .filtre-grup{display:none;}
         <a href="#oyunlar" data-src="/oyunlar-icerik.html">Oyunlar</a>
       </nav>
       <select id="mselect" aria-label="Menü">
-        <option value="/sifiraraclar-icerik.html" data-h="#sifiraraclar">Sıfır Araçlar</option>
+        <option value="/sifiraraclar.html">Sıfır Araçlar</option>
         <option value="/platformucretleri-icerik.html" data-h="#platformucretleri">Platform Ücretleri</option>
         <option value="/doviz.html">Döviz Çevirici</option>
         <option value="/gelirvergisi-icerik.html" data-h="#gelirvergisi">Gelir Vergisi Dilimleri</option>
@@ -318,7 +318,7 @@ body.filtreKapali .filtre-grup{display:none;}
       <div class="frameWrap">
         <div class="frameBox">
          <div id="aracFiltreleme">
-  <div id="ustBar">
+  <div id="ustBara">
     <div class="tarihinfo" id="aracSayisi" style="margin-bottom:10px;"></div>
     <button id="filtreAcKapa">🔽 Filtre</button>
     <div class="filtre-grup">
@@ -601,7 +601,7 @@ function filtreleVeGoster(){
   if(filtreAciklamalari.length>0){yazi+=" | "+filtreAciklamalari.join(" | ");}
   document.getElementById("aracSayisi").textContent=yazi;
 
-  setUstH();
+  setUstHa();
 }
 
 veriYukle();
@@ -633,13 +633,16 @@ function mobilSegmentBaslik(){
 
 window.addEventListener("resize",mobilSegmentBaslik);
 
-function fixLayout(){ const u=document.getElementById("ustBar"); const s=document.getElementById("sonuclarWrap"); if(u&&s){s.style.top=(u.offsetHeight)+"px";}}
+function fixLayout(){ const u=document.getElementById("ustBara"); const s=document.getElementById("sonuclarWrap"); if(u&&s){s.style.top=(u.offsetHeight)+"px";}}
 window.addEventListener("load",fixLayout);
 window.addEventListener("resize",fixLayout);
 
-document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstH();});
+document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstHa();});
 if(window.innerWidth<=768) document.body.classList.add("filtreKapali");
 
+function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
+setUstHa();
+  
 </script>
 </body>
 </html>
