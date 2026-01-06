@@ -103,22 +103,22 @@ iframe{width:100%;height:100%;border:0;display:block}
         <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
       </div>
       <nav class="nav" id="menu">
-        <a href="#sifiraraclar" data-src="/sifiraraclar-icerik.html">Sıfır Araçlar</a>
-        <a href="#platformucretleri" data-src="/platformucretleri-icerik.html">Platform Ücretleri</a>
-        <a href="#doviz" data-src="/doviz-icerik.html">Döviz Çevirici</a>
-        <a href="#gelirvergisi" data-src="/gelirvergisi-icerik.html">Gelir Vergisi Dilimleri</a>
-        <a href="#ankara" data-src="/ankara-icerik.html">Ankara</a>
-        <a href="#elektrik" data-src="/elektrik-icerik.html">Elektrik</a>
-        <a href="#oyunlar" data-src="/oyunlar-icerik.html">Oyunlar</a>
+        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
+        <a href="/platformucretleri.html">Platform Ücretleri</a>
+        <a href="/doviz.html">Döviz Çevirici</a>
+        <a href="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
+        <a href="/ankara.html">Ankara</a>
+        <a href="/elektrik.html">Elektrik</a>
+        <a href="/oyunlar.html">Oyunlar</a>
       </nav>
       <select id="mselect" aria-label="Menü">
-        <option value="/sifiraraclar-icerik.html" data-h="#sifiraraclar">Sıfır Araçlar</option>
-        <option value="/platformucretleri-icerik.html" data-h="#platformucretleri">Platform Ücretleri</option>
-        <option value="/doviz-icerik.html" data-h="#doviz">Döviz Çevirici</option>
-        <option value="/gelirvergisi-icerik.html" data-h="#gelirvergisi">Gelir Vergisi Dilimleri</option>
-        <option value="/ankara-icerik.html" data-h="#ankara">Ankara</option>
-        <option value="/elektrik-icerik.html" data-h="#elektrik">Elektrik</option>
-        <option value="/oyunlar-icerik.html" data-h="#oyunlar">Oyunlar</option>
+        <option value="/sifiraraclar.html">Sıfır Araçlar</option>
+        <option value="/platformucretleri.html">Platform Ücretleri</option>
+        <option value="/doviz.html">Döviz Çevirici</option>
+        <option value="/gelirvergisi.html">Gelir Vergisi Dilimleri</option>
+        <option value="/ankara.html">Ankara</option>
+        <option value="/elektrik.html">Elektrik</option>
+        <option value="/oyunlar.html">Oyunlar</option>
       </select>
 
     </div>
@@ -295,28 +295,6 @@ function setUstH(){
 window.addEventListener("resize",setUstH);
 setUstH();
 
-const frame=document.getElementById("sayfaFrame");
-const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
-
-function setActiveBySrc(src){
-  links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
-}
-function openByHash(){
-  const hash=(location.hash||"#sifiraraclar").replace("#","");
-  const a=links.find(x=>x.getAttribute("href")==="#"+hash)||links[0];
-  const src=a.getAttribute("data-src");
-  if(frame.getAttribute("src")!==src) frame.setAttribute("src",src);
-  setActiveBySrc(src);
-}
-links.forEach(a=>{
-  a.addEventListener("click",()=>{
-    const src=a.getAttribute("data-src");
-    setActiveBySrc(src);
-    frame.setAttribute("src",src);
-    setUstH();
-  });
-});
-window.addEventListener("hashchange",openByHash);
 function kampanyalariKartYap(){
   const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
   const ic=det.querySelector('.icerik');if(!ic)return;
@@ -327,12 +305,19 @@ function kampanyalariKartYap(){
 kampanyalariKartYap();
 
 
-openByHash();
 
-(()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');let v=null,k='fbk_'+location.pathname+location.hash,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);const p=JSON.stringify({url:location.pathname+location.hash,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
-const ms=document.getElementById("mselect");if(ms){ms.onchange=()=>{const o=ms.options[ms.selectedIndex],src=o.value,h=o.getAttribute("data-h")||"";if(h)history.replaceState(null,"",h);frame.setAttribute("src",src);setActiveBySrc(src);};}
-function syncMobileBySrc(src){if(!ms)return;const i=[...ms.options].findIndex(o=>o.value===src);if(i>=0)ms.selectedIndex=i;}
-const _setActiveBySrc=setActiveBySrc;setActiveBySrc=(src)=>{_setActiveBySrc(src);syncMobileBySrc(src);};
+(()=>{const f=document.getElementById('fbk');
+    if(!f)return;
+    const t=f.querySelector('textarea'),b=f.querySelector('button');
+    let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
+      if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);
+      const p=JSON.stringify({url:location.pathname,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
+
+  const ms=document.getElementById("mselect");
+if(ms){
+  ms.onchange=()=> location.href = ms.value;
+}
+
 
 
 </script>
