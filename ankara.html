@@ -1,10 +1,491 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Ankara</title>
-<meta http-equiv="refresh" content="0;url=/#ankara">
-<script>location.replace("/#ankara");</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
+	<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
+	<meta name="google-adsense-account" content="ca-pub-1268402107177386">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Ankara Gezilecek Yerler | Rehber</title>
+	<meta name="description" content="Ankara merkez ve ilçelerinde gezilecek tarihi yerler, parklar ve ören yerlerini harita konumlarıyla keşfedin.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://nesel.tr/ankara.html">
+	<meta property="og:title" content="Ankara Gezilecek Yerler">
+	<meta property="og:description" content="Ankara'da gezilecek tarihi ve doğal yerler.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://nesel.tr/ankara.html">
+<style>
+html{scrollbar-gutter:stable}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+a{color:inherit;text-decoration:none}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:170px}
+.logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
+.brand b{letter-spacing:.6px}
+.kicker{color:var(--muted);font-size:12px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
+.nav a:hover{border-color:#cbd5e1}
+.nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
+main{padding-top:var(--ustH)}
+#layout{display:flex;gap:8px;padding:2px 16px 12px;align-items:flex-start}
+#ortaAlan{flex:1;max-width:1120px}
+#solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+#sagReklam{width:300px;position:sticky;top:var(--ustH)}
+#solIcerik{width:300px;position:sticky;top:var(--ustH);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
+.frameWrap{margin:0}
+.frameBox{height:calc(100vh - var(--ustH) - 26px);min-height:0;padding:12px;background:#eeeeee;border-radius:14px;overflow:auto}
+iframe{width:100%;height:100%;border:0;display:block}
+#solIcerik .blok{font-size:13px;border:1px solid var(--line);border-radius:12px;background:#fff}
+#solIcerik details.blok{padding:0}
+#solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
+#solIcerik details.blok>summary::-webkit-details-marker{display:none}
+#solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
+#solIcerik details.blok[open]>summary:after{content:"▴"}
+#solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
+#solIcerik .icerik{padding:0 12px 12px}
+#solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
+#solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+#solIcerik .btn:hover{border-color:#cbd5e1}
+#solIcerik .kampSayac{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb;font-size:12px;color:#0f172a;display:flex;align-items:center;gap:8px;margin:10px 0}
+#solIcerik .kampSayac b{font-size:12px}
+#solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+#solIcerik .madde b{display:block;margin:0 0 6px;font-size:13px;font-weight:600}
+#solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
+#solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
+#solIcerik .madde b.arac{font-size:13px;font-weight:600}
+#solIcerik .madde small.deger{font-size:12px;color:var(--muted)}
+#solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+#solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
+#solIcerik .badge.kredi,#solIcerik .badge.kredia{background:#e0f2fe;color:#075985}
+#solIcerik .badge.takas{background:#ecfeff;color:#155e75}
+#solIcerik .badge.indirim{background:#dcfce7;color:#166534}
+.platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
+.platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.platformlar li .acik{font-size:10px;color:#666}
+.dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
+.dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
+.dovizler li span{font-size:10px;color:#555}
+.reklamEtiket{font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px}
+#fbk{ margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}#fbk button{display:none;padding:4px 10px;cursor:pointer}.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
+#mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:13px;max-width:220px}
+@media (max-width:1200px){
+#layout{flex-direction:column;align-items:stretch}
+#solIcerik,#sagReklam{position:static;max-height:none;width:100%}
+#ortaAlan{order:1;width:100%;max-width:none}
+#solIcerik{order:2}
+#sagReklam{order:3}
+.frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+}
+
+   .note{font-family:Comic Sans MS;font-size:13px;margin:10px 0 14px;padding:0 8px;}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 8px;}
+    @media (max-width:600px){.grid{grid-template-columns:1fr;}}
+    .card{display:block;background:#E0E0E0;border:1px solid #ccc;border-radius:10px;overflow:hidden; text-decoration:none;color:inherit;}
+    .card:hover{background:#F9EDBE;border-color:#777;}
+    .card img{width:100%;height:190px;object-fit:cover;display:block;}
+    .desc{font-family:Comic Sans MS;font-size:13px;padding:10px;text-align:center;font-weight:bold;}
+    .mapwrap{padding:10px 8px 0;}
+
+@media(max-width:768px){
+  #solIcerik{overflow:visible;max-height:none;}
+  #menu{display:none}
+  #mselect{display:block}
+  .logo{width:120px;height:36px}
+  .brand{min-width:auto;gap:0}
+  .brand b,.brand .kicker{display:none}
+  .fxbox{max-width:540px}
+  input,select{width:32%}}
+</style>
+
 </head>
-<body></body>
+
+<body>
+<header id="ustBar">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
+      </div>
+      <nav class="nav" id="menu">
+        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
+        <a href="/platformucretleri.html">Platform Ücretleri</a>
+        <a href="/doviz.html">Döviz Çevirici</a>
+        <a href="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
+        <a href="/ankara.html">Ankara</a>
+        <a href="/elektrik.html">Elektrik</a>
+        <a href="/oyunlar.html">Oyunlar</a>
+      </nav>
+      <select id="mselect" aria-label="Menü">
+        <option value="/sifiraraclar.html">Sıfır Araçlar</option>
+        <option value="/platformucretleri.html">Platform Ücretleri</option>
+        <option value="/doviz.html">Döviz Çevirici</option>
+        <option value="/gelirvergisi.html">Gelir Vergisi Dilimleri</option>
+        <option value="/ankara.html">Ankara</option>
+        <option value="/elektrik.html">Elektrik</option>
+        <option value="/oyunlar.html">Oyunlar</option>
+      </select>
+
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="layout">
+  <aside id="solIcerik">
+      <div class="blok">
+        <h2>NESEL Bilgi Merkezi</h2>
+        <p>Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
+        
+      </div>
+      
+      <details class="blok" >
+        <summary>Sıfır Araç Kampanyaları</summary>
+        <div class="icerik">
+<div class="madde"><b class="arac">Alfa Romeo Junior Ibrida Speciale</b><small class="badge">Takas</small><small class="deger">121.529 TL</small></div>
+
+<div class="madde"><b class="arac">Audi A6 e-tron</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small></div>
+<div class="madde"><b class="arac">Audi Q4 e-tron, Q4 Sportback e-tron</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">BMW 120</b><small class="badge">%0 Kredi</small><small class="deger">2.000.000 TL • 6 ay</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+<div class="madde"><b class="arac">BMW 220 Gran Coupe</b><small class="badge">%0 Kredi</small><small class="deger">750.000 TL • 6 ay</small><small class="badge">Takas</small><small class="deger">150.000 TL</small></div>
+<div class="madde"><b class="arac">BMW 320i Sedan, Sport Line, M Sport</b><small class="badge">%0 Kredi</small><small class="deger">4.000.000 TL • 8 ay</small><small class="badge">Takas</small><small class="deger">900.000 TL</small></div>
+
+<div class="madde"><b class="arac">BYD Dolphin</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small><small class="badge">Peşin</small><small class="deger">109.000 TL indirim</small></div>
+
+<div class="madde"><b class="arac">Citroen Ami</b><small class="badge">%0 Kredi</small><small class="deger">270.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Citroen e-C3, C4, e-C4, C4 X</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Citroen C3 Aircross, e-C3 Aircross</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+
+<div class="madde"><b class="arac">Dacia Sandero Stepway, Jogger</b><small class="badge">Kredi</small><small class="deger">150.000 TL • 6 ay (%0,99)</small></div>
+
+<div class="madde"><b class="arac">Fiat 600</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Fiat Topolino</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small><small class="badge">İndirim</small><small class="deger">90.000 TL</small></div>
+
+<div class="madde"><b class="arac">Ford Focus</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Puma, Puma Gen-E</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Explorer, Capri</b><small class="badge">%0 Kredi</small><small class="deger">400.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Ford Ticari (Transit, Custom, Ranger, Courier*)</b><small class="badge">%0 Kredi</small><small class="deger">1.000.000 TL • 9 ay</small></div>
+
+<div class="madde"><b class="arac">Kia Stonic</b><small class="badge">%0 Kredi</small><small class="deger">Var</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+<div class="madde"><b class="arac">Kia EV9</b><small class="badge">%0 Kredi</small><small class="deger">Var</small><small class="badge">Takas</small><small class="deger">Var</small></div>
+
+<div class="madde"><b class="arac">Nissan Juke</b><small class="badge">%0 Kredi</small><small class="deger">240.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+<div class="madde"><b class="arac">Nissan X-Trail Platinum Premium</b><small class="badge">%0 Ticari Kredi</small><small class="deger">600.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+
+<div class="madde"><b class="arac">Opel Astra, Astra Electric</b><small class="badge">%0 Kredi</small><small class="deger">300.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Opel Combo Cargo</b><small class="badge">%0 Kredi</small><small class="deger">600.000 TL • 12 ay</small><small class="badge">Nakit</small><small class="deger">İndirim</small></div>
+
+<div class="madde"><b class="arac">Peugeot 2008</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Peugeot 408</b><small class="badge">Kredi</small><small class="deger">250.000 TL • 6 ay (%0,49)</small></div>
+
+<div class="madde"><b class="arac">Renault 5 E-Tech</b><small class="badge">%0 Kredi</small><small class="deger">350.000 TL • 6 ay (Bireysel)</small></div>
+<div class="madde"><b class="arac">Renault Duster (Yeni)</b><small class="badge">%0 Kredi</small><small class="deger">200.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">Toyota Proace City</b><small class="badge">%0 Kredi</small><small class="deger">290.000 TL • 6 ay</small></div>
+<div class="madde"><b class="arac">Toyota Proace Verso</b><small class="badge">%0 Kredi</small><small class="deger">315.000 TL • 12 ay</small></div>
+<div class="madde"><b class="arac">Toyota Proace City Cargo</b><small class="badge">%0 Kredi</small><small class="deger">150.000 TL • 6 ay</small></div>
+
+<div class="madde"><b class="arac">Volkswagen Transporter Kombi</b><small class="badge">%0 Kredi</small><small class="deger">500.000 TL • 12 ay</small></div>
+
+
+        </div>
+      </details>
+      <details class="blok">
+        <summary>Platformlar</summary>
+        <div class="icerik">
+        <div class="madde"><b>Türkiye’de Yayında Olan Platformlar</b></div>
+        <ul class="platformlar">
+        <li><b>YouTube</b><span class="acik">Video</span></li>
+        <li><b>Apple iCloud</b><span class="acik">Bulut</span></li>
+        <li><b>Netflix</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Exxen</b><span class="acik">Dizi/Film</span></li>
+        <li><b>ChatGPT</b><span class="acik">Yapay Zeka</span></li>
+        <li><b>Disney+</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Amazon</b><span class="acik">Prime</span></li>
+        <li><b>Spotify</b><span class="acik">Müzik</span></li>
+        <li><b>Max</b><span class="acik">Dizi/Film</span></li>
+        <li><b>Gain</b><span class="acik">Dijital TV</span></li>
+        <li><b>Mubi</b><span class="acik">Sinema</span></li>
+        <li><b>Tabii</b><span class="acik">TR Dijital</span></li>
+        <li><b>TV+</b><span class="acik">IPTV</span></li>
+        <li><b>Grok</b><span class="acik">Yapay Zeka</span></li>
+        </ul>
+        </div>
+      </details>
+
+      <details class="blok">
+        <summary>Döviz</summary>
+        <div class="icerik">
+        <div class="madde"><b>Para Birimleri</b></div>
+        <ul class="dovizler">
+        <li>TL-TRY<br><span>Türk Lirası</span></li>
+        <li>USD<br><span>Amerikan Doları</span></li>
+        <li>EUR<br><span>Euro</span></li>
+        <li>GBP<br><span>İngiliz Sterlini</span></li>
+        <li>CHF<br><span>İsviçre Frangı</span></li>
+        <li>JPY<br><span>Japon Yeni</span></li>
+        <li>DKK<br><span>Danimarka Kronu</span></li>
+        <li>SEK<br><span>İsveç Kronu</span></li>
+        <li>NOK<br><span>Norveç Kronu</span></li>
+        <li>CAD<br><span>Kanada Doları</span></li>
+        <li>AUD<br><span>Avustralya Doları</span></li>
+        <li>SAR<br><span>Suudi Riyali</span></li>
+        <li>RUB<br><span>Rus Rublesi</span></li>
+        
+        </ul>
+        </div>
+      </details>
+
+      
+      <details class="blok">
+        <summary>Ankara</summary>
+        <div class="icerik">Ankara Merkez</div>
+        <div class="madde"><b>Ankara Kalesi</b>
+            <small>Bilgi</small>
+            <small>Galatlar’ın Ankara’ya yerleşmesi sırasında var olan ve Romalılar döneminde onarım gören kalenin ne zaman yapıldığı kesin olarak bilinmemektedir.
+              İç ve dış kale olmak üzere iki kısımdan oluşan kalenin iç surları, 7.yüzyılda Bizanslılar tarafından inşa edilmiştir. 
+              Bizans saldırıları sırasında tahribata uğramış ve 9. yüzyılda Bizanslılar tarafınan yeniden onarılmıştır. 
+              Dış surların ne zaman eklendiği kesin olarak saptanamamıştır. </small>
+          </div>
+      </details>
+
+      <details class="blok">
+        <summary>Elektrik</summary>
+        <div class="madde"><b>Thales,Benjamin Franklin, Edison,Tesla </b>
+            <small>Bilgi</small>
+            <small>Elektriğin keşfi, ilk kez M.Ö. 600 lü yıllarda Antik Yunanda ,Thales'in kehribarın çekim gücünü keşfi ile başlıyor. Benjamin Franklin'in 
+              uçurtma deneyi ile şimşeklerin elektrik yüklü olduğu keşfi,Michael Faraday'ın elektromanyetizma, Edison'un Doğru Akım, Tesla'nın Alternatif akım 
+              uygulamaları ile günümüze ulaşmıştır. Ülkemizde ilk elektrik üretimi Mersin'in Tarsus ilçesinde 1902 yılında yapılmıştır.
+              
+            </small>
+          </div>
+      </details>
+    
+      <div class="blok">
+        <h2>Not</h2>
+        <p>Sayfada yer alan fiyat ve kampanyalar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
+      </div>
+  <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea>
+  <button type="button">Gönder</button></div>
+  
+  </aside>
+
+    <section id="ortaAlan">
+      <div class="frameWrap">
+        <div class="frameBox">
+          <p class="note">ANKARA (Fotoğraflara tıkladığınızda Google Maps'te ilgili yerin konumu gösterilir.)</p>
+
+  <div class="grid">
+    <a class="card" href="https://maps.app.goo.gl/xxCHutKLXLPhyDBq6" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Ankara Kalesi"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCiyaehTMvjjt6iFKy7o23IdJoz9QuY2qTjg5qywtw9MZrX8Sr_6BE-UgEQ7G87m2oZKu-myG52SHgRQL7vd0VcFme-vN-v2vQkvKbYhU14DWLJ-aaIO2BvidvQnT03IYP7ambyVVFFVfTKgBXFVyKeHKBGbaXapXK5CYErqjv01CHg7LPfJxwu6B-bi3Y/s320/ankara-kalesi-60721.webp">
+      <div class="desc">ANKARA KALESİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/7tMdFwWari2ie1QC6" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Anıtkabir"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI3DwljsZ0zDPV-lLN3dJdUtt-LL4U1fpvvfzyrAo23Z55unIxdoP_ZYQW8J_gX-4DAQSS3jENklbsXEipweySv2IyqGvM1oO5F44fNhKFy_HD3xrVaHVchJXfSxaau2HoQPO-9h8roSgOnN6fPi9o8EUoVVQEXq1I4Q5hc62x8wlaX7rmmf7DCtGfP9do/s320/An%C4%B1tkabir.jpg">
+      <div class="desc">ANITKABİR</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/S8hDtk18hNhphLa79" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Kızılay"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJxPwO5ZgneWpHvRQXQZLi4nhH_WqC-fTO8gbiAkI39IYQZmaTdjsMecY-NmSn9P6VF3C78it6iOUBi4F1Jl7N78DGwbV5aydfonKTfEQTbWRGA58aOPYAR_qaBQXQi0__W2SPjkecb7DQfgxxyL_UKFXffJAvsnuEkvCPM8IXajfKIZ05iWFZiR-7ieHa/s320/k%C4%B1z%C4%B1lay.jpg">
+      <div class="desc">KIZILAY</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/jVsBBT7Hz74z8Now5" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Ulus"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwD5Zy9MWri4ayR-_4LiUO8aemhZ_G0FFzldZepR1N07hNAJQwgzWnj-uxs8ya4um4mR9WwzPV2WI7k7bfkn0lynBOr2gNEw6W7AUwtocnP4kI_FGlEBb9reL5KyzTkvlKsIwhXVULHq5UGAVCDgiObqY4dS2Q28RSSW_QP9lvzyjRw84eWhIgjavAAwtu/s320/Ulus.jpg">
+      <div class="desc">ULUS</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/TFVhkidUAA4sKY4bA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Çankaya Köşkü"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgs37_b9q7qCj25Rk3RA97mQ6vwjbsrm7hGUrBykHIe3nX09iQy0Hy8acbEzrIHuPskp4Lb413Tgrp7AxUiESH4-abcXM-C_7paWuTzL7_CcylKTjom2rTatHJA1kzOgQbohOPmvf7UdDjz1D6AwndWz7Pb1qt-0L0bwo7Di3T6_jte71fYTk2R7d85nAQ/s320/CankayaKosku.jpg">
+      <div class="desc">ÇANKAYA KÖŞKÜ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/fhq2X1xXpkhyELYH7" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Cumhurbaşkanlığı Külliyesi"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1OLT0nPzAhSTA-_Pqw_5OrTbjWrlCRCPHuaJc5dMOh6fHI8zUr62l2Pe4zzIgpNNZj1Jq4aMQQgzumIehNE-JhB62QjD_DYzFyQ5uRp9X7riCS6NeNDX3RHvDrzKq9SNvGaGLwDBaen9kIJDHlhlTu57drNYDDglBtJ1qxklH8LvfKt5aHuYCf9jSd2Yu/s320/cumhurbaskanligikulliye.jpg">
+      <div class="desc">CUMHURBAŞKANLIĞI KÜLLİYESİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/U5duJHDqQFrHuYXY6" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Cumhurbaşkanlığı Millet Kütüphanesi"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXLfpFW8tP3kDwm4mklv4eRkDVzHAsIHbqEPscas6yoj4PflgXPAwH7iRt0f-HPUfvB-GM_k30g10KTexjAoIML6dwxbOBfshw_feunlirdKb1l_N5k7HAPgiOeXjN46-sNS6MM0BtlX8EiBkSlNgDf2ngmb9VjdR931_kS9oRvnVebYbzR-9F2kDrIcPC/s320/cumhurbaskanligikutuphanesi.jpg">
+      <div class="desc">MİLLET KÜTÜPHANESİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/VKhaBWxuXuMxRtnV6" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Hacı Bayram Veli Cami"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguyecJnct7Tn7nrgDzUmUc4g-WvBek_w4FANnRPStzGZ0R4Z5CSQjrEF3paNfluT596aWa4H1RDhKPk60aCyBpWQbKMy7LdcCyuvC30yGWSRnjIVX-HH0znkeYPSHjnJZOvQm_T5tdTxtZ-3-a5U7TReJCR9WJz9OPm6a4i9kcSTgPKVfCECFOfsAeBVZH/s320/hac%C4%B1_bayram.jpg">
+      <div class="desc">HACI BAYRAM VELİ CAMİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/fWbipv3EEFzzXF729" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Kuğulu Park"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOwg0Ynzdu5vC6pH4JiHVfR1wjTRHcmRFAXMIIv3kZ4l6KmQS1sNb04Hk8CFmgAGoudQD-RDxowkwTz3fwDEgRfdlKR8UpKbbsPw4h105Zcs5Qt5JMq5li61t4GtGQEQIebQ-ycPrHCMy-kL6l1IAJUExHC1aQ5ayDSwP0SUy59nH5QQzJBrqHqSs3OTmc/s320/kugulupark.jpg">
+      <div class="desc">KUĞULU PARK</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/Mk3htTrFhv7knbT76" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Göksu Parkı"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgY79quzatJ3IV6GQYZRqcZlwhlY5ZF9J7W8UiP69STd_AiHf_yX9zMeTQp9LmklNFMw8NZ6ZdmPYGweVCLUgGpqUQ-RTbN5cMX9gpx00Oa_s8BwipnsxWZ-TbkBKdgaT7VwFCgt7g_C8EmYtFD0ky7IbhOkFt2Vj0SA7vZmh1bQZxGuRGhbpA6BbgcSsqp/s320/goksupark.jpg">
+      <div class="desc">GÖKSU PARKI</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/54DJCF2mHTFufVqr7" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Harikalar Diyarı"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2SE79-o4Ij1rDlCB3M2a9kjKM1RqC6zqV_89UhHf6UbFe52KeyIRpAKnFigqqWB7nGnHbbCn5QWPVgCWmLSxAaVSJ07paJ5OLitBVrnwX83rmjW1mOeMJYkrnzUevmvLo5OmvBBirSox6qSkWhZwhYCOcdr_sk7cxPEhbFCHs-qq5wx4xfTvY_k2ZVASt/s320/Harikalar.jpg">
+      <div class="desc">HARİKALAR DİYARI</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/ujKJFSi7udyFU7BXA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Gölbaşı Mogan"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlYNvs20fuRkkOKLXzoWkMs-oMuxUCguOI3yuO-4qIJHbf1feXudoUtQNsZG-52jZvQDqqn5JI-5Iw6rGZc_cu4mg_bSZ5wKRi-NQFF5qK3QSusqpNgZg7sgGTkYjhPSgSIxl4tD7eQaVQPGZJCaLBJYUyCmIK2CK5qHxqvwuvuzzjwnALTT317HIGjIuK/s320/mogan.jpg">
+      <div class="desc">GÖLBAŞI MOGAN</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/if4HsEjzX1or8qnr6" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Atatürk Orman Çiftliği"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9yu1htLJIc9PLsl5H4FlOZkBgH1Q5_1sjiKLfwu7VqJDgYZjS9pMRs2kOj6iUra-oR-1xTj3SYLhtYlPht60sWWUo9yD-AGXaUCrY55h5xuEnR5vMMRZYgNxsHgnRxCdVcXs_h-K4tHZPsPo3PHZOJ4X85SYxXy6Jx4mpWqKLrBr1d8g6PCnzDlWFzUAC/s320/aoc.jpeg">
+      <div class="desc">ATATÜRK ORMAN ÇİFTLİĞİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/JezwLGVSF8XwCDtXA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Gençlik Parkı"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEi8O5xVTdftGWEMd6y4p7XOh-QtaSFuxU3Af2YyXvLw_FlDbZB5pQ7jvg5L0TJXRx0Z1WSmtF7qPszuwo9dLAPHXoEjZ4yIdGPMt1nDbRZ77fQrsyK6b0A1nLxfqX8TYCnlXCXhsS-6SAMx9TggUlWWB8ICx_jDxwsAMSOpNfMoQzYMlutnNazdcJlwXE/s320/genclik.jpg">
+      <div class="desc">GENÇLİK PARKI</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/ErwE4HaHmnYSwZ9VA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Mavi Göl"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOgEvHhRxs7xN5rzw3zBoPjlg9krLfbNtoPwpWRdJccm3mIq3z4Gio7l5RBfHr5NuoKT2mfJ27j2KuxAhtWImb_YKVDB0_AahJPAisLiWNshsHbSVRxyjQ9r9s147awQGG95XwFjgG01i10teAkFmC8vU0wOpL1ODo2bqWe_hvqFHFEWccz52fIRMIz-51/s320/mavigol.jpg">
+      <div class="desc">MAVİ GÖL</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/YHxo7fYuYj5XGY2g8" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Altınpark"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRgLs0Fs4q50oqTqAxGn-NaaweMHvwlMjon6bfD2tJcH7wjCJPxHq3gusCESg83HB9kQfpFZx51zeBU7c9jGZylpRq2RrWq8QCcyQ6qyhmtfMrWPtwPsNLOWEUhLUGHWN6RGxQqhyphenhyphenUTXJo9_sL2dDSGQoeKTd4F-osGPlwIgx3c5hv26Jsastn7Yc69sb5/s320/altinpark.jpg">
+      <div class="desc">ALTINPARK</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/gCQZ2oQA6pr9W5YeA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="30 Ağustos Zafer Parkı"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfsqcWX0CGSuPDa3hwsVe5HNKUVTyJnBRwMUq8rYf0dKBnXWLO-CJiPWwXBuNNcHyD5ESqketQuayz6BT-ybnaVjFExF5Dr15qEp5VSnBaopslU0Z6Iyt5mWJYZ1bxb7AaJKr6vD1nHNTO3PPWZKeki0_Ktsafzi7B4M4j3dYqbEK5PxirvUN1lJY1wwEv/s320/30agustoszafer.jpg">
+      <div class="desc">30 AĞUSTOS ZAFER PARKI</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/YQk3zSjXU1GrXuccA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Dikmen Vadisi"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZy_VYHbJYRvbRawHTDUQmReGO00NJb2KI3ySiw5w2V0KN-tEJOxZ5Eu5hHt5HOxrR_CexHrc_fAvV5MsJCZoX9zJMq8cCF3C3LgcRIJM8nOJfK_KSp0fu9RqVlCiOqEOYzMuhkAb5k3oAf8qrQi5BlUCX2fnkABH3KoXltLdyUqERw_avP8h0uzUMN5ke/s320/dikmenvadisi.jpg">
+      <div class="desc">DİKMEN VADİSİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/MaqUbzZefbGrgQ5QA" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Kızılcahamam Soğuksu Milli Parkı"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtv6gGA1RoRAWTou0RgdPKGkiw1hCDDAgLUe6wSnhhUleZ9QEZqOZ8xPRZVcAYEvLf-C9i-K3m1CUG563k2CoeFq93xfBIbBmU6Box14Qpj1y8GBocKE0kFZS9Tt1hQAzn5vn4g8ANnrDd9Laoa149qksBbwhRxxISW_QWrqs9d_Z4QSnnK5qRMoITNPh5/s320/soguksu.jpg">
+      <div class="desc">KIZILCAHAMAM SOĞUKSU MİLLİ PARKI</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/QuRtcnx6o32wiRqa7" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Beypazarı"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNYX0JcBCTiq6xG5LNLAMscOAx9sncploVMtzjZGCXl17H1T5_ZKx3sjyxXb4t65Zls3lRz7XOSBK4kugdaHPjn5XJJ16s0bGq45RsP8HgPak8isyEh2oFZ6XdxjwnTFGUeqOUV5mXNwF0rWvjFLjrmH68OIMlRCQOKLKOsrsxnRoGobYsXdYl-huneXeR/s320/beypazari.jpg">
+      <div class="desc">BEYPAZARI</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/3ZjJLTPmWxiB3mTY9" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Nallıhan Kuş Cenneti"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDDpmdcTg6megMTytqG0PGVPvLAladwYPx6qzebpiwpBtvIlKI0IRs9zG9YcTIIfpjGN0AlXUZReB7PpDPnz_E1OQh8OLpUaPXiQTomwxDT68A7-9DQHW_ULYD2ltMi47vWT2K7E1FsBdYLxR2q4WmFhBznMw7rOtSeA7gMsQKc4RFtm552GuiazgOrJqj/s320/nallihankuscenneti.jpg">
+      <div class="desc">NALLIHAN KUŞ CENNETİ</div>
+    </a>
+
+    <a class="card" href="https://maps.app.goo.gl/cBXWuBp8mw6M7iDr5" target="_blank" rel="noopener">
+      <img loading="lazy" alt="Polatlı Yassıhüyük(Gordion)"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtqXTx32TzhH5m4hYgeMJdDEPbrwRp_1j7poFONXExYEkzc23w0syLRp9SQ4UunsWJ74NVxptvozYG1pi2dJTUv9X0hzegFTDMor1LJqSbSGuqIYqSm6pm3KIi0UZz4M_DFbdEupnVIojjhKnqm37GoGzCOsz8O0HhSnhcJkl9AOChyvkjzKpwXNEdjWZ7/s320/gordionmidas.jpg">
+      <div class="desc">POLATLI YASSIHÖYÜK(GORDİON)</div>
+    </a>
+  </div>
+
+  <p class="note">*Fotoğraflar Google aramalarında lisanssız görünen fotoğraflardan seçilmiştir.</p>
+
+  <div class="mapwrap">
+    <gmp-map center="39.92825473017495, 32.802669795611635" map-id="ANKARA" style="height:400px;" zoom="8">
+      <gmp-advanced-marker gmpclickable="true" position="39.93913458462915,32.86567868846613" title="Ankara Kalesi"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.92500588840386,32.83746483449556" title="Anıtkabir"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.92124770352171,32.853707473785306" title="Kızılay"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.941950786676166,32.8548584829134" title="Ulus"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.88776363973091,32.86510530989556" title="Çankaya Köşkü"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.931010604148966,32.79903356057254" title="Cumhurbaşkanlığı Külliyesi"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.924634333281766,32.801254429690346" title="Millet Kütüphanesi"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.94466978013795,32.85853833819859" title="Hacı Bayram Veli Cami"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.902154007419625,32.860188792433966" title="Kuğulu Park"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.993632747537895,32.654181520117184" title="Göksu Parkı"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.98386672366817,32.59263156333443" title="Harikalar Diyarı"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.76002967102318,32.7928365774159" title="Gölbaşı Mogan"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.93953762514124,32.796100105792846" title="Atatürk Orman Çiftliği"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.937166598405405,32.85044602141226" title="Gençlik Parkı"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.91376865307818,32.98898173443078" title="Mavi Göl"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.963805923005815,32.879940049702455" title="Altınpark"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.92161285349689,32.80688868607829" title="30 Ağustos Zafer Parkı"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.89647499597326,32.844885897718605" title="Dikmen Vadisi"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="40.46916596714318,32.63146104167844" title="Kızılcahamam Soğuksu"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="40.16864395801544,31.92015194641208" title="Beypazarı"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="40.10656650206059,31.60008643820693" title="Nallıhan Kuş Cenneti"></gmp-advanced-marker>
+      <gmp-advanced-marker gmpclickable="true" position="39.65273458001422,31.997575374423043" title="Polatlı Yassıhöyük(Gordion)"></gmp-advanced-marker>
+    </gmp-map>
+  </div>
+        </div></div>
+    </section>
+
+    <aside id="sagReklam">
+      <ins class="adsbygoogle"
+        style="display:block;width:100%;height:600px"
+        data-ad-client="ca-pub-1268402107177386"
+        data-ad-slot="2157595670"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </aside>
+  </div>
+</main>
+
+<script>
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
+}
+window.addEventListener("resize",setUstH);
+setUstH();
+
+const frame=document.getElementById("sayfaFrame")||null;
+const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
+
+function setActiveBySrc(src){
+  links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
+}
+
+function kampanyalariKartYap(){
+  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
+  const ic=det.querySelector('.icerik');if(!ic)return;
+  const maddeler=Array.from(ic.querySelectorAll('.madde'));
+  let sayac=ic.querySelector('.kampSayac');if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
+  sayac.innerHTML='✅ <b>'+maddeler.length+'</b> aktif kampanya';
+}
+kampanyalariKartYap();
+
+
+</script>
+  
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8tIw97AM9sgs_oULve2eMmvWL9JxmPAY&loading=async&libraries=maps,marker&v=beta">
+  </script>
+</body>
 </html>
