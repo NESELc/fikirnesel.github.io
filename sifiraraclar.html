@@ -105,7 +105,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 #filtreAcKapa{display:none;font-family:Comic Sans MS;font-size:13px;background:#EEE;cursor:pointer;}
 
 .ddbtn{ font-family:Comic Sans MS;font-size:13px;padding:3px 6px; border:1px solid #bbb; background:#fff; cursor:pointer; min-width:130px;  text-align:left;}
-.ddpanel{ display:none;  position:fixed; background:#fff; border:1px solid #bbb; box-shadow:0 6px 18px rgba(0,0,0,.12); border-radius:8px; padding:8px;
+.ddpanel{ display:none;  position:absolute; background:#fff; border:1px solid #bbb; box-shadow:0 6px 18px rgba(0,0,0,.12); border-radius:8px; padding:8px;
   z-index:2147483647; min-width:240px; max-width:320px;}
 .ddsearch{width:90%; font-family:Comic Sans MS;font-size:13px; padding:4px 6px; border:1px solid #ccc; border-radius:6px; margin-bottom:6px;}
 .ddlist{max-height:220px;overflow:auto;font-size:13px;}
@@ -494,9 +494,6 @@ async function veriYukle(){
 
   markaDD.onclick=e=>{
     e.preventDefault();
-    const r=markaDD.getBoundingClientRect();
-    markaPanel.style.left=(r.left+window.scrollX)+"px";
-    markaPanel.style.top=(r.bottom+window.scrollY+4)+"px";
     markaPanel.style.display=markaPanel.style.display==="block"?"none":"block";
     markaAra.value="";
     markaFiltre("");
