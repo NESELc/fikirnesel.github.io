@@ -458,11 +458,7 @@ cv.addEventListener("click",e=>{
   const n=hitNode(x,y);
   if(n<0)return;
 
-  if(selected<0){
-    selected=n;walk=[n];
-    msg.textContent=TXT.move;
-    draw();return;
-  }
+  if(selected<0){ selected=n;walk=[n]; msg.textContent=TXT.move; draw();return;  }
 
   if(n===selected)return;
   if(!isAdj(selected,n))return;
@@ -491,6 +487,8 @@ cv.addEventListener("click",e=>{
   fit();
 })();
 
+(()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
+document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
 
 </script>
 </body>
