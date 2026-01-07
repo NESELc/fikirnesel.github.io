@@ -357,6 +357,10 @@ setUstH();
 
 document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstH();});
 if(window.innerWidth<=768) document.body.classList.add("filtreKapali");
+
+(()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
+document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
+
 </script>
 </body>
 </html>
