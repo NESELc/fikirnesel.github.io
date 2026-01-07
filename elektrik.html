@@ -462,6 +462,9 @@ trhesap();kablohesap();ctuketimhesap();
 	["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
 .forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add("pill");});
 
+(()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
+document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
+
 </script>
 
 </body>
