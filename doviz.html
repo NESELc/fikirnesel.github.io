@@ -354,10 +354,6 @@ const cache=window.ratesCache=window.ratesCache||{};
 async function fetchRates(base){const r=await fetch("https://api.exchangerate-api.com/v4/latest/"+base);return r.json();}
 function fmt2(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
 async function ensure(base){if(!cache[base])cache[base]=await fetchRates(base);return cache[base];}
-window.convertCurrency=async function(){const amount=parseFloat(document.getElementById("amount").value)||0;
-const from=document.getElementById("fromCurrency").value,to=document.getElementById("toCurrency").value;
-const d=await ensure(from),rates=d.rates||{};const conv=amount*(rates[to]||0);
-document.getElementById("result").innerHTML=`${amount.toLocaleString()} ${from} = ${fmt2(conv)} ${to}`;};
 const ccyList=["USD","EUR","TRY","GBP","CHF","JPY","CAD","AUD","DKK","SEK","NOK","SAR","RUB"];
 function num(v){v=parseFloat(String(v??"").replace(",","."));return isFinite(v)?v:0;}
 function fx(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
@@ -372,6 +368,8 @@ let R0=null;async function refreshAll(){const amount=document.getElementById("am
 if(!R0)R0=await initRates();const r=R0.r;const rt=xrate(r,from,to);const conv=num(amount)*rt;document.getElementById("result").innerHTML=`${(num(amount)).toLocaleString()} ${from} = ${fx(conv)} ${to}`;
 renderTable(r,to,amount,from);}
 window.convertCurrency=refreshAll;refreshAll();
+      ["amount","fromCurrency","toCurrency"].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener("input",refreshAll);if(el)el.addEventListener("change",refreshAll);});
+
 
      })();
 </script>
