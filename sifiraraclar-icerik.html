@@ -49,7 +49,7 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 .ddlist input{margin-right:6px;vertical-align:middle;}
 .ddact{display:flex;gap:6px;margin-top:6px;}
 .ddact button{ font-family:Comic Sans MS; font-size:13px; padding:3px 8px; border:1px solid #bbb; background:#eee; border-radius:8px;  cursor:pointer;}
-
+.fxinp{width:90px;padding:6px 8px;border:1px solid #ccc;border-radius:8px}
 @media (max-width:768px){
 #filtreAcKapa{display:inline-block;margin:0 0 6px 0;padding:4px 8px;border:1px solid #bbb;border-radius:8px;}
 body.filtreKapali .filtre-grup{display:none;}
@@ -95,7 +95,22 @@ body.filtreKapali .filtre-grup{display:none;}
       <label>Segment:<select id="segmentSec"><option value="">Tümü</option></select></label>
       <label>Yakıt Türü:<select id="yakitSec"><option value="">Tümü</option></select></label>
       <label>Vites:<select id="vitesSec"><option value="">Tümü</option></select></label>
-      <label>Fiyat:<select id="siralaSec"><option value="artan">Artan</option><option value="azalan">Azalan</option></select></label>
+      <label>Fiyat:
+        <select id="siralaSec">
+        <option value="artan">Artan</option>
+        <option value="azalan">Azalan</option>
+        <option value="0-1">0–1 MTL</option>
+        <option value="1-2">1–2 MTL</option>
+        <option value="2-3">2–3 MTL</option>
+        <option value="3-4">3–4 MTL</option>
+        <option value="4-5">4–5 MTL</option>
+        <option value="5-10">5-10 MTL+</option>
+        <option value="10-999">10 MTL+</option>
+        <option value="man">Manuel Aralık</option>
+        </select>
+        </label>
+        <input id="minM" inputmode="decimal" placeholder="min MTL" class="fxinp" disabled>
+        <input id="maxM" inputmode="decimal" placeholder="max MTL" class="fxinp" disabled>
       <button id="markaButon">🔗 Marka Linkleri</button>
     </div>
   </div>
@@ -214,9 +229,6 @@ async function veriYukle(){
 
   markaDD.onclick=e=>{
     e.preventDefault();
-    const r=markaDD.getBoundingClientRect();
-    markaPanel.style.left=(r.left+window.scrollX)+"px";
-    markaPanel.style.top=(r.bottom+window.scrollY+4)+"px";
     markaPanel.style.display=markaPanel.style.display==="block"?"none":"block";
     markaAra.value="";
     markaFiltre("");
@@ -279,7 +291,7 @@ function filtreleVeGoster(){
            (!getVal("vitesSec") || item.vites.toLowerCase().trim()===getVal("vitesSec"));
   });
 
-  filtreli.sort((a,b)=>parseInt(siralama==="artan"?a.fiyat-b.fiyat:b.fiyat-a.fiyat));
+filtreli=fiyatIsle(filtreli);
 
   let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th></tr></thead><tbody>";
   filtreli.forEach(item=>{
@@ -321,7 +333,7 @@ function filtreleVeGoster(){
   if(filtreAciklamalari.length>0){yazi+=" | "+filtreAciklamalari.join(" | ");}
   document.getElementById("aracSayisi").textContent=yazi;
 
-  setUstH();
+  setUstHa();
 }
 
 veriYukle();
@@ -352,19 +364,50 @@ function mobilSegmentBaslik(){
 }
 
 window.addEventListener("resize",mobilSegmentBaslik);
-
-function fixLayout(){ const u=document.getElementById("ustBar"); const s=document.getElementById("sonuclarWrap"); if(u&&s){s.style.top=(u.offsetHeight)+"px";}}
-window.addEventListener("load",fixLayout);
-window.addEventListener("resize",fixLayout);
-
-function setUstH(){const u=document.getElementById("ustBar");if(!u) return; document.documentElement.style.setProperty("--ustH",(u.offsetHeight)+"px");}
-setUstH();
-
-document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstH();});
+document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstHa();});
 if(window.innerWidth<=768) document.body.classList.add("filtreKapali");
+
+function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
+setUstHa();
 
 (()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
 document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
+
+function toNum(s){s=(s||"").toString().replace(/\./g,"").replace(/,/g,".").replace(/[^\d.]/g,"");return s?Number(s):NaN;}
+function fiyatIsle(rows){
+  const sel=document.getElementById("siralaSec")?.value||"";
+  const minI=document.getElementById("minM"),maxI=document.getElementById("maxM");
+  let min=-Infinity,max=Infinity;
+  if(sel==="artan"||sel==="azalan"){if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;}
+  else if(sel==="man"){
+    if(minI)minI.disabled=false;if(maxI)maxI.disabled=false;
+    const a=toNum(minI?.value),b=toNum(maxI?.value);
+    min=isNaN(a)?-Infinity:a*1e6;max=isNaN(b)?Infinity:b*1e6;
+  }else{
+    if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
+    const p=sel.split("-").map(Number);min=(p[0]||0)*1e6;max=(p[1]||999)*1e6;
+  }
+  let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
+  const yon=(sel==="azalan")?"azalan":"artan";
+  out.sort((a,b)=> yon==="azalan" ? ((b.fiyat||0)-(a.fiyat||0)) : ((a.fiyat||0)-(b.fiyat||0)));
+  return out;
+}
+
+["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
+function mtlEkle(inp){
+  inp.addEventListener("blur",()=>{
+    let v=inp.value.replace(/\s*MTL$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+" MTL"; else inp.value="";
+
+  });
+  inp.addEventListener("focus",()=>{
+    inp.value=inp.value.replace(/\s*MTL$/i,"");
+  });
+}
+["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
+
+["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.target.blur();filtreleVeGoster();}}));
+
 
 </script>
 </body>
