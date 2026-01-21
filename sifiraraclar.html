@@ -348,11 +348,12 @@ body.filtreKapali .filtre-grup{display:none;}
         <select id="siralaSec">
         <option value="artan">Artan</option>
         <option value="azalan">Azalan</option>
-        <option value="0-1">0–1 M</option>
-        <option value="1-2">1–2 M</option>
-        <option value="2-3">2–3 M</option>
-        <option value="3-5">3–5 M</option>
-        <option value="5-999">5 M+</option>
+        <option value="0-1">0–1 MTL</option>
+        <option value="1-2">1–2 MTL</option>
+        <option value="2-3">2–3 MTL</option>
+        <option value="3-4">3–4 MTL</option>
+        <option value="4-5">4–5 MTL</option>
+        <option value="5-999">5 MTL+</option>
         <option value="man">Manuel Aralık</option>
         </select>
         </label>
@@ -678,7 +679,20 @@ function fiyatIsle(rows){
   return out;
 }
 ["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
-["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter")filtreleVeGoster();}));
+function mtlEkle(inp){
+  inp.addEventListener("blur",()=>{
+    let v=inp.value.replace(/\s*MTL$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+" MTL"; else inp.value="";
+
+  });
+  inp.addEventListener("focus",()=>{
+    inp.value=inp.value.replace(/\s*MTL$/i,"");
+  });
+}
+["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
+
+["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.target.blur();filtreleVeGoster();}}));
+
 
 </script>
 </body>
