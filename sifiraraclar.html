@@ -113,6 +113,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 .ddlist input{margin-right:6px;vertical-align:middle;}
 .ddact{display:flex;gap:6px;margin-top:6px;}
 .ddact button{ font-family:Comic Sans MS; font-size:13px; padding:3px 8px; border:1px solid #bbb; background:#eee; border-radius:8px;  cursor:pointer;}
+.fxinp{width:90px;padding:6px 8px;border:1px solid #ccc;border-radius:8px}
 
   
 @media(max-width:768px){
@@ -343,7 +344,21 @@ body.filtreKapali .filtre-grup{display:none;}
       <label>Segment:<select id="segmentSec"><option value="">Tümü</option></select></label>
       <label>Yakıt Türü:<select id="yakitSec"><option value="">Tümü</option></select></label>
       <label>Vites:<select id="vitesSec"><option value="">Tümü</option></select></label>
-      <label>Fiyat:<select id="siralaSec"><option value="artan">Artan</option><option value="azalan">Azalan</option></select></label>
+      <label>Fiyat:
+        <select id="siralaSec">
+        <option value="artan">Artan</option>
+        <option value="azalan">Azalan</option>
+        <option value="0-1">0–1 M</option>
+        <option value="1-2">1–2 M</option>
+        <option value="2-3">2–3 M</option>
+        <option value="3-5">3–5 M</option>
+        <option value="5-999">5 M+</option>
+        <option value="man">Manuel Aralık</option>
+        </select>
+        </label>
+        <input id="minM" inputmode="decimal" placeholder="min M" class="fxinp" disabled>
+        <input id="maxM" inputmode="decimal" placeholder="max M" class="fxinp" disabled>
+
       <button id="markaButon">🔗 Marka Linkleri</button>
     </div>
   </div>
@@ -561,7 +576,7 @@ function filtreleVeGoster(){
            (!getVal("vitesSec") || item.vites.toLowerCase().trim()===getVal("vitesSec"));
   });
 
-filtreli.sort((a,b)=> (siralama==="artan" ? (a.fiyat-b.fiyat) : (b.fiyat-a.fiyat)) );
+filtreli=fiyatIsle(filtreli);
 
   let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th></tr></thead><tbody>";
   filtreli.forEach(item=>{
@@ -642,6 +657,28 @@ setUstHa();
 
 (()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
 document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
+
+function toNum(s){s=(s||"").toString().replace(/\./g,"").replace(/,/g,".").replace(/[^\d.]/g,"");return s?Number(s):NaN;}
+function fiyatIsle(rows){
+  const sel=document.getElementById("siralaSec")?.value||"";
+  const minI=document.getElementById("minM"),maxI=document.getElementById("maxM");
+  let min=-Infinity,max=Infinity;
+  if(sel==="artan"||sel==="azalan"){if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;}
+  else if(sel==="man"){
+    if(minI)minI.disabled=false;if(maxI)maxI.disabled=false;
+    const a=toNum(minI?.value),b=toNum(maxI?.value);
+    min=isNaN(a)?-Infinity:a*1e6;max=isNaN(b)?Infinity:b*1e6;
+  }else{
+    if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
+    const p=sel.split("-").map(Number);min=(p[0]||0)*1e6;max=(p[1]||999)*1e6;
+  }
+  let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
+  if(sel==="artan")out.sort((a,b)=>(a.fiyat||0)-(b.fiyat||0));
+  if(sel==="azalan")out.sort((a,b)=>(b.fiyat||0)-(a.fiyat||0));
+  return out;
+}
+["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
+["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter")filtreleVeGoster();}));
 
 </script>
 </body>
