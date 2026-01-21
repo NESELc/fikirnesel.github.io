@@ -452,7 +452,7 @@ function kablohesap(){
   const tip=$("kabtipi").value,k=(tip==="Al")?0.62:1;
   const I=n($("kabkesit").value)*k,A=n($("kabkesit").value),V=n($("kabseviye").value);
   const R=(tip==="Al"?0.0282:0.017857)*(1000/A),P=(V*1.73*I)/1000;
-  $("kabomaj").innerHTML=`${fmt(R,2)} &#8486/km`;
+  $("kabomaj").innerHTML=`${fmt(R,4)} &#8486/km`;
   $("kabakim").textContent=`${fmt(I,1)} A`;
   $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
   $("kabguc").textContent=`${fmt(P,1)} MW`;
