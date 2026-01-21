@@ -339,7 +339,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 </div>
 <div class="card" style="margin-top:12px">
 	<table class="tbl">
-		<tr><th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
+		<tr><th colspan="7"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
 		<tr class="tbl elk"><th> Kesit </th><th> Gerilim </th><th> Tipi </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
 		<tr>
 		<td>
@@ -470,7 +470,7 @@ function ctuketimhesap(){
   $("toplamtl").innerHTML=`&#8378 ${fmt(sumTL,1)}`;
 }
 ["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
-["kabkesit","kabseviye"].forEach(id=>$(id).addEventListener("change",kablohesap));
+["kabkesit","kabseviye","kabtipi"].forEach(id=>$(id).addEventListener("change",kablohesap));
 ["meskentl","buztuketim","camtuketim","bultuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
 .forEach(id=>$(id).addEventListener("input",ctuketimhesap));
 trhesap();kablohesap();ctuketimhesap();
