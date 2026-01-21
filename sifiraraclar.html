@@ -675,10 +675,11 @@ function fiyatIsle(rows){
     const p=sel.split("-").map(Number);min=(p[0]||0)*1e6;max=(p[1]||999)*1e6;
   }
   let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
-  out.sort((a,b)=>(a.fiyat||0)-(b.fiyat||0));
+  const yon=(sel==="azalan")?"azalan":"artan";
+  out.sort((a,b)=> yon==="azalan" ? ((b.fiyat||0)-(a.fiyat||0)) : ((a.fiyat||0)-(b.fiyat||0)));
   return out;
-
 }
+
 ["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
 function mtlEkle(inp){
   inp.addEventListener("blur",()=>{
