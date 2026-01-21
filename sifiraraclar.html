@@ -353,12 +353,13 @@ body.filtreKapali .filtre-grup{display:none;}
         <option value="2-3">2–3 MTL</option>
         <option value="3-4">3–4 MTL</option>
         <option value="4-5">4–5 MTL</option>
-        <option value="5-999">5 MTL+</option>
+        <option value="5-10">5-10 MTL+</option>
+        <option value="10-999">5 MTL+</option>
         <option value="man">Manuel Aralık</option>
         </select>
         </label>
-        <input id="minM" inputmode="decimal" placeholder="min M" class="fxinp" disabled>
-        <input id="maxM" inputmode="decimal" placeholder="max M" class="fxinp" disabled>
+        <input id="minM" inputmode="decimal" placeholder="min MTL" class="fxinp" disabled>
+        <input id="maxM" inputmode="decimal" placeholder="max MTL" class="fxinp" disabled>
 
       <button id="markaButon">🔗 Marka Linkleri</button>
     </div>
@@ -674,9 +675,9 @@ function fiyatIsle(rows){
     const p=sel.split("-").map(Number);min=(p[0]||0)*1e6;max=(p[1]||999)*1e6;
   }
   let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
-  if(sel==="artan")out.sort((a,b)=>(a.fiyat||0)-(b.fiyat||0));
-  if(sel==="azalan")out.sort((a,b)=>(b.fiyat||0)-(a.fiyat||0));
+  out.sort((a,b)=>(a.fiyat||0)-(b.fiyat||0));
   return out;
+
 }
 ["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
 function mtlEkle(inp){
