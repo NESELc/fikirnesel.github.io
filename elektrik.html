@@ -446,13 +446,16 @@ function trhesap(){
   const Ip=S/(Vp*1.73205),Is=(Vp/Vs)*Ip;
   $("ogPakim").textContent=`${fmt(Ip,1)} A`; $("ogSakim").textContent=`${fmt(Is,1)} A`;
 }
-function n(v){v=String(v??"").trim().replace(/\s+/g,"");let m=v.match(/-?\d+([.,]\d+)?/g);if(!m)return 0;let s=m.join("");if(s.includes(",")&&!s.includes("."))s=s.replace(",",".");s=s.replace(/(?!^)-/g,"");return parseFloat(s)||0;}
 function kablohesap(){
-  const tip=$("kabtipi")?.value||"Cu",k=(tip==="Al")?0.62:1,rho=(tip==="Al")?0.0282:0.017857;
-  const A=n($("kabkesit").value),V=n($("kabseviye").value),Icu=n($("kabakimG")?.value||$("kabakim")?.textContent||0);
-  const I=Icu*k,R=rho*(1000/(A||1)),P=(V*1.73*I)/1e6;
-  $("kabomaj").innerHTML=`${fmt(R,2)} &#8486/km`; $("kabakim").textContent=`${fmt(I,1)} A`; $("kabakimH").textContent=`${fmt(I*1.2,1)} A`; $("kabguc").textContent=`${fmt(P,3)} MW`;
+  const tip=$("kabtipi").value,k=(tip==="Al")?0.62:1;
+  const I=n($("kabkesit").value)*k,A=n($("kabkesit").value),V=n($("kabseviye").value);
+  const R=(tip==="Al"?0.0282:0.017857)*(1000/A),P=(V*1.73*I)/1000;
+  $("kabomaj").innerHTML=`${fmt(R,2)} &#8486/km`;
+  $("kabakim").textContent=`${fmt(I,1)} A`;
+  $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
+  $("kabguc").textContent=`${fmt(P,1)} MW`;
 }
+
 
 
 function ctuketimhesap(){
