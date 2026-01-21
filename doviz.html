@@ -92,8 +92,9 @@ iframe{width:100%;height:100%;border:0;display:block}
   .kurtablo{width:100%;border-collapse:collapse;font-family:Comic Sans MS;font-size:13px;table-layout:fixed}
   .kurtablo th,.kurtablo td{border:1px solid #999;padding:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .kurtablo th{background:#BDBDBD;text-align:left;position:sticky;top:0;z-index:5}
-  .kurtablo th:nth-child(1),.kurtablo td:nth-child(1){width:65%;text-align:left}
-  .kurtablo th:nth-child(2),.kurtablo td:nth-child(2){width:35%;text-align:center}
+  .kurtablo th:nth-child(1),.kurtablo td:nth-child(1){width:45%;text-align:left}
+  .kurtablo th:nth-child(2),.kurtablo td:nth-child(2){width:20%;text-align:center}
+  .kurtablo th:nth-child(3),.kurtablo td:nth-child(3){width:35%;text-align:center}
   .kurtablo tbody tr:nth-child(odd){background:#FFFFFF}
   .kurtablo tbody tr:nth-child(even){background:#EEEEEE}
   .smallnote{margin-top:10px;font-size:13px;color:#b00000;text-align:left}
@@ -309,23 +310,10 @@ iframe{width:100%;height:100%;border:0;display:block}
   </div>
   <div class="fxbox">
   <table class="kurtablo" aria-label="Güncel döviz kurları tablosu">
-    <thead><tr><th>Döviz</th><th>Kur</th></tr></thead>
-    <tbody>
-      <tr><td>USD/TRY</td><td id="t_usdtry">Yükleniyor…</td></tr>
-      <tr><td>EUR/TRY</td><td id="t_eurtry">—</td></tr>
-      <tr><td>GBP/TRY</td><td id="t_gbptry">—</td></tr>
-      <tr><td>CHF/TRY</td><td id="t_chftry">—</td></tr>
-      <tr> <td>JPY/TRY</td><td id="t_jpytry">—</td></tr>
-      <tr><td>CAD/TRY</td><td id="t_cadtry">—</td></tr>
-      <tr><td>AUD/TRY</td><td id="t_audtry">—</td></tr>
-      <tr><td>DKK/TRY</td><td id="t_dkktry">—</td></tr>
-      <tr><td>SEK/TRY</td><td id="t_sektry">—</td></tr>
-      <tr><td>NOK/TRY</td><td id="t_noktry">—</td></tr>
-      <tr><td>SAR/TRY</td><td id="t_sartry">—</td></tr>
-      <tr><td>RUB/TRY</td><td id="t_rubtry">—</td></tr>
-    
-    </tbody>
-  </table>
+  <thead><tr><th id="kurBaslik">Döviz</th><th>Kur</th><th>Karşılık</th></tr></thead>
+  <tbody id="kurBody"><tr><td>—</td><td>—</td><td>—</td></tr></tbody>
+</table>
+
   <div class="smallnote" id="kurTarih">ExchangeRate-API tarafından sağlanan kurlar görüntülenmektedir.</div>
   <div class="smallnote">Kurlar, ExchangeRate-API tarafından sağlanmaktadır.</div>
   </div>
@@ -370,14 +358,22 @@ window.convertCurrency=async function(){const amount=parseFloat(document.getElem
 const from=document.getElementById("fromCurrency").value,to=document.getElementById("toCurrency").value;
 const d=await ensure(from),rates=d.rates||{};const conv=amount*(rates[to]||0);
 document.getElementById("result").innerHTML=`${amount.toLocaleString()} ${from} = ${fmt2(conv)} ${to}`;};
-async function fillTable(){const usd=await ensure("USD"),r=usd.rates||{},usdtry=r.TRY||0;
-document.getElementById("t_usdtry").textContent=usdtry?usdtry.toFixed(2):"—";
-const set=(id,ccy)=>{const v=(r.TRY&&r[ccy])?r.TRY/r[ccy]:null;document.getElementById(id).textContent=v?Number(v).toFixed(2):"—";};
-["EUR","GBP","CHF","JPY","CAD","AUD","DKK","SEK","NOK","SAR","RUB"].forEach(ccy=>set("t_"+ccy.toLowerCase()+"try",ccy));
-const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;
-document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";
-document.getElementById("result").innerHTML=`1 USD = ${usdtry?usdtry.toFixed(2):"—"} TRY`;}
-fillTable();})();
+const ccyList=["USD","EUR","TRY","GBP","CHF","JPY","CAD","AUD","DKK","SEK","NOK","SAR","RUB"];
+function num(v){v=parseFloat(String(v??"").replace(",","."));return isFinite(v)?v:0;}
+function fx(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
+function xrate(r,from,to){if(from===to)return 1;const a=(from==="USD"?1:r[from]);const b=(to==="USD"?1:r[to]);return a&&b?(b/a):0;}
+function renderTable(r,to,amount,from){const tb=document.getElementById("kurBody"),th=document.getElementById("kurBaslik");if(!tb||!th)return;
+th.textContent=`Döviz (*/${to})`;tb.innerHTML="";const amt=num(amount);const rows=ccyList.filter(x=>x!==to);
+rows.sort((a,b)=>(a===from?-1:b===from?1:0));for(const c of rows){const rt=xrate(r,c,to),val=amt?fx(amt*rt):"—";
+const tr=document.createElement("tr");tr.innerHTML=`<td>${c}/${to}</td><td>${rt?rt.toFixed(2):"—"}</td><td>${val}</td>`;tb.appendChild(tr);}}
+async function initRates(){const usd=await ensure("USD"),r=usd.rates||{};const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;
+document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";return {usd, r};}
+let R0=null;async function refreshAll(){const amount=document.getElementById("amount").value,from=document.getElementById("fromCurrency").value,to=document.getElementById("toCurrency").value;
+if(!R0)R0=await initRates();const r=R0.r;const rt=xrate(r,from,to);const conv=num(amount)*rt;document.getElementById("result").innerHTML=`${(num(amount)).toLocaleString()} ${from} = ${fx(conv)} ${to}`;
+renderTable(r,to,amount,from);}
+window.convertCurrency=refreshAll;refreshAll();
+
+     })();
 </script>
 
 </body>
