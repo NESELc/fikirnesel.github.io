@@ -340,7 +340,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 <div class="card" style="margin-top:12px">
 	<table class="tbl">
 		<tr><th colspan="6"> XLPE Kablolar-OG Akım Kapasiteleri </th>	</tr>
-		<tr class="tbl elk"><th> Kesit </th><th> Gerilim </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
+		<tr class="tbl elk"><th> Kesit </th><th> Gerilim </th><th> Tipi </th><th> Direnci </th><th> I-Toprak </th>	<th> I-Hava </th><th> P </th></tr>
 		<tr>
 		<td>
 			<select id="kabkesit" name="kabkesit" onchange="kablohesap (this)">
@@ -353,6 +353,11 @@ iframe{width:100%;height:100%;border:0;display:block}
 			<select id="kabseviye" name="kabseviye" onchange="kablohesap (this)">
 			<option value="34.5">34,5 kV</option><option value="33">33 kV</option><option value="31.5">31,5 kV</option><option value="15.8">15,8 kV</option>
 			<option value="10.5">10,5 kV</option><option value="6.3">6,3 kV</option>
+			</select>
+		</td>
+		<td>
+			<select id="kabtipi" name="kabtipi" onchange="kablohesap (this)">
+			<option value="Cu">Bakır</option><option value="Al">Alüminyum</option>
 			</select>
 		</td>
 		<td><div id="kabomaj"></div></td>
@@ -442,12 +447,17 @@ function trhesap(){
   $("ogPakim").textContent=`${fmt(Ip,1)} A`; $("ogSakim").textContent=`${fmt(Is,1)} A`;
 }
 function kablohesap(){
-  const I=n($("kabkesit").value),A=n($("kabkesit").value),V=n($("kabseviye").value);
-  const R=0.017857*(1000/A),P=(V*1.73*A)/1000;
+  const tip=$("kabtipi").value;
+  let I=n($("kabakim").value),A=n($("kabkesit").value),V=n($("kabseviye").value);
+  const k=(tip==="Al")?0.62:1;
+  const R=(tip==="Al"?0.0282:0.017857)*(1000/A);
+  const P=(V*1.73*(I*k))/1000;
   $("kabomaj").innerHTML=`${fmt(R,2)} &#8486/km`;
-  $("kabakim").textContent=`${fmt(I,1)} A`; $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
+  $("kabakim").textContent=`${fmt(I*k,1)} A`;
+  $("kabakimH").textContent=`${fmt(I*k*1.2,1)} A`;
   $("kabguc").textContent=`${fmt(P,1)} MW`;
 }
+
 function ctuketimhesap(){
   const tl=n($("meskentl").value);
   const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi"];
