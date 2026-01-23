@@ -580,7 +580,7 @@ function filtreleVeGoster(){
 
 filtreli=fiyatIsle(filtreli);
 
-  let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th></tr></thead><tbody>";
+  let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th><th>K.Fiyat-binTL</th></tr></thead><tbody>";
   filtreli.forEach(item=>{
     const fiyat=Math.round(Number(item.fiyat)/1000).toLocaleString("tr-TR");
     html+=`<tr>
@@ -592,6 +592,7 @@ filtreli=fiyatIsle(filtreli);
       <td>${item["yakıt türü"]}</td>
       <td>${item.vites}</td>
       <td>${formatTarih(item.guncelleme)||""}</td>
+      <td>${item.kfiyat}</td>
     </tr>`;
   });
   html+="</tbody></table>";
@@ -631,6 +632,7 @@ function mobilSegmentBaslik(){
     document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT";
     document.querySelectorAll("#sonuclar th")[4].textContent="SG";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜN.";
+    document.querySelectorAll("#sonuclar th")[8].textContent="K.FİYAT";
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
     document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
@@ -641,6 +643,7 @@ function mobilSegmentBaslik(){
     document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT-binTL";
     document.querySelectorAll("#sonuclar th")[4].textContent="SEGMENT";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCELLEME";
+    document.querySelectorAll("#sonuclar th")[8].textContent="K.FİYAT-binTL";
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
     document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
