@@ -583,7 +583,7 @@ filtreli=fiyatIsle(filtreli);
   let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th><th>K.Fiyat-binTL</th></tr></thead><tbody>";
   filtreli.forEach(item=>{
     const fiyat=Math.round(Number(item.fiyat)/1000).toLocaleString("tr-TR");
-    const kfiyat=Math.round(Number(item.kfiyat)/1000).toLocaleString("tr-TR");
+    const kfiyat=Number(item.kfiyat)>0?Math.round(item.kfiyat/1000).toLocaleString("tr-TR"):"";
     html+=`<tr>
       <td class="fiyat">${fiyat}</td>
       <td>${item.marka}</td>
