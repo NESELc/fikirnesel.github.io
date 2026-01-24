@@ -586,10 +586,5 @@
     </div>
   </div>
 </details>
+<script>(()=>{const run=r=>r.querySelectorAll("script").forEach(s=>{const n=document.createElement("script");[...s.attributes].forEach(a=>n.setAttribute(a.name,a.value));n.text=s.textContent;s.replaceWith(n);});document.querySelectorAll("[data-include]").forEach(async e=>{const u=e.dataset.include||"";if(!u)return;const t=await fetch(u,{cache:"no-store"}).then(r=>r.ok?r.text():"").catch(()=> "");if(!t)return;e.innerHTML=t;run(e);});})();</script>
 
-<script>
-(()=>{const qa=s=>Array.from(document.querySelectorAll(s)),say=document.getElementById("kampSay");
-const upd=()=>{const n=qa("#kampList .kampKart").filter(x=>x.style.display!=="none").length;if(say)say.textContent=n+" kampanya";};
-window.kampAra=v=>{v=(v||"").toLowerCase().trim();qa("#kampList .kampKart").forEach(k=>{const t=(k.dataset.marka+" "+k.dataset.model).toLowerCase();k.style.display=!v||t.includes(v)?"":"none";});upd();};
-upd();})();
-</script>
