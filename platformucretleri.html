@@ -339,8 +339,10 @@ const iconMap={"Netflix":"🎬","Disney+":"🏰","Amazon Prime Video":"📦","Sp
 function setUstHa(){const u=document.getElementById("ustBara");if(!u)return;document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
 setUstHa();
 
-(()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
-document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const fr=document.getElementById("sayfaFrame");
+const map={"sifiraraclar-icerik.html":"/sifiraraclar.html","platformucretleri-icerik.html":"/platformucretleri.html","doviz-icerik.html":"/doviz.html","gelirvergisi-icerik.html":"/gelirvergisi.html","ankara-icerik.html":"/ankara.html","elektrik-icerik.html":"/elektrik.html","oyunlar-icerik.html":"/oyunlar.html"};
+function setSel(){const src=(fr&&fr.getAttribute("src"))||"";const f=src.split("/").pop();if(map[f])ms.value=map[f];}
+setSel();if(fr)fr.addEventListener("load",setSel);ms.onchange=()=>location.href=ms.value;})();
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
 
