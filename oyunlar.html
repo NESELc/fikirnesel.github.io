@@ -447,6 +447,18 @@ if(p && p!="/") ms.value=p+".html";
 ms.onchange=()=>location.href=ms.value;})();
 	
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
+
+(()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');
+let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
+if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}
+f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';
+t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});
+b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');
+localStorage.setItem(k,'1');b.disabled=true;
+fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+body:new URLSearchParams({p:location.pathname,page:location.href,v,txt:(t.value||''),ua:navigator.userAgent,ts:String(Date.now())})})
+.finally(()=>{f.textContent='Teşekkürler 🙌';});};
+})();
 </script>
 </body>
 </html>
