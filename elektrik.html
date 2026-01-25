@@ -80,9 +80,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 #solIcerik{order:2}
 #sagReklam{order:3}
 .frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
-}
-
-	
+}	
 	h3{margin:0px 0 10px;font-size:13px}
 	.card{background:transparent;border:0;padding:0;margin-bottom:12px}
 	.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden;table-layout:fixed}
@@ -366,20 +364,13 @@ iframe{width:100%;height:100%;border:0;display:block}
 </main>
 
 <script>
-function setUstH(){
-  const u=document.getElementById("ustBar");
-  if(!u) return;
-  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
-}
+function setUstH(){ const u=document.getElementById("ustBar"); if(!u) return; document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");}
 window.addEventListener("resize",setUstH);
 setUstH();
-
 const frame=document.getElementById("sayfaFrame")||null;
 const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
 
-function setActiveBySrc(src){
-  links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
-}
+function setActiveBySrc(src){links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));}
 
 function kampanyalariKartYap(){
   const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
@@ -390,7 +381,7 @@ function kampanyalariKartYap(){
 }
 kampanyalariKartYap();
 
-	const $=id=>document.getElementById(id);
+const $=id=>document.getElementById(id);
 const n=v=>{v=(""+(v??"")).trim().replace(",",".");return Number(v)||0};
 const fmt=(v,d=1)=>new Intl.NumberFormat("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
 function trhesap(){
@@ -408,8 +399,6 @@ function kablohesap(){
   $("kabguc").textContent=`${fmt(P,1)} MW`;
 }
 
-
-
 function ctuketimhesap(){
   const tl=n($("meskentl").value);
   const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi"];
@@ -426,15 +415,17 @@ function ctuketimhesap(){
 ["meskentl","buztuketim","camtuketim","bultuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
 .forEach(id=>$(id).addEventListener("input",ctuketimhesap));
 trhesap();kablohesap();ctuketimhesap();
-	["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
+["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
 .forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add("pill");});
 
+(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
+
+	
 (()=>{const ms=document.getElementById("mselect");if(!ms)return;
 const p=location.pathname.replace(/\/$/,"");
 if(p && p!="/") ms.value=p+".html";
 ms.onchange=()=>location.href=ms.value;})();
 	
-(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
 </script>
 
