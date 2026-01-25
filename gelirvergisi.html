@@ -348,8 +348,10 @@ function kampanyalariKartYap(){
 }
 kampanyalariKartYap();
 
-(()=>{const p=location.pathname,ms=document.getElementById("mselect");if(ms){ms.value=p;ms.onchange=()=>location.href=ms.value;}
-document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));})();
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;
+const p=location.pathname.replace(/\/$/,"");
+if(p && p!="/") ms.value=p+".html";
+ms.onchange=()=>location.href=ms.value;})();
 
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 </script>
