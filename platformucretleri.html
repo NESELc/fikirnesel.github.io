@@ -340,16 +340,9 @@ function setUstHa(){const u=document.getElementById("ustBara");if(!u)return;docu
 setUstHa();
 
 (()=>{const ms=document.getElementById("mselect");if(!ms)return;
-const fr=document.getElementById("sayfaFrame");
-const p=location.pathname.split("/").pop()||"sifiraraclar.html";
-const pick=()=>{
-  if(fr){
-    const u=(fr.getAttribute("src")||fr.src||"");
-    if(u.includes("sifiraraclar-icerik.html")){ms.value="/sifiraraclar.html";return;}
-  }
-  ms.value="/"+p;
-};
-pick();setTimeout(pick,0);ms.onchange=()=>location.href=ms.value;})();
+const p=location.pathname.replace(/\/$/,"");
+if(p && p!="/") ms.value=p+".html";
+ms.onchange=()=>location.href=ms.value;})();
 
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
