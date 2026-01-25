@@ -92,8 +92,8 @@ iframe{width:100%;height:100%;border:0;display:block}
 	.tbl .toplam{background:var(--tblH);font-weight:900}
 	.tbl tbody tr.elk th{background:#fff}
 	.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800}
-	input[type=number],input[type=text],select{height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
-	input[type=number],input[type=text]{width:110px;text-align:center}
+	input:not(#mselect)[type=number],input:not(#mselect)[type=text],select:not(#mselect){height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
+	input:not(#mselect)[type=number],input:not(#mselect)[type=text]{width:110px;text-align:center}
 	.bilgilendirme{font-family:Comic Sans MS;font-size:13px}
 	.tbl.beyazesya tbody tr:nth-child(odd) td{background:#EEEEEE}
 	.tbl.beyazesya tbody tr:nth-child(even) td{background:#ffffff}
@@ -115,7 +115,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 	.wrap{padding:6px}.card{overflow-x:auto}
 	.tbl{font-size:10px;table-layout:auto}
 	.tbl th,.tbl td{padding:2px;line-height:1.1;white-space:normal}
-	select:not(#mselect),input[type=text],input[type=number]{font-size:9px;height:22px;padding:0 4px;width:52px}
+	select:not(#mselect),input:not(#mselect)[type=text],input:not(#mselect)[type=number]{font-size:9px;height:22px;padding:0 4px;width:52px}
 }
 </style>
 
@@ -418,14 +418,18 @@ trhesap();kablohesap();ctuketimhesap();
 ["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
 .forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add("pill");});
 
-(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
 	
 function initMS(){const ms=document.getElementById("mselect");if(!ms||!ms.options.length)return;
 const p=location.pathname.replace(/\/$/,"");ms.value=(p&&p!="/")?(p.endsWith(".html")?p:p+".html"):"/sifiraraclar.html";
 ms.onchange=()=>location.href=ms.value;}
 initMS();setTimeout(initMS,0);setTimeout(initMS,50);
+
+(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
+
 	
+function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
+setUstHa();
 
 </script>
 
