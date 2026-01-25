@@ -340,11 +340,8 @@ function setUstHa(){const u=document.getElementById("ustBara");if(!u)return;docu
 setUstHa();
 
 (()=>{const ms=document.getElementById("mselect");if(!ms)return;const fr=document.getElementById("sayfaFrame");
-const map={"sifiraraclar-icerik.html":"/sifiraraclar.html","sifiraraclar.html":"/sifiraraclar.html","platformucretleri.html":"/platformucretleri.html",
-"doviz.html":"/doviz.html","gelirvergisi.html":"/gelirvergisi.html","ankara.html":"/ankara.html","elektrik.html":"/elektrik.html",
-"oyunlar.html":"/oyunlar.html"};
-function setSel(){const src=(fr&&fr.getAttribute("src"))||"";const f=src.split("/").pop();if(map[f])ms.value=map[f];}
-setSel();if(fr)fr.addEventListener("load",setSel);ms.onchange=()=>location.href=ms.value;})();
+const p=location.pathname.split("/").pop();const f=fr?((fr.getAttribute("src")||fr.src||"").split("?")[0].split("#")[0].split("/").pop()):"";
+ms.value=(f==="sifiraraclar-icerik.html"||p==="index.html"||p==="")?"/sifiraraclar.html":"/"+p;ms.onchange=()=>location.href=ms.value;})();
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
 
