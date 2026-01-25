@@ -318,6 +318,8 @@ window.convertCurrency=refreshAll;refreshAll();
       ["amount","fromCurrency","toCurrency"].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener("input",refreshAll);if(el)el.addEventListener("change",refreshAll);});
      })();
 
+function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
+setUstHa();  
 (()=>{const ms=document.getElementById("mselect");if(!ms)return; const p=location.pathname.replace(/\/$/,""); if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
