@@ -22,9 +22,9 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 .filtre-grup{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:15px;position:relative;}
 .filtre-grup label{font-weight:bold;display:flex;flex-direction:column;font-size:13px;min-width:110px;}
 .filtre-grup select{font-family:Comic Sans MS;padding:3px;font-size:13px;width:130px;}
-#ustBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
-#sonuclarWrap{position:fixed;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:10px;}
-#sonuclar{margin-top:8px;}
+#ustBar{position:sticky;top:0;left:0;right:0;z-index:1000;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd;}
+#sonuclarWrap{position:relative;left:0;right:0;bottom:0;top:var(--ustH);overflow:auto;padding:1px;}
+#sonuclar{margin-top:1px;}
 #sonuclar table{font-family:Comic Sans MS;width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
 #sonuclar th,#sonuclar td{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:middle;white-space:normal;word-break:break-word;}
 #sonuclar th{font-weight:bold;}
@@ -52,9 +52,14 @@ body{margin:0;overflow:hidden;background:#EEEEEE;}
 .ddact button{ font-family:Comic Sans MS; font-size:13px; padding:3px 8px; border:1px solid #bbb; background:#eee; border-radius:8px;  cursor:pointer;}
 .fxinp{width:90px;padding:6px 8px;border:1px solid #ccc;border-radius:8px}
 @media (max-width:768px){
+
+  	#layout{padding:2px}
+  	#ortaAlan{max-width:none;width:100%}
+  	.frameWrap{padding:1px;margin:2px}
+  	.frameBox{padding:1px;border-radius:12px}
 #filtreAcKapa{display:inline-block;margin:0 0 6px 0;padding:4px 8px;border:1px solid #bbb;border-radius:8px;}
 body.filtreKapali .filtre-grup{display:none;}
-#sonuclarWrap{overflow:auto;-webkit-overflow-scrolling:touch;}
+#sonuclarWrap{padding:1px;max-height:75vh;overflow:auto;-webkit-overflow-scrolling:touch;}
 #sonuclar table{min-width:680px;table-layout:fixed;}
 #sonuclar th,#sonuclar td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 #sonuclar th:nth-child(1),#sonuclar td:nth-child(1){width:70px;}
@@ -66,11 +71,8 @@ body.filtreKapali .filtre-grup{display:none;}
 #sonuclar th:nth-child(7),#sonuclar td:nth-child(7){width:54px;}
 #sonuclar th:nth-child(8),#sonuclar td:nth-child(8){width:64px;}
 #sonuclar th:nth-child(9),#sonuclar td:nth-child(9){width:70px;}
-  	#layout{padding:2px}
-  	#ortaAlan{max-width:none;width:100%}
-  	.frameWrap{padding:1px;margin:2px}
-  	.frameBox{padding:1px;border-radius:12px}
-  	#sonuclarWrap{padding:1px}
+
+
 }
 </style>
 </head>
