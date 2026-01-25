@@ -421,10 +421,10 @@ trhesap();kablohesap();ctuketimhesap();
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
 	
-(()=>{const ms=document.getElementById("mselect");if(!ms)return;
-const p=location.pathname.replace(/\/$/,"");
-if(p && p!="/") ms.value=p+".html";
-ms.onchange=()=>location.href=ms.value;})();
+function initMS(){const ms=document.getElementById("mselect");if(!ms||!ms.options.length)return;
+const p=location.pathname.replace(/\/$/,"");ms.value=(p&&p!="/")?(p.endsWith(".html")?p:p+".html"):"/sifiraraclar.html";
+ms.onchange=()=>location.href=ms.value;}
+initMS();setTimeout(initMS,0);setTimeout(initMS,50);
 	
 
 </script>
