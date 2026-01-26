@@ -404,7 +404,14 @@ body.filtreKapali .filtre-grup{display:none;}
   
 <div id="footer"></div>
 <script>
-fetch("/inc/kampanyalar.html").then(r=>r.text()).then(t=>kampanyaMetinAlan.innerHTML=t);
+fetch("kampanyalar.html")
+.then(r=>r.text())
+.then(t=>{
+  kampanyaMetinAlan.innerHTML=t;
+  const p=[...kampanyaMetinAlan.querySelectorAll("p")];
+  p.sort((a,b)=>a.textContent.localeCompare(b.textContent,"tr"));
+  p.forEach(x=>kampanyaMetinAlan.appendChild(x));
+});
 fetch("/footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)
 function setUstH(){
   const u=document.getElementById("ustBar");
