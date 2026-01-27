@@ -319,9 +319,13 @@ window.convertCurrency=refreshAll;refreshAll();
      })();
 
 function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
-setUstHa();  
-(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\/$/,"");ms.value=p==="/" ? "/index.html" : p;ms.onchange=()=>location.href=ms.value;})();
-(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)).catch(()=>{}));})();
+setUstHa(); 
+
+  
+function initMS(){const ms=document.getElementById("mselect");if(!ms||!ms.options.length)return;
+const p=location.pathname.replace(/\/$/,"");ms.value=(p&&p!="/")?(p.endsWith(".html")?p:p+".html"):"/sifiraraclar.html";
+ms.onchange=()=>location.href=ms.value;}
+initMS();setTimeout(initMS,0);setTimeout(initMS,50);(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)).catch(()=>{}));})();
 
 (()=>{const f=document.getElementById('fbk');
     if(!f)return;
