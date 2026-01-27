@@ -333,8 +333,8 @@ body.filtreKapali .filtre-grup{display:none;}
         <option value="man">Manuel Aralık</option>
         </select>
         </label>
-        <input id="minM" inputmode="decimal" placeholder="min bin TL" class="fxinp" disabled>
-        <input id="maxM" inputmode="decimal" placeholder="max bin TL" class="fxinp" disabled>
+        <input id="minM" inputmode="decimal" placeholder="min (bin TL)" class="fxinp" disabled>
+        <input id="maxM" inputmode="decimal" placeholder="max (bin TL)" class="fxinp" disabled>
 
       <button id="markaButon">🔗 Marka Linkleri</button>
     </div>
@@ -689,12 +689,12 @@ function fiyatIsle(rows){
 ["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
 function mtlEkle(inp){
   inp.addEventListener("blur",()=>{
-    let v=inp.value.replace(/\s* bin TL$/i,"").trim();
-    if(v && !isNaN(v)) inp.value=v+"  bin TL"; else inp.value="";
+    let v=inp.value.replace(/\s* (bin TL)$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+"  (bin TL)"; else inp.value="";
 
   });
   inp.addEventListener("focus",()=>{
-    inp.value=inp.value.replace(/\s*bin TL$/i,"");
+    inp.value=inp.value.replace(/\s*(bin TL)$/i,"");
   });
 }
 ["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
