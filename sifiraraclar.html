@@ -641,7 +641,7 @@ function mobilSegmentBaslik(){
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
   }else{
-    document.querySelectorAll("#sonuclar th")[0].innerHTML='FİYAT <small class="u">-bin TL</small>';
+    document.querySelectorAll("#sonuclar th")[0].innerHTML='FİYAT /n <small class="u">-bin TL</small>';
     document.querySelectorAll("#sonuclar th")[4].textContent="SEG.";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCEL.";
     document.querySelectorAll("#sonuclar th")[8].innerHTML='KAMPANYA <small class="u">-bin TL</small>';
