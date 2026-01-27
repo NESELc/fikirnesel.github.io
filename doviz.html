@@ -283,7 +283,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 
 <div id="footer"></div>
 <script>
-(()=>{const ft=document.getElementById("footer");if(!ft)return;fetch("/footer.html").then(r=>r.text()).then(t=>ft.innerHTML=t).catch(()=>{});})();
+fetch("/footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)
 (()=>{function setUstH(){const u=document.getElementById("ustBar");if(u)document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");}
 window.addEventListener("resize",setUstH);setUstH();
 function setActive(){const p=location.pathname;document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));}
