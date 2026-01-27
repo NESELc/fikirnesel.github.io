@@ -641,10 +641,10 @@ function mobilSegmentBaslik(){
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
   }else{
-    document.querySelectorAll("#sonuclar th")[0].innerHTML='FİYAT <small class="u">bin TL</small>';
+    document.querySelectorAll("#sonuclar th")[0].innerHTML='FİYAT <small class="u">-bin TL</small>';
     document.querySelectorAll("#sonuclar th")[4].textContent="SEG.";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCEL.";
-    document.querySelectorAll("#sonuclar th")[8].innerHTML='KAMPANYA <small class="u">bin TL</small>';
+    document.querySelectorAll("#sonuclar th")[8].innerHTML='KAMPANYA <small class="u">-bin TL</small>';
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
     document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
@@ -675,10 +675,10 @@ function fiyatIsle(rows){
   else if(sel==="man"){
     if(minI)minI.disabled=false;if(maxI)maxI.disabled=false;
     const a=toNum(minI?.value),b=toNum(maxI?.value);
-    min=isNaN(a)?-Infinity:a*1e6;max=isNaN(b)?Infinity:b*1e6;
+    min=isNaN(a)?-Infinity:a*1e3;max=isNaN(b)?Infinity:b*1e3;
   }else{
     if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
-    const p=sel.split("-").map(Number);min=(p[0]||0)*1e6;max=(p[1]||999)*1e6;
+    const p=sel.split("-").map(Number);min=(p[0]||0)*1e3;max=(p[1]||999)*1e3;
   }
   let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
   const yon=(sel==="azalan")?"azalan":"artan";
@@ -689,12 +689,12 @@ function fiyatIsle(rows){
 ["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
 function mtlEkle(inp){
   inp.addEventListener("blur",()=>{
-    let v=inp.value.replace(/\s*MTL$/i,"").trim();
-    if(v && !isNaN(v)) inp.value=v+" MTL"; else inp.value="";
+    let v=inp.value.replace(/\s* bin TL$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+"  bin TL"; else inp.value="";
 
   });
   inp.addEventListener("focus",()=>{
-    inp.value=inp.value.replace(/\s*MTL$/i,"");
+    inp.value=inp.value.replace(/\s*bin TL$/i,"");
   });
 }
 ["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
