@@ -283,7 +283,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 
 <div id="footer"></div>
 <script>
-fetch("/footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)
+(()=>{const ft=document.getElementById("footer");if(!ft)return;fetch("/footer.html").then(r=>r.text()).then(t=>ft.innerHTML=t).catch(()=>{});})();
 (()=>{function setUstH(){const u=document.getElementById("ustBar");if(u)document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");}
 window.addEventListener("resize",setUstH);setUstH();
 function setActive(){const p=location.pathname;document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));}
@@ -292,13 +292,6 @@ function kampanyalariKartYap(){const det=[...document.querySelectorAll("#solIcer
 const ic=det.querySelector(".icerik");if(!ic)return;const n=ic.querySelectorAll(".madde").length;let s=ic.querySelector(".kampSayac");
 if(!s){s=document.createElement("div");s.className="kampSayac";ic.insertBefore(s,ic.firstChild);}s.innerHTML=`✅ <b>${n}</b> aktif kampanya`;}
 kampanyalariKartYap();
-(function fbk(){const f=document.getElementById("fbk");if(!f)return;const t=f.querySelector("textarea"),b=f.querySelector("button");let v=null;
-const k="fbk_"+location.pathname+location.hash,u="https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec";
-if(localStorage.getItem(k)){f.textContent="Geri bildirimin için teşekkürler";return;}
-f.querySelectorAll(".fbkbtn span").forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display="block";t.placeholder=v==="1"?"Ne hoşuna gitti?":"Ne eksik / hatalı?";});
-b.onclick=()=>{if(v==null)return alert("Önce 👍/👎 seç");if(v==="0"&&!t.value.trim())return alert("Kısaca yazar mısın?");
-localStorage.setItem(k,"1");fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},
-body:JSON.stringify({url:location.pathname+location.hash,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()})});f.textContent="Teşekkürler";};})();
 const cache=window.ratesCache=window.ratesCache||{};
 async function fetchRates(base){const r=await fetch("https://api.exchangerate-api.com/v4/latest/"+base);return r.json();}
 function fmt2(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
@@ -322,18 +315,14 @@ window.convertCurrency=refreshAll;refreshAll();
 
 function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
 setUstHa();  
-(()=>{const ms=document.getElementById("mselect");if(!ms)return; const p=location.pathname.replace(/\/$/,""); if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
-(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\/$/,"");ms.value=p==="/" ? "/index.html" : p;ms.onchange=()=>location.href=ms.value;})();
+(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)).catch(()=>{}));})();
 
-(()=>{const f=document.getElementById('fbk');
-    if(!f)return;
-    const t=f.querySelector('textarea'),b=f.querySelector('button');
-    let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
-      if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);
-    const fr=document.getElementById('sayfaFrame');
-    const path=fr&&fr.src?new URL(fr.src).pathname:location.pathname; 
-    const p=JSON.stringify({url:path,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
-      fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
+const k="fbk_"+location.pathname+location.hash;if(localStorage.getItem(k)){f.textContent="Geri bildirimin için teşekkürler";return;}
+f.querySelectorAll(".fbkbtn span").forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display="block";t.placeholder=v==="1"?"Ne hoşuna gitti?":"Ne eksik / hatalı?";});
+b.onclick=()=>{if(v==null)return alert("Önce 👍/👎 seç");if(v==="0"&&!t.value.trim())return alert("Kısaca yazar mısın?");localStorage.setItem(k,"1");
+fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({url:location.pathname+location.hash,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()})});
+f.textContent="Teşekkürler";};})();
 </script>
 
 </body>
