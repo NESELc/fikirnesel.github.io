@@ -74,6 +74,7 @@ body.filtreKapali .filtre-grup{display:none;}
 
 
 }
+
 </style>
 </head>
 
@@ -103,18 +104,18 @@ body.filtreKapali .filtre-grup{display:none;}
         <select id="siralaSec">
         <option value="artan">Artan</option>
         <option value="azalan">Azalan</option>
-        <option value="0-1">0–1 MTL</option>
-        <option value="1-2">1–2 MTL</option>
-        <option value="2-3">2–3 MTL</option>
-        <option value="3-4">3–4 MTL</option>
-        <option value="4-5">4–5 MTL</option>
-        <option value="5-10">5-10 MTL+</option>
-        <option value="10-999">10 MTL+</option>
+        <option value="0-1000">0–1.000 (bin TL)</option>
+        <option value="1000-2000">1.000–2.000 (bin TL)</option>
+        <option value="2000-3000">2.000–3.000 (bin TL)</option>
+        <option value="3000-4000">3.000–4.000 (bin TL)</option>
+        <option value="4000-5000">4.000–5.000 (bin TL)</option>
+        <option value="5000-10000">5.000-10.000 (bin TL)</option>
+        <option value="10000-999000">10.000 (bin TL)+</option>
         <option value="man">Manuel Aralık</option>
         </select>
         </label>
-        <input id="minM" inputmode="decimal" placeholder="min MTL" class="fxinp" disabled>
-        <input id="maxM" inputmode="decimal" placeholder="max MTL" class="fxinp" disabled>
+        <input id="minM" inputmode="decimal" placeholder="min (bin TL)" class="fxinp" disabled>
+        <input id="maxM" inputmode="decimal" placeholder="max (bin TL)" class="fxinp" disabled>
       <button id="markaButon">🔗 Marka Linkleri</button>
     </div>
   </div>
@@ -177,7 +178,6 @@ body.filtreKapali .filtre-grup{display:none;}
   </div>
 </div>
 
-<div id="footer"></div>
 <script>
 fetch("/footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)
 document.getElementById("markaButon").addEventListener("click",function(e){
@@ -359,10 +359,10 @@ function mobilSegmentBaslik(){
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
   }else{
-    document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT";
+    document.querySelectorAll("#sonuclar th")[0].innerHTML='FİYAT <br><small class="u">(bin TL)</small>';
     document.querySelectorAll("#sonuclar th")[4].textContent="SEG.";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCEL.";
-    document.querySelectorAll("#sonuclar th")[8].textContent="K.FİYAT";
+    document.querySelectorAll("#sonuclar th")[8].innerHTML='KAMPANYA <small class="u">(bin TL)</small>';
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
     document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
@@ -397,10 +397,10 @@ function fiyatIsle(rows){
   else if(sel==="man"){
     if(minI)minI.disabled=false;if(maxI)maxI.disabled=false;
     const a=toNum(minI?.value),b=toNum(maxI?.value);
-    min=isNaN(a)?-Infinity:a*1e6;max=isNaN(b)?Infinity:b*1e6;
+    min=isNaN(a)?-Infinity:a*1e3;max=isNaN(b)?Infinity:b*1e3;
   }else{
     if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
-    const p=sel.split("-").map(Number);min=(p[0]||0)*1e6;max=(p[1]||999)*1e6;
+    const p=sel.split("-").map(Number);min=(p[0]||0)*1e3;max=(p[1]||999)*1e3;
   }
   let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
   const yon=(sel==="azalan")?"azalan":"artan";
@@ -411,18 +411,17 @@ function fiyatIsle(rows){
 ["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
 function mtlEkle(inp){
   inp.addEventListener("blur",()=>{
-    let v=inp.value.replace(/\s*MTL$/i,"").trim();
-    if(v && !isNaN(v)) inp.value=v+" MTL"; else inp.value="";
+    let v=inp.value.replace(/\s* (bin TL)$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+"  (bin TL)"; else inp.value="";
 
   });
   inp.addEventListener("focus",()=>{
-    inp.value=inp.value.replace(/\s*MTL$/i,"");
+    inp.value=inp.value.replace(/\s*(bin TL)$/i,"");
   });
 }
 ["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
 
 ["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.target.blur();filtreleVeGoster();}}));
-
 
 </script>
 </body>
