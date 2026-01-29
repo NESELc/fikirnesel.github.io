@@ -641,10 +641,10 @@ function mobilSegmentBaslik(){
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
     document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
   }else{
-    document.querySelectorAll("#sonuclar th")[0].textContent='FİYAT' <br>'(bin TL)';
+    document.querySelectorAll("#sonuclar th")[0].textContent='FİYAT (bin TL)';
     document.querySelectorAll("#sonuclar th")[4].textContent="SEG.";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜNCEL.";
-    document.querySelectorAll("#sonuclar th")[8].textContent='KAMPANYA'<br> '(bin TL)';
+    document.querySelectorAll("#sonuclar th")[8].textContent='KAMPANYA (bin TL)';
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
     document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
     document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
