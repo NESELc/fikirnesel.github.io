@@ -321,6 +321,45 @@ iframe{width:100%;height:100%;border:0;display:block}
 	</table>
 	
 </div>
+
+<div class="card" style="margin-top:12px">
+<table class="tbl">
+<tr><th colspan="7">Havai Hat – Akım & Güç Hesabı</th></tr>
+<tr class="tbl elk">
+<th>İletken</th><th>Gerilim</th><th>Koşul</th><th>R (20°C)</th><th>I (A)</th><th>Güç (MVA)</th>
+</tr>
+<tr>
+<td>
+<select id="hhKesit" onchange="hhHesap()">
+<option data-i1="120" data-i2="160" data-i3="180" data-r="1.0742">3 AWG Swallow</option>
+<option data-i1="195" data-i2="230" data-i3="280" data-r="0.5362">1/0 AWG Raven</option>
+<option data-i1="275" data-i2="300" data-i3="360" data-r="0.3366">3/0 AWG Pigeon</option>
+<option data-i1="345" data-i2="460" data-i3="510" data-r="0.214">266.8 MCM Patridge</option>
+<option data-i1="540" data-i2="670" data-i3="740" data-r="0.1194">477 MCM Hawk</option>
+</select>
+</td>
+<td>
+<select id="hhGerilim" onchange="hhHesap()">
+<option value="10">10 kV</option>
+<option value="15">15 kV</option>
+<option value="35">35 kV</option>
+</select>
+</td>
+<td>
+<select id="hhKosul" onchange="hhHesap()">
+<option value="1">Koşul-1</option>
+<option value="2">Koşul-2</option>
+<option value="3">Koşul-3</option>
+</select>
+</td>
+<td><div id="hhR"></div></td>
+<td><div id="hhI"></div></td>
+<td><div id="hhP"></div></td>
+</tr>
+</table>
+</div>
+
+
 <div class="card" style="margin-top:12px">
     <h3> Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
 	<table class="tbl">
@@ -447,6 +486,16 @@ setUstHa();
     const path=fr&&fr.src?new URL(fr.src).pathname:location.pathname; 
     const p=JSON.stringify({url:path,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
       fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
+function hhHesap(){
+  const k=document.querySelector("#hhKesit option:checked");
+  const V=+document.getElementById("hhGerilim").value;
+  const c=document.getElementById("hhKosul").value;
+  const I=+k.dataset["i"+c];
+  document.getElementById("hhR").textContent=k.dataset.r+" Ω/km";
+  document.getElementById("hhI").textContent=I+" A";
+  document.getElementById("hhP").textContent=(Math.sqrt(3)*V*I/1000).toFixed(2)+" MVA";
+}
+hhHesap();
 </script>
 
 </body>
