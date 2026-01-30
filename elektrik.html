@@ -490,15 +490,9 @@ setUstHa();
     const path=fr&&fr.src?new URL(fr.src).pathname:location.pathname; 
     const p=JSON.stringify({url:path,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
       fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
-function hhHesap(){
-  const k=document.querySelector("#hhKesit option:checked");
-  const V=+document.getElementById("hhGerilim").value;
-  const T=document.getElementById("hhOrtam").value;
-  const I=+k.dataset["i"+T];
-  document.getElementById("hhR").textContent=k.dataset.r+" Ω/km";
-  document.getElementById("hhI").textContent=I+" A";
-  document.getElementById("hhP").textContent=(Math.sqrt(3)*V*I/1000).toFixed(2)+" MW";
-}
+function hhFmt(n,d){return(+n).toLocaleString("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d})}
+function hhHesap(){const k=document.querySelector("#hhKesit option:checked"),V=+hhGerilim.value,T=hhOrtam.value,I=+k.dataset["i"+T],R=+k.dataset.r,P=Math.sqrt(3)*V*I/1000;
+hhR.innerHTML='<span class="pill">'+hhFmt(R,4)+' Ω/km</span>';hhI.innerHTML='<span class="pill">'+hhFmt(I,0)+' A</span>';hhP.innerHTML='<span class="pill">'+hhFmt(P,2)+' MW</span>'}
 hhHesap();
 </script>
 
