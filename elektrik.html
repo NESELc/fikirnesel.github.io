@@ -324,32 +324,35 @@ iframe{width:100%;height:100%;border:0;display:block}
 
 <div class="card" style="margin-top:12px">
 <table class="tbl">
-<tr><th colspan="7">Havai Hat – Akım & Güç Hesabı</th></tr>
+<tr><th colspan="6">Havai Hat – Akım ve Güç</th></tr>
 <tr class="tbl elk">
-<th>İletken</th><th>Gerilim</th><th>Koşul</th><th>R (20°C)</th><th>I (A)</th><th>Güç (MVA)</th>
+<th>İletken</th><th>Gerilim</th><th>Ortam</th><th>R (20°C)</th><th>I (A)</th><th>Güç (MW)</th>
 </tr>
 <tr>
 <td>
 <select id="hhKesit" onchange="hhHesap()">
-<option data-i1="120" data-i2="160" data-i3="180" data-r="1.0742">3 AWG Swallow</option>
-<option data-i1="195" data-i2="230" data-i3="280" data-r="0.5362">1/0 AWG Raven</option>
-<option data-i1="275" data-i2="300" data-i3="360" data-r="0.3366">3/0 AWG Pigeon</option>
-<option data-i1="345" data-i2="460" data-i3="510" data-r="0.214">266.8 MCM Patridge</option>
-<option data-i1="540" data-i2="670" data-i3="740" data-r="0.1194">477 MCM Hawk</option>
+<option data-i40="120" data-i25="160" data-i20="180" data-r="1.0742">3 AWG Swallow</option>
+<option data-i40="195" data-i25="230" data-i20="280" data-r="0.5362">1/0 AWG Raven</option>
+<option data-i40="275" data-i25="300" data-i20="360" data-r="0.3366">3/0 AWG Pigeon</option>
+<option data-i40="345" data-i25="460" data-i20="510" data-r="0.214">266.8 MCM Patridge</option>
+<option data-i40="540" data-i25="670" data-i20="740" data-r="0.1194">477 MCM Hawk</option>
 </select>
 </td>
 <td>
 <select id="hhGerilim" onchange="hhHesap()">
-<option value="10">10 kV</option>
-<option value="15">15 kV</option>
-<option value="35">35 kV</option>
+<option value="34.5">34,5 kV</option>
+<option value="33">33 kV</option>
+<option value="31.5">31,5 kV</option>
+<option value="15.8">15,8 kV</option>
+<option value="10.5">10,5 kV</option>
+<option value="6.3">6,3 kV</option>
 </select>
 </td>
 <td>
-<select id="hhKosul" onchange="hhHesap()">
-<option value="1">Koşul-1</option>
-<option value="2">Koşul-2</option>
-<option value="3">Koşul-3</option>
+<select id="hhOrtam" onchange="hhHesap()">
+<option value="40">40 °C</option>
+<option value="25">25 °C</option>
+<option value="20">20 °C</option>
 </select>
 </td>
 <td><div id="hhR"></div></td>
@@ -358,6 +361,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 </tr>
 </table>
 </div>
+
 
 
 <div class="card" style="margin-top:12px">
@@ -489,11 +493,11 @@ setUstHa();
 function hhHesap(){
   const k=document.querySelector("#hhKesit option:checked");
   const V=+document.getElementById("hhGerilim").value;
-  const c=document.getElementById("hhKosul").value;
-  const I=+k.dataset["i"+c];
+  const T=document.getElementById("hhOrtam").value;
+  const I=+k.dataset["i"+T];
   document.getElementById("hhR").textContent=k.dataset.r+" Ω/km";
   document.getElementById("hhI").textContent=I+" A";
-  document.getElementById("hhP").textContent=(Math.sqrt(3)*V*I/1000).toFixed(2)+" MVA";
+  document.getElementById("hhP").textContent=(Math.sqrt(3)*V*I/1000).toFixed(2)+" MW";
 }
 hhHesap();
 </script>
