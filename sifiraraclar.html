@@ -630,7 +630,7 @@ window.addEventListener("pageshow",function(event){if(event.persisted){veriYukle
 
 function mobilSegmentBaslik(){
   if(window.innerWidth<=768){
-    document.querySelectorAll("#sonuclar th")[0].textContent="FİYAT";
+    (th=document.querySelectorAll("#sonuclar th")[0]).textContent="FİYAT\n(bin TL)",th.style.whiteSpace="pre-line";
     document.querySelectorAll("#sonuclar th")[4].textContent="SG";
     document.querySelectorAll("#sonuclar th")[7].textContent="GÜN.";
     document.querySelectorAll("#sonuclar th")[8].textContent="K.FİYAT";
