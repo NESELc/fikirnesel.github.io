@@ -93,13 +93,11 @@ iframe{width:100%;height:100%;border:0;display:block}
 	.tbl tbody tr.elk th{background:#fff}
 	.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-weight:800}
 	input:not(#mselect)[type=number],input:not(#mselect)[type=text],select:not(#mselect){height:34px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700}
-	input:not(#mselect)[type=number],input:not(#mselect)[type=text]{width:110px;text-align:center}
+	input:not(#mselect)[type=number],input:not(#mselect)[type=text]{width:120px;text-align:center}
 	.bilgilendirme{font-family:Comic Sans MS;font-size:13px}
 	.tbl.beyazesya tbody tr:nth-child(odd) td{background:#EEEEEE}
 	.tbl.beyazesya tbody tr:nth-child(even) td{background:#ffffff}
 	.tbl th,.tbl td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-#hhKesit{max-width:100%;min-width:160px;padding:6px 10px}
 	
 @media(max-width:768px){
   	#solIcerik{overflow:visible;max-height:none;}
@@ -120,7 +118,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 	.tbl th,.tbl td{padding:2px;line-height:1.1;white-space:normal}
 	select:not(#mselect),input:not(#mselect)[type=text],input:not(#mselect)[type=number]{font-size:9px;height:22px;padding:0 4px;width:52px}
 
-	#hhKesit{width:100%;display:block}
+	
 }
 .logoWrap{display:inline-block}
 </style>
@@ -391,11 +389,10 @@ iframe{width:100%;height:100%;border:0;display:block}
 	</table>
 	<div class="bilgilendirme">
 		*Primer ve Sekonder akım hesaplamaları formüller doğrultusunda yapılmaktadır.
-		<br>*Kablo akım taşıma kapasiteleri bir kablo üreticisinin Bakır(Cu) kablo katalog verilerinden alınmıştır.
-		<br>*Alüminyum(Al) kablolar için Bakır(Cu) akım taşıma kapasitelerinin 0.62 katı olarak hesaplanmaktadır.
+		<br>*Kablo/İletken akım taşıma kapasiteleri kablo/iletken üreticilerinden birinin Bakır(Cu) kablo/Alüminyum(Al) iletken katalog verilerinden alınmıştır.
+		<br>*Alüminyum(Al) kablolar için akım taşıma kapasiteleri Bakır(Cu) kabloların 0.62 katı olarak hesaplanmaktadır.
 		<br>*Havada akım taşıma kapasiteleri toprağın 1.2 katı olarak alınmıştır.
-		<br>İletkenler Al olarak kabul edilmiştir.
-		<br> Cos φ değeri kablo ve iletken hesaplamalarında 0.95 olarak kabul edilmiştir.
+		<br>*Cos φ değeri kablo ve iletken hesaplamalarında 0.95 olarak kabul edilmiştir.
 		<br>*Beyaz Eşya ve Elektrikli Küçük Ev Aletleri hesaplamaları görünen birim fiyat(mesken,4.000 kwh/yıl-8 kwh/gün ve altı için tek zamanlı tarife) üzerinden yapılmaktadır.
 		vergi ve fonlar dahil yaklaşık bedeli gösterir, elle değiştirebilirsiniz.
 	  	<a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank">EPDK Fatura Hesaplama Sitesi</a>
@@ -515,12 +512,6 @@ function hhHesap(){
 
 hhHesap();
 
-(()=>{const s=document.getElementById("hhKesit");if(!s)return;const m=document.createElement("span");
-m.style.cssText="position:absolute;visibility:hidden;white-space:nowrap;left:-9999px;top:-9999px";
-document.body.appendChild(m);
-const fit=()=>{if(matchMedia("(max-width:768px)").matches){s.style.width="100%";return;}
-m.style.font=getComputedStyle(s).font;m.textContent=s.options[s.selectedIndex]?.text||"";s.style.width=(m.offsetWidth+36)+"px";};
-addEventListener("resize",fit);s.addEventListener("change",fit);fit();})();
 </script>
 
 </body>
