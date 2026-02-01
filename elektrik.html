@@ -393,6 +393,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 	<tr><td class="besya"> Saç Kurutma Makinesi </td><td><input id="sactuketim" onchange="ctuketimhesap (this)" type="text" value="90" /></td><td><div id="sactl"></div></td></tr>
 	<tr><td class="besya"> Televizyon </td><td><input id="tvtuketim" onchange="ctuketimhesap (this)" type="text" value="200" /></td><td><div id="tvtl"></div></td></tr>
 	<tr><td class="besya"> Ütü </td><td><input id="ututuketim" onchange="ctuketimhesap (this)" type="text" value="125" /></td><td><div id="ututl"></div></td></tr>
+	<tr><td class="besya"> Lambalar(LED) </td><td><input id="lambatuketim" onchange="ctuketimhesap (this)" type="text" value="120" /></td><td><div id="lambatl"></div></td></tr>
 	<tr><td class="toplam"> Toplam </td><td class="toplam"><div  id="toplamtuketim"></div></td><td class="toplam"><div  id="toplamtl"></div></td></tr>
 	</table>
 	<div class="bilgilendirme">
@@ -462,7 +463,7 @@ function kablohesap(){
 
 function ctuketimhesap(){
   const tl=n($("meskentl").value);
-  const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi"];
+  const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi","lamba"];
   let sumK=0,sumTL=0;
   ids.forEach(k=>{
     const kwh=n($(k+"tuketim").value); const tut=(kwh/12)*tl; sumK+=kwh; sumTL+=tut;
@@ -473,10 +474,10 @@ function ctuketimhesap(){
 }
 ["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
 ["kabkesit","kabseviye","kabtipi"].forEach(id=>$(id).addEventListener("change",kablohesap));
-["meskentl","buztuketim","camtuketim","bultuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
+["meskentl","buztuketim","camtuketim","bultuketim","lambatuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
 .forEach(id=>$(id).addEventListener("input",ctuketimhesap));
 trhesap();kablohesap();ctuketimhesap();
-["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
+["ogPakim","ogSakim","kabomaj","kabakim","kabakimH","kabguc","toplamtuketim","toplamtl","bultl","buztl","camtl","supurgetl","firintl","lambatl","klimatl","kombitl","modemtl","sactl","tvtl","ututl"]
 .forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add("pill");});
 
 
