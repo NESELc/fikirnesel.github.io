@@ -249,21 +249,40 @@ iframe{width:100%;height:100%;border:0;display:block}
         <div class="frameBox">
            <div class="baslik">GELİR VERGİSİ DİLİMLERİ – ÜCRETLİLER</div>
 			
-			<div class="card" id="brutnetKart">
-			<table class="tbl" style="margin:0 0 10px">
-			<thead><tr class="tbl elk"><th colspan="7" style="text-align:left">
-			1 Yıllık Brüt → Net (2026)
-			<span style="float:right;font-weight:400">
-			Aylık brüt (TL)
-			<input id="bnBrut" inputmode="decimal" placeholder="örn 60000" oninput="bnHesap()" style="width:110px;margin-left:6px;vertical-align:middle">
-			</span>
-			</th></tr></thead></table>
-			<div class="muted" id="bnNot" style="font-size:12px;opacity:.75;margin:0 0 10px">2026: GV+Damga asgari ücret istisnası</div>
-			<div style="overflow:auto">
-			<table class="tbl" id="bnTbl"><thead><tr class="tbl elk">
-			<th>Ay</th><th>Brüt</th><th>SGK+İşs.</th><th>GV</th><th>Damga</th><th>Net</th><th>Kümülatif GV Mat.</th></tr></thead><tbody></tbody>
-			<tfoot><tr><th>Toplam</th><th id="tBrut">-</th><th id="tKes">-</th><th id="tGv">-</th><th id="tDg">-</th><th id="tNet">-</th><th></th></tr></tfoot>
-			</table></div></div>
+<div class="card" id="brutnetKart">
+<table class="tbl" style="margin:0 0 10px">
+<thead>
+<tr class="tbl elk">
+<th colspan="7" style="text-align:left;padding:6px 8px;line-height:1.2">
+1 Yıllık Brüt → Net (2026)
+</th>
+</tr>
+<tr class="tbl elk">
+<th colspan="7" style="text-align:left;padding:6px 8px;font-weight:400">
+Aylık brüt (TL)
+<input id="bnBrut" inputmode="decimal" placeholder="örn 60000" oninput="bnHesap()" style="width:120px;margin-left:8px;vertical-align:middle">
+</th>
+</tr>
+</thead>
+</table>
+
+<div class="muted" id="bnNot" style="font-size:12px;opacity:.75;margin:0 0 10px">
+2026: GV + Damga asgari ücret istisnası
+</div>
+
+<div style="overflow:auto">
+<table class="tbl" id="bnTbl">
+<thead><tr class="tbl elk">
+<th>Ay</th><th>Brüt</th><th>SGK+İşs.</th><th>GV</th><th>Damga</th><th>Net</th><th>Kümülatif GV Mat.</th>
+</tr></thead>
+<tbody></tbody>
+<tfoot><tr>
+<th>Toplam</th><th id="tBrut">-</th><th id="tKes">-</th><th id="tGv">-</th><th id="tDg">-</th><th id="tNet">-</th><th></th>
+</tr></tfoot>
+</table>
+</div>
+</div>
+
 
 
     <div style="overflow-x: auto;">
