@@ -173,3 +173,7 @@
 
   </div>
 </details>
+<script>
+(()=>{const box=document.currentScript.parentElement;const cards=[...box.querySelectorAll(".kampKart")];cards.sort((a,b)=>(+b.dataset.oran||0)-(+a.dataset.oran||0));cards.forEach(c=>box.appendChild(c));})();
+</script>
+
