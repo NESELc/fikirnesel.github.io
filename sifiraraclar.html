@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
 <style>
 html{scrollbar-gutter:stable}
-:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px;--ustHa:200px;}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--accent-bg:#eff6ff;--ustH:64px;--ustHa:200px;}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
 a{color:inherit;text-decoration:none}
@@ -80,7 +80,11 @@ iframe{width:100%;height:100%;border:0;display:block}
 #solIcerik{order:2}
 #sagReklam{order:3}
 .frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+.aic-hero{flex-direction:column}
+.aic-hero-vis{width:100%;min-height:100px}
+.aic-iki{grid-template-columns:1fr}
 }
+
 
 #aracFiltreleme{position:relative;font-family:Comic Sans MS;width:100%;max-width:100%;font-size:13px;}
 #ustBara{position:sticky;top:0;z-index:50;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd}
@@ -130,6 +134,39 @@ iframe{width:100%;height:100%;border:0;display:block}
 #kampanyaMetin .ks{flex:1;color:#374151}
 #kampanyaMetin em{font-weight:800;font-style:normal}
 
+#aracIcerik{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  display:flex;flex-direction:column;gap:14px;
+  padding:20px;
+  max-width:1100px;
+  margin:0 auto 24px;
+}
+.aic-b{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:8px;margin:0 0 12px}
+.aic-b::after{content:'';flex:1;height:1px;background:var(--line)}
+.aic-hero{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex}
+.aic-hero-vis{width:200px;flex-shrink:0;min-height:150px;background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 60%,#60a5fa 100%);display:flex;align-items:center;justify-content:center;font-size:72px;position:relative}
+.aic-hero-vis::after{content:'';position:absolute;bottom:-16px;right:-16px;width:80px;height:80px;background:rgba(255,255,255,.07);border-radius:50%}
+.aic-hero-txt{padding:18px 20px;flex:1}
+.aic-hero-txt h2{font-size:16px;font-weight:700;margin:0 0 10px;color:var(--txt)}
+.aic-hero-txt p{font-size:13px;line-height:1.7;color:#374151;margin:0 0 8px}
+.aic-hero-txt p:last-child{margin:0}
+.aic-seg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px}
+.aic-seg{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;transition:box-shadow .2s,border-color .2s}
+.aic-seg:hover{box-shadow:0 4px 14px rgba(0,0,0,.07);border-color:#cbd5e1}
+.aic-seg-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.aic-seg-top span{font-size:20px}
+.aic-seg h3{font-size:13px;font-weight:700;margin:0;color:var(--txt)}
+.aic-seg p{font-size:12px;color:#4b5563;line-height:1.55;margin:0 0 5px}
+.aic-seg .orn{font-size:11px;color:var(--muted)}
+.aic-ads{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;min-height:90px}
+.aic-ads-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.aic-iki{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.aic-k{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.aic-k h3{font-size:13px;font-weight:700;margin:0 0 8px;color:var(--txt)}
+.aic-k p{font-size:13px;color:#4b5563;line-height:1.65;margin:0}
+.aic-bilgi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.aic-bilgi h3{font-size:14px;font-weight:700;margin:0 0 10px}
+.aic-bilgi p{font-size:13px;line-height:1.75;color:#374151;margin:0}
   
 @media(max-width:768px){
   #solIcerik{overflow:visible;max-height:none;}
@@ -166,8 +203,13 @@ body.filtreKapali .filtre-grup{display:none;}
   #kampanyaMetin .km{flex:none;max-width:none;white-space:normal}
   #kampanyaMetin .ks{word-break:break-word}
   #kampanyaMetin .kampMarka{margin:18px 0 6px;font-size:14px}
+  #aracIcerik{padding:12px}
+  .aic-seg-grid{grid-template-columns:1fr 1fr}
 }
 .logoWrap{display:inline-block}
+
+
+
 </style>
 
 </head>
@@ -345,6 +387,89 @@ body.filtreKapali .filtre-grup{display:none;}
   </div>
 </main>
 
+<div id="aracIcerik">
+
+  <div class="aic-ads">
+    <div class="aic-ads-lbl">Reklam</div>
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px"
+      data-ad-client="ca-pub-1268402107177386" data-ad-slot="2157595670"
+      data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div>
+    <div class="aic-b">🚗 Türkiye Sıfır Araç Piyasası</div>
+    <div class="aic-hero">
+      <div class="aic-hero-vis">🚗</div>
+      <div class="aic-hero-txt">
+        <h2>Sıfır Araç Almadan Önce Bilmeniz Gerekenler</h2>
+        <p>Türkiye otomobil pazarı, 40'ı aşkın marka ve yüzlerce farklı model seçeneğiyle dünyanın en aktif pazarlarından biri olmayı sürdürmektedir. A segmentinden F segmentine, şehir araçlarından lüks otomobillere kadar her ihtiyaca yönelik seçenekler mevcuttur.</p>
+        <p>Bu sayfada yer alan fiyatlar, markaların Türkiye'deki resmi web siteleri ve yetkili bayiilerin kamuya açık fiyat listeleri baz alınarak güncellenmektedir. Kredi, takas ve nakit kampanya fiyatları ayrıca belirtilmektedir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="aic-b">📐 Segment Rehberi</div>
+    <div class="aic-seg-grid">
+      <div class="aic-seg">
+        <div class="aic-seg-top"><span>🏙️</span><h3>A Segment</h3></div>
+        <p>En kompakt sınıf. Şehir içi kullanıma ideal, düşük yakıt tüketimi ve kolay park imkânı.</p>
+        <div class="orn">Fiat Panda, Renault Twingo</div>
+      </div>
+      <div class="aic-seg">
+        <div class="aic-seg-top"><span>🚗</span><h3>B Segment</h3></div>
+        <p>En popüler sınıf. Şehir ve şehirlerarası dengesi, geniş model yelpazesi, uygun fiyat.</p>
+        <div class="orn">Renault Clio, VW Polo, Toyota Yaris</div>
+      </div>
+      <div class="aic-seg">
+        <div class="aic-seg-top"><span>🚙</span><h3>C Segment</h3></div>
+        <p>Orta sınıf. Aile kullanımına uygun iç hacim, güçlü motor seçenekleri ve konfor.</p>
+        <div class="orn">VW Golf, Toyota Corolla, Honda Civic</div>
+      </div>
+      <div class="aic-seg">
+        <div class="aic-seg-top"><span>🛞</span><h3>D Segment</h3></div>
+        <p>Üst orta sınıf. Daha geniş iç mekân, premium donanım özellikleri ve sürüş konforu.</p>
+        <div class="orn">Toyota Camry, VW Passat, Ford Mondeo</div>
+      </div>
+      <div class="aic-seg">
+        <div class="aic-seg-top"><span>🏎️</span><h3>E / F Segment</h3></div>
+        <p>Lüks ve ultra lüks. Premium malzeme kalitesi, ileri teknoloji, üstün performans.</p>
+        <div class="orn">BMW 5, Mercedes E, Porsche Panamera</div>
+      </div>
+      <div class="aic-seg">
+        <div class="aic-seg-top"><span>⚡</span><h3>Elektrikli</h3></div>
+        <p>Sıfır emisyon, düşük işletme maliyeti. Şarj altyapısının gelişmesiyle hızla büyüyor.</p>
+        <div class="orn">TOGG, Tesla, BYD, VW ID.3</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="aic-ads">
+    <div class="aic-ads-lbl">Reklam</div>
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:250px"
+      data-ad-client="ca-pub-1268402107177386" data-ad-slot="2157595670"
+      data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="aic-iki">
+    <div class="aic-k">
+      <h3>⛽ Yakıt Türleri</h3>
+      <p>Benzinli araçlar en geniş seçenek yelpazesine sahipken dizel araçlar uzun mesafede ekonomik avantaj sunar. Hibrit seçenekler yakıt maliyetini önemli ölçüde düşürmekte; tam elektrikli araçlar ise şehir içi kullanımda giderek daha cazip hale gelmektedir. LPG dönüşümü mümkün olan benzinli modeller de Türkiye'de yaygın tercih olmayı sürdürmektedir.</p>
+    </div>
+    <div class="aic-k">
+      <h3>💳 Satın Alma Seçenekleri</h3>
+      <p>Sıfır araç alımında nakit, kredili satış ve takas olmak üzere üç temel yöntem mevcuttur. Birçok marka özel dönemlerde düşük faizli kredi kampanyaları sunar. Takas seçeneği mevcut aracın değerini yeni fiyattan düşme imkânı sağlar. Banka ve bayi finansman teklifleri arasında karşılaştırma yaparak en uygun koşulu bulmak mümkündür.</p>
+    </div>
+  </div>
+
+  <div class="aic-bilgi">
+    <h3>📋 Fiyatlar Hakkında</h3>
+    <p>Bu sayfada yer alan araç fiyatları; markaların Türkiye'deki resmi web siteleri, yetkili bayiilerin kamuya açık fiyat listeleri ve güvenilir satış platformlarından derlenmektedir. Fiyatlar yalnızca bilgilendirme amaçlıdır; markalar, distribütörler veya bayiler tarafından bağlayıcı nitelikte değildir. Farklı versiyon, donanım seviyesi veya opsiyonlara göre fiyatlar değişebilir. Güncel ve kesin fiyat bilgisi için ilgili markanın resmi kanallarını ziyaret ediniz.</p>
+  </div>
+
+</div>
 <div class="kampWrap sifiraracKamp">
 <h3 class="kampBaslik">Güncel Kampanyalar – Şubat 2026</h3>
 <div id="kampanyaMetinAlan"></div>
