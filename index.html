@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>NESEL — Bilgi Merkezi</title>
-  <meta name="description" content="Güncel sıfır araç fiyatları, pratik hesaplamalar, gelir vergisi dilimleri, platform abonelik ücretleri, Ankara.">
+  <meta name="description" content="Güncel sıfır araç fiyatları, pratik hesaplamalar, gelir vergisi dilimleri, platform abonelik ücretleri, Ankara rehberi ve daha fazlası.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://nesel.tr/">
   <meta property="og:title" content="NESEL — Bilgi Merkezi">
@@ -19,10 +19,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <style>
 html{scrollbar-gutter:stable}
-:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--accent-bg:#eff6ff;--ustH:64px}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
 a{color:inherit;text-decoration:none}
+
+/* ─── HEADER ─── */
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
 .wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -35,14 +37,13 @@ a{color:inherit;text-decoration:none}
 .nav a:hover{border-color:#cbd5e1}
 .nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
 main{padding-top:var(--ustH)}
-#layout{display:flex;gap:8px;padding:2px 16px 12px;align-items:flex-start}
-#ortaAlan{flex:1;max-width:1120px}
+
+/* ─── LAYOUT ─── */
+#layout{display:flex;gap:8px;padding:12px 16px;align-items:flex-start}
+#ortaAlan{flex:1;min-width:0}
 #solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-#sagReklam{width:300px;position:sticky;top:var(--ustH)}
-#solIcerik{width:300px;position:sticky;top:var(--ustH);max-height:calc(100vh - var(--ustH) - 16px);overflow:auto;display:flex;flex-direction:column;gap:12px}
-.frameWrap{margin:0}
-.frameBox{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#eeeeee;box-shadow:0 10px 30px rgba(0,0,0,.06);height:calc(100vh - var(--ustH) - 26px);min-height:520px}
-iframe{width:100%;height:100%;border:0;display:block}
+#sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
+#solIcerik{width:300px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 24px);overflow:auto;display:flex;flex-direction:column;gap:12px}
 #solIcerik .blok{font-size:13px;border:1px solid var(--line);border-radius:12px;background:#fff}
 #solIcerik details.blok{padding:0}
 #solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
@@ -51,20 +52,16 @@ iframe{width:100%;height:100%;border:0;display:block}
 #solIcerik details.blok[open]>summary:after{content:"▴"}
 #solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
 #solIcerik .icerik{padding:0 12px 12px}
-#solIcerik .etiket{display:inline-block;font-size:11px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:0 6px 6px 0}
 #solIcerik .btn{display:inline-block;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
 #solIcerik .btn:hover{border-color:#cbd5e1}
 #solIcerik .kampSayac{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb;font-size:12px;color:#0f172a;display:flex;align-items:center;gap:8px;margin:10px 0}
-#solIcerik .kampSayac b{font-size:12px}
 #solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
 #solIcerik .madde b{display:block;margin:0 0 6px;font-size:13px;font-weight:600}
 #solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
 #solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
-#solIcerik .madde b.arac{font-size:13px;font-weight:600}
-#solIcerik .madde small.deger{font-size:12px;color:var(--muted)}
 #solIcerik .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
 #solIcerik .badge{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid rgba(0,0,0,.05)}
-#solIcerik .badge.kredi,#solIcerik .badge.kredia{background:#e0f2fe;color:#075985}
+#solIcerik .badge.kredi{background:#e0f2fe;color:#075985}
 #solIcerik .badge.takas{background:#ecfeff;color:#155e75}
 #solIcerik .badge.indirim{background:#dcfce7;color:#166534}
 .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
@@ -73,26 +70,97 @@ iframe{width:100%;height:100%;border:0;display:block}
 .dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
 .dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
 .dovizler li span{font-size:10px;color:#555}
-.reklamEtiket{font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px}
-#fbk{ margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}#fbk button{display:none;padding:4px 10px;cursor:pointer}.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
+#fbk{margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}
+#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}
+#fbk button{display:none;padding:4px 10px;cursor:pointer}
+.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
 #mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:13px;max-width:220px}
-@media (max-width:1200px){
-#layout{flex-direction:column;align-items:stretch}
-#solIcerik,#sagReklam{position:static;max-height:none;width:100%}
-#ortaAlan{order:1;width:100%;max-width:none}
-#solIcerik{order:2}
-#sagReklam{order:3}
-.frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+.logoWrap{display:inline-block}
+
+/* ─── ANA İÇERİK ALANI ─── */
+#anaIcerik{display:flex;flex-direction:column;gap:16px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 100%);border-radius:16px;padding:32px 28px;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-30px;left:60px;width:140px;height:140px;background:rgba(255,255,255,.04);border-radius:50%}
+.hero h1{font-size:22px;font-weight:700;margin:0 0 10px;line-height:1.3;position:relative}
+.hero p{font-size:14px;opacity:.85;margin:0 0 20px;line-height:1.6;position:relative;max-width:480px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;position:relative}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;backdrop-filter:blur(4px)}
+
+/* AdSense blok */
+.adsense-block{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;min-height:90px}
+.adsense-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+
+/* Bölüm kartları */
+.bolum-baslik{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:4px 0 10px;display:flex;align-items:center;gap:8px}
+.bolum-baslik::after{content:'';flex:1;height:1px;background:var(--line)}
+
+/* Araç kartı */
+.arac-kart{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:box-shadow .2s,border-color .2s}
+.arac-kart:hover{box-shadow:0 4px 20px rgba(37,99,235,.1);border-color:#bfdbfe}
+.arac-kart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:12px}
+.arac-kart-icon{width:44px;height:44px;background:var(--accent-bg);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.arac-kart-meta{flex:1}
+.arac-kart-meta h2{font-size:16px;font-weight:700;margin:0 0 4px}
+.arac-kart-meta p{font-size:13px;color:var(--muted);margin:0}
+.arac-kart-btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600;transition:background .15s;flex-shrink:0;white-space:nowrap}
+.arac-kart-btn:hover{background:#1d4ed8}
+.arac-kart-body{font-size:14px;line-height:1.7;color:#374151}
+.arac-kart-body p{margin:0 0 10px}
+.arac-kart-body p:last-child{margin:0}
+.ozellik-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:14px}
+.ozellik-item{background:var(--bg);border-radius:10px;padding:10px 12px;border:1px solid var(--line)}
+.ozellik-item .etiket{font-size:11px;color:var(--muted);margin-bottom:4px}
+.ozellik-item .deger{font-size:13px;font-weight:700;color:var(--txt)}
+
+/* İki sütun grid */
+.iki-sutun{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kucuk-kart{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;transition:box-shadow .2s,border-color .2s}
+.kucuk-kart:hover{box-shadow:0 4px 16px rgba(0,0,0,.07);border-color:#cbd5e1}
+.kucuk-kart-ust{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.kucuk-kart-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.kucuk-kart h3{font-size:14px;font-weight:700;margin:0}
+.kucuk-kart p{font-size:13px;color:#4b5563;line-height:1.6;margin:0 0 12px}
+.kucuk-kart-link{font-size:12px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:4px}
+.kucuk-kart-link:hover{text-decoration:underline}
+.ic-bg-yesil{background:#f0fdf4}
+.ic-bg-mor{background:#faf5ff}
+.ic-bg-turuncu{background:#fff7ed}
+.ic-bg-kirmizi{background:#fff1f2}
+
+/* Platform listesi mini */
+.platform-mini-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.platform-mini-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--bg);border-radius:8px;font-size:13px}
+.platform-mini-row .isim{font-weight:600}
+.platform-mini-row .fiyat{color:#1d4ed8;font-weight:700;font-size:12px}
+
+/* Bilgi kutusu */
+.bilgi-kutu{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.bilgi-kutu h3{font-size:15px;font-weight:700;margin:0 0 10px}
+.bilgi-kutu p{font-size:14px;color:#374151;line-height:1.7;margin:0 0 8px}
+.bilgi-kutu p:last-child{margin:0}
+
+@media(max-width:1200px){
+  #layout{flex-direction:column;padding:8px}
+  #solIcerik,#sagReklam{position:static;max-height:none;width:100%}
+  #ortaAlan{width:100%}
+  .iki-sutun{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   #menu{display:none}
   #mselect{display:block}
   .logo{width:120px;height:36px}
   .brand{min-width:auto;gap:0}
-  .brand b,.brand .kicker{display:none}}
-.logoWrap{display:inline-block}
+  .brand b,.brand .kicker{display:none}
+  .hero{padding:20px 16px}
+  .hero h1{font-size:18px}
+  .arac-kart-btn{padding:7px 10px;font-size:12px}
+  .iki-sutun{grid-template-columns:1fr}
+  .ozellik-grid{grid-template-columns:repeat(2,1fr)}
+}
 </style>
-
 </head>
 
 <body>
@@ -100,10 +168,9 @@ iframe{width:100%;height:100%;border:0;display:block}
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <a href="sifiraraclar.html" class="logoWrap" aria-label="Ana sayfa">
+        <a href="/" class="logoWrap" aria-label="Ana sayfa">
           <div class="logo" aria-hidden="true"></div>
         </a>
-
         <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
       </div>
       <nav class="nav" id="menu">
@@ -115,7 +182,7 @@ iframe{width:100%;height:100%;border:0;display:block}
         <a href="/elektrik.html">Elektrik</a>
         <a href="/oyunlar.html">Oyunlar</a>
       </nav>
-      <select id="mselect" aria-label="Menü">
+      <select id="mselect" aria-label="Menü" onchange="location.href=this.value">
         <option value="/sifiraraclar.html">Sıfır Araçlar</option>
         <option value="/platformucretleri.html">Platform Ücretleri</option>
         <option value="/doviz.html">Döviz Çevirici</option>
@@ -124,90 +191,335 @@ iframe{width:100%;height:100%;border:0;display:block}
         <option value="/elektrik.html">Elektrik</option>
         <option value="/oyunlar.html">Oyunlar</option>
       </select>
-
     </div>
   </div>
 </header>
 
 <main>
   <div id="layout">
-    <aside id="solIcerik">
-      <div class="blok">
-        <h2>NESEL Bilgi Merkezi</h2>
-        <p>Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
-      </div>
-    
-      <div data-include="/inc/kampanyalar.html"></div>
-      <div data-include="/inc/platformlar.html"></div>
-      <div data-include="/inc/dovizs.html"></div>
-      <div data-include="/inc/ankaras.html"></div>
-      <div data-include="/inc/elektriks.html"></div>
 
-     <div class="blok">
-        <h2>Not</h2>
-        <p>Sayfada yer alan fiyat ve kampanyalar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
-     </div>
-      
-    <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea>
-    <button type="button">Gönder</button>
-    </div>
-  
+    <!-- SOL SIDEBAR -->
+    <aside id="solIcerik">
+      <div class="blok" style="padding:14px">
+        <h2 style="font-size:14px;margin:0 0 8px">NESEL Bilgi Merkezi</h2>
+        <p style="font-size:13px;color:var(--muted);margin:0">Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
+      </div>
+      <div data-include="/inc/kampanyalar.html"></div>
+
+      <details class="blok">
+        <summary>Platformlar</summary>
+        <div class="icerik">
+          <div class="madde"><b>Türkiye'de Yayında Olan Platformlar</b></div>
+          <ul class="platformlar">
+            <li><b>YouTube</b><span class="acik">Video</span></li>
+            <li><b>Apple iCloud</b><span class="acik">Bulut</span></li>
+            <li><b>Netflix</b><span class="acik">Dizi/Film</span></li>
+            <li><b>Exxen</b><span class="acik">Dizi/Film</span></li>
+            <li><b>ChatGPT</b><span class="acik">Yapay Zeka</span></li>
+            <li><b>Disney+</b><span class="acik">Dizi/Film</span></li>
+            <li><b>Amazon</b><span class="acik">Prime</span></li>
+            <li><b>Spotify</b><span class="acik">Müzik</span></li>
+            <li><b>Max</b><span class="acik">Dizi/Film</span></li>
+            <li><b>Gain</b><span class="acik">Dijital TV</span></li>
+            <li><b>Mubi</b><span class="acik">Sinema</span></li>
+            <li><b>Tabii</b><span class="acik">TR Dijital</span></li>
+            <li><b>TV+</b><span class="acik">IPTV</span></li>
+            <li><b>Grok</b><span class="acik">Yapay Zeka</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="blok">
+        <summary>Döviz</summary>
+        <div class="icerik">
+          <div class="madde"><b>Para Birimleri</b></div>
+          <ul class="dovizler">
+            <li>TL-TRY<br><span>Türk Lirası</span></li>
+            <li>USD<br><span>Amerikan Doları</span></li>
+            <li>EUR<br><span>Euro</span></li>
+            <li>GBP<br><span>İngiliz Sterlini</span></li>
+            <li>CHF<br><span>İsviçre Frangı</span></li>
+            <li>JPY<br><span>Japon Yeni</span></li>
+            <li>DKK<br><span>Danimarka Kronu</span></li>
+            <li>SEK<br><span>İsveç Kronu</span></li>
+            <li>NOK<br><span>Norveç Kronu</span></li>
+            <li>CAD<br><span>Kanada Doları</span></li>
+            <li>AUD<br><span>Avustralya Doları</span></li>
+            <li>SAR<br><span>Suudi Riyali</span></li>
+            <li>RUB<br><span>Rus Rublesi</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="blok">
+        <summary>Ankara</summary>
+        <div class="icerik">Ankara Merkez</div>
+        <div class="madde">
+          <b>Ankara Kalesi</b>
+          <small>Bilgi</small>
+          <small>Galatlar'ın Ankara'ya yerleşmesi sırasında var olan ve Romalılar döneminde onarım gören kalenin ne zaman yapıldığı kesin olarak bilinmemektedir. İç ve dış kale olmak üzere iki kısımdan oluşan kalenin iç surları, 7. yüzyılda Bizanslılar tarafından inşa edilmiştir.</small>
+        </div>
+      </details>
+
+      <details class="blok">
+        <summary>Elektrik</summary>
+        <div class="madde">
+          <b>Thales, Benjamin Franklin, Edison, Tesla</b>
+          <small>Bilgi</small>
+          <small>Elektriğin keşfi, ilk kez M.Ö. 600'lü yıllarda Antik Yunan'da Thales'in kehribarın çekim gücünü keşfi ile başlıyor. Benjamin Franklin'in uçurtma deneyi, Michael Faraday'ın elektromanyetizma, Edison'un Doğru Akım, Tesla'nın Alternatif Akım uygulamaları ile günümüze ulaşmıştır.</small>
+        </div>
+      </details>
+
+      <div class="blok" style="padding:12px">
+        <h2 style="font-size:13px;margin:0 0 6px">Not</h2>
+        <p style="font-size:12px;color:var(--muted);margin:0">Sayfada yer alan fiyat ve kampanyalar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
+      </div>
+
+      <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea><button type="button">Gönder</button></div>
     </aside>
 
+    <!-- ORTA İÇERİK -->
     <section id="ortaAlan">
-      <div class="frameWrap">
-        <div class="frameBox">
-          <iframe id="sayfaFrame" src="/sifiraraclar-icerik.html"></iframe>
-        </div>
-      </div>
-    </section>
+      <div id="anaIcerik">
 
+        <!-- HERO -->
+        <div class="hero">
+          <h1>Güncel Fiyatlar, Hesaplamalar ve Pratik Bilgiler</h1>
+          <p>NESEL, sıfır araç fiyatlarından platform abonelik ücretlerine, döviz çeviriciden gelir vergisi dilimlerine kadar ihtiyaç duyduğunuz bilgileri tek bir yerde sunar. Veriler sürekli güncellenir.</p>
+          <div class="hero-tags">
+            <span class="hero-tag">🚗 Sıfır Araç Fiyatları</span>
+            <span class="hero-tag">📺 Platform Ücretleri</span>
+            <span class="hero-tag">💱 Döviz Çevirici</span>
+            <span class="hero-tag">📊 Gelir Vergisi</span>
+            <span class="hero-tag">⚡ Elektrik</span>
+            <span class="hero-tag">🏛️ Ankara</span>
+          </div>
+        </div>
+
+        <!-- ADSENSE — Yatay reklam 1 -->
+        <div class="adsense-block">
+          <div class="adsense-label">Reklam</div>
+          <ins class="adsbygoogle"
+            style="display:block;width:100%;min-height:90px"
+            data-ad-client="ca-pub-1268402107177386"
+            data-ad-slot="2157595670"
+            data-ad-format="horizontal"
+            data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <!-- SIFIR ARAÇ BÜYÜK KART -->
+        <div>
+          <div class="bolum-baslik">🚗 Öne Çıkan Bölüm</div>
+          <div class="arac-kart">
+            <div class="arac-kart-header">
+              <div class="arac-kart-icon">🚗</div>
+              <div class="arac-kart-meta">
+                <h2>Sıfır Araç Fiyatları</h2>
+                <p>40'tan fazla marka, güncel liste fiyatları</p>
+              </div>
+              <a href="/sifiraraclar.html" class="arac-kart-btn">Listeye Git →</a>
+            </div>
+            <div class="arac-kart-body">
+              <p>Türkiye'de satışa sunulan sıfır araçların güncel fiyatlarını marka, segment, yakıt türü ve vites tipine göre filtreleyerek kolayca karşılaştırabilirsiniz. Liste; Renault, Volkswagen, Toyota, BMW, Mercedes-Benz, Hyundai, Kia, Fiat, Ford ve çok daha fazla markayı kapsamaktadır.</p>
+              <p>Her araç için liste fiyatının yanı sıra mevcut kampanya fiyatları da gösterilmektedir. Kredi kampanyaları, takas indirimleri ve özel teklifler ayrıca işaretlenmektedir. Fiyatlar resmi bayii kaynakları ve marka web siteleri baz alınarak güncellenmektedir.</p>
+            </div>
+            <div class="ozellik-grid">
+              <div class="ozellik-item"><div class="etiket">Marka Sayısı</div><div class="deger">40+</div></div>
+              <div class="ozellik-item"><div class="etiket">Filtreleme</div><div class="deger">Marka, Segment, Yakıt</div></div>
+              <div class="ozellik-item"><div class="etiket">Kampanyalar</div><div class="deger">✓ Gösteriliyor</div></div>
+              <div class="ozellik-item"><div class="etiket">Güncelleme</div><div class="deger">Sürekli</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- İKİ SÜTUN: PLATFORM + DÖVİZ -->
+        <div>
+          <div class="bolum-baslik">📺 💱 Diğer Araçlar</div>
+          <div class="iki-sutun">
+
+            <!-- Platform Ücretleri -->
+            <div class="kucuk-kart">
+              <div class="kucuk-kart-ust">
+                <div class="kucuk-kart-icon ic-bg-kirmizi">📺</div>
+                <h3>Platform Abonelik Ücretleri</h3>
+              </div>
+              <p>Netflix, Disney+, Spotify, YouTube Premium, ChatGPT, Amazon Prime ve Türkiye'deki tüm dijital platformların güncel aylık abonelik ücretleri tek sayfada karşılaştırmalı olarak sunulmaktadır.</p>
+              <div class="platform-mini-list">
+                <div class="platform-mini-row"><span class="isim">Netflix</span><span class="fiyat">Güncel fiyat →</span></div>
+                <div class="platform-mini-row"><span class="isim">Spotify</span><span class="fiyat">Güncel fiyat →</span></div>
+                <div class="platform-mini-row"><span class="isim">ChatGPT Plus</span><span class="fiyat">Güncel fiyat →</span></div>
+                <div class="platform-mini-row"><span class="isim">Disney+</span><span class="fiyat">Güncel fiyat →</span></div>
+              </div>
+              <br>
+              <a href="/platformucretleri.html" class="kucuk-kart-link">Tüm platformları gör →</a>
+            </div>
+
+            <!-- Döviz Çevirici -->
+            <div class="kucuk-kart">
+              <div class="kucuk-kart-ust">
+                <div class="kucuk-kart-icon ic-bg-yesil">💱</div>
+                <h3>Döviz Çevirici</h3>
+              </div>
+              <p>TL, USD, EUR, GBP, CHF, JPY ve diğer 10'dan fazla para birimi arasında anlık çeviri yapabilirsiniz. Güncel merkez bankası kurları kullanılarak hesaplama yapılmaktadır.</p>
+              <div class="platform-mini-list">
+                <div class="platform-mini-row"><span class="isim">USD → TRY</span><span class="fiyat">Anlık kur</span></div>
+                <div class="platform-mini-row"><span class="isim">EUR → TRY</span><span class="fiyat">Anlık kur</span></div>
+                <div class="platform-mini-row"><span class="isim">GBP → TRY</span><span class="fiyat">Anlık kur</span></div>
+                <div class="platform-mini-row"><span class="isim">13+ Para birimi</span><span class="fiyat">Destekleniyor</span></div>
+              </div>
+              <br>
+              <a href="/doviz.html" class="kucuk-kart-link">Döviz çeviriciye git →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADSENSE — Orta reklam 2 -->
+        <div class="adsense-block">
+          <div class="adsense-label">Reklam</div>
+          <ins class="adsbygoogle"
+            style="display:block;width:100%;min-height:250px"
+            data-ad-client="ca-pub-1268402107177386"
+            data-ad-slot="2157595670"
+            data-ad-format="rectangle"
+            data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <!-- İKİ SÜTUN: GELİR VERGİSİ + ELEKTRİK -->
+        <div>
+          <div class="bolum-baslik">📊 ⚡ Hesaplama Araçları</div>
+          <div class="iki-sutun">
+
+            <!-- Gelir Vergisi -->
+            <div class="kucuk-kart">
+              <div class="kucuk-kart-ust">
+                <div class="kucuk-kart-icon ic-bg-mor">📊</div>
+                <h3>Gelir Vergisi Dilimleri</h3>
+              </div>
+              <p>Türkiye'deki güncel gelir vergisi dilimlerini ve oranlarını kolayca öğrenebilirsiniz. Aylık veya yıllık gelirinize göre hangi vergi dilimine girdiğinizi hesaplayabilirsiniz.</p>
+              <p style="font-size:12px;color:var(--muted)">Ücretli çalışanlar ve serbest meslek sahipleri için ayrı dilim bilgileri sunulmaktadır. Güncel yasal düzenlemelere göre hazırlanmıştır.</p>
+              <a href="/gelirvergisi.html" class="kucuk-kart-link">Vergi dilimlerini gör →</a>
+            </div>
+
+            <!-- Elektrik -->
+            <div class="kucuk-kart">
+              <div class="kucuk-kart-ust">
+                <div class="kucuk-kart-icon ic-bg-turuncu">⚡</div>
+                <h3>Elektrik Bilgileri</h3>
+              </div>
+              <p>Elektriğin Antik Yunan'dan günümüze uzanan tarihsel yolculuğunu ve temel kavramlarını öğrenebilirsiniz. Türkiye'de ilk elektrik üretiminden bugünkü enerji altyapısına dair bilgiler yer almaktadır.</p>
+              <p style="font-size:12px;color:var(--muted)">Thales, Franklin, Faraday, Edison ve Tesla'nın elektriğe katkıları ile güncel elektrik tarifeleri hakkında bilgiye ulaşabilirsiniz.</p>
+              <a href="/elektrik.html" class="kucuk-kart-link">Elektrik bölümüne git →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- İKİ SÜTUN: ANKARA + OYUNLAR -->
+        <div>
+          <div class="bolum-baslik">🏛️ 🎮 Keşfet</div>
+          <div class="iki-sutun">
+
+            <!-- Ankara -->
+            <div class="kucuk-kart">
+              <div class="kucuk-kart-ust">
+                <div class="kucuk-kart-icon" style="background:#fef9c3">🏛️</div>
+                <h3>Ankara Rehberi</h3>
+              </div>
+              <p>Türkiye'nin başkenti Ankara'ya dair tarihi mekânlar, gezilecek yerler ve pratik bilgiler. Ankara Kalesi'nden Anıtkabir'e, Hamamönü'nden Kızılay'a şehrin öne çıkan noktaları.</p>
+              <p style="font-size:12px;color:var(--muted)">Ankara Kalesi, Romalılar döneminde onarım görmüş tarihi surlarıyla Ankara'nın en köklü simgelerinden biridir. Bizans döneminde yeniden inşa edilen iç surlar 7. yüzyıla dayanmaktadır.</p>
+              <a href="/ankara.html" class="kucuk-kart-link">Ankara'yı keşfet →</a>
+            </div>
+
+            <!-- Oyunlar -->
+            <div class="kucuk-kart">
+              <div class="kucuk-kart-ust">
+                <div class="kucuk-kart-icon" style="background:#f0fdf4">🎮</div>
+                <h3>Oyunlar</h3>
+              </div>
+              <p>Pratik ve eğlenceli mini oyunlar ile zihninizi çalıştırın. Bekleme sürelerini veya kısa molalarınızı değerlendirmek için tasarlanmış, tarayıcıda doğrudan oynayabileceğiniz oyunlar.</p>
+              <p style="font-size:12px;color:var(--muted)">Herhangi bir kurulum gerektirmez, reklam içermez. Sade ve hızlı deneyim için optimize edilmiştir.</p>
+              <a href="/oyunlar.html" class="kucuk-kart-link">Oyunlara git →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADSENSE — Alt reklam 3 -->
+        <div class="adsense-block">
+          <div class="adsense-label">Reklam</div>
+          <ins class="adsbygoogle"
+            style="display:block;width:100%;min-height:90px"
+            data-ad-client="ca-pub-1268402107177386"
+            data-ad-slot="2157595670"
+            data-ad-format="horizontal"
+            data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <!-- HAKKINDA / GÜVEN BÖLÜMÜ -->
+        <div class="bilgi-kutu">
+          <h3>NESEL Hakkında</h3>
+          <p>NESEL, günlük hayatta sıkça ihtiyaç duyulan bilgilere hızlıca ulaşmanızı sağlamak amacıyla kurulmuş bağımsız bir bilgi platformudur. Sıfır araç fiyatları, platform abonelik ücretleri, döviz kurları ve vergi dilimleri gibi konularda düzenli olarak güncellenen veriler sunulmaktadır.</p>
+          <p>Sitede yer alan fiyat ve bilgiler kamuya açık kaynaklardan, resmi marka web sitelerinden ve güvenilir satış platformlarından derlenmektedir. Tüm bilgiler yalnızca genel bilgilendirme amaçlı olup, kesin ve bağlayıcı nitelik taşımamaktadır. Güncel ve kesin bilgi için ilgili resmi kaynakların ziyaret edilmesi tavsiye edilir.</p>
+        </div>
+
+      </div><!-- /anaIcerik -->
+    </section>
+    <!-- /ORTA İÇERİK -->
+
+    <!-- SAĞ REKLAM -->
     <aside id="sagReklam">
+      <div class="reklamEtiket" style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px">Reklam</div>
       <ins class="adsbygoogle"
         style="display:block;width:100%;height:600px"
         data-ad-client="ca-pub-1268402107177386"
         data-ad-slot="2157595670"></ins>
       <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
     </aside>
-  </div>
+
+  </div><!-- /layout -->
 </main>
 
 <div id="footer"></div>
+
 <script>
-fetch("/footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t)
+fetch("/footer.html").then(r=>r.text()).then(t=>{if(document.getElementById('footer'))document.getElementById('footer').innerHTML=t});
+
 function setUstH(){
   const u=document.getElementById("ustBar");
-  if(!u) return;
+  if(!u)return;
   document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
 }
 window.addEventListener("resize",setUstH);
 setUstH();
 
-function kampanyalariKartYap(){
-  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
-  const ic=det.querySelector('.icerik');if(!ic)return;
-  const maddeler=Array.from(ic.querySelectorAll('.madde'));
-  let sayac=ic.querySelector('.kampSayac');if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
-  sayac.innerHTML='✅ <b>'+maddeler.length+'</b> aktif kampanya';
-}
-kampanyalariKartYap();
+// Aktif nav
+(()=>{
+  const p=location.pathname;
+  document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));
+})();
 
-(()=>{const f=document.getElementById('fbk');
-    if(!f)return;
-    const t=f.querySelector('textarea'),b=f.querySelector('button');
-    let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
-      if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);
-    const fr=document.getElementById('sayfaFrame');
-    const path=fr&&fr.src?new URL(fr.src).pathname:location.pathname; 
-    const p=JSON.stringify({url:path,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
-      fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
-
-(()=>{const ms=document.getElementById("mselect");if(!ms)return;const fr=document.getElementById("sayfaFrame");
-const map={"sifiraraclar-icerik.html":"/sifiraraclar.html","platformucretleri-icerik.html":"/platformucretleri.html","doviz-icerik.html":"/doviz.html","gelirvergisi-icerik.html":"/gelirvergisi.html","ankara-icerik.html":"/ankara.html","elektrik-icerik.html":"/elektrik.html","oyunlar-icerik.html":"/oyunlar.html"};
-function setSel(){const src=(fr&&fr.getAttribute("src"))||"";const f=src.split("/").pop();if(map[f])ms.value=map[f];}
-setSel();if(fr)fr.addEventListener("load",setSel);ms.onchange=()=>location.href=ms.value;})();
+// Sidebar includes
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
+// Feedback
+(()=>{
+  const f=document.getElementById('fbk');
+  if(!f)return;
+  const t=f.querySelector('textarea'),b=f.querySelector('button');
+  let v=null,k='fbk_'+location.pathname;
+  const u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
+  if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}
+  f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});
+  b.onclick=()=>{
+    if(v==null)return alert('Önce 👍/👎 seç');
+    if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');
+    localStorage.setItem(k,1);
+    const p2=JSON.stringify({url:location.pathname,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
+    fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p2});
+    f.textContent='Teşekkürler';
+  };
+})();
 </script>
 </body>
 </html>
