@@ -1,0 +1,28 @@
+{
+  "foods":[
+    {"id":"zencefil","name":"Zencefil","category":"Kök bitki","actives":["Gingerol","Shogaol"],"benefits":["Mide bulantısı ve sindirim konusunda destekleyici kullanım"],"caution":"Kan sulandırıcı/ilaç kullanımı, hamilelik veya kronik hastalıkta doktora danışılmalı.","evidence":"Orta","source":"NCCIH","url":"https://www.nccih.nih.gov/health/ginger"},
+    {"id":"nane","name":"Nane","category":"Yaprak","actives":["Mentol","Menton"],"benefits":["Ferahlık hissi","Sindirim rahatlığı için geleneksel kullanım"],"caution":"Reflü/yanma şikayetlerinde rahatsızlık verebilir. Bebeklerde mentol risklidir.","evidence":"Sınırlı-Orta","source":"NCCIH","url":"https://www.nccih.nih.gov/health/peppermint-oil"},
+    {"id":"limon","name":"Limon","category":"Meyve","actives":["C vitamini","Sitrik asit","Flavonoidler"],"benefits":["C vitamini desteği","Ferahlık ve sıvı tüketimini destekleme"],"caution":"Reflü, mide hassasiyeti ve diş minesinde hassasiyet oluşturabilir.","evidence":"Genel besin","source":"USDA FoodData Central","url":"https://fdc.nal.usda.gov/"},
+    {"id":"sarmisak","name":"Sarımsak","category":"Sebze/soğanlı","actives":["Allicin","Organosülfür bileşikleri"],"benefits":["Kolesterol/lipit düzeyleri üzerine sınırlı destekleyici bulgular"],"caution":"Kanama riski ve ilaç etkileşimi olabilir; ameliyat öncesi ve kan sulandırıcılarla dikkat.","evidence":"Orta","source":"NCCIH","url":"https://www.nccih.nih.gov/health/garlic"},
+    {"id":"zerdecal","name":"Zerdeçal","category":"Kök bitki/baharat","actives":["Curcumin","Curcuminoidler"],"benefits":["Antioksidan ve iltihap süreçleriyle ilişkili araştırmalar"],"caution":"Yüksek doz takviyeler mide yakınması ve bazı ürünlerde karaciğer riskiyle ilişkilendirilebilir.","evidence":"Sınırlı-Orta","source":"NCCIH","url":"https://www.nccih.nih.gov/health/turmeric"},
+    {"id":"nar","name":"Nar","category":"Meyve","actives":["Punicalagin","Antosiyaninler","Polifenoller"],"benefits":["Polifenol/antioksidan içeriğiyle besinsel destek"],"caution":"İlaç kullananlarda düzenli ve yoğun tüketim için uzman görüşü alınmalı.","evidence":"Genel besin","source":"USDA FoodData Central","url":"https://fdc.nal.usda.gov/"}
+  ],
+  "complaints":[
+    {"id":"bas_agrisi","name":"Baş ağrısı","warning":"Ani, çok şiddetli, görme/konuşma bozukluğu, uyuşma veya travma varsa acil tıbbi destek alın."},
+    {"id":"mide_bulantisi","name":"Mide bulantısı","warning":"Sürekli kusma, kan, ateş, gebelik veya sıvı kaybında doktora başvurun."},
+    {"id":"hazimsizlik","name":"Hazımsızlık","warning":"Göğüs ağrısı, kilo kaybı, yutma güçlüğü veya uzun süren şikayette doktora başvurun."},
+    {"id":"nefes_sorunu","name":"Nefes sorunu","warning":"Nefes darlığı acil belirti olabilir; gıda önerisi yerine tıbbi destek alın."}
+  ],
+  "matches":[
+    {"complaint":"mide_bulantisi","food":"zencefil","effect":"Mide bulantısında destekleyici kullanım için en çok bilinen seçeneklerden biridir.","evidence":"Orta"},
+    {"complaint":"hazimsizlik","food":"nane","effect":"Nane yağı bazı sindirim/IBS çalışmalarında incelenmiştir; yaprak nane için kanıt daha sınırlıdır.","evidence":"Sınırlı-Orta"},
+    {"complaint":"hazimsizlik","food":"limon","effect":"Doğrudan tedavi kanıtı yoktur; bazı kişilerde ferahlık sağlarken reflüyü artırabilir.","evidence":"Bilinmiyor"},
+    {"complaint":"bas_agrisi","food":"nane","effect":"Topikal nane yağı gerilim tipi baş ağrısında sınırlı araştırmalara konu olmuştur; gıda olarak kesin sonuç beklenmemeli.","evidence":"Sınırlı"},
+    {"complaint":"nefes_sorunu","food":"nane","effect":"Nefes sorunu acil belirti olabilir; gıda/bitkiyle çözüm aranmaz.","evidence":"Uyarı"}
+  ],
+  "mixtures":[
+    {"foods":["zencefil","limon","nane"],"complaint":"mide_bulantisi","effect":"Geleneksel olarak mide rahatlatma ve ferahlık amacıyla kullanılan bir kombinasyondur; tıbbi tedavi yerine geçmez.","evidence":"Sınırlı-Orta"},
+    {"foods":["limon","nane"],"complaint":"bas_agrisi","effect":"Doğrudan güçlü kanıt yoktur; ferahlık ve sıvı alımını destekleyebilir.","evidence":"Bilinmiyor"},
+    {"foods":["zerdecal","zencefil","limon"],"complaint":"hazimsizlik","effect":"Baharat hassasiyeti olanlarda mideyi rahatsız edebilir; düşük miktar ve kişisel tolerans önemlidir.","evidence":"Sınırlı"}
+  ]
+}
