@@ -72,6 +72,44 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "anason",
+      "ad": "Anason",
+      "kategori": "",
+      "etken_maddeler": [
+        "Anetol",
+        "Flavonoidler",
+        "Uçucu yağlar"
+      ],
+      "faydalar": [
+        "Aromatik tohum/baharat",
+        "geleneksel kullanım ve temel gıda envanteri kaydı."
+      ],
+      "dikkat": "Hamilelik, hormon duyarlı durumlar ve ilaç kullanımı varsa ölçülü tüketilmeli.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://www.nccih.nih.gov/health",
+      "url": "https://www.nccih.nih.gov/health"
+    },
+    {
+      "id": "antep-fistigi",
+      "ad": "Antep fıstığı",
+      "kategori": "",
+      "etken_maddeler": [
+        "Tekli doymamış yağlar",
+        "Protein",
+        "B6 vitamini",
+        "Fitosteroller"
+      ],
+      "faydalar": [
+        "Kuruyemiş",
+        "sağlıklı yağ",
+        "protein ve mineral desteği sağlar."
+      ],
+      "dikkat": "Kuruyemiş alerjisi ve yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
       "id": "armut",
       "ad": "Armut",
       "kategori": "",
@@ -103,6 +141,25 @@
         "temel gıda envanteri kaydı."
       ],
       "dikkat": "Kalorisi yüksektir; lateks alerjisinde dikkat.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "ay-cekirdegi",
+      "ad": "Ay çekirdeği",
+      "kategori": "",
+      "etken_maddeler": [
+        "E vitamini",
+        "Selenyum",
+        "Linoleik asit",
+        "Fitosteroller"
+      ],
+      "faydalar": [
+        "Çerez/tohum",
+        "E vitamini ve sağlıklı yağ içerir."
+      ],
+      "dikkat": "Tuzlu tüketimde sodyum yükü artar; porsiyon kontrolü gerekir.",
       "kanit": "Genel besin",
       "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
@@ -235,6 +292,24 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "biberiye",
+      "ad": "Biberiye",
+      "kategori": "",
+      "etken_maddeler": [
+        "Rosmarinik asit",
+        "Karnosik asit",
+        "Uçucu yağlar"
+      ],
+      "faydalar": [
+        "Aromatik bitki/baharat",
+        "geleneksel kullanım ve temel gıda envanteri kaydı."
+      ],
+      "dikkat": "Hamilelikte yüksek miktarlardan kaçınılmalı; ilaç kullananlar dikkat etmeli.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://www.nccih.nih.gov/health",
+      "url": "https://www.nccih.nih.gov/health"
+    },
+    {
       "id": "bogurtlen",
       "ad": "Böğürtlen",
       "kategori": "",
@@ -308,6 +383,25 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "cam-fistigi",
+      "ad": "Çam fıstığı",
+      "kategori": "",
+      "etken_maddeler": [
+        "Tekli doymamış yağlar",
+        "Magnezyum",
+        "E vitamini"
+      ],
+      "faydalar": [
+        "Kuruyemiş/tohum",
+        "enerji",
+        "yağ ve mineral desteği sağlar."
+      ],
+      "dikkat": "Kuruyemiş alerjisi ve yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
       "id": "ceviz",
       "ad": "Ceviz",
       "kategori": "",
@@ -339,6 +433,60 @@
         "temel gıda envanteri kaydı."
       ],
       "dikkat": "Alerji yapabilir; iyi yıkanmalıdır.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "corek-otu",
+      "ad": "Çörek otu",
+      "kategori": "",
+      "etken_maddeler": [
+        "Timokinon",
+        "Uçucu yağlar",
+        "Alkaloidler"
+      ],
+      "faydalar": [
+        "Tohum/baharat",
+        "geleneksel kullanım ve temel gıda envanteri kaydı."
+      ],
+      "dikkat": "Hamilelik, kan şekeri/tansiyon ilacı kullanımı ve ameliyat öncesinde dikkat.",
+      "kanit": "Sınırlı/Geleneksel",
+      "kaynak": "https://www.nccih.nih.gov/health",
+      "url": "https://www.nccih.nih.gov/health"
+    },
+    {
+      "id": "defne-yapragi",
+      "ad": "Defne yaprağı",
+      "kategori": "",
+      "etken_maddeler": [
+        "Sineol",
+        "Linalool",
+        "Uçucu yağlar"
+      ],
+      "faydalar": [
+        "Aromatik yaprak/baharat",
+        "yemeklerde aroma amacıyla kullanılır."
+      ],
+      "dikkat": "Yaprak bütün halde yenmemeli; sindirim kanalını tahriş edebilir.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "dereotu",
+      "ad": "Dereotu",
+      "kategori": "",
+      "etken_maddeler": [
+        "Apiol",
+        "Limonen",
+        "Flavonoidler"
+      ],
+      "faydalar": [
+        "Aromatik yeşillik/baharat",
+        "yemeklerde taze veya kuru kullanılır."
+      ],
+      "dikkat": "Alerji riski; yüksek miktarda kullanımda hamilelikte dikkat.",
       "kanit": "Genel besin",
       "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
@@ -452,6 +600,44 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "feslegen",
+      "ad": "Fesleğen",
+      "kategori": "",
+      "etken_maddeler": [
+        "Eugenol",
+        "Linalool",
+        "Flavonoidler"
+      ],
+      "faydalar": [
+        "Aromatik bitki",
+        "salata ve yemeklerde aroma amaçlı kullanılır."
+      ],
+      "dikkat": "Alerji riski; kan sulandırıcı kullananlar çok yüksek miktarlarda dikkat etmeli.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "findik",
+      "ad": "Fındık",
+      "kategori": "",
+      "etken_maddeler": [
+        "Tekli doymamış yağlar",
+        "E vitamini",
+        "Magnezyum",
+        "Fitosteroller"
+      ],
+      "faydalar": [
+        "Kuruyemiş",
+        "sağlıklı yağ",
+        "E vitamini ve mineral desteği sağlar."
+      ],
+      "dikkat": "Kuruyemiş alerjisi ve yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
       "id": "greyfurt",
       "ad": "Greyfurt",
       "kategori": "",
@@ -465,6 +651,24 @@
         "temel gıda envanteri kaydı."
       ],
       "dikkat": "Birçok ilaçla etkileşebilir; düzenli ilaç kullananlar doktora danışmalı.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "hashas-tohumu",
+      "ad": "Haşhaş tohumu",
+      "kategori": "",
+      "etken_maddeler": [
+        "Linoleik asit",
+        "Kalsiyum",
+        "Magnezyum"
+      ],
+      "faydalar": [
+        "Tohum/baharat",
+        "hamur işi ve yemeklerde kullanılır."
+      ],
+      "dikkat": "Uyuşturucu testleri ve ilaç etkileşimi açısından yüksek miktarlarda dikkat.",
       "kanit": "Genel besin",
       "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
@@ -578,6 +782,63 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "kabak-cekirdegi",
+      "ad": "Kabak çekirdeği",
+      "kategori": "",
+      "etken_maddeler": [
+        "Magnezyum",
+        "Çinko",
+        "Fitosteroller",
+        "Protein"
+      ],
+      "faydalar": [
+        "Çerez/tohum",
+        "mineral ve bitkisel protein desteği sağlar."
+      ],
+      "dikkat": "Tuzlu tüketimde sodyum yükü artar; porsiyon kontrolü gerekir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "kaju",
+      "ad": "Kaju",
+      "kategori": "",
+      "etken_maddeler": [
+        "Tekli doymamış yağlar",
+        "Magnezyum",
+        "Bakır",
+        "Protein"
+      ],
+      "faydalar": [
+        "Kuruyemiş",
+        "enerji",
+        "sağlıklı yağ ve mineral desteği sağlar."
+      ],
+      "dikkat": "Kuruyemiş alerjisi ve yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "karabiber",
+      "ad": "Karabiber",
+      "kategori": "",
+      "etken_maddeler": [
+        "Piperin",
+        "Uçucu yağlar",
+        "Fenolik bileşikler"
+      ],
+      "faydalar": [
+        "Baharat",
+        "yemeklerde aroma ve acılık amacıyla kullanılır."
+      ],
+      "dikkat": "Reflü, gastrit ve mide hassasiyetinde rahatsız edebilir.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
       "id": "karnabahar",
       "ad": "Karnabahar",
       "kategori": "",
@@ -669,6 +930,25 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "kekik",
+      "ad": "Kekik",
+      "kategori": "",
+      "etken_maddeler": [
+        "Timol",
+        "Karvakrol",
+        "Rosmarinik asit",
+        "Uçucu yağlar"
+      ],
+      "faydalar": [
+        "Aromatik baharat",
+        "yemeklerde ve geleneksel bitkisel kullanımda yer alır."
+      ],
+      "dikkat": "Hamilelik, alerji ve kan sulandırıcı ilaç kullanımında yüksek miktarlarda dikkat.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://www.nccih.nih.gov/health",
+      "url": "https://www.nccih.nih.gov/health"
+    },
+    {
       "id": "kereviz",
       "ad": "Kereviz",
       "kategori": "",
@@ -687,6 +967,42 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "keten-tohumu",
+      "ad": "Keten tohumu",
+      "kategori": "",
+      "etken_maddeler": [
+        "ALA omega-3",
+        "Lignanlar",
+        "Lif"
+      ],
+      "faydalar": [
+        "Tohum",
+        "lif ve bitkisel omega-3 desteği sağlar."
+      ],
+      "dikkat": "Bol suyla tüketilmeli; bağırsak tıkanıklığı riski veya ilaç emiliminde dikkat.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "kimyon",
+      "ad": "Kimyon",
+      "kategori": "",
+      "etken_maddeler": [
+        "Kuminaldehit",
+        "Terpenler",
+        "Flavonoidler"
+      ],
+      "faydalar": [
+        "Baharat",
+        "yemeklerde aroma verici olarak kullanılır."
+      ],
+      "dikkat": "Mide hassasiyeti olanlarda fazla tüketim rahatsız edebilir.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
       "id": "kiraz",
       "ad": "Kiraz",
       "kategori": "",
@@ -701,6 +1017,42 @@
       ],
       "dikkat": "Kan şekeri hassasiyetinde porsiyon kontrolü.",
       "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "kirmizi-pul-biber",
+      "ad": "Kırmızı pul biber",
+      "kategori": "",
+      "etken_maddeler": [
+        "Kapsaisin",
+        "Karotenoidler",
+        "C vitamini"
+      ],
+      "faydalar": [
+        "Baharat",
+        "acılık ve aroma verir."
+      ],
+      "dikkat": "Reflü, gastrit, hemoroid ve mide hassasiyetinde rahatsız edebilir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "kisnis",
+      "ad": "Kişniş",
+      "kategori": "",
+      "etken_maddeler": [
+        "Linalool",
+        "Flavonoidler",
+        "Uçucu yağlar"
+      ],
+      "faydalar": [
+        "Baharat/tohum ve yeşillik",
+        "yemeklerde aroma verici olarak kullanılır."
+      ],
+      "dikkat": "Alerji riski; kan şekeri ilacı kullananlar yüksek miktarlarda dikkat etmeli.",
+      "kanit": "Genel besin/Geleneksel",
       "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
@@ -759,6 +1111,25 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "leblebi",
+      "ad": "Leblebi",
+      "kategori": "",
+      "etken_maddeler": [
+        "Bitkisel protein",
+        "Lif",
+        "Folat",
+        "Manganez"
+      ],
+      "faydalar": [
+        "Nohuttan yapılan çerez",
+        "protein ve lif desteği sağlar."
+      ],
+      "dikkat": "Gaz/şişkinlik yapabilir; tuzlu türlerde sodyum yükü artar.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
       "id": "limon",
       "ad": "Limon",
       "kategori": "",
@@ -775,6 +1146,24 @@
       "kanit": "Genel besin",
       "kaynak": "NIH ODS / USDA / https://ods.od.nih.gov/factsheets/VitaminC/",
       "url": "https://ods.od.nih.gov/factsheets/VitaminC/"
+    },
+    {
+      "id": "mahlep",
+      "ad": "Mahlep",
+      "kategori": "",
+      "etken_maddeler": [
+        "Kumarinler",
+        "Uçucu yağlar",
+        "Fenolik bileşikler"
+      ],
+      "faydalar": [
+        "Aromatik baharat",
+        "özellikle hamur işlerinde kullanılır."
+      ],
+      "dikkat": "Yüksek miktarda tüketimden kaçınılmalı; hamilelik ve ilaç kullanımında dikkat.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "mandalina",
@@ -847,6 +1236,25 @@
       "dikkat": "Kan sulandırıcı kullananlar K vitamini nedeniyle düzenli tüketimde doktora danışmalı.",
       "kanit": "Genel besin",
       "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "mercankosk",
+      "ad": "Mercanköşk",
+      "kategori": "",
+      "etken_maddeler": [
+        "Terpinenler",
+        "Timol",
+        "Karvakrol",
+        "Flavonoidler"
+      ],
+      "faydalar": [
+        "Aromatik baharat",
+        "kekik benzeri kullanım alanı vardır."
+      ],
+      "dikkat": "Hamilelik, alerji ve ilaç kullanımında yüksek miktarlarda dikkat.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
@@ -1067,6 +1475,24 @@
       "url": "https://fdc.nal.usda.gov/"
     },
     {
+      "id": "rezene",
+      "ad": "Rezene",
+      "kategori": "",
+      "etken_maddeler": [
+        "Anetol",
+        "Fenkon",
+        "Flavonoidler"
+      ],
+      "faydalar": [
+        "Aromatik tohum",
+        "çay ve yemeklerde geleneksel kullanım alanı vardır."
+      ],
+      "dikkat": "Hamilelik, hormon duyarlı durumlar ve ilaç kullanımı varsa dikkat.",
+      "kanit": "Sınırlı/Geleneksel",
+      "kaynak": "https://www.nccih.nih.gov/health",
+      "url": "https://www.nccih.nih.gov/health"
+    },
+    {
       "id": "roka",
       "ad": "Roka",
       "kategori": "",
@@ -1190,6 +1616,45 @@
       "dikkat": "Reflü, IBS veya gaz şikayetinde rahatsızlık verebilir.",
       "kanit": "Genel besin",
       "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "sumak",
+      "ad": "Sumak",
+      "kategori": "",
+      "etken_maddeler": [
+        "Antosiyaninler",
+        "Tanenler",
+        "Organik asitler"
+      ],
+      "faydalar": [
+        "Baharat",
+        "ekşi aroma verir ve polifenol içerir."
+      ],
+      "dikkat": "Alerji veya mide hassasiyetinde ölçülü tüketilmeli.",
+      "kanit": "Genel besin/Geleneksel",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "susam",
+      "ad": "Susam",
+      "kategori": "",
+      "etken_maddeler": [
+        "Sesamin",
+        "Sesamolin",
+        "E vitamini",
+        "Kalsiyum"
+      ],
+      "faydalar": [
+        "Tohum",
+        "tahin",
+        "simit ve yemeklerde kullanılır",
+        "yağ ve mineral içerir."
+      ],
+      "dikkat": "Susam alerjisi önemli olabilir; yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
@@ -1333,6 +1798,25 @@
         "temel gıda envanteri kaydı."
       ],
       "dikkat": "Gaz/şişkinlik yapabilir.",
+      "kanit": "Genel besin",
+      "kaynak": "https://fdc.nal.usda.gov/",
+      "url": "https://fdc.nal.usda.gov/"
+    },
+    {
+      "id": "yer-fistigi",
+      "ad": "Yer fıstığı",
+      "kategori": "",
+      "etken_maddeler": [
+        "Protein",
+        "Tekli doymamış yağlar",
+        "Niasin",
+        "Resveratrol"
+      ],
+      "faydalar": [
+        "Çerez/baklagil",
+        "protein ve sağlıklı yağ desteği sağlar."
+      ],
+      "dikkat": "Yer fıstığı alerjisi ciddi olabilir; yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
       "kanit": "Genel besin",
       "kaynak": "https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
