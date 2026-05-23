@@ -1988,15 +1988,87 @@
     },
     {
       "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "corek-otu",
+      "etki": "Timokinon gibi bileşikler içerir; genel beslenme desteği olarak sınırlı/geleneksel kullanım vardır.",
+      "kanit": "Sınırlı/Geleneksel"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "kivi",
+      "etki": "C vitamini içeriğiyle normal bağışıklık fonksiyonunu destekleyen beslenmeye katkı sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
       "gida_id": "limon",
       "etki": "C vitamini içeriği nedeniyle beslenme desteği sağlar; hastalığı tedavi etmez.",
       "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "mandalina",
+      "etki": "C vitamini içeriğiyle normal bağışıklık fonksiyonunu destekleyen beslenmeye katkı sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "nar",
+      "etki": "Polifenol ve C vitamini içeriğiyle genel beslenme desteği sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "portakal",
+      "etki": "C vitamini içeriğiyle normal bağışıklık fonksiyonunu destekleyen beslenmeye katkı sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "sarimsak",
+      "etki": "Organosülfür bileşikleri içerir; dengeli beslenmede destekleyici gıda olarak değerlendirilebilir.",
+      "kanit": "Sınırlı/Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "sogan",
+      "etki": "Kuersetin ve organosülfür bileşikleri içerir; genel beslenme desteği sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "turp",
+      "etki": "C vitamini ve glukozinolat içeriğiyle genel beslenme desteği sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "yaban-mersini",
+      "etki": "Antosiyanin ve C vitamini içeriğiyle genel beslenme desteği sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "bagisiklik-destegi",
+      "gida_id": "zerdecal",
+      "etki": "Kurkumin içerir; antioksidan özellikleri nedeniyle destekleyici gıda olarak değerlendirilir.",
+      "kanit": "Sınırlı/Genel besin"
     },
     {
       "sikayet_id": "bas-agrisi",
       "gida_id": "nane",
       "etki": "Topikal nane yağı gerilim tipi baş ağrısında sınırlı araştırmalara konu olmuştur; gıda olarak kesin sonuç beklenmemeli.",
       "kanit": "Sınırlı"
+    },
+    {
+      "sikayet_id": "bas-agrisi",
+      "gida_id": "papatya",
+      "etki": "Sıcak içecek olarak gevşeme ve rahatlama amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "bogaz-agrisi",
+      "gida_id": "adacayi",
+      "etki": "Ağız/boğaz ferahlığı için geleneksel kullanım vardır; tıbbi tedavi yerine geçmez.",
+      "kanit": "Geleneksel"
     },
     {
       "sikayet_id": "bogaz-agrisi",
@@ -2008,6 +2080,42 @@
       "sikayet_id": "bogaz-agrisi",
       "gida_id": "ihlamur",
       "etki": "Sıcak içecek ve boğaz rahatlatma amacıyla geleneksel kullanım vardır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "bogaz-agrisi",
+      "gida_id": "kekik",
+      "etki": "Sıcak içecek olarak boğaz ferahlığı ve rahatlama amacıyla geleneksel kullanım vardır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "bogaz-agrisi",
+      "gida_id": "limon",
+      "etki": "Sıcak içeceklerde bal ile birlikte boğaz yumuşatma amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "anason",
+      "etki": "Aromatik tohum olarak yemek sonrası şişkinlik/hazımsızlıkta geleneksel kullanım vardır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "biberiye",
+      "etki": "Aromatik bitki olarak yemek sonrası hazımsızlık hissinde geleneksel kullanım vardır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "kimyon",
+      "etki": "Geleneksel olarak gaz ve hazımsızlık hissinde yemeklerle birlikte kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "kisnis",
+      "etki": "Aromatik tohum/yaprak olarak sindirim konforu için geleneksel kullanılır.",
       "kanit": "Geleneksel"
     },
     {
@@ -2023,10 +2131,100 @@
       "kanit": "Sınırlı-Orta"
     },
     {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "papatya",
+      "etki": "Geleneksel olarak mide rahatlatma ve gevşeme amacıyla kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "rezene",
+      "etki": "Geleneksel olarak gaz, şişkinlik ve hazımsızlık hissinde kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "sumak",
+      "etki": "Ekşi aromasıyla yemeklerde sindirim konforuna katkı amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "yogurt",
+      "etki": "Fermente gıda olarak sindirim konforunu destekleyebilir.",
+      "kanit": "Genel besin/Sınırlı"
+    },
+    {
+      "sikayet_id": "hazimsizlik",
+      "gida_id": "zerdecal",
+      "etki": "Baharat olarak yağlı yemeklerde sindirim konforu amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "ishal",
+      "gida_id": "ayva",
+      "etki": "Pektin ve tanen içeriği nedeniyle hafif ishal dönemlerinde yumuşak gıda olarak değerlendirilebilir.",
+      "kanit": "Geleneksel/Genel besin"
+    },
+    {
+      "sikayet_id": "ishal",
+      "gida_id": "elma",
+      "etki": "Pektin içeriği nedeniyle hafif ishal dönemlerinde yumuşak beslenmede değerlendirilebilir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "ishal",
+      "gida_id": "kefir",
+      "etki": "Fermente gıda olarak bağırsak florasını destekleyebilir; sıvı kaybı takip edilmelidir.",
+      "kanit": "Sınırlı"
+    },
+    {
       "sikayet_id": "ishal",
       "gida_id": "muz",
       "etki": "Yumuşak, potasyum içeren gıda olarak beslenmede tercih edilebilir; sıvı kaybı önemlidir.",
       "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "ishal",
+      "gida_id": "yogurt",
+      "etki": "Fermente süt ürünü olarak bağırsak florasını destekleyebilir; laktoz hassasiyetinde dikkat.",
+      "kanit": "Sınırlı/Genel besin"
+    },
+    {
+      "sikayet_id": "kabizlik",
+      "gida_id": "armut",
+      "etki": "Lif ve su içeriğiyle bağırsak düzenini destekleyebilir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "kabizlik",
+      "gida_id": "brokoli",
+      "etki": "Lif içeriğiyle bağırsak düzenini destekleyebilir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "kabizlik",
+      "gida_id": "elma",
+      "etki": "Pektin ve lif içeriğiyle bağırsak düzenini destekleyebilir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "kabizlik",
+      "gida_id": "kabak",
+      "etki": "Su ve lif içeriğiyle hafif sindirim desteği sağlayabilir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "kabizlik",
+      "gida_id": "kefir",
+      "etki": "Fermente gıda ve probiyotik yapı nedeniyle bağırsak düzenini destekleyebilir.",
+      "kanit": "Genel besin/Sınırlı"
+    },
+    {
+      "sikayet_id": "kabizlik",
+      "gida_id": "keten-tohumu",
+      "etki": "Lif ve müsilaj içeriğiyle bağırsak hareketlerini destekleyebilir; su alımı önemlidir.",
+      "kanit": "Genel besin/Sınırlı"
     },
     {
       "sikayet_id": "kabizlik",
@@ -2042,9 +2240,27 @@
     },
     {
       "sikayet_id": "mide-bulantisi",
+      "gida_id": "kimyon",
+      "etki": "Aromatik baharat olarak hafif mide rahatsızlığında geleneksel kullanım vardır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "mide-bulantisi",
+      "gida_id": "rezene",
+      "etki": "Aromatik sıcak içecek olarak hafif mide rahatlatma amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "mide-bulantisi",
       "gida_id": "zencefil",
       "etki": "Mide bulantısında destekleyici kullanım için en çok bilinen seçeneklerden biridir.",
       "kanit": "Orta"
+    },
+    {
+      "sikayet_id": "nefes-sorunu",
+      "gida_id": "kekik",
+      "etki": "Aromatik buhar/içecek ferahlık hissi verebilir; nefes darlığında tıbbi destek gerekir.",
+      "kanit": "Geleneksel"
     },
     {
       "sikayet_id": "nefes-sorunu",
@@ -2054,15 +2270,87 @@
     },
     {
       "sikayet_id": "oksuruk",
+      "gida_id": "adacayi",
+      "etki": "Sıcak içecek olarak boğazı rahatlatma amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "oksuruk",
+      "gida_id": "anason",
+      "etki": "Sıcak içecek olarak boğazı yumuşatma amacıyla geleneksel kullanım bulunur.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "oksuruk",
       "gida_id": "bal",
       "etki": "Öksürükte boğazı yumuşatma amacıyla geleneksel kullanılır; çocuklarda yaş sınırı önemlidir.",
       "kanit": "Sınırlı"
+    },
+    {
+      "sikayet_id": "oksuruk",
+      "gida_id": "corek-otu",
+      "etki": "Bal ile birlikte boğaz yumuşatma amacıyla geleneksel kullanım görülür.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "oksuruk",
+      "gida_id": "kekik",
+      "etki": "Aromatik bitki olarak sıcak içeceklerde boğaz yumuşatma amacıyla geleneksel kullanılır.",
+      "kanit": "Geleneksel"
+    },
+    {
+      "sikayet_id": "oksuruk",
+      "gida_id": "rezene",
+      "etki": "Sıcak içecek olarak boğaz yumuşatma ve ferahlık amacıyla geleneksel kullanım vardır.",
+      "kanit": "Geleneksel"
     },
     {
       "sikayet_id": "uykusuzluk",
       "gida_id": "papatya",
       "etki": "Gevşeme/uyku rutini için geleneksel kullanılır; klinik kanıt sınırlıdır.",
       "kanit": "Sınırlı"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "badem",
+      "etki": "Enerji, magnezyum ve sağlıklı yağ desteği sağlar; porsiyon kontrollü tüketilmelidir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "biberiye",
+      "etki": "Aromatik içecek olarak ferahlık ve dikkat hissini destekleyebilir; kanıt düzeyi sınırlıdır.",
+      "kanit": "Sınırlı/Geleneksel"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "ceviz",
+      "etki": "Sağlıklı yağ, mineral ve enerji desteği sağlar; ara öğün olarak değerlendirilebilir.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "findik",
+      "etki": "Enerji, E vitamini ve sağlıklı yağ desteği sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "kabak-cekirdegi",
+      "etki": "Magnezyum, çinko ve sağlıklı yağ içeriğiyle beslenme desteği sağlar.",
+      "kanit": "Genel besin"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "tarcin",
+      "etki": "Aromatik içeceklerde enerji hissi ve tat desteği sağlayabilir; kanıt sınırlıdır.",
+      "kanit": "Sınırlı/Geleneksel"
+    },
+    {
+      "sikayet_id": "yorgunluk",
+      "gida_id": "uzum",
+      "etki": "Karbonhidrat ve polifenol içeriğiyle hızlı enerji ve genel beslenme desteği sağlar.",
+      "kanit": "Genel besin"
     },
     {
       "sikayet_id": "yorgunluk",
