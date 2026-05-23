@@ -3,427 +3,333 @@
     {
       "id": "zencefil",
       "ad": "Zencefil",
-      "kategori": "Kök bitki",
-      "etken_maddeler": [
-        "Gingerol",
-        "Shogaol",
-        "Zingeron"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Mide bulantısı ve sindirim konusunda destekleyici kullanım",
         "Geleneksel olarak soğuk algınlığı dönemlerinde sıcak içeceklerde kullanılır"
       ],
       "dikkat": "Kan sulandırıcı, diyabet ilacı, hamilelik veya safra kesesi sorunu varsa doktora danışılmalı.",
       "kanit": "Orta",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/ginger",
       "url": "https://www.nccih.nih.gov/health/ginger"
     },
     {
       "id": "nane",
       "ad": "Nane",
-      "kategori": "Yaprak",
-      "etken_maddeler": [
-        "Mentol",
-        "Menton",
-        "Rosmarinik asit"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Ferahlık hissi",
         "Sindirim rahatlığı için geleneksel kullanım"
       ],
       "dikkat": "Reflü/yanma şikayetlerinde rahatsızlık verebilir. Bebeklerde mentol risklidir.",
       "kanit": "Sınırlı-Orta",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/peppermint-oil",
       "url": "https://www.nccih.nih.gov/health/peppermint-oil"
     },
     {
       "id": "limon",
       "ad": "Limon",
-      "kategori": "Meyve",
-      "etken_maddeler": [
-        "C vitamini",
-        "Sitrik asit",
-        "Flavonoidler"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "C vitamini desteği",
         "Ferahlık ve sıvı tüketimini destekleme"
       ],
       "dikkat": "Reflü, mide hassasiyeti ve diş minesinde hassasiyet oluşturabilir.",
       "kanit": "Genel besin",
-      "kaynak": "NIH ODS / USDA",
+      "kaynak": "NIH ODS / USDA / https://ods.od.nih.gov/factsheets/VitaminC/",
       "url": "https://ods.od.nih.gov/factsheets/VitaminC/"
     },
     {
-      "id": "sarmisak",
+      "id": "sarimsak",
       "ad": "Sarımsak",
-      "kategori": "Sebze/soğanlı",
-      "etken_maddeler": [
-        "Allicin",
-        "Alliin",
-        "Organosülfür bileşikleri"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Kalp-damar göstergeleri ve lipit düzeyleri üzerine araştırılmıştır",
         "Geleneksel olarak bağışıklık dönemlerinde kullanılır"
       ],
       "dikkat": "Kanama riski ve ilaç etkileşimi olabilir; ameliyat öncesi ve kan sulandırıcılarla dikkat.",
       "kanit": "Orta",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/garlic",
       "url": "https://www.nccih.nih.gov/health/garlic"
     },
     {
       "id": "zerdecal",
       "ad": "Zerdeçal",
-      "kategori": "Kök bitki/baharat",
-      "etken_maddeler": [
-        "Curcumin",
-        "Curcuminoidler",
-        "Uçucu yağlar"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Antioksidan ve iltihap süreçleriyle ilişkili araştırmalar",
         "Geleneksel olarak sindirim ve eklem konularında kullanılır"
       ],
       "dikkat": "Yüksek doz takviyeler mide yakınması ve bazı ürünlerde karaciğer riskiyle ilişkilendirilebilir.",
       "kanit": "Sınırlı-Orta",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/turmeric",
       "url": "https://www.nccih.nih.gov/health/turmeric"
     },
     {
       "id": "nar",
       "ad": "Nar",
-      "kategori": "Meyve",
-      "etken_maddeler": [
-        "Punicalagin",
-        "Antosiyaninler",
-        "Polifenoller"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Polifenol/antioksidan içeriğiyle besinsel destek",
         "Sıvı ve meyve tüketimini destekler"
       ],
       "dikkat": "İlaç kullananlarda düzenli ve yoğun tüketim için uzman görüşü alınmalı.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "elma",
       "ad": "Elma",
-      "kategori": "Meyve",
-      "etken_maddeler": [
-        "Pektin",
-        "Quercetin",
-        "Polifenoller"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Lif desteği",
         "Tokluk ve bağırsak düzenine katkı sağlayabilir"
       ],
       "dikkat": "Hassas kişilerde fazla tüketim gaz/şişkinlik yapabilir.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "muz",
       "ad": "Muz",
-      "kategori": "Meyve",
-      "etken_maddeler": [
-        "Potasyum",
-        "B6 vitamini",
-        "Dirençli nişasta"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Enerji ve potasyum desteği",
         "Mide hassasiyetinde yumuşak gıda olarak tercih edilebilir"
       ],
       "dikkat": "Diyabet ve böbrek hastalığında porsiyon/ potasyum kontrolü gerekir.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "maydanoz",
       "ad": "Maydanoz",
-      "kategori": "Yaprak sebze",
-      "etken_maddeler": [
-        "K vitamini",
-        "Apigenin",
-        "C vitamini"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Mikro besin ve yeşillik desteği",
         "Ferahlık ve salata tüketimini artırabilir"
       ],
       "dikkat": "Kan sulandırıcı kullananlar K vitamini nedeniyle düzenli tüketimde doktora danışmalı.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "sogan",
       "ad": "Soğan",
-      "kategori": "Sebze/soğanlı",
-      "etken_maddeler": [
-        "Quercetin",
-        "Organosülfür bileşikleri",
-        "Fruktanlar"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Prebiyotik lif desteği",
         "Geleneksel olarak soğuk algınlığı dönemlerinde kullanılır"
       ],
       "dikkat": "Reflü, IBS veya gaz şikayetinde rahatsızlık verebilir.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
-      "id": "yesil_cay",
+      "id": "yesil-cay",
       "ad": "Yeşil Çay",
-      "kategori": "İçecek/yaprak",
-      "etken_maddeler": [
-        "EGCG",
-        "Kateşinler",
-        "Kafein",
-        "L-theanine"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Antioksidan polifenol desteği",
         "Kafein nedeniyle uyanıklık hissi verebilir"
       ],
       "dikkat": "Kafein içerir; hamilelik, tansiyon, uykusuzluk ve ilaç kullanımında dikkat. Ekstrakt formunda karaciğer riski bildirilmiştir.",
       "kanit": "Sınırlı-Orta",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/green-tea",
       "url": "https://www.nccih.nih.gov/health/green-tea"
     },
     {
       "id": "ihlamur",
       "ad": "Ihlamur",
-      "kategori": "Bitki çayı",
-      "etken_maddeler": [
-        "Flavonoidler",
-        "Müsilaj",
-        "Uçucu yağlar"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Geleneksel olarak boğaz rahatlatma ve sıcak içecek olarak kullanılır",
         "Sıvı alımını destekler"
       ],
       "dikkat": "Alerji, hamilelik veya düzenli ilaç kullanımında dikkat.",
       "kanit": "Geleneksel",
-      "kaynak": "Genel botanik/beslenme kaynakları",
+      "kaynak": "Genel botanik/beslenme kaynakları / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "adacayi",
       "ad": "Adaçayı",
-      "kategori": "Bitki çayı",
-      "etken_maddeler": [
-        "Rosmarinik asit",
-        "Tujon",
-        "Flavonoidler"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Geleneksel olarak boğaz ve ağız ferahlığı için kullanılır"
       ],
       "dikkat": "Hamilelik, emzirme, epilepsi ve yüksek miktarda kullanımda dikkat; tujon içerir.",
       "kanit": "Sınırlı/Geleneksel",
-      "kaynak": "NCCIH genel bitkisel güvenlik yaklaşımı",
+      "kaynak": "NCCIH genel bitkisel güvenlik yaklaşımı / https://www.nccih.nih.gov/health",
       "url": "https://www.nccih.nih.gov/health"
     },
     {
       "id": "tarcin",
       "ad": "Tarçın",
-      "kategori": "Baharat",
-      "etken_maddeler": [
-        "Cinnamaldehyde",
-        "Polifenoller",
-        "Coumarin"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Aroma ve şeker isteğini yönetmede yardımcı olabilir",
         "Kan şekeri üzerine araştırılmıştır ancak tedavi değildir"
       ],
       "dikkat": "Özellikle cassia tarçında kumarin nedeniyle yüksek ve sürekli tüketim karaciğer açısından riskli olabilir.",
       "kanit": "Sınırlı",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/cinnamon",
       "url": "https://www.nccih.nih.gov/health/cinnamon"
     },
     {
       "id": "yogurt",
       "ad": "Yoğurt",
-      "kategori": "Fermente süt ürünü",
-      "etken_maddeler": [
-        "Protein",
-        "Kalsiyum",
-        "Canlı kültürler"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Protein/kalsiyum desteği",
         "Bağırsak düzeni için fermente gıda desteği"
       ],
       "dikkat": "Laktoz intoleransı veya süt alerjisinde uygun olmayabilir.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "kefir",
       "ad": "Kefir",
-      "kategori": "Fermente içecek",
-      "etken_maddeler": [
-        "Probiyotik kültürler",
-        "Protein",
-        "Kalsiyum"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Fermente gıda ve bağırsak mikrobiyotası desteği",
         "Sindirime destek olabilir"
       ],
       "dikkat": "Laktoz hassasiyeti, bağışıklık baskılanması veya süt alerjisinde dikkat.",
       "kanit": "Genel besin/Sınırlı",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "yulaf",
       "ad": "Yulaf",
-      "kategori": "Tahıl",
-      "etken_maddeler": [
-        "Beta-glukan",
-        "Lif",
-        "Magnezyum"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Lif ve tokluk desteği",
         "Kolesterol yönetiminde diyetin parçası olabilir"
       ],
       "dikkat": "Gluten hassasiyetinde çapraz bulaş riski için sertifikalı ürün tercih edilmeli.",
       "kanit": "Orta",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "ceviz",
       "ad": "Ceviz",
-      "kategori": "Kuruyemiş",
-      "etken_maddeler": [
-        "ALA omega-3",
-        "E vitamini",
-        "Polifenoller"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Sağlıklı yağ ve enerji desteği",
         "Kalp dostu beslenme örüntüsünde yer alabilir"
       ],
       "dikkat": "Kuruyemiş alerjisi ve yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "badem",
       "ad": "Badem",
-      "kategori": "Kuruyemiş",
-      "etken_maddeler": [
-        "E vitamini",
-        "Magnezyum",
-        "Tekli doymamış yağlar"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Tokluk",
         "sağlıklı yağ ve mineral desteği"
       ],
       "dikkat": "Kuruyemiş alerjisi ve yüksek kalori nedeniyle porsiyon kontrolü gerekir.",
       "kanit": "Genel besin",
-      "kaynak": "USDA FoodData Central",
+      "kaynak": "USDA FoodData Central / https://fdc.nal.usda.gov/",
       "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "bal",
       "ad": "Bal",
-      "kategori": "Doğal tatlandırıcı",
-      "etken_maddeler": [
-        "Şekerler",
-        "Fenolik bileşikler",
-        "Enzimler"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Boğaz yumuşatma amacıyla geleneksel kullanım",
         "Sıcak içeceklerde tatlandırıcı olarak kullanılabilir"
       ],
       "dikkat": "1 yaş altı bebeklere verilmez. Diyabette ve kalori kontrolünde dikkat.",
       "kanit": "Sınırlı/Geleneksel",
-      "kaynak": "CDC/Genel besin kaynakları",
+      "kaynak": "CDC/Genel besin kaynakları / https://www.cdc.gov/botulism/prevention.html",
       "url": "https://www.cdc.gov/botulism/prevention.html"
     },
     {
       "id": "papatya",
       "ad": "Papatya",
-      "kategori": "Bitki çayı",
-      "etken_maddeler": [
-        "Apigenin",
-        "Flavonoidler",
-        "Uçucu yağlar"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Geleneksel olarak gevşeme ve uyku rutini için kullanılır",
         "Sindirim rahatlığı için kullanılır"
       ],
       "dikkat": "Papatyagiller/ragweed alerjisi, hamilelik ve ilaç kullanımında dikkat.",
       "kanit": "Sınırlı",
-      "kaynak": "NCCIH",
+      "kaynak": "NCCIH / https://www.nccih.nih.gov/health/chamomile/ataglance.htm",
       "url": "https://www.nccih.nih.gov/health/chamomile/ataglance.htm"
     },
     {
       "id": "kivi",
       "ad": "Kivi",
-      "kategori": "Meyve",
-      "etken_maddeler": [
-        "C vitamini",
-        "Actinidin",
-        "Lif"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "C vitamini ve lif desteği",
         "Kabızlıkta beslenme desteği olabilir"
       ],
       "dikkat": "Lateks/aktinidin hassasiyeti olanlarda alerji yapabilir.",
       "kanit": "Genel besin",
-      "kaynak": "NIH ODS / USDA",
+      "kaynak": "NIH ODS / USDA / https://ods.od.nih.gov/factsheets/VitaminC/",
       "url": "https://ods.od.nih.gov/factsheets/VitaminC/"
     },
     {
       "id": "brokoli",
       "ad": "Brokoli",
-      "kategori": "Sebze",
-      "etken_maddeler": [
-        "Sulforafan",
-        "C vitamini",
-        "K vitamini",
-        "Lif"
-      ],
+      "kategori": "",
+      "etken_maddeler": [],
       "faydalar": [
         "Lif ve mikro besin desteği",
         "Antioksidan beslenme örüntüsünde yer alır"
       ],
       "dikkat": "Kan sulandırıcı kullananlar K vitamini nedeniyle düzenli yüksek tüketimde dikkat.",
       "kanit": "Genel besin",
-      "kaynak": "NIH ODS / USDA",
+      "kaynak": "NIH ODS / USDA / https://ods.od.nih.gov/factsheets/VitaminC/",
       "url": "https://ods.od.nih.gov/factsheets/VitaminC/"
     }
   ],
   "sikayetler": [
     {
-      "id": "bas_agrisi",
+      "id": "bas-agrisi",
       "ad": "Baş ağrısı",
       "uyari": "Ani, çok şiddetli, görme/konuşma bozukluğu, uyuşma veya travma varsa acil tıbbi destek alın."
     },
     {
-      "id": "mide_bulantisi",
+      "id": "mide-bulantisi",
       "ad": "Mide bulantısı",
       "uyari": "Sürekli kusma, kan, ateş, gebelik veya sıvı kaybında doktora başvurun."
     },
@@ -433,7 +339,7 @@
       "uyari": "Göğüs ağrısı, kilo kaybı, yutma güçlüğü veya uzun süren şikayette doktora başvurun."
     },
     {
-      "id": "bogaz_agrisi",
+      "id": "bogaz-agrisi",
       "ad": "Boğaz ağrısı",
       "uyari": "Yüksek ateş, nefes alma güçlüğü, yutamama veya 3 günden uzun süren şikayette doktora başvurun."
     },
@@ -463,19 +369,19 @@
       "uyari": "Uzun süren uykusuzluk, gündüz işlev kaybı veya ilaç/psikolojik durum eşlik ediyorsa uzman desteği alın."
     },
     {
-      "id": "nefes_sorunu",
+      "id": "nefes-sorunu",
       "ad": "Nefes sorunu",
       "uyari": "Nefes darlığı acil belirti olabilir; gıda önerisi yerine tıbbi destek alın."
     },
     {
-      "id": "bagisiklik",
+      "id": "bagisiklik-destegi",
       "ad": "Bağışıklık desteği",
       "uyari": "Bu başlık hastalık tedavisi değildir; dengeli beslenme, uyku ve tıbbi takip esastır."
     }
   ],
   "eslesmeler": [
     {
-      "sikayet_id": "mide_bulantisi",
+      "sikayet_id": "mide-bulantisi",
       "gida_id": "zencefil",
       "etki": "Mide bulantısında destekleyici kullanım için en çok bilinen seçeneklerden biridir.",
       "kanit": "Orta"
@@ -493,19 +399,19 @@
       "kanit": "Bilinmiyor"
     },
     {
-      "sikayet_id": "bas_agrisi",
+      "sikayet_id": "bas-agrisi",
       "gida_id": "nane",
       "etki": "Topikal nane yağı gerilim tipi baş ağrısında sınırlı araştırmalara konu olmuştur; gıda olarak kesin sonuç beklenmemeli.",
       "kanit": "Sınırlı"
     },
     {
-      "sikayet_id": "bogaz_agrisi",
+      "sikayet_id": "bogaz-agrisi",
       "gida_id": "bal",
       "etki": "Boğaz yumuşatma amacıyla geleneksel olarak kullanılır.",
       "kanit": "Sınırlı"
     },
     {
-      "sikayet_id": "bogaz_agrisi",
+      "sikayet_id": "bogaz-agrisi",
       "gida_id": "ihlamur",
       "etki": "Sıcak içecek ve boğaz rahatlatma amacıyla geleneksel kullanım vardır.",
       "kanit": "Geleneksel"
@@ -542,24 +448,24 @@
     },
     {
       "sikayet_id": "yorgunluk",
-      "gida_id": "yesil_cay",
+      "gida_id": "yesil-cay",
       "etki": "Kafein nedeniyle uyanıklık hissi verebilir; uykusuzluğu artırabilir.",
       "kanit": "Genel etki"
     },
     {
-      "sikayet_id": "bagisiklik",
+      "sikayet_id": "bagisiklik-destegi",
       "gida_id": "limon",
       "etki": "C vitamini içeriği nedeniyle beslenme desteği sağlar; hastalığı tedavi etmez.",
       "kanit": "Genel besin"
     },
     {
-      "sikayet_id": "bagisiklik",
+      "sikayet_id": "bagisiklik-destegi",
       "gida_id": "brokoli",
       "etki": "C vitamini, lif ve mikro besin desteği sağlar.",
       "kanit": "Genel besin"
     },
     {
-      "sikayet_id": "nefes_sorunu",
+      "sikayet_id": "nefes-sorunu",
       "gida_id": "nane",
       "etki": "Nefes sorunu acil belirti olabilir; gıda/bitkiyle çözüm aranmaz.",
       "kanit": "Uyarı"
@@ -567,30 +473,30 @@
   ],
   "karisimlar": [
     {
-      "id": "mix_mide_1",
+      "id": "karisim-1",
       "gidalar": [
         "zencefil",
         "limon",
         "nane"
       ],
-      "sikayet_id": "mide_bulantisi",
+      "sikayet_id": "mide-bulantisi",
       "baslik": "Zencefil + Limon + Nane",
       "etki": "Geleneksel olarak mide rahatlatma ve ferahlık amacıyla kullanılan bir kombinasyondur; tıbbi tedavi yerine geçmez.",
       "kanit": "Sınırlı-Orta"
     },
     {
-      "id": "mix_mide_2",
+      "id": "karisim-2",
       "gidalar": [
         "zencefil",
         "muz"
       ],
-      "sikayet_id": "mide_bulantisi",
+      "sikayet_id": "mide-bulantisi",
       "baslik": "Zencefil + Muz",
       "etki": "Zencefil bulantı desteği, muz ise yumuşak/kolay tüketilen gıda olarak seçilebilir.",
       "kanit": "Sınırlı"
     },
     {
-      "id": "mix_hazim_1",
+      "id": "karisim-3",
       "gidalar": [
         "nane",
         "yogurt"
@@ -601,7 +507,7 @@
       "kanit": "Sınırlı"
     },
     {
-      "id": "mix_hazim_2",
+      "id": "karisim-4",
       "gidalar": [
         "zerdecal",
         "zencefil",
@@ -613,52 +519,52 @@
       "kanit": "Sınırlı"
     },
     {
-      "id": "mix_bas_1",
+      "id": "karisim-5",
       "gidalar": [
         "limon",
         "nane"
       ],
-      "sikayet_id": "bas_agrisi",
+      "sikayet_id": "bas-agrisi",
       "baslik": "Limon + Nane",
       "etki": "Doğrudan güçlü kanıt yoktur; ferahlık ve sıvı alımını destekleyebilir.",
       "kanit": "Bilinmiyor"
     },
     {
-      "id": "mix_bas_2",
+      "id": "karisim-6",
       "gidalar": [
-        "yesil_cay",
+        "yesil-cay",
         "limon"
       ],
-      "sikayet_id": "bas_agrisi",
+      "sikayet_id": "bas-agrisi",
       "baslik": "Yeşil Çay + Limon",
       "etki": "Kafein bazı kişilerde baş ağrısı algısını değiştirebilir; migren/uykusuzlukta ters etki yapabilir.",
       "kanit": "Bilinmiyor"
     },
     {
-      "id": "mix_bogaz_1",
+      "id": "karisim-7",
       "gidalar": [
         "ihlamur",
         "bal",
         "limon"
       ],
-      "sikayet_id": "bogaz_agrisi",
+      "sikayet_id": "bogaz-agrisi",
       "baslik": "Ihlamur + Bal + Limon",
       "etki": "Sıcak içecek, boğaz yumuşatma ve sıvı alımını destekleme amacıyla geleneksel kullanılır.",
       "kanit": "Geleneksel/Sınırlı"
     },
     {
-      "id": "mix_bogaz_2",
+      "id": "karisim-8",
       "gidalar": [
         "adacayi",
         "bal"
       ],
-      "sikayet_id": "bogaz_agrisi",
+      "sikayet_id": "bogaz-agrisi",
       "baslik": "Adaçayı + Bal",
       "etki": "Boğaz ferahlığı için geleneksel kullanım vardır; hamilelik/emzirme ve çocuklarda dikkat.",
       "kanit": "Geleneksel"
     },
     {
-      "id": "mix_oksuruk_1",
+      "id": "karisim-9",
       "gidalar": [
         "bal",
         "limon"
@@ -669,7 +575,7 @@
       "kanit": "Sınırlı"
     },
     {
-      "id": "mix_oksuruk_2",
+      "id": "karisim-10",
       "gidalar": [
         "ihlamur",
         "bal"
@@ -680,7 +586,7 @@
       "kanit": "Geleneksel"
     },
     {
-      "id": "mix_kabiz_1",
+      "id": "karisim-11",
       "gidalar": [
         "yulaf",
         "kefir",
@@ -692,7 +598,7 @@
       "kanit": "Sınırlı-Orta"
     },
     {
-      "id": "mix_kabiz_2",
+      "id": "karisim-12",
       "gidalar": [
         "elma",
         "yulaf"
@@ -703,7 +609,7 @@
       "kanit": "Orta"
     },
     {
-      "id": "mix_ishal_1",
+      "id": "karisim-13",
       "gidalar": [
         "muz",
         "yogurt"
@@ -714,7 +620,7 @@
       "kanit": "Genel besin"
     },
     {
-      "id": "mix_uyku_1",
+      "id": "karisim-14",
       "gidalar": [
         "papatya",
         "bal"
@@ -725,9 +631,9 @@
       "kanit": "Sınırlı/Geleneksel"
     },
     {
-      "id": "mix_yorgun_1",
+      "id": "karisim-15",
       "gidalar": [
-        "yesil_cay",
+        "yesil-cay",
         "badem"
       ],
       "sikayet_id": "yorgunluk",
@@ -736,36 +642,36 @@
       "kanit": "Genel besin"
     },
     {
-      "id": "mix_bagis_1",
+      "id": "karisim-16",
       "gidalar": [
         "limon",
         "zencefil",
         "bal"
       ],
-      "sikayet_id": "bagisiklik",
+      "sikayet_id": "bagisiklik-destegi",
       "baslik": "Limon + Zencefil + Bal",
       "etki": "C vitamini, sıcak içecek ve geleneksel rahatlatıcı kullanım sağlar; hastalık tedavisi değildir.",
       "kanit": "Geleneksel/Sınırlı"
     },
     {
-      "id": "mix_bagis_2",
+      "id": "karisim-17",
       "gidalar": [
         "brokoli",
-        "sarmisak",
+        "sarimsak",
         "yogurt"
       ],
-      "sikayet_id": "bagisiklik",
+      "sikayet_id": "bagisiklik-destegi",
       "baslik": "Brokoli + Sarımsak + Yoğurt",
       "etki": "Mikro besin, fermente gıda ve farklı fitokimyasal desteği olan beslenme kombinasyonudur.",
       "kanit": "Genel besin"
     },
     {
-      "id": "mix_nefes_1",
+      "id": "karisim-18",
       "gidalar": [
         "nane",
         "limon"
       ],
-      "sikayet_id": "nefes_sorunu",
+      "sikayet_id": "nefes-sorunu",
       "baslik": "Nane + Limon",
       "etki": "Nefes sorunu için öneri değildir. Bu belirti acil olabilir; tıbbi destek önceliklidir.",
       "kanit": "Uyarı"
