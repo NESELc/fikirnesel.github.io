@@ -36,21 +36,8 @@ a{color:inherit;text-decoration:none}
 main{padding-top:var(--ustH)}
 #layout{display:flex;gap:8px;padding:12px 16px;align-items:flex-start}
 #ortaAlan{flex:1;min-width:0}
-#solIcerik,#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
 #sagReklam{width:300px;position:sticky;top:calc(var(--ustH) + 8px)}
-#solIcerik{width:300px;position:sticky;top:calc(var(--ustH) + 8px);max-height:calc(100vh - var(--ustH) - 24px);overflow:auto;display:flex;flex-direction:column;gap:12px}
-#solIcerik .blok{font-size:13px;border:1px solid var(--line);border-radius:12px;background:#fff}
-#solIcerik details.blok{padding:0}
-#solIcerik details.blok>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700}
-#solIcerik details.blok>summary::-webkit-details-marker{display:none}
-#solIcerik details.blok>summary:after{content:"▾";float:right;color:var(--muted)}
-#solIcerik details.blok[open]>summary:after{content:"▴"}
-#solIcerik details.blok[open]>summary{border-bottom:1px solid var(--line)}
-#solIcerik .icerik{padding:0 12px 12px}
-#solIcerik .madde{padding:10px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;margin:10px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
-#solIcerik .madde b{display:block;margin:0 0 6px;font-size:13px;font-weight:600}
-#solIcerik .madde small{color:var(--muted);font-size:12px;line-height:1.4}
-#solIcerik .madde small:first-of-type{font-weight:700;color:#1d4ed8}
 .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
 .platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
 .platformlar li .acik{font-size:10px;color:#666}
@@ -107,12 +94,11 @@ main{padding-top:var(--ustH)}
 
 @media(max-width:1200px){
   #layout{flex-direction:column;padding:8px}
-  #solIcerik,#sagReklam{position:static;max-height:none;width:100%}
+  #sagReklam{position:static;max-height:none;width:100%}
   #ortaAlan{width:100%}
   .platform-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
     #ortaAlan{order:1;width:100%;max-width:none}
-#solIcerik{order:2}
-#sagReklam{order:3}
+#sagReklam{order:2}
 }
 @media(max-width:768px){
   #menu{display:none}
@@ -124,8 +110,7 @@ main{padding-top:var(--ustH)}
   .sayfa-baslik h1{font-size:17px}
   .platform-grid{grid-template-columns:1fr 1fr}
   #ortaAlan{order:1;width:100%;max-width:none}
-#solIcerik{order:2}
-#sagReklam{order:3}
+  #sagReklam{order:2}
 }
 </style>
 </head>
@@ -163,30 +148,27 @@ main{padding-top:var(--ustH)}
 
 <main>
   <div id="layout">
-    <aside id="solIcerik">
-      <div class="blok" style="padding:14px">
-        <h2 style="font-size:14px;margin:0 0 8px">NESEL Bilgi Merkezi</h2>
-        <p style="font-size:13px;color:var(--muted);margin:0">Sıfır araç fiyatları, döviz, vergi dilimleri ve abonelik ücretleri tek ekranda.</p>
-      </div>
-      <div data-include="/inc/kampanyalar.html"></div>
-      <div data-include="/inc/platformlar.html"></div>
-      <div data-include="/inc/dovizs.html"></div>
-      <div data-include="/inc/ankaras.html"></div>
-      <div data-include="/inc/elektriks.html"></div>
-      <div class="blok" style="padding:12px">
-        <p style="font-size:12px;color:var(--muted);margin:0">Sayfada yer alan fiyat ve kampanyalar bilgilendirme amaçlıdır; resmi kaynaklar esas alınmalıdır.</p>
-      </div>
-      <div id="fbk"><div class="fbkbtn"><span data-v="1">👍</span><span data-v="0">👎</span></div><textarea placeholder="Kısaca belirtir misin?"></textarea><button type="button">Gönder</button></div>
-    </aside>
-
     <section id="ortaAlan">
       <div id="icerik">
         <!-- AÇIKLAMA -->
         <div class="aciklama-kart">
           <h2>Dijital Platform Abonelikleri Hakkında</h2>
-          <p>Türkiye'de dijital platform abonelik pazarı son yıllarda hızla büyümektedir. Netflix, Disney+, Amazon Prime Video ve yerli platformlar olan Exxen, Gain ve Tabii gibi hizmetler milyonlarca kullanıcıya ulaşmaktadır. Müzik alanında ise Spotify, YouTube Music ve Apple Music öne çıkan seçenekler arasında yer almaktadır.</p>
-          <p>Her platformun birden fazla abonelik planı bulunmaktadır. Örneğin Netflix; reklamsız standart, standart ve premium olmak üzere üç farklı plan sunmaktadır. Spotify ise bireysel, aile ve öğrenci planlarıyla farklı ihtiyaçlara yönelik seçenekler sunmaktadır. Yapay zeka alanında ise ChatGPT Plus ve Grok gibi platformlar hızla popüler hale gelmektedir.</p>
           <p>Aşağıdaki tabloda yer alan fiyatlar, ilgili platformların Türkiye'deki resmi web sitelerinden alınmaktadır ve düzenli olarak güncellenmektedir. Fiyatlar Türk Lirası cinsinden belirtilmiş olup platform tarafından değiştirilebilir.</p>
+        </div>
+
+                <!-- CANLI TABLO -->
+        <div>
+          <div class="bolum-baslik">💰 Güncel Fiyat Tablosu</div>
+          <div id="ustBara">
+            <div id="label">Güncel Platform Abonelik Ücretleri</div>
+            <span style="font-size:11px;color:var(--muted)">Otomatik güncellenir</span>
+          </div>
+          <div id="aboneWrap"><div id="abonelik-tablo" style="padding:16px;color:var(--muted);font-size:13px">Fiyatlar yükleniyor...</div></div>
+          <div class="bilgilendirme">
+            * Fiyatlar resmi platform web sitelerinden derlenmiştir ve yalnızca bilgilendirme amaçlıdır.<br>
+            * Güncel ve kesin fiyat için ilgili platformun resmi kanalını ziyaret ediniz.<br>
+            * Tablodaki fiyatlar sadeleştirme amacıyla kuruş gösterilmeden sunulmuştur.
+          </div>
         </div>
 
         <!-- PLATFORM KARTLARI -->
@@ -256,20 +238,7 @@ main{padding-top:var(--ustH)}
           </div>
         </div>
 
-        <!-- CANLI TABLO -->
-        <div>
-          <div class="bolum-baslik">💰 Güncel Fiyat Tablosu</div>
-          <div id="ustBara">
-            <div id="label">Güncel Platform Abonelik Ücretleri</div>
-            <span style="font-size:11px;color:var(--muted)">Otomatik güncellenir</span>
-          </div>
-          <div id="aboneWrap"><div id="abonelik-tablo" style="padding:16px;color:var(--muted);font-size:13px">Fiyatlar yükleniyor...</div></div>
-          <div class="bilgilendirme">
-            * Fiyatlar resmi platform web sitelerinden derlenmiştir ve yalnızca bilgilendirme amaçlıdır.<br>
-            * Güncel ve kesin fiyat için ilgili platformun resmi kanalını ziyaret ediniz.<br>
-            * Tablodaki fiyatlar sadeleştirme amacıyla kuruş gösterilmeden sunulmuştur.
-          </div>
-        </div>
+
 
         <!-- NASIL SEÇİLİR -->
         <div class="aciklama-kart">
