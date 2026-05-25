@@ -35,8 +35,8 @@ main{padding-top:var(--ustH)}
 #gidalarApp{position:relative;font-family:Comic Sans MS;width:100%;max-width:100%;font-size:13px}
 #ustBara{position:sticky;top:0;z-index:50;background:#eee;padding:10px;border-bottom:1px solid #ddd;border-radius:10px 10px 0 0}
 .filtreKullanim{margin:0 0 10px;padding:8px 10px;background:#f5f7fb;border:1px solid #dbe3f0;border-radius:10px;font-size:13px;line-height:1.5;color:var(--muted)}
-.gidaHero{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
-.gidaHero h1{font-size:18px;margin:0 0 6px}.gidaHero p{margin:0;color:#374151;line-height:1.5}
+
+
 .gidaUyari{margin-top:8px;background:#fff7e6;border:1px solid #f0d9a8;border-radius:10px;padding:8px;color:#5f4300;font-size:12px;line-height:1.45}
 .gidaFiltre{display:flex;flex-wrap:wrap;gap:6px;align-items:end;margin-bottom:1px}
 .gidaFiltre label{font-weight:bold;display:flex;flex-direction:column;font-size:13px;min-width:120px}
@@ -55,7 +55,15 @@ main{padding-top:var(--ustH)}
 .gidaWarn{margin-top:8px;background:#fff1f0;border-radius:10px;padding:8px;color:#7a1d16;font-size:12px}
 .gidaSrc{font-size:11px;color:var(--muted);margin-top:8px}
 .gidaEmpty{padding:18px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px}
-.gidaKarisim{margin-top:8px}.status{font-weight:700}.karisimGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:8px}.karisimKart{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.04)}.karisimKart b{display:block;margin-bottom:6px}.karisimKart p{font-size:13px;color:#374151;line-height:1.5;margin:0 0 8px}.karisimKart small{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}.karisimKart button{font-family:Comic Sans MS;border:1px solid #bbb;border-radius:8px;background:#eee;padding:5px 9px;cursor:pointer}.karisimKart button:hover{background:#e0ecff;border-color:#bfdbfe;color:#1d4ed8}.bilgilendirme{margin-top:8px;font-size:12px;line-height:1.55;color:#374151;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+.gidaKarisim{margin-top:8px}.status{font-weight:700}
+.karisimGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:8px}
+.karisimKart{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+.karisimKart b{display:block;margin-bottom:6px}
+.karisimKart p{font-size:13px;color:#374151;line-height:1.5;margin:0 0 8px}
+.karisimKart small{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}
+.karisimKart button{font-family:Comic Sans MS;border:1px solid #bbb;border-radius:8px;background:#eee;padding:5px 9px;cursor:pointer}
+.karisimKart button:hover{background:#e0ecff;border-color:#bfdbfe;color:#1d4ed8}
+.bilgilendirme{margin-top:8px;font-size:12px;line-height:1.55;color:#374151;background:#E0E0E0;border:1px solid var(--line);border-radius:12px;padding:10px}
 @media(max-width:1200px){
   #layout{flex-direction:column;align-items:stretch}
   #sagReklam{position:static;max-height:none;width:100%}
@@ -76,7 +84,6 @@ main{padding-top:var(--ustH)}
   .gidaFiltre select,.gidaFiltre input{width:100%}
   .gidaBtn{width:100%}
   #gidalarWrap{max-height:none;overflow:visible}
-  .gidaHero h1{font-size:16px}}
 .logoWrap{display:inline-block}
 </style>
 </head>
@@ -89,10 +96,9 @@ main{padding-top:var(--ustH)}
 </header>
 <main><div id="layout">
     <section id="ortaAlan"><div class="frameWrap"><div class="frameBox"><div id="gidalarApp">
-    <div id="ustBara"><div class="gidaHero">
-      <h1>Bitki, Sebze ve Meyve İçerik Rehberi</h1>
-      <div class="gidaUyari"><b>Uyarı:</b> Bilgilendirme amaçlıdır; tanı, tedavi veya ilaç önerisi değildir. Kronik hastalık, ilaç kullanımı, 
-        hamilelik/emzirme veya ciddi belirti varsa doktora danışınız.</div></div>
+    <div id="ustBara">
+      <div class="filtreKullanim">Bilgilendirme amaçlıdır; tanı, tedavi veya ilaç önerisi değildir. Kronik hastalık, ilaç kullanımı, 
+        hamilelik/emzirme veya ciddi belirti varsa doktora danışınız.</div>
        <div class="gidaFiltre">
         <label>Şikayet:<select id="complaint"><option value="">Şikayet seç</option></select>
       </label><label>Manuel şikayet:<input id="manual" placeholder="Örn: boğaz yanması"></label><label>Gıda 1:<select id="food1"><option value="">Gıda seç</option></select></label><label>Gıda 2:<select id="food2"><option value="">Gıda seç</option></select></label><label>Gıda 3:<select id="food3"><option value="">Gıda seç</option></select></label><button class="gidaBtn ana" onclick="render()">Ara</button><button class="gidaBtn" onclick="clearAll()">Temizle</button></div>
