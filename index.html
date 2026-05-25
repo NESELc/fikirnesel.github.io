@@ -114,9 +114,10 @@ main{padding-top:var(--ustH)}
 .bilgi-kutu p:last-child{margin:0}
 
 @media(max-width:1200px){
-  #layout{flex-direction:column;padding:8px}
+  #layout{flex-direction:column;align-items:stretch}
   #sagReklam{position:static;max-height:none;width:100%}
-  #ortaAlan{width:100%}
+  #ortaAlan{order:1;width:100%;max-width:none}
+  #sagReklam{order:2}
   .iki-sutun{grid-template-columns:1fr}
 }
 @media(max-width:768px){
