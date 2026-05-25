@@ -57,17 +57,17 @@ main{padding-top:var(--ustH)}
               display:flex;align-items:center;gap:8px;font-family:Comic Sans MS}
 .bolum-baslik::after{content:'';flex:1;height:1px;background:var(--line)}
 
-.aciklama-kart{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;font-family:Comic Sans MS}
-.aciklama-kart h2{font-size:15px;font-weight:700;margin:0 0 12px;color:var(--txt)}
-.aciklama-kart p{font-size:14px;line-height:1.75;color:#374151;margin:0 0 10px}
+.aciklama-kart{background:#eeeeee;border:1px solid var(--line);border-radius:14px;padding:20px;font-family:Comic Sans MS}
+.aciklama-kart h2{font-size:13px;font-weight:600;margin:0 0 12px;color:var(--txt)}
+.aciklama-kart p{font-size:13px;line-height:1.75;color:#374151;margin:0 0 10px}
 .aciklama-kart p:last-child{margin:0}
 
 .platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;font-family:Comic Sans MS}
-.platform-kart{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;transition:box-shadow .2s,border-color .2s}
+.platform-kart{background:#eeeeee;border:1px solid var(--line);border-radius:12px;padding:14px;transition:box-shadow .2s,border-color .2s}
 .platform-kart:hover{box-shadow:0 4px 16px rgba(0,0,0,.07);border-color:#cbd5e1}
 .platform-kart-ust{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .platform-icon{font-size:22px;width:36px;text-align:center}
-.platform-kart h3{font-size:13px;font-weight:700;margin:0}
+.platform-kart h3{font-size:13px;font-weight:600;margin:0}
 .platform-kart .kategori{font-size:11px;color:var(--muted);margin:0}
 .platform-kart p{font-size:12px;color:#4b5563;line-height:1.55;margin:0 0 8px}
 .platform-kart p:last-child{margin:0}
@@ -75,9 +75,6 @@ main{padding-top:var(--ustH)}
 
 .uyari-kutu{background:#fefce8;border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:13px;color:#713f12;line-height:1.6;font-family:Comic Sans MS}
 .uyari-kutu strong{color:#92400e}
-
-.adsense-block{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;min-height:90px}
-.adsense-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 
 /* Canlı tablo */
 #ustBara{background:#fff;border:1px solid var(--line);border-radius:12px 12px 0 0;padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
@@ -153,7 +150,8 @@ main{padding-top:var(--ustH)}
         <!-- AÇIKLAMA -->
         <div class="aciklama-kart">
           <h2>Dijital Platform Abonelikleri Hakkında</h2>
-          <p>Aşağıdaki tabloda yer alan fiyatlar, ilgili platformların Türkiye'deki resmi web sitelerinden alınmaktadır ve düzenli olarak güncellenmektedir. Fiyatlar Türk Lirası cinsinden belirtilmiş olup platform tarafından değiştirilebilir.</p>
+          <p>Tablodaki fiyatlar platformların Türkiye'deki resmi web sitelerinden alınmaktadır. 
+            Abone olmadan önce güncel fiyatlar için resmi web sitelerini ziyaret etmeyi unutmayınız.</p>
         </div>
 
                 <!-- CANLI TABLO -->
@@ -170,90 +168,7 @@ main{padding-top:var(--ustH)}
             * Tablodaki fiyatlar sadeleştirme amacıyla kuruş gösterilmeden sunulmuştur.
           </div>
         </div>
-
-        <!-- PLATFORM KARTLARI -->
-        <div>
-          <div class="bolum-baslik">🔍 Platformlara Genel Bakış</div>
-          <div class="platform-grid">
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🎬</span><div><h3>Netflix</h3><p class="kategori">Dizi & Film</p></div></div>
-              <p>Dünya genelinde en fazla içeriğe sahip platformlardan biri. Türkiye'ye özel Türk yapımları ve orijinal içerikleriyle dikkat çekmektedir.</p>
-              <span class="fiyat-etiket">3 Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🏰</span><div><h3>Disney+</h3><p class="kategori">Dizi & Film</p></div></div>
-              <p>Marvel, Star Wars, Pixar ve Disney'in dev arşivini barındıran platform. Çocuk ve aile içerikleriyle öne çıkmaktadır.</p>
-              <span class="fiyat-etiket">2 Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🎵</span><div><h3>Spotify</h3><p class="kategori">Müzik & Podcast</p></div></div>
-              <p>200 milyonun üzerinde parça ve milyonlarca podcast ile dünyanın en büyük müzik akış platformu.</p>
-              <span class="fiyat-etiket">Bireysel & Aile</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">▶️</span><div><h3>YouTube Premium</h3><p class="kategori">Video & Müzik</p></div></div>
-              <p>Reklamsız YouTube deneyimi ve YouTube Music erişimini bir arada sunan Google'ın abonelik hizmeti.</p>
-              <span class="fiyat-etiket">Bireysel & Aile</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🤖</span><div><h3>ChatGPT Plus</h3><p class="kategori">Yapay Zeka</p></div></div>
-              <p>OpenAI'ın gelişmiş yapay zeka modeline öncelikli erişim ve DALL-E görsel üretimi sunan abonelik planı.</p>
-              <span class="fiyat-etiket">Aylık Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">📦</span><div><h3>Amazon Prime</h3><p class="kategori">Video & Alışveriş</p></div></div>
-              <p>Prime Video içerikleri ve Amazon alışveriş ayrıcalıklarını birleştiren paket abonelik hizmeti.</p>
-              <span class="fiyat-etiket">Aylık & Yıllık</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">☁️</span><div><h3>Apple iCloud</h3><p class="kategori">Bulut Depolama</p></div></div>
-              <p>Apple cihazlar için fotoğraf, belge ve yedekleme çözümü. 50GB'tan 2TB'a farklı depolama seçenekleri sunar.</p>
-              <span class="fiyat-etiket">3 Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">📺</span><div><h3>Exxen</h3><p class="kategori">Yerli Dizi & Film</p></div></div>
-              <p>Acun Medya'nın dijital yayın platformu. Survivor, Big Brother gibi popüler formatların yanı sıra özgün yapımlar barındırır.</p>
-              <span class="fiyat-etiket">2 Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🎭</span><div><h3>Max (HBO)</h3><p class="kategori">Dizi & Film</p></div></div>
-              <p>HBO'nun prestijli dizileri, Warner Bros. yapımları ve DC evrenini bir araya getiren premium içerik platformu.</p>
-              <span class="fiyat-etiket">2 Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🌙</span><div><h3>Mubi</h3><p class="kategori">Sinema</p></div></div>
-              <p>Sanat sineması ve festival filmlerine odaklanan seçici küratörlük anlayışıyla sinema severler için özel bir platform.</p>
-              <span class="fiyat-etiket">Aylık Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">🏡</span><div><h3>Tabii</h3><p class="kategori">Türk Yapımları</p></div></div>
-              <p>Türk televizyon yapımcılarının bir araya geldiği yerli içerik platformu. Dizi ve filmler Türkçe orijinal içerikle sunulmaktadır.</p>
-              <span class="fiyat-etiket">Aylık Plan</span>
-            </div>
-            <div class="platform-kart">
-              <div class="platform-kart-ust"><span class="platform-icon">📡</span><div><h3>Gain</h3><p class="kategori">Dijital TV</p></div></div>
-              <p>Doğan Grubu'nun dijital yayın platformu. Habertürk, CNN Türk gibi kanalların yanı sıra özgün yapımlar da yayınlanmaktadır.</p>
-              <span class="fiyat-etiket">Aylık Plan</span>
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- NASIL SEÇİLİR -->
-        <div class="aciklama-kart">
-          <h2>Hangi Platform Aboneliği Size Uygun?</h2>
-          <p>Dijital platform seçimi büyük ölçüde izleme alışkanlıklarınıza ve bütçenize göre şekillenir. Dizi ve film içeriklerine odaklanıyorsanız Netflix ve Disney+ en zengin kütüphanelere sahip platformlardır. Yerli içerikleri tercih ediyorsanız Exxen ve Gain yerli yapımlar açısından öne çıkmaktadır.</p>
-          <p>Müzik için Spotify, geniş içerik kütüphanesi ve kişiselleştirilmiş önerileriyle öne çıkan seçenektir. YouTube Premium ise hem müzik hem de video içerikleri için reklamsız bir deneyim arayanlar için uygundur. Apple kullanıcıları için iCloud depolama aboneliği cihazlar arası veri senkronizasyonu açısından pratik bir çözüm sunmaktadır.</p>
-          <p>Yapay zeka araçlarına ilgi duyuyorsanız ChatGPT Plus ve Grok abonelikleri, gelişmiş dil modeli erişimi ve özel özellikler sunmaktadır. Birden fazla platforma abone olmayı planlıyorsanız aile planları genellikle kişi başı maliyeti önemli ölçüde düşürmektedir.</p>
-        </div>
-
-        <!-- UYARI -->
-        <div class="uyari-kutu">
-          <strong>⚠️ Önemli Not:</strong> Bu sayfadaki fiyatlar ilgili platformların Türkiye'deki resmi fiyatlarından derlenmektedir. Platform şirketleri fiyatlarını herhangi bir zamanda değiştirebilir. Kesin ve güncel fiyat için abonelik işlemi öncesinde ilgili platformun resmi web sitesini ziyaret etmenizi öneririz.
-        </div>
-
-      </div>
+     </div>
     </section>
 
     <aside id="sagReklam">
