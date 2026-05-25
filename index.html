@@ -83,7 +83,7 @@ main{padding-top:var(--ustH)}
 .ozellik-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:14px;font-family:Comic Sans MS}
 .ozellik-item{background:var(--bg);border-radius:10px;padding:10px 12px;border:1px solid var(--line)}
 .ozellik-item .etiket{font-size:11px;color:var(--muted);margin-bottom:4px}
-.ozellik-item .deger{font-size:13px;font-weight:700;color:var(--txt)}
+.ozellik-item .deger{font-size:11px;font-weight:600;color:var(--txt)}
 
 /* İki sütun grid */
 .iki-sutun{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -107,9 +107,9 @@ main{padding-top:var(--ustH)}
 .platform-mini-row .fiyat{color:#1d4ed8;font-weight:700;font-size:12px}
 
 /* Bilgi kutusu */
-.bilgi-kutu{background:#eeeeee;border:1px solid var(--line);border-radius:14px;padding:20px}
-.bilgi-kutu h3{font-size:15px;font-weight:700;margin:0 0 10px}
-.bilgi-kutu p{font-size:14px;color:#374151;line-height:1.7;margin:0 0 8px}
+.bilgi-kutu{background:#eeeeee;border:1px solid var(--line);border-radius:14px;padding:20px;font-family:Comic Sans MS}
+.bilgi-kutu h3{font-size:13px;font-weight:600;margin:0 0 10px}
+.bilgi-kutu p{font-size:13px;color:#374151;line-height:1.7;margin:0 0 8px}
 .bilgi-kutu p:last-child{margin:0}
 
 @media(max-width:1200px){
@@ -188,12 +188,14 @@ main{padding-top:var(--ustH)}
               <a href="/sifiraraclar.html" class="arac-kart-btn">Listeye Git →</a>
             </div>
             <div class="arac-kart-body">
-              <p>Türkiye'de satışa sunulan sıfır araçların güncel fiyatlarını marka, segment, yakıt türü ve vites tipine göre filtreleyerek kolayca karşılaştırabilirsiniz. Liste; Renault, Volkswagen, Toyota, BMW, Mercedes-Benz, Hyundai, Kia, Fiat, Ford ve çok daha fazla markayı kapsamaktadır.</p>
-              <p>Her araç için liste fiyatının yanı sıra mevcut kampanya fiyatları da gösterilmektedir. Kredi kampanyaları, takas indirimleri ve özel teklifler ayrıca işaretlenmektedir. Fiyatlar resmi bayii kaynakları ve marka web siteleri baz alınarak güncellenmektedir.</p>
+              <p>Türkiye'de satışa sunulan sıfır araçların güncel fiyatlarını marka,model, segment, yakıt türü ve vites tipine göre filtreleyerek kolayca 
+                inceleyebilirsiniz.</p>
+              <p>Her araç için liste fiyatının yanı sıra mevcut kampanya fiyatları da gösterilmektedir. Fiyatlar resmi bayii kaynakları ve marka web siteleri 
+                baz alınarak güncellenmektedir.</p>
             </div>
             <div class="ozellik-grid">
               <div class="ozellik-item"><div class="etiket">Marka Sayısı</div><div class="deger">39</div></div>
-              <div class="ozellik-item"><div class="etiket">Filtreleme</div><div class="deger">Marka, Segment, Yakıt,Vites,Fiyat</div></div>
+              <div class="ozellik-item"><div class="etiket">Filtreleme</div><div class="deger">Marka,Model, Segment,Sınıf Yakıt,Vites,Fiyat</div></div>
               <div class="ozellik-item"><div class="etiket">Kampanyalar</div><div class="deger">✓ Gösteriliyor</div></div>
               <div class="ozellik-item"><div class="etiket">Güncelleme</div><div class="deger">Aylık</div></div>
             </div>
@@ -211,8 +213,7 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon ic-bg-kirmizi">📺</div>
                 <h3>Platform Abonelik Ücretleri</h3>
               </div>
-              <p>Netflix, Disney+, Spotify, YouTube Premium, ChatGPT, Amazon Prime ve Türkiye'deki tüm dijital platformların güncel aylık abonelik ücretleri 
-                tek sayfada karşılaştırmalı olarak sunulmaktadır.</p>
+              <p>Türkiye'deki popüler dijital platformların güncel aylık abonelik ücretlerini tek sayfada bulabilirsiniz.</p>
               <br>
               <a href="/platformucretleri.html" class="kucuk-kart-link">Tüm platformları gör →</a>
             </div>
@@ -242,7 +243,8 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon ic-bg-mor">📊</div>
                 <h3>Gelir Vergisi Dilimleri</h3>
               </div>
-              <p>Türkiye'deki güncel gelir vergisi dilimlerini ve oranlarını kolayca öğrenebilirsiniz. Aylık veya yıllık gelirinize göre hangi vergi dilimine girdiğinizi hesaplayabilirsiniz.</p>
+              <p>Türkiye'deki güncel gelir vergisi dilimlerini ve oranlarını kolayca öğrenebilirsiniz. 
+                Aylık veya yıllık gelirinize göre hangi vergi dilimine girdiğinizi hesaplayabilirsiniz.</p>
               <p style="font-size:12px;color:var(--muted)">Ücretli çalışanlar ve serbest meslek sahipleri için ayrı dilim bilgileri sunulmaktadır. Güncel yasal düzenlemelere göre hazırlanmıştır.</p>
               <a href="/gelirvergisi.html" class="kucuk-kart-link">Vergi dilimlerini gör →</a>
             </div>
@@ -273,8 +275,7 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon" style="background:#fef9c3">🏛️</div>
                 <h3>Ankara Rehberi</h3>
               </div>
-              <p>Türkiye'nin başkenti Ankara'ya dair tarihi mekânlar, gezilecek yerler ve pratik bilgiler. 
-                Ankara Kalesi'nden Anıtkabir'e, Hamamönü'nden Kızılay'a şehrin öne çıkan noktaları.</p>
+              <p>Türkiye'nin başkenti Ankara'ya dair tarihi mekânlar ve gezilecek yerleri bulabilirsiniz.</p>
               <p style="font-size:12px;color:var(--muted)">Bu mekanların harita üzerindeki yerlerine tek tıklama ile gidebilirsiniz.</p>
               <a href="/ankara.html" class="kucuk-kart-link">Ankara'yı keşfet →</a>
             </div>
