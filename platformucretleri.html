@@ -50,16 +50,13 @@ main{padding-top:var(--ustH)}
 .fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
 #mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:13px;max-width:220px}
 .logoWrap{display:inline-block}
+.filtreKullanim{margin:0 0 10px;padding:8px 10px;background:#f5f7fb;border:1px solid #dbe3f0;border-radius:10px;font-size:13px;line-height:1.5;color:var(--muted)}
 
 /* ─── İÇERİK ─── */
 #icerik{display:flex;flex-direction:column;gap:16px}
 .bolum-baslik{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:4px 0 10px;
               display:flex;align-items:center;gap:8px;font-family:Comic Sans MS}
 .bolum-baslik::after{content:'';flex:1;height:1px;background:var(--line)}
-
-.aciklama-kart{background:#f5f7fb;border:1px solid var(--line);border-radius:14px;padding:5px;font-family:Comic Sans MS}
-.aciklama-kart p{font-size:13px}
-.aciklama-kart p:last-child{margin:0}
 
 /* Canlı tablo */
 #ustBara{background:#eeeeee;border:1px solid var(--line);border-radius:12px 12px 0 0;padding:10px 14px;display:flex;flex-direction:column;gap:12px;align-items:center;
@@ -138,11 +135,8 @@ main{padding-top:var(--ustH)}
 
         <div>
           <div id="ustBara">
-              <div class="aciklama-kart">
-                <p>Tablodaki fiyatlar platformların Türkiye'deki resmi web sitelerinden alınmaktadır. 
-                Abone olmadan önce güncel fiyatlar için resmi web sitelerini ziyaret etmeyi unutmayınız.</p>
-              </div>
-              <div id="label">Güncel Platform Abonelik Ücretleri</div>
+            <div class="filtreKullanim">Tablodaki fiyatlar platformların Türkiye'deki resmi web sitelerinden alınmaktadır. 
+              Abone olmadan önce güncel fiyatlar için resmi web sitelerini ziyaret etmeyi unutmayınız.</div>
             
           </div>
           <div id="aboneWrap"><div id="abonelik-tablo" style="padding:16px;color:var(--muted);font-size:13px">Fiyatlar yükleniyor...</div></div>
