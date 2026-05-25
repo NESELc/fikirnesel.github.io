@@ -55,13 +55,11 @@ main{padding-top:var(--ustH)}
 /* ─── İÇERİK ─── */
 #icerik{display:flex;flex-direction:column;gap:16px}
 .bolum-baslik{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:4px 0 10px;
-              display:flex;align-items:center;gap:8px;font-family:Comic Sans MS}
+              display:flex;gap:8px;font-family:Comic Sans MS}
 .bolum-baslik::after{content:'';flex:1;height:1px;background:var(--line)}
 
 /* Canlı tablo */
-#ustBara{background:#eeeeee;border:1px solid var(--line);border-radius:12px 12px 0 0;padding:10px 14px;display:flex;flex-direction:column;gap:12px;align-items:center;
-         justify-content:space-between}
-#label{font-family:Comic Sans MS;font-size:13px;font-weight:bold;display:block}
+#ustBara{position:sticky;top:0;z-index:50;background:#EEEEEE;padding:10px;border-bottom:1px solid #ddd}
 #aboneWrap{background:#eeeeee;border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;overflow:auto}
 .abonelik-tablo{font-family:Comic Sans MS;font-size:13px;width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;}
 .abonelik-tablo col.c1{width:20%}.abonelik-tablo col.c2{width:20%}.abonelik-tablo col.c3{width:10%}.abonelik-tablo col.c4{width:50%}
