@@ -62,20 +62,6 @@ main{padding-top:var(--ustH)}
 .aciklama-kart p{font-size:13px;line-height:1.75;color:#374151;margin:0 0 10px}
 .aciklama-kart p:last-child{margin:0}
 
-.platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;font-family:Comic Sans MS}
-.platform-kart{background:#eeeeee;border:1px solid var(--line);border-radius:12px;padding:14px;transition:box-shadow .2s,border-color .2s}
-.platform-kart:hover{box-shadow:0 4px 16px rgba(0,0,0,.07);border-color:#cbd5e1}
-.platform-kart-ust{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.platform-icon{font-size:22px;width:36px;text-align:center}
-.platform-kart h3{font-size:13px;font-weight:600;margin:0}
-.platform-kart .kategori{font-size:11px;color:var(--muted);margin:0}
-.platform-kart p{font-size:12px;color:#4b5563;line-height:1.55;margin:0 0 8px}
-.platform-kart p:last-child{margin:0}
-.platform-kart .fiyat-etiket{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--accent-bg);color:#1d4ed8;display:inline-block}
-
-.uyari-kutu{background:#fefce8;border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:13px;color:#713f12;line-height:1.6;font-family:Comic Sans MS}
-.uyari-kutu strong{color:#92400e}
-
 /* Canlı tablo */
 #ustBara{background:#fff;border:1px solid var(--line);border-radius:12px 12px 0 0;padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
 #label{font-family:Comic Sans MS;font-size:13px;font-weight:bold}
@@ -156,10 +142,8 @@ main{padding-top:var(--ustH)}
 
                 <!-- CANLI TABLO -->
         <div>
-          <div class="bolum-baslik">💰 Güncel Fiyat Tablosu</div>
           <div id="ustBara">
             <div id="label">Güncel Platform Abonelik Ücretleri</div>
-            <span style="font-size:11px;color:var(--muted)">Otomatik güncellenir</span>
           </div>
           <div id="aboneWrap"><div id="abonelik-tablo" style="padding:16px;color:var(--muted);font-size:13px">Fiyatlar yükleniyor...</div></div>
           <div class="bilgilendirme">
