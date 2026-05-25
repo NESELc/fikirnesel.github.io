@@ -45,7 +45,7 @@ main{padding-top:var(--ustH)}
 .gidaBtn.ana{background:#e0ecff;border-color:#bfdbfe;color:#1d4ed8;font-weight:700}
 #gidalarWrap{position:relative;top:0;overflow:auto;padding:8px 1px;max-height:calc(100vh - var(--ustHa) - 110px)}
 .gidaOzet{display:grid;grid-template-columns:1.2fr .8fr;gap:8px;margin-bottom:8px}
-.gidaBox,.gidaKarisim{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.gidaBox,.gidaKarisim{background:#E0E0E0;border:1px solid var(--line);border-radius:12px;padding:12px}
 .gidaBox h2,.gidaBox h3,.gidaKarisim h2,.gidaKarisim h3{font-size:15px;margin:0 0 8px}
 .pill{display:inline-flex;margin:3px 5px 3px 0;padding:5px 8px;border-radius:999px;background:var(--accent-bg);font-size:12px}
 .gidaKartlar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
@@ -57,7 +57,7 @@ main{padding-top:var(--ustH)}
 .gidaEmpty{padding:18px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px}
 .gidaKarisim{margin-top:8px}.status{font-weight:700}
 .karisimGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:8px}
-.karisimKart{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+.karisimKart{background:#E0E0E0;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
 .karisimKart b{display:block;margin-bottom:6px}
 .karisimKart p{font-size:13px;color:#374151;line-height:1.5;margin:0 0 8px}
 .karisimKart small{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}
@@ -102,7 +102,25 @@ main{padding-top:var(--ustH)}
        <div class="gidaFiltre">
         <label>Şikayet:<select id="complaint"><option value="">Şikayet seç</option></select>
       </label><label>Manuel şikayet:<input id="manual" placeholder="Örn: boğaz yanması"></label><label>Gıda 1:<select id="food1"><option value="">Gıda seç</option></select></label><label>Gıda 2:<select id="food2"><option value="">Gıda seç</option></select></label><label>Gıda 3:<select id="food3"><option value="">Gıda seç</option></select></label><button class="gidaBtn ana" onclick="render()">Ara</button><button class="gidaBtn" onclick="clearAll()">Temizle</button></div>
-    </div><div id="gidalarWrap"><div class="gidaOzet"><div class="gidaBox"><h2>Seçim Özeti</h2><div id="chosen"></div></div><div class="gidaBox"><h3>Şikayet Uyarısı</h3><div id="warning">Şikayet seçilmedi.</div></div></div><section id="mixSuggestions" class="gidaKarisim"></section><section id="cards" class="gidaKartlar"></section><section id="mix" class="gidaKarisim"></section><div class="bilgilendirme">* Bu sayfada yer alan bilgiler kamuya açık sağlık ve beslenme kaynaklarından derlenmiş genel bilgilerdir.<br>* Gıdalar ilaç yerine geçmez; nefes darlığı, ani/şiddetli baş ağrısı, alerjik reaksiyon gibi ciddi belirtilerde acil sağlık desteği alınmalıdır.<br>* İlaç kullanımı, hamilelik, emzirme ve kronik hastalık durumlarında etkileşim riski için sağlık profesyoneline danışılmalıdır.</div></div>
+    </div><div id="gidalarWrap">
+      <div class="gidaOzet">
+        <div class="gidaBox">
+          <h2>Seçim Özeti</h2>
+          <div id="chosen"></div>
+        </div>
+        <div class="gidaBox">
+          <h3>Şikayet Uyarısı</h3>
+          <div id="warning">Şikayet seçilmedi.</div>
+        </div>
+      </div>
+      <section id="mixSuggestions" class="gidaKarisim"></section>
+      <section id="cards" class="gidaKartlar"></section>
+      <section id="mix" class="gidaKarisim"></section>
+      <div class="bilgilendirme">* Bu sayfada yer alan bilgiler kamuya açık sağlık ve beslenme kaynaklarından derlenmiş genel bilgilerdir.<br>
+        * Gıdalar ilaç yerine geçmez; nefes darlığı, ani/şiddetli baş ağrısı, alerjik reaksiyon gibi ciddi belirtilerde acil sağlık desteği alınmalıdır.<br>
+        * İlaç kullanımı, hamilelik, emzirme ve kronik hastalık durumlarında etkileşim riski için sağlık profesyoneline danışılmalıdır.
+      </div>
+    </div>
   </div></div></div></section>
   
   <aside id="sagReklam"><ins class="adsbygoogle" style="display:block;width:100%;height:600px" data-ad-client="ca-pub-1268402107177386" data-ad-slot="2157595670"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>
