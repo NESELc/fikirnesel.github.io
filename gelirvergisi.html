@@ -137,6 +137,18 @@ main{padding-top:var(--ustH)}
 			  Türkiye'de gelir vergisi, artan oranlı dilim sistemiyle uygulanmaktadır. Bu sistemde geliriniz arttıkça, aşan kısım için daha yüksek vergi oranı 
 			  uygulanır.</p>
         </div>
+		  <section class="hesapKart">
+  <h2>Brütten Nete Maaş Hesaplama</h2>
+  <p>Brüt maaş, prim ve kümülatif vergi matrahına göre yaklaşık net maaşı hesaplayın.</p>
+  <div class="formGrid">
+    <label>Brüt Maaş<input id="brut" type="number" value="33030"></label>
+    <label>Brüt Prim / Bonus<input id="prim" type="number" value="0"></label>
+    <label>Devreden Kümülatif Matrah<input id="devreden" type="number" value="0"></label>
+    <label>Diğer Net Kesinti<input id="netKesinti" type="number" value="0"></label>
+  </div>
+  <button onclick="maasHesapla()">Hesapla</button>
+  <div id="maasSonuc" class="sonucKutusu"></div>
+</section>
 
         <!-- 2026 TABLO -->
         <div>
@@ -274,6 +286,16 @@ function setUstH(){const u=document.getElementById("ustBar");if(!u)return;docume
 window.addEventListener("resize",setUstH);setUstH();
 (()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 (()=>{const f=document.getElementById('fbk');if(!f)return;const t=f.querySelector('textarea'),b=f.querySelector('button');let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);const p=JSON.stringify({url:location.pathname,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
+const dilimler=[[0,190000,.15,0],[190000,400000,.20,28500],[400000,1500000,.27,70500],[1500000,5300000,.35,367500],[5300000,999999999,.40,1697500]];
+function gvHesapla(m){let d=dilimler.find(x=>m>x[0]&&m<=x[1])||dilimler.at(-1);return d[3]+(m-d[0])*d[2]}
+function tl(x){return x.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+" TL"}
+function maasHesapla(){
+  let brut=+brut.value||0,prim=+prim.value||0,dev=+devreden.value||0,netK=+netKesinti.value||0,top=brut+prim;
+  let sgk=Math.min(top,297270)*.14, issiz=Math.min(top,297270)*.01, matrah=top-sgk-issiz;
+  let gv=Math.max(gvHesapla(dev+matrah)-gvHesapla(dev)-4211.33,0), dv=Math.max(top*.00759-250.70,0);
+  let kes=sgk+issiz+gv+dv+netK, net=top-kes;
+  maasSonuc.innerHTML=`<b>Net Maaş:</b> ${tl(net)}<br>SGK: ${tl(sgk)} | İşsizlik: ${tl(issiz)} | Gelir Vergisi: ${tl(gv)} | Damga Vergisi: ${tl(dv)}`;
+}
 </script>
 </body>
 </html>
