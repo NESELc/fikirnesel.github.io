@@ -149,11 +149,11 @@ main{padding-top:var(--ustH)}
   <h2>Brütten Nete Maaş Hesaplama</h2>
   <div class="maasGrid">
     <label>Brüt Maaş<input id="brutMaas" type="number" value="50000" oninput="bruttenNete()"></label>
-    <label>İkramiye Adedi<input id="ikramiyeAdet" type="number" value="0" min="0" max="12" oninput="bruttenNete()"></label>
+    <label>İkramiye Maaş-Brüt Adedi<input id="ikramiyeAdet" type="number" value="0" min="0" max="12" oninput="bruttenNete()"></label>
     <label>İkramiye Şekli<select id="ikramiyeSekli" oninput="bruttenNete()"><option value="aylik">12 Aya Bölünmüş</option><option value="ucaylik">3 Aylık</option><option value="altiaylik">6 Aylık</option><option value="yillik">Yıllık Tek Ödeme</option></select></label>
-    <label>Prim<input id="primTutar" type="number" value="0" oninput="bruttenNete()"></label>
+    <label>Prim-Brüt<input id="primTutar" type="number" value="0" oninput="bruttenNete()"></label>
     <label>Prim Ayı<select id="primAy" oninput="bruttenNete()"><option value="-1">Yok</option><option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option><option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option><option value="6">Temmuz</option><option value="7">Ağustos</option><option value="8">Eylül</option><option value="9">Ekim</option><option value="10">Kasım</option><option value="11">Aralık</option></select></label>
-    <label>Sağlık Sigortası<input id="saglikTutar" type="number" value="0" oninput="bruttenNete()"></label>
+    <label>Sağlık Sigortası-Net<input id="saglikTutar" type="number" value="0" oninput="bruttenNete()"></label>
     <label>Sağlık Etkisi<select id="saglikIndirim" oninput="bruttenNete()"><option value="1">Vergiden Düşsün</option><option value="0">Sadece Netten</option></select></label>
   </div>
   <div class="tabloSarma">
