@@ -73,22 +73,13 @@ main{padding-top:var(--ustH)}
 .v-table tr:nth-child(even) td{background:#fff}
 
 .maasKart{background:#eeeeee;border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-.maasKart h2{margin:0 0 8px;font-size:13px;color:#1f2937}
-.maasKart p{margin:0 0 14px;color:#64748b}
-.tabloSarma{overflow-x:auto}.maasTablo{width:100%;border-collapse:collapse;font-size:13px}
-.maasTablo th,.maasTablo td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:right;white-space:nowrap}
-.maasTablo th:first-child,.maasTablo td:first-child{text-align:left}.maasTablo th,.maasTablo td{background:#fff;color:#334155}
-.maasTablo td:last-child{color:#0f766e}
-
-.maasForm{display:flex;gap:10px;align-items:end;margin-bottom:14px}
-.maasForm label{flex:1;font-size:13px;font-weight:600;color:#334155}
-.maasForm input{width:100%;margin-top:5px;padding:11px;border:1px solid #d1d5db;border-radius:10px}
-.maasForm button{padding:12px 20px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-weight:700;cursor:pointer}
-.ekParametreler{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:14px;margin:14px 0}
-.ekParametreler h3{margin:0 0 12px;font-size:18px;color:#1f2937}
-.paramGrid{display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));gap:10px}
-.paramGrid label{font-size:13px;color:#334155;font-weight:600}
-.paramGrid input,.paramGrid select{width:100%;margin-top:5px;padding:9px;border:1px solid #d1d5db;border-radius:9px;background:#fff}
+.maasKart h2{margin:0 0 12px;font-size:16px;color:#1f2937}
+.maasGrid{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.maasGrid label{font-size:12px;font-weight:700;color:#334155}
+.maasGrid input,.maasGrid select{width:100%;height:38px;margin-top:5px;padding:7px 9px;border:1px solid #d1d5db;border-radius:9px;background:#fff;font-size:13px}
+.tabloSarma{overflow-x:auto}.maasTablo{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+.maasTablo th,.maasTablo td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:right;white-space:nowrap;background:#fff;color:#334155}
+.maasTablo th:first-child,.maasTablo td:first-child{text-align:left}.maasTablo td:last-child{color:#0f766e;font-weight:700}
 
 @media(max-width:1200px){
   #layout{flex-direction:column;padding:8px}
@@ -156,45 +147,18 @@ main{padding-top:var(--ustH)}
         </div>
 		  <section class="maasKart">
   <h2>Brütten Nete Maaş Hesaplama</h2>
-  <p>Brüt maaşınızı ve ek gelir/kesintileri girerek Ocak-Aralık net maaş değişimini görün.</p>
-  <div class="maasForm">
-    <label>Brüt Maaş<input id="brutMaas" type="number" placeholder="Brüt maaş girin" value="50000" oninput="bruttenNete()"></label>
-    <button onclick="bruttenNete()">Hesapla</button>
-  </div>
-  <div class="ekParametreler">
-    <h3>Maaşı Etkileyen Ek Bilgiler</h3>
-    <div class="paramGrid">
-      <label>Yıllık İkramiye Adedi<input id="ikramiyeAdet" type="number" value="0" min="0" max="12" oninput="bruttenNete()"></label>
-      <label>İkramiye Şekli
-        <select id="ikramiyeSekli" oninput="bruttenNete()">
-          <option value="aylik">12 Aya Bölünmüş</option>
-          <option value="ucaylik">3 Aylık</option>
-          <option value="altiaylik">6 Aylık</option>
-          <option value="yillik">Yıllık Tek Ödeme</option>
-        </select>
-      </label>
-      <label>Prim Tutarı<input id="primTutar" type="number" value="0" oninput="bruttenNete()"></label>
-      <label>Prim Ayı
-        <select id="primAy" oninput="bruttenNete()">
-          <option value="-1">Yok</option><option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option>
-          <option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option><option value="6">Temmuz</option>
-          <option value="7">Ağustos</option><option value="8">Eylül</option><option value="9">Ekim</option><option value="10">Kasım</option><option value="11">Aralık</option>
-        </select>
-      </label>
-      <label>Sağlık Sigortası<input id="saglikTutar" type="number" value="0" oninput="bruttenNete()"></label>
-      <label>Sağlık Sigortası
-        <select id="saglikIndirim" oninput="bruttenNete()">
-          <option value="1">Vergiden Düşsün</option>
-          <option value="0">Sadece Netten Düşsün</option>
-        </select>
-      </label>
-    </div>
+  <div class="maasGrid">
+    <label>Brüt Maaş<input id="brutMaas" type="number" value="50000" oninput="bruttenNete()"></label>
+    <label>İkramiye Adedi<input id="ikramiyeAdet" type="number" value="0" min="0" max="12" oninput="bruttenNete()"></label>
+    <label>İkramiye Şekli<select id="ikramiyeSekli" oninput="bruttenNete()"><option value="aylik">12 Aya Bölünmüş</option><option value="ucaylik">3 Aylık</option><option value="altiaylik">6 Aylık</option><option value="yillik">Yıllık Tek Ödeme</option></select></label>
+    <label>Prim<input id="primTutar" type="number" value="0" oninput="bruttenNete()"></label>
+    <label>Prim Ayı<select id="primAy" oninput="bruttenNete()"><option value="-1">Yok</option><option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option><option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option><option value="6">Temmuz</option><option value="7">Ağustos</option><option value="8">Eylül</option><option value="9">Ekim</option><option value="10">Kasım</option><option value="11">Aralık</option></select></label>
+    <label>Sağlık Sigortası<input id="saglikTutar" type="number" value="0" oninput="bruttenNete()"></label>
+    <label>Sağlık Etkisi<select id="saglikIndirim" oninput="bruttenNete()"><option value="1">Vergiden Düşsün</option><option value="0">Sadece Netten</option></select></label>
   </div>
   <div class="tabloSarma">
     <table class="maasTablo">
-      <thead>
-        <tr><th>Ay</th><th>Brüt</th><th>SGK</th><th>İşsizlik</th><th>GV Matrahı</th><th>Gelir V.</th><th>Damga V.</th><th>Net</th></tr>
-      </thead>
+      <thead><tr><th>Ay</th><th>Brüt</th><th>SGK</th><th>İşsizlik</th><th>GV Matrahı</th><th>Gelir V.</th><th>Damga V.</th><th>Net</th></tr></thead>
       <tbody id="maasBody"></tbody>
     </table>
   </div>
