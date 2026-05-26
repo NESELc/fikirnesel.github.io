@@ -72,13 +72,15 @@ main{padding-top:var(--ustH)}
 .v-table td:last-child{text-align:center;font-weight:700}
 .v-table tr:nth-child(even) td{background:#fff}
 
-	.maasKart{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-.maasKart h2{margin:0 0 8px;font-size:22px;color:#1f2937}.maasKart p{margin:0 0 14px;color:#64748b}
-.maasForm{display:flex;gap:10px;margin-bottom:14px}.maasForm input{flex:1;padding:11px;border:1px solid #d1d5db;border-radius:10px}
+.maasKart{background:#eeeeee;border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.maasKart h2{margin:0 0 8px;font-size:13px;color:#1f2937}
+.maasKart p{margin:0 0 14px;color:#64748b}
+.maasForm{display:flex;gap:10px;margin-bottom:14px}
+.maasForm input{flex:1;padding:11px;border:1px solid #d1d5db;border-radius:10px}
 .maasForm button{padding:11px 18px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-weight:700;cursor:pointer}
-.tabloSarma{overflow-x:auto}.maasTablo{width:100%;border-collapse:collapse;font-size:14px}
+.tabloSarma{overflow-x:auto}.maasTablo{width:100%;border-collapse:collapse;font-size:13px}
 .maasTablo th,.maasTablo td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:right;white-space:nowrap}
-.maasTablo th:first-child,.maasTablo td:first-child{text-align:left}.maasTablo th{background:#f8fafc;color:#334155}
+.maasTablo th:first-child,.maasTablo td:first-child{text-align:left}.maasTablo th{background:#eeeeee;color:#334155}
 .maasTablo td:last-child{color:#0f766e}
 
 @media(max-width:1200px){
@@ -147,7 +149,6 @@ main{padding-top:var(--ustH)}
         </div>
 		  <section class="maasKart">
   <h2>Brütten Nete Maaş Hesaplama</h2>
-  <p>Brüt maaşı girin, Ocak-Aralık net maaş değişimini görün.</p>
   <div class="maasForm">
     <input id="brutMaas" type="number" placeholder="Brüt maaş girin" value="50000" oninput="bruttenNete()">
     <button onclick="bruttenNete()">Hesapla</button>
