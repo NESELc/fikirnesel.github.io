@@ -91,6 +91,8 @@ main{padding-top:var(--ustH)}
 #ayrSonuc table{width:100%;border-collapse:collapse;margin-top:8px}
 #ayrSonuc td{border-bottom:1px solid #eee;padding:6px}
 #ayrSonuc td:last-child{text-align:right;font-weight:600}
+.ayr-grid label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:#333}
+.ayr-grid input,.ayr-grid select{padding:10px;border:1px solid #ccc;border-radius:9px;font-size:14px;font-weight:400}
 	
 @media(max-width:1200px){
   #layout{flex-direction:column;padding:8px}
@@ -299,16 +301,17 @@ main{padding-top:var(--ustH)}
   <h2>İşten Ayrılma Tazminatı Hesaplama</h2>
   <p class="ayr-not">Para girişleri brüttür. Net sonuçlar yaklaşık hesaplanır; kesin bordro hesabı değildir.</p>
   <div class="ayr-grid">
-    <input id="ayrBrut" type="number" placeholder="Aylık brüt maaş">
-    <input id="ayrPrim" type="number" placeholder="Aylık düzenli brüt prim">
-    <input id="ayrYan" type="number" placeholder="Yol, yemek vb. brüt">
-    <input id="ayrTavan" type="number" value="64948.77" placeholder="Kıdem tavanı brüt">
-    <input id="ayrYil" type="number" placeholder="Çalışılan yıl">
-    <input id="ayrAy" type="number" placeholder="Ek ay">
-    <input id="ayrIzin" type="number" placeholder="Kalan izin günü">
-    <input id="ayrPrimGun" type="number" placeholder="SGK prim günü">
-    <input id="ayrIlkSigorta" type="date" title="İlk sigorta tarihi">
-    <input id="ayrGv" type="number" value="15" placeholder="Gelir vergisi oranı %">
+  <label>Aylık brüt maaş<input id="ayrBrut" type="number" placeholder="Örn: 50000"></label>
+  <label>Aylık düzenli brüt prim<input id="ayrPrim" type="number" placeholder="Örn: 5000"></label>
+  <label>Yol, yemek vb. brüt<input id="ayrYan" type="number" placeholder="Örn: 3000"></label>
+  <label>Kıdem tavanı brüt<input id="ayrTavan" type="number" value="64948.77"></label>
+  <label>Çalışılan yıl<input id="ayrYil" type="number" placeholder="Örn: 5"></label>
+  <label>Ek ay<input id="ayrAy" type="number" placeholder="Örn: 6"></label>
+  <label>Kalan izin günü<input id="ayrIzin" type="number" placeholder="Örn: 14"></label>
+  <label>SGK toplam prim günü<input id="ayrPrimGun" type="number" placeholder="Örn: 7000"></label>
+  <label>İlk sigorta tarihi<input id="ayrIlkSigorta" type="date"></label>
+  <label>Gelir vergisi oranı %<input id="ayrGv" type="number" value="15"></label>
+  <label>İşten ayrılma durumu
     <select id="ayrDurum">
       <option value="istifa">Normal istifa</option>
       <option value="sgk">SGK yazısı ile istifa</option>
@@ -316,7 +319,8 @@ main{padding-top:var(--ustH)}
       <option value="emekli">Emeklilik</option>
       <option value="hakli">Haklı fesih / askerlik / evlilik</option>
     </select>
-  </div>
+  </label>
+</div>
   <button class="ayr-btn" onclick="ayrHesapla()">Hesapla</button>
   <div id="ayrSonuc"></div>
 </div>
