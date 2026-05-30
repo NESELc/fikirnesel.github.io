@@ -81,6 +81,12 @@ main{padding-top:var(--ustH)}
 .maasTablo th,.maasTablo td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:right;white-space:nowrap;background:#fff;color:#334155}
 .maasTablo th:first-child,.maasTablo td:first-child{text-align:left}.maasTablo td:last-child{color:#0f766e;font-weight:700}
 
+	.hesap-kutu{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:20px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.hesap-kutu input,.hesap-kutu select,.hesap-kutu button{padding:10px;border:1px solid #ccc;border-radius:8px}
+.hesap-kutu button{cursor:pointer;font-weight:600}
+#tazminatSonuc{margin-top:14px;line-height:1.8}
+	
 @media(max-width:1200px){
   #layout{flex-direction:column;padding:8px}
   #sagReklam{position:static;max-height:none;width:100%}
@@ -284,6 +290,26 @@ main{padding-top:var(--ustH)}
       </div>
     </section>
 
+	  <div class="hesap-kutu">
+  <h2>İşten Ayrılma Tazminatı Hesaplama</h2>
+  <div class="grid">
+    <input id="brut" type="number" placeholder="Aylık brüt maaş">
+    <input id="prim" type="number" placeholder="Aylık düzenli prim">
+    <input id="yan" type="number" placeholder="Yol, yemek vb. aylık">
+    <input id="yil" type="number" placeholder="Çalışılan yıl">
+    <input id="ay" type="number" placeholder="Ek ay">
+    <input id="izin" type="number" placeholder="Kalan izin günü">
+    <select id="durum">
+      <option value="istifa">İstifa</option>
+      <option value="isten">İşten çıkarılma</option>
+      <option value="emekli">Emeklilik</option>
+      <option value="hakli">Haklı fesih / askerlik / evlilik</option>
+    </select>
+  </div>
+  <button onclick="tazminatHesapla()">Hesapla</button>
+  <div id="tazminatSonuc"></div>
+</div>
+	  
     <aside id="sagReklam">
       <div style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px"></div>
       <ins class="adsbygoogle" style="display:block;width:100%;height:600px"
@@ -331,6 +357,17 @@ function bruttenNete(){
   maasBody.innerHTML=html;
 }
 bruttenNete();
+
+function tazminatHesapla(){
+  const brut=+brutEl("brut"),prim=+brutEl("prim"),yan=+brutEl("yan"),yil=+brutEl("yil"),ay=+brutEl("ay"),izin=+brutEl("izin"),durum=document.getElementById("durum").value;
+  const dv=.00759,tavan=64948.77,sure=yil+ay/12,giydirilmis=brut+prim+yan,kidemEsas=Math.min(giydirilmis,tavan);
+  const kidemHak=["isten","emekli","hakli"].includes(durum)&&sure>=1,kidemBrut=kidemHak?kidemEsas*sure:0,kidemNet=kidemBrut*(1-dv);
+  const toplamAy=yil*12+ay,ihbarGun=toplamAy<6?14:toplamAy<18?28:toplamAy<36?42:56,ihbarBrut=durum=="isten"?giydirilmis/30*ihbarGun:0;
+  const ihbarNet=ihbarBrut*(1-dv),izinBrut=brut/30*izin,izinNet=izinBrut*(1-dv),toplamNet=kidemNet+ihbarNet+izinNet;
+  document.getElementById("tazminatSonuc").innerHTML=`<b>Kıdem Net:</b> ${tl(kidemNet)}<br><b>İhbar Net:</b> ${tl(ihbarNet)}<br><b>Kalan İzin Net:</b> ${tl(izinNet)}<hr><b>Toplam Net:</b> ${tl(toplamNet)}`;
+}
+function brutEl(id){return document.getElementById(id).value||0}
+function tl(x){return x.toLocaleString("tr-TR",{style:"currency",currency:"TRY"})}
 </script>
 </body>
 </html>
