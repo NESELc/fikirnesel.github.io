@@ -81,11 +81,16 @@ main{padding-top:var(--ustH)}
 .maasTablo th,.maasTablo td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:right;white-space:nowrap;background:#fff;color:#334155}
 .maasTablo th:first-child,.maasTablo td:first-child{text-align:left}.maasTablo td:last-child{color:#0f766e;font-weight:700}
 
-	.hesap-kutu{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:20px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.hesap-kutu input,.hesap-kutu select,.hesap-kutu button{padding:10px;border:1px solid #ccc;border-radius:8px}
-.hesap-kutu button{cursor:pointer;font-weight:600}
-#tazminatSonuc{margin-top:14px;line-height:1.8}
+.ayr-kutu{background:#fff;border:1px solid #ddd;border-radius:14px;padding:16px;margin:20px 0;box-shadow:0 2px 8px #0001}
+.ayr-kutu h2{margin:0 0 8px;font-size:22px}
+.ayr-not{font-size:13px;color:#666;margin:0 0 12px}
+.ayr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px}
+.ayr-grid input,.ayr-grid select{padding:10px;border:1px solid #ccc;border-radius:9px;font-size:14px}
+.ayr-btn{margin-top:12px;padding:10px 18px;border:0;border-radius:9px;background:#222;color:#fff;font-weight:600;cursor:pointer}
+#ayrSonuc{margin-top:14px;line-height:1.8;font-size:15px}
+#ayrSonuc table{width:100%;border-collapse:collapse;margin-top:8px}
+#ayrSonuc td{border-bottom:1px solid #eee;padding:6px}
+#ayrSonuc td:last-child{text-align:right;font-weight:600}
 	
 @media(max-width:1200px){
   #layout{flex-direction:column;padding:8px}
@@ -290,24 +295,30 @@ main{padding-top:var(--ustH)}
       </div>
     </section>
 
-	  <div class="hesap-kutu">
+<div class="ayr-kutu">
   <h2>İşten Ayrılma Tazminatı Hesaplama</h2>
-  <div class="grid">
-    <input id="brut" type="number" placeholder="Aylık brüt maaş">
-    <input id="prim" type="number" placeholder="Aylık düzenli prim">
-    <input id="yan" type="number" placeholder="Yol, yemek vb. aylık">
-    <input id="yil" type="number" placeholder="Çalışılan yıl">
-    <input id="ay" type="number" placeholder="Ek ay">
-    <input id="izin" type="number" placeholder="Kalan izin günü">
-    <select id="durum">
-      <option value="istifa">İstifa</option>
+  <p class="ayr-not">Para girişleri brüttür. Net sonuçlar yaklaşık hesaplanır; kesin bordro hesabı değildir.</p>
+  <div class="ayr-grid">
+    <input id="ayrBrut" type="number" placeholder="Aylık brüt maaş">
+    <input id="ayrPrim" type="number" placeholder="Aylık düzenli brüt prim">
+    <input id="ayrYan" type="number" placeholder="Yol, yemek vb. brüt">
+    <input id="ayrTavan" type="number" value="64948.77" placeholder="Kıdem tavanı brüt">
+    <input id="ayrYil" type="number" placeholder="Çalışılan yıl">
+    <input id="ayrAy" type="number" placeholder="Ek ay">
+    <input id="ayrIzin" type="number" placeholder="Kalan izin günü">
+    <input id="ayrPrimGun" type="number" placeholder="SGK prim günü">
+    <input id="ayrIlkSigorta" type="date" title="İlk sigorta tarihi">
+    <input id="ayrGv" type="number" value="15" placeholder="Gelir vergisi oranı %">
+    <select id="ayrDurum">
+      <option value="istifa">Normal istifa</option>
+      <option value="sgk">SGK yazısı ile istifa</option>
       <option value="isten">İşten çıkarılma</option>
       <option value="emekli">Emeklilik</option>
       <option value="hakli">Haklı fesih / askerlik / evlilik</option>
     </select>
   </div>
-  <button onclick="tazminatHesapla()">Hesapla</button>
-  <div id="tazminatSonuc"></div>
+  <button class="ayr-btn" onclick="ayrHesapla()">Hesapla</button>
+  <div id="ayrSonuc"></div>
 </div>
 	  
     <aside id="sagReklam">
@@ -358,16 +369,33 @@ function bruttenNete(){
 }
 bruttenNete();
 
-function tazminatHesapla(){
-  const brut=+brutEl("brut"),prim=+brutEl("prim"),yan=+brutEl("yan"),yil=+brutEl("yil"),ay=+brutEl("ay"),izin=+brutEl("izin"),durum=document.getElementById("durum").value;
-  const dv=.00759,tavan=64948.77,sure=yil+ay/12,giydirilmis=brut+prim+yan,kidemEsas=Math.min(giydirilmis,tavan);
-  const kidemHak=["isten","emekli","hakli"].includes(durum)&&sure>=1,kidemBrut=kidemHak?kidemEsas*sure:0,kidemNet=kidemBrut*(1-dv);
-  const toplamAy=yil*12+ay,ihbarGun=toplamAy<6?14:toplamAy<18?28:toplamAy<36?42:56,ihbarBrut=durum=="isten"?giydirilmis/30*ihbarGun:0;
-  const ihbarNet=ihbarBrut*(1-dv),izinBrut=brut/30*izin,izinNet=izinBrut*(1-dv),toplamNet=kidemNet+ihbarNet+izinNet;
-  document.getElementById("tazminatSonuc").innerHTML=`<b>Kıdem Net:</b> ${tl(kidemNet)}<br><b>İhbar Net:</b> ${tl(ihbarNet)}<br><b>Kalan İzin Net:</b> ${tl(izinNet)}<hr><b>Toplam Net:</b> ${tl(toplamNet)}`;
+function ayrVal(id){return Number(document.getElementById(id).value)||0}
+function ayrTL(x){return x.toLocaleString("tr-TR",{style:"currency",currency:"TRY"})}
+function ayrSgkHakki(){
+  const ilk=document.getElementById("ayrIlkSigorta").value,gun=ayrVal("ayrPrimGun"); if(!ilk||!gun)return false;
+  const d=new Date(ilk),bugun=new Date(),yil=(bugun-d)/(365.25*24*60*60*1000);
+  if(d<new Date("1999-09-08"))return yil>=15&&gun>=3600;
+  if(d<new Date("2008-05-01"))return gun>=7000||(yil>=25&&gun>=4500);
+  return gun>=7200;
 }
-function brutEl(id){return document.getElementById(id).value||0}
-function tl(x){return x.toLocaleString("tr-TR",{style:"currency",currency:"TRY"})}
+function ayrHesapla(){
+  const brut=ayrVal("ayrBrut"),prim=ayrVal("ayrPrim"),yan=ayrVal("ayrYan"),tavan=ayrVal("ayrTavan")||64948.77;
+  const yil=ayrVal("ayrYil"),ay=ayrVal("ayrAy"),izin=ayrVal("ayrIzin"),gv=(ayrVal("ayrGv")||15)/100,dv=.00759;
+  const durum=document.getElementById("ayrDurum").value,sure=yil+ay/12,toplamAy=yil*12+ay,giydirilmis=brut+prim+yan;
+  const sgkHak=durum=="sgk"&&ayrSgkHakki(),kidemHak=(["isten","emekli","hakli"].includes(durum)||sgkHak)&&sure>=1;
+  const kidemBrut=kidemHak?Math.min(giydirilmis,tavan)*sure:0,kidemNet=kidemBrut*(1-dv);
+  const ihbarGun=toplamAy<6?14:toplamAy<18?28:toplamAy<36?42:56,ihbarBrut=durum=="isten"?giydirilmis/30*ihbarGun:0;
+const ihbarNet=ihbarBrut-(ihbarBrut*gv)-(ihbarBrut*dv),izinBrut=brut/30*izin,izinNet=izinBrut-(izinBrut*gv)-(izinBrut*dv);
+	const toplamBrut=kidemBrut+ihbarBrut+izinBrut,toplamNet=kidemNet+ihbarNet+izinNet;
+  document.getElementById("ayrSonuc").innerHTML=`<table>
+    <tr><td>Giydirilmiş Brüt Ücret</td><td>${ayrTL(giydirilmis)}</td></tr>
+    <tr><td>Kıdem Tazminatı Net</td><td>${ayrTL(kidemNet)}</td></tr>
+    <tr><td>İhbar Tazminatı Net</td><td>${ayrTL(ihbarNet)}</td></tr>
+    <tr><td>Kalan İzin Net</td><td>${ayrTL(izinNet)}</td></tr>
+    <tr><td>Toplam Brüt</td><td>${ayrTL(toplamBrut)}</td></tr>
+    <tr><td>Yaklaşık Toplam Net</td><td>${ayrTL(toplamNet)}</td></tr>
+  </table><p class="ayr-not">${kidemHak?"Kıdem hakkı var görünüyor.":"Bu seçime göre kıdem hakkı görünmüyor."} SGK yazısı gerekiyorsa belge alınmadan işlem yapılmamalıdır.</p>`;
+}
 </script>
 </body>
 </html>
