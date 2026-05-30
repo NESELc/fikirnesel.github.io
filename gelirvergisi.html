@@ -310,7 +310,6 @@ main{padding-top:var(--ustH)}
   <label>Kalan izin günü<input id="ayrIzin" type="number" placeholder="Örn: 14"></label>
   <label>SGK toplam prim günü<input id="ayrPrimGun" type="number" placeholder="Örn: 7000"></label>
   <label>İlk sigorta tarihi<input id="ayrIlkSigorta" type="date"></label>
-  <label>Gelir vergisi oranı %<input id="ayrGv" type="number" value="15"></label>
   <label>İşten ayrılma durumu 
     <select id="ayrDurum">
       <option value="istifa">Normal istifa</option>
@@ -384,8 +383,8 @@ function ayrSgkHakki(){
 }
 function ayrHesapla(){
   const brut=ayrVal("ayrBrut"),prim=ayrVal("ayrPrim"),yan=ayrVal("ayrYan"),tavan=ayrVal("ayrTavan")||64948.77;
-  const yil=ayrVal("ayrYil"),ay=ayrVal("ayrAy"),izin=ayrVal("ayrIzin"),gv=(ayrVal("ayrGv")||15)/100,dv=.00759;
-  const durum=document.getElementById("ayrDurum").value,sure=yil+ay/12,toplamAy=yil*12+ay,giydirilmis=brut+prim+yan;
+const yil=ayrVal("ayrYil"),ay=ayrVal("ayrAy"),izin=ayrVal("ayrIzin"),gv=.15,dv=.00759;
+	const durum=document.getElementById("ayrDurum").value,sure=yil+ay/12,toplamAy=yil*12+ay,giydirilmis=brut+prim+yan;
   const sgkHak=durum=="sgk"&&ayrSgkHakki(),kidemHak=(["isten","emekli","hakli"].includes(durum)||sgkHak)&&sure>=1;
   const kidemBrut=kidemHak?Math.min(giydirilmis,tavan)*sure:0,kidemNet=kidemBrut*(1-dv);
   const ihbarGun=toplamAy<6?14:toplamAy<18?28:toplamAy<36?42:56,ihbarBrut=durum=="isten"?giydirilmis/30*ihbarGun:0;
