@@ -167,14 +167,15 @@ const linkMap={
   "Spotify":"https://www.spotify.com/tr-tr/premium/",
   "ChatGPT Plus":"https://chatgpt.com/tr-TR/pricing/",
   "Exxen":"https://yardim-exxen.ortusdesk.com/planlar-ve-ucretler-3/",
-  "Max":"https://www.max.com/tr/tr",
-  "Mubi":"https://mubi.com/tr",
+  "HBOMax":"https://www.hbomax.com/tr/tr",
+  "MUBI":"https://mubi.com/tr",
   "Tabii":"https://www.tabii.com/",
-  "Gain":"https://www.gain.tv/",
+  "GAİN":"https://www.gain.tv/",
   "TV+":"https://www.tvplus.com.tr/",
-  "Grok":"https://grok.com/"
+  "SuperGrok":"https://grok.com/"
 };
-const iconMap={"Netflix":"🎬","Disney+":"🏰","Amazon Prime Video":"📦","Spotify":"🎵","YouTube Premium":"▶️","Apple iCloud":"☁️","ChatGPT Plus":"🤖","Exxen":"📺","Max":"🎭","Mubi":"🌙","Tabii":"🏡","Gain":"📡","TV+":"📻","Grok":"🤖"};
+const iconMap={"Netflix":"🎬","Disney+":"🏰","Amazon Prime Video":"📦","Spotify":"🎵","YouTube Premium":"▶️","Apple iCloud":"☁️","ChatGPT Plus":"🤖",
+               "Exxen":"📺","HBOMax":"🎭","Mubi":"🌙","Tabii":"🏡","Gain":"📡","TV+":"📻","Grok":"🤖"};
 function temizFiyat(v){if(!v)return "";return v.toString().replace(/([.,]\d+)(?!\d)/,"");}
 const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcFWNW0sOM9hlTicggnf36y3RnGEYzZ9aJm9MA_r4DA/exec";
 fetch(URL).then(r=>r.json()).then(data=>{
