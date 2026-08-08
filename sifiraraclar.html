@@ -405,451 +405,365 @@ body.filtreKapali .filtre-grup{display:none;}
   
 <div id="footer"></div>
 <script>
-// 1. Kampanyalar ve Footer Yükleme (Hata Korumalı)
-fetch("/inc/kampanyalar.html")
-  .then(r => r.ok ? r.text() : "")
-  .then(html => {
-    if(!html) return;
-    const d = document.createElement("div"); d.innerHTML = html;
-    const kartlar = [...d.querySelectorAll(".kampKart")];
-    const tr = s => ((s || "") + "").replace(/\s+/g, " ").trim();
-    
-    kartlar.sort((a, b) => {
-      const am = tr(a.dataset.marka), bm = tr(b.dataset.marka);
-      const cm = am.localeCompare(bm, "tr");
-      if (cm) return cm;
-      return tr(a.dataset.model).localeCompare(tr(b.dataset.model), "tr");
-    });
-    
-    let cur = "", out = ['<div id="kampanyaMetin">'];
-    for (const k of kartlar) {
-      const marka = tr(k.dataset.marka), model = tr(k.dataset.model);
-      if (marka && marka !== cur) { cur = marka; out.push(`<h4 class="kampMarka">${cur}</h4>`); }
-      const s = k.querySelector("small")?.textContent || "";
-      out.push(`<p><span class="km">${model}</span><span class="ks">${tr(s)}</span></p>`);
-    }
-    out.push("</div>");
-    
-    const hedef = document.getElementById("kampanyaMetinAlan") || document.getElementById("kampanyaMetin");
-    if(hedef) hedef.innerHTML = out.join("");
-  }).catch(e => console.error("Kampanya yükleme hatası:", e));
-
-fetch("/footer.html")
-  .then(r => r.ok ? r.text() : "")
-  .then(t => {
-    const f = document.getElementById("footer");
-    if(f) f.innerHTML = t;
+fetch("/inc/kampanyalar.html").then(r=>r.text()).then(html=>{
+  const d=document.createElement("div");d.innerHTML=html;
+  const kartlar=[...d.querySelectorAll(".kampKart")];
+  const tr=s=>((s||"")+"").replace(/\s+/g," ").trim();
+  kartlar.sort((a,b)=>{
+    const am=tr(a.dataset.marka),bm=tr(b.dataset.marka);
+    const cm=am.localeCompare(bm,"tr");if(cm)return cm;
+    return tr(a.dataset.model).localeCompare(tr(b.dataset.model),"tr");
   });
+  let cur="",out=['<div id="kampanyaMetin">'];
+  for(const k of kartlar){
+    const marka=tr(k.dataset.marka),model=tr(k.dataset.model);
+    if(marka&&marka!==cur){cur=marka;out.push(`<h4 class="kampMarka">${cur}</h4>`);}
+    const s=k.querySelector("small")?.textContent||"";
+    out.push(`<p><span class="km">${model}</span><span class="ks">${tr(s)}</span></p>`);
+  }
+  out.push("</div>");
+  const h=document.getElementById("kampanyaMetinAlan")||document.getElementById("kampanyaMetin");
+  if(h) h.innerHTML=out.join("");
+}).catch(e=>{});
 
-function setUstH() {
-  const u = document.getElementById("ustBar");
-  if (!u) return;
-  document.documentElement.style.setProperty("--ustH", u.offsetHeight + "px");
+fetch("/footer.html").then(r=>r.text()).then(t=>{
+  const f=document.getElementById("footer");
+  if(f) f.innerHTML=t;
+}).catch(e=>{});
+
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
 }
-window.addEventListener("resize", setUstH);
+window.addEventListener("resize",setUstH);
 setUstH();
 
-// 2. Marka Modalı ve Kampanya Kartı Kontrolleri
-function kampanyalariKartYap() {
-  const det = Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x => (x.querySelector('summary')?.textContent || '').trim() === 'Sıfır Araç Kampanyaları');
-  if (!det) return;
-  const ic = det.querySelector('.icerik'); 
-  if (!ic) return;
-  const maddeler = Array.from(ic.querySelectorAll('.madde'));
-  let sayac = ic.querySelector('.kampSayac');
-  if (!sayac) {
-    sayac = document.createElement('div');
-    sayac.className = 'kampSayac';
-    ic.insertBefore(sayac, ic.firstChild);
-  }
-  sayac.innerHTML = '✅ <b>' + maddeler.length + '</b> aktif kampanya';
+const frame=document.getElementById("sayfaFrame")||null;
+const links=Array.from(document.querySelectorAll("#menu a[data-src]"));
+
+function setActiveBySrc(src){
+  links.forEach(a=>a.classList.toggle("active",a.getAttribute("data-src")===src));
+}
+
+function kampanyalariKartYap(){
+  const det=Array.from(document.querySelectorAll('#solIcerik details.blok')).find(x=>(x.querySelector('summary')?.textContent||'').trim()==='Sıfır Araç Kampanyaları');if(!det)return;
+  const ic=det.querySelector('.icerik');if(!ic)return;
+  const maddeler=Array.from(ic.querySelectorAll('.madde'));
+  let sayac=ic.querySelector('.kampSayac');if(!sayac){sayac=document.createElement('div');sayac.className='kampSayac';ic.insertBefore(sayac,ic.firstChild);}
+  sayac.innerHTML='✅ <b>'+maddeler.length+'</b> aktif kampanya';
 }
 kampanyalariKartYap();
 
-document.getElementById("markaButon")?.addEventListener("click", function (e) {
-  e.preventDefault(); e.stopPropagation();
-  const modal = document.getElementById("markaModal");
-  if(modal) modal.style.display = "block";
+document.getElementById("markaButon")?.addEventListener("click",function(e){
+  e.preventDefault();e.stopPropagation();
+  const m=document.getElementById("markaModal");
+  if(m) m.style.display="block";
 });
 
-document.addEventListener("pointerdown", function (e) {
-  const modal = document.getElementById("markaModal");
-  const btn = document.getElementById("markaButon");
-  if (modal && modal.style.display === "block" && !modal.contains(e.target) && !btn?.contains(e.target)) {
-    modal.style.display = "none";
-  }
+document.addEventListener("pointerdown",function(e){
+  const modal=document.getElementById("markaModal");
+  const btn=document.getElementById("markaButon");
+  if(modal&&modal.style.display==="block"&&!modal.contains(e.target)&&(!btn||!btn.contains(e.target))) modal.style.display="none";
 });
 
-// 3. Veri Yükleme ve Dinamik Filtreleme
-var tumVeri = [];
+var tumVeri=[];
 
-async function veriYukle() {
+async function veriYukle(){
   try {
-    const url = "https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
-    const response = await fetch(url);
-    const data = await response.json();
-    tumVeri = data.filter(d => d.marka);
-
-    const unique = key => [...new Set(tumVeri.map(item => item[key]?.toLowerCase().trim()).filter(Boolean))];
-    const secimYukle = (id, key) => {
-      const select = document.getElementById(id);
+    const url="https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
+    const response=await fetch(url);
+    const data=await response.json();
+    tumVeri=data.filter(d=>d.marka);
+    
+    const unique=key=>[...new Set(tumVeri.map(item=>item[key]?.toLowerCase().trim()).filter(Boolean))];
+    const secimYukle=(id,key)=>{
+      const select=document.getElementById(id);
       if(!select) return;
-      select.innerHTML = '<option value="">Tümü</option>';
-      unique(key).sort().forEach(val => {
-        const opt = document.createElement("option");
-        opt.value = val;
-        opt.textContent = val.charAt(0).toUpperCase() + val.slice(1);
+      select.innerHTML='<option value="">Tümü</option>';
+      unique(key).sort().forEach(val=>{
+        const opt=document.createElement("option");
+        opt.value=val;
+        opt.textContent=val.charAt(0).toUpperCase()+val.slice(1);
         select.appendChild(opt);
       });
     };
 
-    const markaBox = document.getElementById("markaBox");
-    const markaDD = document.getElementById("markaDD");
-    const markaPanel = document.getElementById("markaPanel");
-    const markaAra = document.getElementById("markaAra");
+    const markaBox=document.getElementById("markaBox");
+    const markaDD=document.getElementById("markaDD");
+    const markaPanel=document.getElementById("markaPanel");
+    const markaAra=document.getElementById("markaAra");
 
-    if (markaBox) {
-      markaBox.innerHTML = "";
-      unique("marka").sort().forEach(m => {
-        const lbl = document.createElement("label");
-        lbl.dataset.v = m.toLowerCase();
-        lbl.innerHTML = `<input type="checkbox" value="${m.toLowerCase()}"> ${m.charAt(0).toUpperCase() + m.slice(1)}`;
+    if(markaBox) {
+      markaBox.innerHTML="";
+      unique("marka").sort().forEach(m=>{
+        const lbl=document.createElement("label");
+        lbl.dataset.v=m.toLowerCase();
+        lbl.innerHTML=`<input type="checkbox" value="${m.toLowerCase()}"> ${m.charAt(0).toUpperCase()+m.slice(1)}`;
         markaBox.appendChild(lbl);
       });
 
-      markaBox.querySelectorAll("input").forEach(i => {
-        i.addEventListener("change", () => {
-          if(markaDD) markaDD.textContent = markaOzet();
-          filtreleVeGoster();
-        });
+      markaBox.querySelectorAll("input").forEach(i=>{
+        i.addEventListener("change",()=>{ if(markaDD) markaDD.textContent=markaOzet(); filtreleVeGoster(); });
       });
     }
 
-    function markaOzet() {
-      const s = [...document.querySelectorAll("#markaBox input:checked")];
-      if (!s.length) return "Tümü";
-      if (s.length === 1) return s[0].value.toUpperCase();
-      return s.length + " marka";
+    function markaOzet(){
+      const s=[...document.querySelectorAll("#markaBox input:checked")];
+      if(!s.length) return "Tümü"; 
+      if(s.length===1) return s[0].value.toUpperCase();
+      return s.length+" marka"; 
+    }
+    
+    function markaFiltre(q){
+      q=(q||"").toLowerCase(); 
+      document.querySelectorAll("#markaBox label").forEach(l=>{l.style.display=(!q||l.dataset.v.includes(q))?"block":"none";});
     }
 
-    function markaFiltre(q) {
-      q = (q || "").toLowerCase();
-      document.querySelectorAll("#markaBox label").forEach(l => {
-        l.style.display = (!q || l.dataset.v.includes(q)) ? "block" : "none";
-      });
+    if(document.getElementById("markaTum")) {
+      document.getElementById("markaTum").onclick=()=>{ 
+        document.querySelectorAll("#markaBox input").forEach(i=>i.checked=true);
+        if(markaDD) markaDD.textContent=markaOzet();
+        filtreleVeGoster();
+      };
     }
-
-    if (document.getElementById("markaTum")) {
-      document.getElementById("markaTum").onclick = () => {
-        document.querySelectorAll("#markaBox input").forEach(i => i.checked = true);
-        if(markaDD) markaDD.textContent = markaOzet();
+    
+    if(document.getElementById("markaTemiz")) {
+      document.getElementById("markaTemiz").onclick=()=>{
+        document.querySelectorAll("#markaBox input").forEach(i=>i.checked=false);
+        if(markaDD) markaDD.textContent="Tümü"; 
         filtreleVeGoster();
       };
     }
 
-    if (document.getElementById("markaTemiz")) {
-      document.getElementById("markaTemiz").onclick = () => {
-        document.querySelectorAll("#markaBox input").forEach(i => i.checked = false);
-        if(markaDD) markaDD.textContent = "Tümü";
-        filtreleVeGoster();
-      };
-    }
-
-    if (markaDD && markaPanel) {
-      markaDD.onclick = e => {
+    if(markaDD && markaPanel) {
+      markaDD.onclick=e=>{
         e.preventDefault();
-        markaPanel.style.display = markaPanel.style.display === "block" ? "none" : "block";
-        if(markaAra) { markaAra.value = ""; markaFiltre(""); markaAra.focus(); }
+        markaPanel.style.display=markaPanel.style.display==="block"?"none":"block";
+        if(markaAra) { markaAra.value=""; markaFiltre(""); markaAra.focus(); }
       };
 
-      window.addEventListener("pointerdown", e => {
-        if (markaPanel.style.display === "block" && !markaPanel.contains(e.target) && e.target !== markaDD) {
-          markaPanel.style.display = "none";
+      window.addEventListener("pointerdown",e=>{
+        if(markaPanel.style.display==="block"&&!markaPanel.contains(e.target)&&e.target!==markaDD){
+          markaPanel.style.display="none";
         }
       });
     }
 
-    if(markaAra) markaAra.oninput = () => markaFiltre(markaAra.value);
-    if(markaDD) markaDD.textContent = "Tümü";
+    if(markaAra) markaAra.oninput=()=>markaFiltre(markaAra.value);
+    if(markaDD) markaDD.textContent="Tümü";
 
-    secimYukle("sinifSec", "sınıf");
-    secimYukle("yakitSec", "yakıt türü");
-    secimYukle("vitesSec", "vites");
+    secimYukle("sinifSec","sınıf");
+    secimYukle("yakitSec","yakıt türü");
+    secimYukle("vitesSec","vites");
 
-    const segmentSirasi = ["a", "b", "c", "d", "e", "f", "s"];
-    const segmentler = unique("segment");
-    const segmentSelect = document.getElementById("segmentSec");
-    if (segmentSelect) {
-      segmentSelect.innerHTML = '<option value="">Tümü</option>';
-      segmentSirasi.forEach(seg => {
-        if (segmentler.includes(seg)) {
-          const opt = document.createElement("option");
-          opt.value = seg;
-          opt.textContent = seg.toUpperCase();
+    const segmentSirasi=["a","b","c","d","e","f","s"];
+    const segmentler=unique("segment");
+    const segmentSelect=document.getElementById("segmentSec");
+    if(segmentSelect) {
+      segmentSelect.innerHTML='<option value="">Tümü</option>';
+      segmentSirasi.forEach(seg=>{
+        if(segmentler.includes(seg)){
+          const opt=document.createElement("option");
+          opt.value=seg;
+          opt.textContent=seg.toUpperCase();
           segmentSelect.appendChild(opt);
         }
       });
     }
 
-    ["sinifSec", "segmentSec", "yakitSec", "vitesSec", "siralaSec"].forEach(id => {
-      document.getElementById(id)?.addEventListener("change", filtreleVeGoster);
+    ["sinifSec","segmentSec","yakitSec","vitesSec","siralaSec"].forEach(id=>{
+      document.getElementById(id)?.addEventListener("change",filtreleVeGoster);
     });
 
     filtreleVeGoster();
-  } catch (err) {
-    console.error("Veri yüklenirken hata oluştu:", err);
+  } catch(err) {
+    console.error("Veri yükleme hatası:", err);
   }
 }
 
-function formatTarih(isoStr) {
-  if (!isoStr) return "";
-  const d = new Date(isoStr);
-  const ay = String(d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", month: "2-digit" }));
-  const yil = d.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", year: "numeric" });
-  if (window.innerWidth <= 768) { return `${ay}.${yil.slice(2)}`; }
+function formatTarih(isoStr){
+  if(!isoStr) return "";
+  const d=new Date(isoStr);
+  const ay=String(d.toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",month:"2-digit"}));
+  const yil=d.toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",year:"numeric"});
+  if(window.innerWidth<=768){return `${ay}.${yil.slice(2)}`;}
   return `${ay}.${yil}`;
 }
 
-function filtreleVeGoster() {
-  const getVal = id => document.getElementById(id)?.value.trim().toLowerCase() || "";
+function filtreleVeGoster(){
+  const getVal=id=>document.getElementById(id)?.value.trim().toLowerCase()||"";
 
-  const seciliMarkalar = [...document.querySelectorAll("#markaBox input:checked")].map(i => i.value);
+  const seciliMarkalar=[...document.querySelectorAll("#markaBox input:checked")].map(i=>i.value);
 
-  let filtreli = tumVeri.filter(item => {
-    const m = (item.marka || "").toLowerCase().trim();
+  let filtreli=tumVeri.filter(item=>{
+    const m=(item.marka||"").toLowerCase().trim();
     return (!seciliMarkalar.length || seciliMarkalar.includes(m)) &&
-      (!getVal("sinifSec") || (item["sınıf"] || "").toLowerCase().trim() === getVal("sinifSec")) &&
-      (!getVal("segmentSec") || (item.segment || "").toLowerCase().trim() === getVal("segmentSec")) &&
-      (!getVal("yakitSec") || (item["yakıt türü"] || "").toLowerCase().trim() === getVal("yakitSec")) &&
-      (!getVal("vitesSec") || (item.vites || "").toLowerCase().trim() === getVal("vitesSec"));
+           (!getVal("sinifSec") || (item["sınıf"]||"").toLowerCase().trim()===getVal("sinifSec")) &&
+           (!getVal("segmentSec") || (item.segment||"").toLowerCase().trim()===getVal("segmentSec")) &&
+           (!getVal("yakitSec") || (item["yakıt türü"]||"").toLowerCase().trim()===getVal("yakitSec")) &&
+           (!getVal("vitesSec") || (item.vites||"").toLowerCase().trim()===getVal("vitesSec"));
   });
 
-  filtreli = fiyatIsle(filtreli);
+  filtreli=fiyatIsle(filtreli);
 
-  let html = "<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th><th>K.Fiyat-binTL</th></tr></thead><tbody>";
-  
-  if(filtreli.length === 0) {
-    html += '<tr><td colspan="9" style="text-align:center; padding:20px;">Aradığınız kriterlere uygun araç bulunamadı.</td></tr>';
-  } else {
-    filtreli.forEach(item => {
-      const fiyat = Math.round(Number(item.fiyat) / 1000).toLocaleString("tr-TR");
-      const kfiyat = Number(item.kfiyat) > 0 ? Math.round(item.kfiyat / 1000).toLocaleString("tr-TR") : "";
-      html += `<tr>
-        <td class="fiyat">${fiyat}</td>
-        <td>${item.marka || ''}</td>
-        <td>${item.model || ''}</td>
-        <td>${item["sınıf"] || ''}</td>
-        <td>${item.segment?.toUpperCase() || ""}</td>
-        <td>${item["yakıt türü"] || ''}</td>
-        <td>${item.vites || ''}</td>
-        <td>${formatTarih(item.guncelleme) || ""}</td>
-        <td class="kfiyat">${kfiyat}</td>
-      </tr>`;
-    });
-  }
-  
-  html += "</tbody></table>";
-  const sonucAlani = document.getElementById("sonuclar");
-  if(sonucAlani) sonucAlani.innerHTML = html;
+  let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th><th>K.Fiyat-binTL</th></tr></thead><tbody>";
+  filtreli.forEach(item=>{
+    const fiyat=Math.round(Number(item.fiyat)/1000).toLocaleString("tr-TR");
+    const kfiyat=Number(item.kfiyat)>0?Math.round(item.kfiyat/1000).toLocaleString("tr-TR"):"";
+    html+=`<tr>
+      <td class="fiyat">${fiyat}</td>
+      <td>${item.marka||""}</td>
+      <td>${item.model||""}</td>
+      <td>${item["sınıf"]||""}</td>
+      <td>${item.segment?.toUpperCase()||""}</td>
+      <td>${item["yakıt türü"]||""}</td>
+      <td>${item.vites||""}</td>
+      <td>${formatTarih(item.guncelleme)||""}</td>
+      <td class="kfiyat">${kfiyat}</td>
+    </tr>`;
+  });
+  html+="</tbody></table>";
+  const sonuclarEl = document.getElementById("sonuclar");
+  if(sonuclarEl) sonuclarEl.innerHTML=html;
   
   mobilSegmentBaslik();
 
-  const markaSayisi = new Set(filtreli.map(item => item.marka)).size;
-  const filtreAciklamalari = [];
-  
-  const filtreEtiketi = (id, baslik) => {
+  const markaSayisi=new Set(filtreli.map(item=>item.marka)).size;
+
+  const filtreAciklamalari=[];
+  const filtreEtiketi=(id,baslik)=>{
     const el = document.getElementById(id);
     if(el && el.value) {
-      const secim = el.value.trim();
-      filtreAciklamalari.push(`${baslik}: ${secim.charAt(0).toUpperCase() + secim.slice(1)}`);
+      const secim=el.value.trim();
+      filtreAciklamalari.push(`${baslik}: ${secim.charAt(0).toUpperCase()+secim.slice(1)}`);
     }
   };
 
-  if (seciliMarkalar.length) {
-    const shown = seciliMarkalar.slice(0, 3).map(s => s.toUpperCase()).join(", ");
-    filtreAciklamalari.push(`Marka: ${shown}${seciliMarkalar.length > 3 ? " +" + (seciliMarkalar.length - 3) : ""}`);
+  if(seciliMarkalar.length){
+    const shown=seciliMarkalar.slice(0,3).map(s=>s.toUpperCase()).join(", ");
+    filtreAciklamalari.push(`Marka: ${shown}${seciliMarkalar.length>3?" +"+(seciliMarkalar.length-3):""}`);
   }
 
-  filtreEtiketi("sinifSec", "Sınıf");
-  filtreEtiketi("segmentSec", "Segment");
-  filtreEtiketi("yakitSec", "Yakıt");
-  filtreEtiketi("vitesSec", "Vites");
+  filtreEtiketi("sinifSec","Sınıf");
+  filtreEtiketi("segmentSec","Segment");
+  filtreEtiketi("yakitSec","Yakıt");
+  filtreEtiketi("vitesSec","Vites");
 
-  let yazi = `${filtreli.length} araç, ${markaSayisi} farklı marka listelendi.`;
-  if (filtreAciklamalari.length > 0) { yazi += " | " + filtreAciklamalari.join(" | "); }
-  
-  const sayiEl = document.getElementById("aracSayisi");
-  if(sayiEl) sayiEl.textContent = yazi;
+  let yazi=`${filtreli.length} araç, ${markaSayisi} farklı marka listelendi.`;
+  if(filtreAciklamalari.length>0){yazi+=" | "+filtreAciklamalari.join(" | ");}
+  const aracSayisiEl = document.getElementById("aracSayisi");
+  if(aracSayisiEl) aracSayisiEl.textContent=yazi;
 
   setUstHa();
 }
 
 veriYukle();
-window.addEventListener("pageshow", function (event) { if (event.persisted) { veriYukle(); } });
+window.addEventListener("pageshow",function(event){if(event.persisted){veriYukle();}});
 
-// 4. Mobil Görünüm Düzenlemeleri
-function mobilSegmentBaslik() {
-  const ths = document.querySelectorAll("#sonuclar th");
-  if (!ths.length) return;
-
-  if (window.innerWidth <= 768) {
-    if (ths[0]) { ths[0].textContent = "FİYAT\n(bin TL)"; ths[0].style.whiteSpace = "pre-line"; }
-    if (ths[4]) ths[4].textContent = "SG";
-    if (ths[7]) ths[7].textContent = "GÜN.";
-    if (ths[8]) ths[8].textContent = "K.FİYAT";
-
-    document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td => {
-      const txt = td.textContent.trim().toLowerCase();
-      if (txt === "hatchback") td.textContent = "HB";
-      else if (txt === "sedan") td.textContent = "Sed.";
-    });
-    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td => {
-      const txt = td.textContent.trim().toLowerCase();
-      if (txt === "elektrikli") td.textContent = "Elk.";
-      else if (txt === "benzinli") td.textContent = "Benz.";
-    });
-    document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td => {
-      const txt = td.textContent.trim().toLowerCase();
-      if (txt === "otomatik") td.textContent = "Oto.";
-      else if (txt === "manuel") td.textContent = "Man.";
-    });
-  } else {
-    if (ths[0]) ths[0].textContent = 'FİYAT (bin TL)';
-    if (ths[4]) ths[4].textContent = "SEG.";
-    if (ths[7]) ths[7].textContent = "GÜNCEL.";
-    if (ths[8]) ths[8].textContent = 'KAMPANYA (bin TL)';
-
-    document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td => {
-      if (td.textContent.trim() === "HB") td.textContent = "Hatchback";
-      if (td.textContent.trim() === "Sed.") td.textContent = "Sedan";
-    });
-    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td => {
-      if (td.textContent.trim() === "Elk.") td.textContent = "Elektrikli";
-      if (td.textContent.trim() === "Benz.") td.textContent = "Benzinli";
-    });
-    document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td => {
-      if (td.textContent.trim() === "Oto.") td.textContent = "Otomatik";
-      if (td.textContent.trim() === "Man.") td.textContent = "Manuel";
-    });
+function mobilSegmentBaslik(){
+  if(window.innerWidth<=768){
+    const th0 = document.querySelectorAll("#sonuclar th")[0];
+    if(th0) { th0.textContent="FİYAT\n(bin TL)"; th0.style.whiteSpace="pre-line"; }
+    
+    const ths = document.querySelectorAll("#sonuclar th");
+    if(ths[4]) ths[4].textContent="SG";
+    if(ths[7]) ths[7].textContent="GÜN.";
+    if(ths[8]) ths[8].textContent="K.FİYAT";
+    
+    document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="hatchback"&&(td.textContent="HB"));
+    document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent.trim().toLowerCase()=="sedan"&&(td.textContent="Sed."));
+    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="elektrikli"&&(td.textContent="Elk."));
+    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent.trim().toLowerCase()=="benzinli"&&(td.textContent="Benz."));
+    document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="otomatik"&&(td.textContent="Oto."));
+    document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent.trim().toLowerCase()=="manuel"&&(td.textContent="Man."));
+  }else{
+    const ths = document.querySelectorAll("#sonuclar th");
+    if(ths[0]) ths[0].textContent='FİYAT (bin TL)';
+    if(ths[4]) ths[4].textContent="SEG.";
+    if(ths[7]) ths[7].textContent="GÜNCEL.";
+    if(ths[8]) ths[8].textContent='KAMPANYA (bin TL)';
+    
+    document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="HB"&&(td.textContent="Hatchback"));
+    document.querySelectorAll("#sonuclar tr td:nth-child(4)").forEach(td=>td.textContent=="Sed."&&(td.textContent="Sedan"));
+    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Elk."&&(td.textContent="Elektrikli"));
+    document.querySelectorAll("#sonuclar tr td:nth-child(6)").forEach(td=>td.textContent=="Benz."&&(td.textContent="Benzinli"));
+    document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Oto."&&(td.textContent="Otomatik"));
+    document.querySelectorAll("#sonuclar tr td:nth-child(7)").forEach(td=>td.textContent=="Man."&&(td.textContent="Manuel"));
   }
 }
 
-// Performance Optimization (Debounce)
-let resizeTimer;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    setUstH();
-    setUstHa();
-    mobilSegmentBaslik();
-  }, 100);
-});
+window.addEventListener("resize",mobilSegmentBaslik);
+document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstHa();});
+if(window.innerWidth<=768) document.body.classList.add("filtreKapali");
 
-document.getElementById("filtreAcKapa")?.addEventListener("click", e => {
-  e.preventDefault();
-  document.body.classList.toggle("filtreKapali");
-  setUstHa();
-});
-if (window.innerWidth <= 768) document.body.classList.add("filtreKapali");
-
-function setUstHa() {
-  const u = document.getElementById("ustBara");
-  if (!u) return;
-  document.documentElement.style.setProperty("--ustHa", (u.offsetHeight) + "px");
-}
+function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
 setUstHa();
 
-// 5. Yardımcı Hesaplamalar ve Sayı Ayıklama
-function toNum(s) {
-  s = (s || "").toString().replace(/\./g, "").replace(/,/g, ".").replace(/[^\d.]/g, "");
-  return s ? Number(s) : NaN;
-}
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const fr=document.getElementById("sayfaFrame");
+const map={"sifiraraclar-icerik.html":"/sifiraraclar.html","platformucretleri-icerik.html":"/platformucretleri.html","doviz-icerik.html":"/doviz.html","gelirvergisi-icerik.html":"/gelirvergisi.html","ankara-icerik.html":"/ankara.html","elektrik-icerik.html":"/elektrik.html","oyunlar-icerik.html":"/oyunlar.html"};
+function setSel(){const src=(fr&&fr.getAttribute("src"))||"";const f=src.split("/").pop();if(map[f])ms.value=map[f];}
+setSel();if(fr)fr.addEventListener("load",setSel);ms.onchange=()=>location.href=ms.value;})();
 
-function fiyatIsle(rows) {
-  const sel = document.getElementById("siralaSec")?.value || "";
-  const minI = document.getElementById("minM"), maxI = document.getElementById("maxM");
-  let min = -Infinity, max = Infinity;
+function toNum(s){s=(s||"").toString().replace(/\./g,"").replace(/,/g,".").replace(/[^\d.]/g,"");return s?Number(s):NaN;}
 
-  if (sel === "artan" || sel === "azalan") {
-    if (minI) minI.disabled = true;
-    if (maxI) maxI.disabled = true;
-  } else if (sel === "man") {
-    if (minI) minI.disabled = false;
-    if (maxI) maxI.disabled = false;
-    const a = toNum(minI?.value), b = toNum(maxI?.value);
-    min = isNaN(a) ? -Infinity : a * 1e3;
-    max = isNaN(b) ? Infinity : b * 1e3;
-  } else if (sel.includes("-")) {
-    if (minI) minI.disabled = true;
-    if (maxI) maxI.disabled = true;
-    const p = sel.split("-").map(Number);
-    min = (p[0] || 0) * 1e3;
-    max = (p[1] || 999) * 1e3;
-  } else {
-    if (minI) minI.disabled = true;
-    if (maxI) maxI.disabled = true;
+function fiyatIsle(rows){
+  const sel=document.getElementById("siralaSec")?.value||"";
+  const minI=document.getElementById("minM"),maxI=document.getElementById("maxM");
+  let min=-Infinity,max=Infinity;
+
+  if(sel==="artan"||sel==="azalan"){if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;}
+  else if(sel==="man"){
+    if(minI)minI.disabled=false;if(maxI)maxI.disabled=false;
+    const a=toNum(minI?.value),b=toNum(maxI?.value);
+    min=isNaN(a)?-Infinity:a*1e3;max=isNaN(b)?Infinity:b*1e3;
+  }else if(sel.includes("-")){
+    if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
+    const p=sel.split("-").map(Number);min=(p[0]||0)*1e3;max=(p[1]||999)*1e3;
+  }else{
+    if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
   }
 
-  let out = (rows || []).filter(x => {
-    const f = Number(x.fiyat || x.Fiyat || 0);
-    return f >= min && f <= max;
-  });
-
-  if (sel === "azalan") {
-    out.sort((a, b) => (Number(b.fiyat) || 0) - (Number(a.fiyat) || 0));
-  } else {
-    out.sort((a, b) => (Number(a.fiyat) || 0) - (Number(a.fiyat) || 0));
+  let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
+  
+  if(sel==="azalan"){
+    out.sort((a,b)=> (Number(b.fiyat||b.Fiyat||0)) - (Number(a.fiyat||a.Fiyat||0)));
+  }else{
+    out.sort((a,b)=> (Number(a.fiyat||a.Fiyat||0)) - (Number(b.fiyat||b.Fiyat||0)));
   }
+
   return out;
 }
 
-["siralaSec", "minM", "maxM"].forEach(id => document.getElementById(id)?.addEventListener("change", filtreleVeGoster));
+["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
 
-function mtlEkle(inp) {
-  inp.addEventListener("blur", () => {
-    let v = inp.value.replace(/[^\d.,]/g, "").trim();
-    if (v && !isNaN(toNum(v))) inp.value = v + " (bin TL)";
-    else inp.value = "";
+function mtlEkle(inp){
+  inp.addEventListener("blur",()=>{
+    let v=inp.value.replace(/\s*\(bin TL\)$/i,"").replace(/\s*bin TL$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+"  (bin TL)"; else inp.value="";
   });
-  inp.addEventListener("focus", () => {
-    inp.value = inp.value.replace(/[^\d.,]/g, "").trim();
+  inp.addEventListener("focus",()=>{
+    inp.value=inp.value.replace(/\s*\(bin TL\)$/i,"").replace(/\s*bin TL$/i,"").trim();
   });
 }
-["minM", "maxM"].forEach(id => { const i = document.getElementById(id); if (i) mtlEkle(i); });
-["minM", "maxM"].forEach(id => document.getElementById(id)?.addEventListener("keydown", e => { if (e.key === "Enter") { e.target.blur(); filtreleVeGoster(); } }));
+["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
 
-// Dynamic Include & Feedback Script
-document.querySelectorAll("[data-include]").forEach(e => {
-  fetch(e.dataset.include, { cache: "no-store" })
-    .then(r => r.ok ? r.text() : "")
-    .then(t => { if (t) e.innerHTML = t; });
-});
+["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.target.blur();filtreleVeGoster();}}));
 
-(() => {
-  const f = document.getElementById('fbk');
-  if (!f) return;
-  const t = f.querySelector('textarea'), b = f.querySelector('button');
-  let v = null, k = 'fbk_' + location.pathname, u = 'https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
-  if (localStorage.getItem(k)) { f.textContent = 'Geri bildirimin için teşekkürler'; return; }
-  
-  f.querySelectorAll('.fbkbtn span').forEach(s => s.onclick = () => {
-    v = s.dataset.v;
-    if(t) t.style.display = 'block';
-    if(b) b.style.display = 'block';
-    if(t) t.placeholder = v == '1' ? 'Ne hoşuna gitti?' : 'Ne eksik / hatalı?';
-  });
+(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)));})();
 
+(()=>{const f=document.getElementById('fbk');
+  if(!f)return;
+  const t=f.querySelector('textarea'),b=f.querySelector('button');
+  let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
+  if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}
+  f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;if(t)t.style.display='block';if(b)b.style.display='block';if(t)t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});
   if(b) {
-    b.onclick = () => {
-      if (v == null) return alert('Önce 👍/👎 seç');
-      if (v == '0' && (!t || !t.value.trim())) return alert('Kısaca yazar mısın?');
-      localStorage.setItem(k, "1");
-      const fr = document.getElementById('sayfaFrame');
-      const path = fr && fr.src ? new URL(fr.src).pathname : location.pathname;
-      const p = JSON.stringify({ url: path, val: v, msg: t ? t.value : "", ua: navigator.userAgent, ts: Date.now() });
-      fetch(u, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: p });
-      f.textContent = 'Teşekkürler';
-    };
+    b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&(!t||!t.value.trim()))return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);
+    const fr=document.getElementById('sayfaFrame');
+    const path=fr&&fr.src?new URL(fr.src).pathname:location.pathname; 
+    const p=JSON.stringify({url:path,val:v,msg:t?t.value:"",ua:navigator.userAgent,ts:Date.now()});
+    fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};
   }
 })();
 </script>
