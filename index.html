@@ -41,7 +41,7 @@ main{padding-top:var(--ustH)}
 
 /* ─── LAYOUT ─── */
 #layout{display:flex;gap:8px;padding:2px 16px 12px;align-items:flex-start}
-#ortaAlan{flex:1;width:%100}
+#ortaAlan{flex:1;width:100%}
 #sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
 #sagReklam{width:300px;position:sticky;top:var(--ustH)}
 .platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
@@ -111,6 +111,9 @@ main{padding-top:var(--ustH)}
 .bilgi-kutu h3{font-size:13px;font-weight:600;margin:0 0 10px}
 .bilgi-kutu p{font-size:13px;color:#374151;line-height:1.7;margin:0 0 8px}
 .bilgi-kutu p:last-child{margin:0}
+
+/* AdSense Alanı Özel Stili */
+.adsense-icerik-alti{background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;overflow:hidden}
 
 @media(max-width:1200px){
   #layout{flex-direction:column;align-items:stretch}
@@ -188,14 +191,12 @@ main{padding-top:var(--ustH)}
               <a href="/sifiraraclar.html" class="arac-kart-btn">Listeye Git →</a>
             </div>
             <div class="arac-kart-body">
-              <p>Türkiye'de satışa sunulan sıfır araçların güncel fiyatlarını marka,model, segment, yakıt türü ve vites tipine göre filtreleyerek kolayca 
-                inceleyebilirsiniz.</p>
-              <p>Her araç için liste fiyatının yanı sıra mevcut kampanya fiyatları da gösterilmektedir. Fiyatlar resmi bayii kaynakları ve marka web siteleri 
-                baz alınarak güncellenmektedir.</p>
+              <p>Türkiye'de satışa sunulan sıfır araçların güncel fiyatlarını marka, model, segment, yakıt türü ve vites tipine göre filtreleyerek kolayca inceleyebilirsiniz.</p>
+              <p>Her araç için liste fiyatının yanı sıra mevcut kampanya fiyatları da gösterilmektedir. Fiyatlar resmi bayii kaynakları ve marka web siteleri baz alınarak güncellenmektedir.</p>
             </div>
             <div class="ozellik-grid">
               <div class="ozellik-item"><div class="etiket">Marka Sayısı</div><div class="deger">39</div></div>
-              <div class="ozellik-item"><div class="etiket">Filtreleme</div><div class="deger">Marka,Model, Segment,Sınıf Yakıt,Vites,Fiyat</div></div>
+              <div class="ozellik-item"><div class="etiket">Filtreleme</div><div class="deger">Marka, Model, Segment, Sınıf, Yakıt, Vites, Fiyat</div></div>
               <div class="ozellik-item"><div class="etiket">Kampanyalar</div><div class="deger">✓ Gösteriliyor</div></div>
               <div class="ozellik-item"><div class="etiket">Güncelleme</div><div class="deger">Aylık</div></div>
             </div>
@@ -224,8 +225,7 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon ic-bg-yesil">💱</div>
                 <h3>Döviz Çevirici</h3>
               </div>
-              <p>TL, USD, EUR, GBP, CHF, JPY ve diğer 10'dan fazla para birimi arasında anlık çeviri yapabilirsiniz. 
-                Güncel kurlar kullanılarak hesaplama yapılmaktadır.</p>
+              <p>TL, USD, EUR, GBP, CHF, JPY ve diğer 10'dan fazla para birimi arasında anlık çeviri yapabilirsiniz. Güncel kurlar kullanılarak hesaplama yapılmaktadır.</p>
               <br>
               <a href="/doviz.html" class="kucuk-kart-link">Döviz çeviriciye git →</a>
             </div>
@@ -243,8 +243,7 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon ic-bg-mor">📊</div>
                 <h3>Gelir Vergisi Dilimleri</h3>
               </div>
-              <p>Türkiye'deki güncel gelir vergisi dilimlerini ve oranlarını kolayca öğrenebilirsiniz. 
-                Aylık veya yıllık gelirinize göre hangi vergi dilimine girdiğinizi hesaplayabilirsiniz.</p>
+              <p>Türkiye'deki güncel gelir vergisi dilimlerini ve oranlarını kolayca öğrenebilirsiniz. Aylık veya yıllık gelirinize göre hangi vergi dilimine girdiğinizi hesaplayabilirsiniz.</p>
               <p style="font-size:12px;color:var(--muted)">Ücretli çalışanlar ve serbest meslek sahipleri için ayrı dilim bilgileri sunulmaktadır. Güncel yasal düzenlemelere göre hazırlanmıştır.</p>
               <a href="/gelirvergisi.html" class="kucuk-kart-link">Vergi dilimlerini gör →</a>
             </div>
@@ -255,10 +254,8 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon ic-bg-turuncu">⚡</div>
                 <h3>Elektrik Bilgileri</h3>
               </div>
-              <p>Elektriksel hesaplamalara dair; transformatör primer-sekonder akım hesabı, XLPE kabloların akım taşıma kapasiteleri,
-                Havai hat iletkenlerin akım ve güç taşıma kapasite hesaplamalarını bulabilirsiniz.</p>
-              <p style="font-size:12px;color:var(--muted)">Ayrıca beyaz eşya ve küçük elektrikli ev aletlerinin mevcut mesken tarifesi ile aylık faturanıza
-                ne kadar etki edeceğini hesaplayabilirsiniz.</p>
+              <p>Elektriksel hesaplamalara dair; transformatör primer-sekonder akım hesabı, XLPE kabloların akım taşıma kapasiteleri, Havai hat iletkenlerin akım ve güç taşıma kapasite hesaplamalarını bulabilirsiniz.</p>
+              <p style="font-size:12px;color:var(--muted)">Ayrıca beyaz eşya ve küçük elektrikli ev aletlerinin mevcut mesken tarifesi ile aylık faturanıza ne kadar etki edeceğini hesaplayabilirsiniz.</p>
               <a href="/elektrik.html" class="kucuk-kart-link">Elektrik bölümüne git →</a>
             </div>
           </div>
@@ -286,16 +283,15 @@ main{padding-top:var(--ustH)}
                 <div class="kucuk-kart-icon" style="background:#f0fdf4">🎮</div>
                 <h3>Oyunlar</h3>
               </div>
-              <p>Pratik ve eğlenceli mini oyunlar ile zihninizi çalıştırın. 
-                Bekleme sürelerini veya kısa molalarınızı değerlendirmek için tasarlanmış, tarayıcıda doğrudan oynayabileceğiniz oyunlar.</p>
+              <p>Pratik ve eğlenceli mini oyunlar ile zihninizi çalıştırın. Bekleme sürelerini veya kısa molalarınızı değerlendirmek için tasarlanmış, tarayıcıda doğrudan oynayabileceğiniz oyunlar.</p>
               <p style="font-size:12px;color:var(--muted)">Herhangi bir kurulum gerektirmez, reklam içermez. Şimdilik 1 tane.</p>
               <a href="/oyunlar.html" class="kucuk-kart-link">Oyunlara git →</a>
             </div>
 
-                        <!-- Gıdalar -->
+            <!-- Gıdalar -->
             <div class="kucuk-kart">
               <div class="kucuk-kart-ust">
-                <div class="kucuk-kart-icon" style="background:#fef9c3"> </div>
+                <div class="kucuk-kart-icon" style="background:#fef9c3">🍏</div>
                 <h3>Gıdalar</h3>
               </div>
               <p>Gıdaların etkin maddeleri ve hangi şikayetlere etkili olabileceklerini bulabilirsiniz.</p>
@@ -309,6 +305,19 @@ main{padding-top:var(--ustH)}
           <h3>NESEL Hakkında</h3>
           <p>NESEL, günlük hayatta sıkça ihtiyaç duyulan bilgilere hızlıca ulaşmanızı sağlamak amacıyla kurulmuş bağımsız bir bilgi platformudur. Sıfır araç fiyatları, platform abonelik ücretleri, döviz kurları ve vergi dilimleri gibi konularda düzenli olarak güncellenen veriler sunulmaktadır.</p>
           <p>Sitede yer alan fiyat ve bilgiler kamuya açık kaynaklardan, resmi marka web sitelerinden ve güvenilir satış platformlarından derlenmektedir. Tüm bilgiler yalnızca genel bilgilendirme amaçlı olup, kesin ve bağlayıcı nitelik taşımamaktadır. Güncel ve kesin bilgi için ilgili resmi kaynakların ziyaret edilmesi tavsiye edilir.</p>
+        </div>
+
+        <!-- İÇERİK ALTI ADSENSE REKLAM ALANI -->
+        <div class="adsense-icerik-alti">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-1268402107177386"
+               data-ad-slot="2157595670"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
 
       </div><!-- /anaIcerik -->
