@@ -70,8 +70,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 .bilgilendirme{margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6;background:#f8fafc;padding:12px;border-radius:8px;border:1px solid var(--line);}
 #markaButon{font-size:13px;padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-weight:600;}
 
-/* KESİN GİZLEME KURALI EKLENDİ */
-#markaModal{display:none !important;position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);padding:16px;z-index:9999;width:min(92vw,720px);box-shadow:0 10px 25px rgba(0,0,0,.1);border-radius:12px;max-height:78vh;overflow:auto}
+#markaModal{display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);padding:16px;z-index:9999;width:min(92vw,720px);box-shadow:0 10px 25px rgba(0,0,0,.1);border-radius:12px;max-height:78vh;overflow:auto}
 #markaModal h4{margin:0 0 12px;font-size:16px;font-weight:700}
 
 #filtreAcKapa{display:none;font-size:13px;padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-weight:600;}
@@ -221,53 +220,50 @@ footer {
            </div>
          </div>
 
-         <!-- SVG Logo Kütüphanesi -->
-         <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-           <symbol id="logo-alfa-romeo" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></symbol>
-           <symbol id="logo-audi" viewBox="0 0 24 24"><path fill="currentColor" d="M18.53 8.53c-.4 0-.78.07-1.15.2-.38.15-.72.33-1.02.58-.32-.25-.65-.43-1.02-.58-.38-.13-.76-.2-1.16-.2-.42 0-.8.07-1.17.2-.38.15-.71.33-1.01.58-.3-.25-.63-.43-1-.58-.38-.13-.76-.2-1.16-.2-.42 0-.8.07-1.17.2-.38.15-.71.33-1.01.58-.3-.25-.63-.43-1-.58-.38-.13-.76-.2-1.16-.2-.63 0-1.22.15-1.75.47-.53.32-.95.74-1.26 1.27-.32.53-.47 1.12-.47 1.74 0 .62.15 1.21.47 1.74.31.53.73.95 1.26 1.27.53.32 1.12.47 1.75.47.4 0 .78-.07 1.16-.2.37-.15.7-.33 1-.58.3.25.63.43 1.01.58.38.13.75.2 1.17.2.4 0 .78-.07 1.16-.2.37-.15.7-.33 1-.58.3.25.63.43 1.01.58.38.13.75.2 1.16.2.4 0 .78-.07 1.16-.2.37-.15.7-.33 1.01-.58.3.25.63.43 1.01.58.38.13.75.2 1.16.2.63 0 1.22-.15 1.75-.47.53-.32.95-.74 1.26-1.27.32-.53.47-1.12.47-1.74 0-.62-.15-1.21-.47-1.74-.31-.53-.73-.95-1.26-1.27-.53-.32-1.12-.47-1.75-.47z"/></symbol>
-           <symbol id="logo-bmw" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8z"/></symbol>
-           <symbol id="logo-citroen" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L4 8l8 6 8-6-8-6z"/></symbol>
-           <symbol id="logo-dacia" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v12H4z"/></symbol>
-           <symbol id="logo-fiat" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4h14v16H5z"/></symbol>
-           <symbol id="logo-ford" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4C7.03 4 3 8.03 3 13s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/></symbol>
-           <symbol id="logo-honda" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l10 10-10 10L2 12 12 2z"/></symbol>
-           <symbol id="logo-hyundai" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
-           <symbol id="logo-kia" viewBox="0 0 24 24"><path fill="currentColor" d="M2 4h20v16H2z"/></symbol>
-           <symbol id="logo-opel" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L2 12l10 10 10-10L12 2z"/></symbol>
-           <symbol id="logo-peugeot" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5z"/></symbol>
-           <symbol id="logo-renault" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l10 10L12 22 2 12 12 2z"/></symbol>
-           <symbol id="logo-skoda" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
-           <symbol id="logo-toyota" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
-           <symbol id="logo-volkswagen" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
-           <symbol id="logo-volvo" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
-           <symbol id="logo-byd" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-chery" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-cupra" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-ds" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-ferrari" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-jaguar" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-jeep" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-land-rover" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-lexus" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-maserati" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-mazda" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-mg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-mini" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-nissan" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-porsche" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-ssangyong" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-subaru" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-suzuki" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-tesla" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-togg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-           <symbol id="logo-bentley" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
-         </svg>
-
-         <!-- Marka Modalı (Varsayılan olarak kesin gizli) -->
+         <!-- Orijinal Statik ve Çalışır Marka Listesi / Modal -->
          <div id="markaModal">
            <h4>🚘 Marka Resmi Siteleri</h4>
-           <div class="marka-listesi" id="markaListe">
-             <!-- JavaScript burayı otomatik dolduracak -->
+           <div class="marka-listesi">  
+             <label><a href="https://www.alfaromeo.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-alfa-romeo"></use></svg>Alfa Romeo</a></label>
+             <label><a href="https://www.audi.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-audi"></use></svg>Audi</a></label>
+             <label><a href="https://istanbul.bentleymotors.com/eu/tr/home" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-bentley"></use></svg>Bentley</a></label>
+             <label><a href="https://www.bmw.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-bmw"></use></svg>BMW</a></label>
+             <label><a href="https://www.bydauto.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-byd"></use></svg>BYD</a></label>
+             <label><a href="https://cherytr.com" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-chery"></use></svg>Chery</a></label>
+             <label><a href="https://www.citroen.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-citroen"></use></svg>Citroën</a></label>
+             <label><a href="https://www.cupraofficial.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-cupra"></use></svg>Cupra</a></label>
+             <label><a href="https://www.dacia.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-dacia"></use></svg>Dacia</a></label>
+             <label><a href="https://www.dsautomobiles.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-ds"></use></svg>DS</a></label>
+             <label><a href="https://istanbul.ferraridealers.com/tr-TR" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-ferrari"></use></svg>Ferrari</a></label>
+             <label><a href="https://www.fiat.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-fiat"></use></svg>Fiat</a></label>
+             <label><a href="https://www.ford.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-ford"></use></svg>Ford</a></label>
+             <label><a href="https://www.honda.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-honda"></use></svg>Honda</a></label>
+             <label><a href="https://www.hyundai.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-hyundai"></use></svg>Hyundai</a></label>
+             <label><a href="https://www.jaguar.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-jaguar"></use></svg>Jaguar</a></label>
+             <label><a href="https://www.jeep.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-jeep"></use></svg>Jeep</a></label>
+             <label><a href="https://www.kia.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-kia"></use></svg>Kia</a></label>
+             <label><a href="https://www.landrover.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-land-rover"></use></svg>Land Rover</a></label>
+             <label><a href="https://www.lexus.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-lexus"></use></svg>Lexus</a></label>
+             <label><a href="https://www.maserati.com/tr/tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-maserati"></use></svg>Maserati</a></label>
+             <label><a href="https://www.mazda.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-mazda"></use></svg>Mazda</a></label>
+             <label><a href="https://www.mercedes-benz.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-mercedes"></use></svg>Mercedes</a></label>
+             <label><a href="https://www.mg-turkey.com/tr/" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-mg"></use></svg>MG</a></label>
+             <label><a href="https://www.mini.com.tr/tr_TR/home.html" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-mini"></use></svg>Mini</a></label>
+             <label><a href="https://www.nissan.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-nissan"></use></svg>Nissan</a></label>
+             <label><a href="https://www.opel.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-opel"></use></svg>Opel</a></label>
+             <label><a href="https://www.peugeot.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-peugeot"></use></svg>Peugeot</a></label>
+             <label><a href="https://www.porsche.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-porsche"></use></svg>Porsche</a></label>
+             <label><a href="https://www.renault.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-renault"></use></svg>Renault</a></label>
+             <label><a href="https://www.seat.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-seat"></use></svg>SEAT</a></label>
+             <label><a href="https://www.skoda.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-skoda"></use></svg>Skoda</a></label>
+             <label><a href="https://ssangyong2yoto.com/" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-ssangyong"></use></svg>Ssangyong</a></label>
+             <label><a href="https://www.subaru.com.tr/index" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-subaru"></use></svg>Subaru</a></label>
+             <label><a href="https://www.suzuki.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-suzuki"></use></svg>Suzuki</a></label>
+             <label><a href="https://www.tesla.com/tr_tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-tesla"></use></svg>Tesla</a></label>
+             <label><a href="https://www.toyota.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-toyota"></use></svg>Toyota</a></label>
+             <label><a href="https://www.togg.com.tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-togg"></use></svg>TOGG</a></label>
+             <label><a href="https://www.vw.com.tr/" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-volkswagen"></use></svg>Volkswagen</a></label>
+             <label><a href="https://www.volvocars.com/tr" target="_blank" rel="noopener"><svg class="marka-logo-svg" aria-hidden="true"><use href="#logo-volvo"></use></svg>Volvo</a></label>
            </div>
          </div>
 
@@ -314,63 +310,6 @@ footer {
 </footer>
 
 <script>
-  // Dinamik Marka Listesi ve Logolar
-  const markalar = [
-    { ad: "Alfa Romeo", link: "https://www.alfaromeo.com.tr", logo: "#logo-alfa-romeo" },
-    { ad: "Audi", link: "https://www.audi.com.tr", logo: "#logo-audi" },
-    { ad: "Bentley", link: "https://istanbul.bentleymotors.com", logo: "#logo-bentley" },
-    { ad: "BMW", link: "https://www.bmw.com.tr", logo: "#logo-bmw" },
-    { ad: "BYD", link: "https://www.bydauto.com.tr", logo: "#logo-byd" },
-    { ad: "Chery", link: "https://cherytr.com", logo: "#logo-chery" },
-    { ad: "Citroën", link: "https://www.citroen.com.tr", logo: "#logo-citroen" },
-    { ad: "Cupra", link: "https://www.cupraofficial.com.tr", logo: "#logo-cupra" },
-    { ad: "Dacia", link: "https://www.dacia.com.tr", logo: "#logo-dacia" },
-    { ad: "DS", link: "https://www.dsautomobiles.com.tr", logo: "#logo-ds" },
-    { ad: "Ferrari", link: "https://istanbul.ferraridealers.com", logo: "#logo-ferrari" },
-    { ad: "Fiat", link: "https://www.fiat.com.tr", logo: "#logo-fiat" },
-    { ad: "Ford", link: "https://www.ford.com.tr", logo: "#logo-ford" },
-    { ad: "Honda", link: "https://www.honda.com.tr", logo: "#logo-honda" },
-    { ad: "Hyundai", link: "https://www.hyundai.com.tr", logo: "#logo-hyundai" },
-    { ad: "Jaguar", link: "https://www.jaguar.com.tr", logo: "#logo-jaguar" },
-    { ad: "Jeep", link: "https://www.jeep.com.tr", logo: "#logo-jeep" },
-    { ad: "Kia", link: "https://www.kia.com.tr", logo: "#logo-kia" },
-    { ad: "Land Rover", link: "https://www.landrover.com.tr", logo: "#logo-land-rover" },
-    { ad: "Lexus", link: "https://www.lexus.com.tr", logo: "#logo-lexus" },
-    { ad: "Maserati", link: "https://www.maserati.com/tr/tr", logo: "#logo-maserati" },
-    { ad: "Mazda", link: "https://www.mazda.com.tr", logo: "#logo-mazda" },
-    { ad: "Mercedes", link: "https://www.mercedes-benz.com.tr", logo: "#logo-mercedes" },
-    { ad: "MG", link: "https://www.mg-turkey.com/tr/", logo: "#logo-mg" },
-    { ad: "Mini", link: "https://www.mini.com.tr", logo: "#logo-mini" },
-    { ad: "Nissan", link: "https://www.nissan.com.tr", logo: "#logo-nissan" },
-    { ad: "Opel", link: "https://www.opel.com.tr", logo: "#logo-opel" },
-    { ad: "Peugeot", link: "https://www.peugeot.com.tr", logo: "#logo-peugeot" },
-    { ad: "Porsche", link: "https://www.porsche.com.tr", logo: "#logo-porsche" },
-    { ad: "Renault", link: "https://www.renault.com.tr", logo: "#logo-renault" },
-    { ad: "SEAT", link: "https://www.seat.com.tr", logo: "#logo-seat" },
-    { ad: "Skoda", link: "https://www.skoda.com.tr", logo: "#logo-skoda" },
-    { ad: "Ssangyong", link: "https://ssangyong2yoto.com/", logo: "#logo-ssangyong" },
-    { ad: "Subaru", link: "https://www.subaru.com.tr", logo: "#logo-subaru" },
-    { ad: "Suzuki", link: "https://www.suzuki.com.tr", logo: "#logo-suzuki" },
-    { ad: "Tesla", link: "https://www.tesla.com/tr_tr", logo: "#logo-tesla" },
-    { ad: "Toyota", link: "https://www.toyota.com.tr", logo: "#logo-toyota" },
-    { ad: "TOGG", link: "https://www.togg.com.tr", logo: "#logo-togg" },
-    { ad: "Volkswagen", link: "https://www.vw.com.tr/", logo: "#logo-volkswagen" },
-    { ad: "Volvo", link: "https://www.volvocars.com/tr", logo: "#logo-volvo" }
-  ];
-
-  const listeContainer = document.getElementById('markaListe');
-  if(listeContainer) {
-    markalar.forEach(m => {
-      const label = document.createElement('label');
-      label.innerHTML = `
-        <a href="${m.link}" target="_blank" rel="noopener">
-          <svg class="marka-logo-svg" aria-hidden="true"><use href="${m.logo}"></use></svg>
-          ${m.ad}
-        </a>`;
-      listeContainer.appendChild(label);
-    });
-  }
-
 function setUstH(){
   const u=document.getElementById("ustBar");
   if(!u) return;
