@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <!-- Google Analytics & AdSense Entegrasyonu aynen korundu -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
   <meta name="google-adsense-account" content="ca-pub-1268402107177386">
@@ -9,29 +8,313 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Sıfır Araç Fiyatları | Tüm Markalar ve Güncel Kampanyalar</title>
-  <!-- (Geri kalan meta ve CSS kodlarınız aynı kalıyor, sadece markaModal kısmını değiştirin) -->
-  <style>
-    /* Mevcut CSS yapınız aynen korunmuştur... */
-    .marka-listesi{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important;width:100%!important}
-    .marka-listesi label{display:block!important;margin:0!important;border:0!important;background:transparent!important}
-    .marka-listesi a{display:flex!important;align-items:center!important;gap:6px!important;height:32px!important;padding:5px 7px!important;border:1px solid #ddd!important;border-radius:8px!important;background:#fff!important;text-decoration:none!important;color:#222!important;font-size:12px!important;white-space:nowrap!important;overflow:hidden!important}
-    .marka-logo-svg{width:17px!important;height:17px!important;min-width:17px!important;display:block!important;color:#111!important;fill:currentColor!important}
-  </style>
+  <meta name="description" content="Sıfır araç fiyatları tüm markalar için listelendi. Segment, yakıt türü, vites tipi ve güncel kampanya indirimlerine göre arabaları karşılaştırın.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://nesel.tr/sifiraraclar.html">
+  <link rel="icon" href="/favicon.ico">
+
+  <meta property="og:title" content="Sıfır Araç Fiyatları | NESEL">
+  <meta property="og:description" content="Segment, yakıt türü ve vites tipine göre sıfır arabaları karşılaştırın.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
+
+<style>
+html{scrollbar-gutter:stable}
+:root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--accent-bg:#eff6ff;--ustH:64px;--ustHa:200px;}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5}
+a{color:inherit;text-decoration:none}
+#ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
+.wrap{max-width:1140px;margin:0 auto;padding:12px 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:170px}
+.logo{width:140px;height:38px;background:url("/logo.png") center/contain no-repeat;display:block}
+.brand b{letter-spacing:.6px}
+.kicker{color:var(--muted);font-size:12px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;font-weight:500}
+.nav a:hover{border-color:#cbd5e1}
+.nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
+main{padding-top:var(--ustH)}
+
+#layout{display:flex;gap:16px;max-width:1140px;margin:16px auto;padding:0 16px;align-items:flex-start}
+#ortaAlan{flex:1;width:100%;min-width:0}
+#sagReklam{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;width:300px;position:sticky;top:calc(var(--ustH) + 16px)}
+
+.frameWrap{margin:0}
+.frameBox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto}
+iframe{width:100%;height:100%;border:0;display:block}
+
+#mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px;font-size:13px;max-width:200px;width:100%}
+
+@media (max-width:1024px){
+  #layout{flex-direction:column;align-items:stretch}
+  #sagReklam{position:static;width:100%}
+  #ortaAlan{width:100%}
+}
+
+#aracFiltreleme{position:relative;width:100%;font-size:13px;}
+#ustBara{position:sticky;top:0;z-index:50;background:#f8fafc;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:12px}
+.filtre-grup{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.filtre-grup label{font-weight:600;display:flex;flex-direction:column;font-size:12px;color:var(--muted);min-width:110px;}
+.filtre-grup select{padding:6px;font-size:13px;width:130px;border:1px solid var(--line);border-radius:6px;background:#fff;}
+#sonuclar{margin-top:8px;}
+#sonuclar table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
+#sonuclar th,#sonuclar td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:middle;word-break:break-word;}
+#sonuclar th{font-weight:700;background:#f1f5f9;color:var(--txt)}
+#sonuclar td.fiyat{font-weight:700;color:#16a34a;white-space:nowrap;}
+#sonuclar td.kfiyat{font-weight:700;color:#2563eb;white-space:nowrap;}
+#sonuclar thead th{position:sticky;top:0;z-index:1;background:#e2e8f0;font-size:13px;}
+#sonuclar tbody tr:nth-child(odd){background:#ffffff;}
+#sonuclar tbody tr:nth-child(even){background:#f8fafc;}
+.bilgilendirme{margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6;background:#f8fafc;padding:12px;border-radius:8px;border:1px solid var(--line);}
+#markaButon{font-size:13px;padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-weight:600;}
+
+/* KESİN GİZLEME KURALI EKLENDİ */
+#markaModal{display:none !important;position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);padding:16px;z-index:9999;width:min(92vw,720px);box-shadow:0 10px 25px rgba(0,0,0,.1);border-radius:12px;max-height:78vh;overflow:auto}
+#markaModal h4{margin:0 0 12px;font-size:16px;font-weight:700}
+
+#filtreAcKapa{display:none;font-size:13px;padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-weight:600;}
+body.filtreKapali .filtre-grup{display:none;}
+
+.ddbtn{font-size:13px;padding:6px 10px;border:1px solid var(--line);background:#fff;cursor:pointer;min-width:130px;text-align:left;border-radius:6px;}
+.ddpanel{display:none;position:absolute;background:#fff;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.1);border-radius:8px;padding:8px;z-index:1000;min-width:240px;max-width:320px;}
+.ddsearch{width:100%;font-size:13px;padding:6px;border:1px solid var(--line);border-radius:6px;margin-bottom:6px;}
+.ddlist{max-height:220px;overflow:auto;font-size:13px;}
+.ddlist label{display:block;font-weight:normal;white-space:nowrap;padding:3px 0;color:var(--txt)}
+.ddlist input{margin-right:6px;vertical-align:middle;}
+.ddact{display:flex;gap:6px;margin-top:8px;}
+.ddact button{font-size:12px;padding:4px 10px;border:1px solid var(--line);background:#f1f5f9;border-radius:6px;cursor:pointer;font-weight:600;}
+.fxinp{width:90px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;}
+
+@media(max-width:768px){
+  #menu{display:none}
+  #mselect{display:block}
+  .logo{width:100px;height:32px}
+  .brand{min-width:auto;gap:0}
+  .brand b,.brand .kicker{display:none}
+  #filtreAcKapa{display:inline-block;margin-bottom:8px;}
+  #sonuclar table{min-width:680px;table-layout:fixed;}
+  #sonuclar th,#sonuclar td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  #markaModal .marka-listesi{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+.logoWrap{display:inline-block}
+#markaModal .marka-listesi{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important;width:100%!important}
+#markaModal .marka-listesi label{display:block!important;margin:0!important;min-width:0!important;border:0!important;background:transparent!important}
+#markaModal .marka-listesi a{display:flex!important;align-items:center!important;gap:6px!important;height:32px!important;padding:5px 7px!important;border:1px solid var(--line)!important;border-radius:8px!important;background:#fff!important;text-decoration:none!important;color:var(--txt)!important;font-size:12px!important;white-space:nowrap!important;overflow:hidden!important}
+#markaModal .marka-logo-svg{width:17px!important;height:17px!important;min-width:17px!important;display:block!important;color:#111!important;fill:currentColor!important}
+.filtreKullanim{margin:0 0 10px;padding:8px 10px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;font-size:12px;line-height:1.5;color:#1e40af}
+
+/* FOOTER */
+footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding: 24px 16px;
+}
+.footer-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+.footer-links a:hover { color: var(--accent); text-decoration: underline; }
+</style>
 </head>
 
 <body>
-<!-- HEADER VE MAIN BÖLÜMÜNÜZ AYNI KALACAK, sadece markaModal içindeki div'i boşaltın -->
-
-<!-- Marka Modalı -->
-<div id="markaModal">
-  <h4>🚘 Marka Resmi Siteleri</h4>
-  <div class="marka-listesi" id="markaListe">
-    <!-- Burası JS ile otomatik dolacak -->
+<header id="ustBar">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <a href="/" class="logoWrap" aria-label="Ana sayfa">
+          <div class="logo" aria-hidden="true"></div>
+        </a>
+        <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
+      </div>
+      <nav class="nav" id="menu">
+        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
+        <a href="/platformucretleri.html">Platform Ücretleri</a>
+        <a href="/doviz.html">Döviz Çevirici</a>
+        <a href="/gelirvergisi.html">Gelir Vergisi</a>
+        <a href="/ankara.html">Ankara</a>
+        <a href="/elektrik.html">Elektrik</a>
+        <a href="/oyunlar.html">Oyunlar</a>
+        <a href="/gidalar.html">Gıdalar</a>
+      </nav>
+      <select id="mselect" aria-label="Menü" onchange="location.href=this.value">
+        <option value="/sifiraraclar.html">Sıfır Araçlar</option>
+        <option value="/platformucretleri.html">Platform Ücretleri</option>
+        <option value="/doviz.html">Döviz Çevirici</option>
+        <option value="/gelirvergisi.html">Gelir Vergisi</option>
+        <option value="/ankara.html">Ankara</option>
+        <option value="/elektrik.html">Elektrik</option>
+        <option value="/oyunlar.html">Oyunlar</option>
+        <option value="/gidalar.html">Gıdalar</option>
+      </select>
+    </div>
   </div>
+</header>
+
+<main>
+  <div id="layout">
+    <section id="ortaAlan">
+      <div class="frameWrap">
+        <div class="frameBox">
+         <div id="aracFiltreleme">
+           <div id="ustBara">
+             <div class="filtreKullanim">Önce marka veya model seçin, ardından segment, yakıt ve vites ile listeyi daraltın. Kampanya ve liste fiyatlarını birlikte karşılaştırın.</div>
+             <div class="tarihinfo" id="aracSayisi" style="margin-bottom:8px;font-weight:600;font-size:13px;"></div>
+             <button id="filtreAcKapa">🔽 Filtre</button>
+             <div class="filtre-grup">
+               <label>Marka:
+                 <button type="button" id="markaDD" class="ddbtn">Tümü</button>
+                 <div id="markaPanel" class="ddpanel">
+                   <input id="markaAra" class="ddsearch" placeholder="Marka ara...">
+                   <div id="markaBox" class="ddlist"></div>
+                   <div class="ddact">
+                     <button type="button" id="markaTum">Tümü</button>
+                     <button type="button" id="markaTemiz">Temizle</button>
+                   </div>
+                 </div>
+               </label>
+
+               <label>Sınıf:<select id="sinifSec"><option value="">Tümü</option></select></label>
+               <label>Segment:<select id="segmentSec"><option value="">Tümü</option></select></label>
+               <label>Yakıt Türü:<select id="yakitSec"><option value="">Tümü</option></select></label>
+               <label>Vites:<select id="vitesSec"><option value="">Tümü</option></select></label>
+               <label>Fiyat:
+                 <select id="siralaSec">
+                 <option value="artan">Artan</option>
+                 <option value="azalan">Azalan</option>
+                 <option value="0-1000">0–1.000 (bin TL)</option>
+                 <option value="1000-2000">1.000–2.000 (bin TL)</option>
+                 <option value="2000-3000">2.000–3.000 (bin TL)</option>
+                 <option value="3000-4000">3.000–4.000 (bin TL)</option>
+                 <option value="4000-5000">4.000–5.000 (bin TL)</option>
+                 <option value="5000-10000">5.000-10.000 (bin TL)</option>
+                 <option value="10000-999000">10.000 (bin TL)+</option>
+                 <option value="man">Manuel Aralık</option>
+                 </select>
+               </label>
+               <input id="minM" inputmode="decimal" placeholder="min (bin TL)" class="fxinp" disabled>
+               <input id="maxM" inputmode="decimal" placeholder="max (bin TL)" class="fxinp" disabled>
+
+               <button id="markaButon">🔗 Marka Linkleri</button>
+             </div>
+           </div>
+
+           <div id="sonuclarWrap">
+             <div id="sonuclar"></div>
+             <div class="bilgilendirme">
+               * Bu sayfada yer alan araç fiyat ve özellikleri, kamuya açık kaynaklardan (resmi web siteleri ve güvenilir satış platformları) derlenmiştir.
+               <br>* Fiyatlar yalnızca bilgilendirme amaçlıdır ve markaları, distribütörleri veya bayileri bağlayıcı nitelikte değildir.
+               <br>* Farklı versiyon, donanım seviyesi veya opsiyonlara göre fiyatlar değişebilir. Güncel modeller ve kesin fiyat bilgileri için lütfen ilgili markanın resmi kanallarını ziyaret ediniz.
+             </div>
+           </div>
+         </div>
+
+         <!-- SVG Logo Kütüphanesi -->
+         <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+           <symbol id="logo-alfa-romeo" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></symbol>
+           <symbol id="logo-audi" viewBox="0 0 24 24"><path fill="currentColor" d="M18.53 8.53c-.4 0-.78.07-1.15.2-.38.15-.72.33-1.02.58-.32-.25-.65-.43-1.02-.58-.38-.13-.76-.2-1.16-.2-.42 0-.8.07-1.17.2-.38.15-.71.33-1.01.58-.3-.25-.63-.43-1-.58-.38-.13-.76-.2-1.16-.2-.42 0-.8.07-1.17.2-.38.15-.71.33-1.01.58-.3-.25-.63-.43-1-.58-.38-.13-.76-.2-1.16-.2-.63 0-1.22.15-1.75.47-.53.32-.95.74-1.26 1.27-.32.53-.47 1.12-.47 1.74 0 .62.15 1.21.47 1.74.31.53.73.95 1.26 1.27.53.32 1.12.47 1.75.47.4 0 .78-.07 1.16-.2.37-.15.7-.33 1-.58.3.25.63.43 1.01.58.38.13.75.2 1.17.2.4 0 .78-.07 1.16-.2.37-.15.7-.33 1-.58.3.25.63.43 1.01.58.38.13.75.2 1.16.2.4 0 .78-.07 1.16-.2.37-.15.7-.33 1.01-.58.3.25.63.43 1.01.58.38.13.75.2 1.16.2.63 0 1.22-.15 1.75-.47.53-.32.95-.74 1.26-1.27.32-.53.47-1.12.47-1.74 0-.62-.15-1.21-.47-1.74-.31-.53-.73-.95-1.26-1.27-.53-.32-1.12-.47-1.75-.47z"/></symbol>
+           <symbol id="logo-bmw" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8z"/></symbol>
+           <symbol id="logo-citroen" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L4 8l8 6 8-6-8-6z"/></symbol>
+           <symbol id="logo-dacia" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v12H4z"/></symbol>
+           <symbol id="logo-fiat" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4h14v16H5z"/></symbol>
+           <symbol id="logo-ford" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4C7.03 4 3 8.03 3 13s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/></symbol>
+           <symbol id="logo-honda" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l10 10-10 10L2 12 12 2z"/></symbol>
+           <symbol id="logo-hyundai" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
+           <symbol id="logo-kia" viewBox="0 0 24 24"><path fill="currentColor" d="M2 4h20v16H2z"/></symbol>
+           <symbol id="logo-opel" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L2 12l10 10 10-10L12 2z"/></symbol>
+           <symbol id="logo-peugeot" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5z"/></symbol>
+           <symbol id="logo-renault" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l10 10L12 22 2 12 12 2z"/></symbol>
+           <symbol id="logo-skoda" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
+           <symbol id="logo-toyota" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
+           <symbol id="logo-volkswagen" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
+           <symbol id="logo-volvo" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></symbol>
+           <symbol id="logo-byd" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-chery" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-cupra" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-ds" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-ferrari" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-jaguar" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-jeep" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-land-rover" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-lexus" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-maserati" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-mazda" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-mg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-mini" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-nissan" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-porsche" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-ssangyong" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-subaru" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-suzuki" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-tesla" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-togg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+           <symbol id="logo-bentley" viewBox="0 0 24 24"><path fill="currentColor" d="M2 2h20v20H2z"/></symbol>
+         </svg>
+
+         <!-- Marka Modalı (Varsayılan olarak kesin gizli) -->
+         <div id="markaModal">
+           <h4>🚘 Marka Resmi Siteleri</h4>
+           <div class="marka-listesi" id="markaListe">
+             <!-- JavaScript burayı otomatik dolduracak -->
+           </div>
+         </div>
+
+        </div>
+      </div>
+    </section>
+
+    <aside id="sagReklam">
+      <ins class="adsbygoogle"
+        style="display:block;width:100%;height:600px"
+        data-ad-client="ca-pub-1268402107177386"
+        data-ad-slot="2157595670"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </aside>
+  </div>
+</main>
+
+<!-- SEO İçerik Bloku -->
+<div style="max-width:1140px;margin:30px auto;padding:0 16px;">
+  <section class="adsense-seo-icerik" style="padding: 25px; background: #ffffff; border-radius: 12px; border: 1px solid var(--line); color: #333; line-height: 1.7;">
+    <article>
+      <h2 style="font-size: 18px; color: var(--txt); margin-bottom: 12px; border-bottom: 2px solid var(--accent); padding-bottom: 6px;">
+        Güncel Sıfır Araç Fiyatları ve Otomobil Karşılaştırma Rehberi
+      </h2>
+      <p style="font-size: 13px; margin-bottom: 15px;">
+        Türkiye otomotiv pazarında sıfır kilometre araç satın alma süreci; markaların sunduğu dönemsel indirim kampanyaları, güncellenen matrah oranları ve ÖTV/KDV gibi değişkenler nedeniyle oldukça dinamiktir. Platformumuz, bütçenize ve ihtiyaçlarınıza en uygun sıfır aracı bulmanızı kolaylaştırmak için resmi liste fiyatları ile güncel kampanya indirimlerini tek ekranda sunar.
+      </p>
+    </article>
+  </section>
 </div>
 
+<!-- KESİNTİSİZ STANDART FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
+    <ul class="footer-links">
+      <li><a href="/gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+      <li><a href="/cerez-politikasi.html">Çerez Aydınlatma Metni</a></li>
+      <li><a href="/kullanim-sartlari.html">Kullanım Şartları</a></li>
+      <li><a href="/hakkimizda.html">Hakkımızda</a></li>
+      <li><a href="/iletisim.html">İletişim</a></li>
+    </ul>
+  </div>
+</footer>
+
 <script>
-  // Marka listesi ve logo eşleşmeleri
+  // Dinamik Marka Listesi ve Logolar
   const markalar = [
     { ad: "Alfa Romeo", link: "https://www.alfaromeo.com.tr", logo: "#logo-alfa-romeo" },
     { ad: "Audi", link: "https://www.audi.com.tr", logo: "#logo-audi" },
@@ -76,15 +359,298 @@
   ];
 
   const listeContainer = document.getElementById('markaListe');
-  markalar.forEach(m => {
-    const label = document.createElement('label');
-    label.innerHTML = `
-      <a href="${m.link}" target="_blank" rel="noopener">
-        <svg class="marka-logo-svg"><use href="${m.logo}"></use></svg>
-        ${m.ad}
-      </a>`;
-    listeContainer.appendChild(label);
+  if(listeContainer) {
+    markalar.forEach(m => {
+      const label = document.createElement('label');
+      label.innerHTML = `
+        <a href="${m.link}" target="_blank" rel="noopener">
+          <svg class="marka-logo-svg" aria-hidden="true"><use href="${m.logo}"></use></svg>
+          ${m.ad}
+        </a>`;
+      listeContainer.appendChild(label);
+    });
+  }
+
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
+}
+window.addEventListener("resize",setUstH);
+setUstH();
+
+document.getElementById("markaButon")?.addEventListener("click",function(e){
+  e.preventDefault();e.stopPropagation();
+  const m=document.getElementById("markaModal");
+  if(m) m.style.display="block";
+});
+
+document.addEventListener("pointerdown",function(e){
+  const modal=document.getElementById("markaModal");
+  const btn=document.getElementById("markaButon");
+  if(modal&&modal.style.display==="block"&&!modal.contains(e.target)&&(!btn||!btn.contains(e.target))) modal.style.display="none";
+});
+
+var tumVeri=[];
+
+async function veriYukle(){
+  try {
+    const url="https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
+    const response=await fetch(url);
+    const data=await response.json();
+    tumVeri=data.filter(d=>d.marka);
+    
+    const unique=key=>[...new Set(tumVeri.map(item=>item[key]?.toLowerCase().trim()).filter(Boolean))];
+    const secimYukle=(id,key)=>{
+      const select=document.getElementById(id);
+      if(!select) return;
+      select.innerHTML='<option value="">Tümü</option>';
+      unique(key).sort().forEach(val=>{
+        const opt=document.createElement("option");
+        opt.value=val;
+        opt.textContent=val.charAt(0).toUpperCase()+val.slice(1);
+        select.appendChild(opt);
+      });
+    };
+
+    const markaBox=document.getElementById("markaBox");
+    const markaDD=document.getElementById("markaDD");
+    const markaPanel=document.getElementById("markaPanel");
+    const markaAra=document.getElementById("markaAra");
+
+    if(markaBox) {
+      markaBox.innerHTML="";
+      unique("marka").sort().forEach(m=>{
+        const lbl=document.createElement("label");
+        lbl.dataset.v=m.toLowerCase();
+        lbl.innerHTML=`<input type="checkbox" value="${m.toLowerCase()}"> ${m.charAt(0).toUpperCase()+m.slice(1)}`;
+        markaBox.appendChild(lbl);
+      });
+
+      markaBox.querySelectorAll("input").forEach(i=>{
+        i.addEventListener("change",()=>{ if(markaDD) markaDD.textContent=markaOzet(); filtreleVeGoster(); });
+      });
+    }
+
+    function markaOzet(){
+      const s=[...document.querySelectorAll("#markaBox input:checked")];
+      if(!s.length) return "Tümü"; 
+      if(s.length===1) return s[0].value.toUpperCase();
+      return s.length+" marka"; 
+    }
+    
+    function markaFiltre(q){
+      q=(q||"").toLowerCase(); 
+      document.querySelectorAll("#markaBox label").forEach(l=>{l.style.display=(!q||l.dataset.v.includes(q))?"block":"none";});
+    }
+
+    if(document.getElementById("markaTum")) {
+      document.getElementById("markaTum").onclick=()=>{ 
+        document.querySelectorAll("#markaBox input").forEach(i=>i.checked=true);
+        if(markaDD) markaDD.textContent=markaOzet();
+        filtreleVeGoster();
+      };
+    }
+    
+    if(document.getElementById("markaTemiz")) {
+      document.getElementById("markaTemiz").onclick=()=>{
+        document.querySelectorAll("#markaBox input").forEach(i=>i.checked=false);
+        if(markaDD) markaDD.textContent="Tümü"; 
+        filtreleVeGoster();
+      };
+    }
+
+    if(markaDD && markaPanel) {
+      markaDD.onclick=e=>{
+        e.preventDefault();
+        markaPanel.style.display=markaPanel.style.display==="block"?"none":"block";
+        if(markaAra) { markaAra.value=""; markaFiltre(""); markaAra.focus(); }
+      };
+
+      window.addEventListener("pointerdown",e=>{
+        if(markaPanel.style.display==="block"&&!markaPanel.contains(e.target)&&e.target!==markaDD){
+          markaPanel.style.display="none";
+        }
+      });
+    }
+
+    if(markaAra) markaAra.oninput=()=>markaFiltre(markaAra.value);
+    if(markaDD) markaDD.textContent="Tümü";
+
+    secimYukle("sinifSec","sınıf");
+    secimYukle("yakitSec","yakıt türü");
+    secimYukle("vitesSec","vites");
+
+    const segmentSirasi=["a","b","c","d","e","f","s"];
+    const segmentler=unique("segment");
+    const segmentSelect=document.getElementById("segmentSec");
+    if(segmentSelect) {
+      segmentSelect.innerHTML='<option value="">Tümü</option>';
+      segmentSirasi.forEach(seg=>{
+        if(segmentler.includes(seg)){
+          const opt=document.createElement("option");
+          opt.value=seg;
+          opt.textContent=seg.toUpperCase();
+          segmentSelect.appendChild(opt);
+        }
+      });
+    }
+
+    ["sinifSec","segmentSec","yakitSec","vitesSec","siralaSec"].forEach(id=>{
+      document.getElementById(id)?.addEventListener("change",filtreleVeGoster);
+    });
+
+    filtreleVeGoster();
+  } catch(err) {
+    console.error("Veri yükleme hatası:", err);
+  }
+}
+
+function formatTarih(isoStr){
+  if(!isoStr) return "";
+  const d=new Date(isoStr);
+  const ay=String(d.toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",month:"2-digit"}));
+  const yil=d.toLocaleString("tr-TR",{timeZone:"Europe/Istanbul",year:"numeric"});
+  if(window.innerWidth<=768){return `${ay}.${yil.slice(2)}`;}
+  return `${ay}.${yil}`;
+}
+
+function filtreleVeGoster(){
+  const getVal=id=>document.getElementById(id)?.value.trim().toLowerCase()||"";
+  const seciliMarkalar=[...document.querySelectorAll("#markaBox input:checked")].map(i=>i.value);
+
+  let filtreli=tumVeri.filter(item=>{
+    const m=(item.marka||"").toLowerCase().trim();
+    return (!seciliMarkalar.length || seciliMarkalar.includes(m)) &&
+           (!getVal("sinifSec") || (item["sınıf"]||"").toLowerCase().trim()===getVal("sinifSec")) &&
+           (!getVal("segmentSec") || (item.segment||"").toLowerCase().trim()===getVal("segmentSec")) &&
+           (!getVal("yakitSec") || (item["yakıt türü"]||"").toLowerCase().trim()===getVal("yakitSec")) &&
+           (!getVal("vitesSec") || (item.vites||"").toLowerCase().trim()===getVal("vitesSec"));
   });
+
+  filtreli=fiyatIsle(filtreli);
+
+  let html="<table><thead><tr><th>FİYAT - binTL</th><th>MARKA</th><th>MODEL</th><th>SINIF</th><th>SEGMENT</th><th>YAKIT</th><th>VİTES</th><th>GÜNCELLEME</th><th>K.Fiyat-binTL</th></tr></thead><tbody>";
+  filtreli.forEach(item=>{
+    const fiyat=Math.round(Number(item.fiyat)/1000).toLocaleString("tr-TR");
+    const kfiyat=Number(item.kfiyat)>0?Math.round(item.kfiyat/1000).toLocaleString("tr-TR"):"";
+    html+=`<tr>
+      <td class="fiyat">${fiyat}</td>
+      <td>${item.marka||""}</td>
+      <td>${item.model||""}</td>
+      <td>${item["sınıf"]||""}</td>
+      <td>${item.segment?.toUpperCase()||""}</td>
+      <td>${item["yakıt türü"]||""}</td>
+      <td>${item.vites||""}</td>
+      <td>${formatTarih(item.guncelleme)||""}</td>
+      <td class="kfiyat">${kfiyat}</td>
+    </tr>`;
+  });
+  html+="</tbody></table>";
+  const sonuclarEl = document.getElementById("sonuclar");
+  if(sonuclarEl) sonuclarEl.innerHTML=html;
+  
+  mobilSegmentBaslik();
+
+  const markaSayisi=new Set(filtreli.map(item=>item.marka)).size;
+  const filtreAciklamalari=[];
+  const filtreEtiketi=(id,baslik)=>{
+    const el = document.getElementById(id);
+    if(el && el.value) {
+      const secim=el.value.trim();
+      filtreAciklamalari.push(`${baslik}: ${secim.charAt(0).toUpperCase()+secim.slice(1)}`);
+    }
+  };
+
+  if(seciliMarkalar.length){
+    const shown=seciliMarkalar.slice(0,3).map(s=>s.toUpperCase()).join(", ");
+    filtreAciklamalari.push(`Marka: ${shown}${seciliMarkalar.length>3?" +"+(seciliMarkalar.length-3):""}`);
+  }
+
+  filtreEtiketi("sinifSec","Sınıf");
+  filtreEtiketi("segmentSec","Segment");
+  filtreEtiketi("yakitSec","Yakıt");
+  filtreEtiketi("vitesSec","Vites");
+
+  let yazi=`${filtreli.length} araç, ${markaSayisi} farklı marka listelendi.`;
+  if(filtreAciklamalari.length>0){yazi+=" | "+filtreAciklamalari.join(" | ");}
+  const aracSayisiEl = document.getElementById("aracSayisi");
+  if(aracSayisiEl) aracSayisiEl.textContent=yazi;
+
+  setUstHa();
+}
+
+veriYukle();
+window.addEventListener("pageshow",function(event){if(event.persisted){veriYukle();}});
+
+function mobilSegmentBaslik(){
+  if(window.innerWidth<=768){
+    const th0 = document.querySelectorAll("#sonuclar th")[0];
+    if(th0) { th0.textContent="FİYAT\n(bin TL)"; th0.style.whiteSpace="pre-line"; }
+    
+    const ths = document.querySelectorAll("#sonuclar th");
+    if(ths[4]) ths[4].textContent="SG";
+    if(ths[7]) ths[7].textContent="GÜN.";
+    if(ths[8]) ths[8].textContent="K.FİYAT";
+  }else{
+    const ths = document.querySelectorAll("#sonuclar th");
+    if(ths[0]) ths[0].textContent='FİYAT (bin TL)';
+    if(ths[4]) ths[4].textContent="SEG.";
+    if(ths[7]) ths[7].textContent="GÜNCEL.";
+    if(ths[8]) ths[8].textContent='KAMPANYA (bin TL)';
+  }
+}
+
+window.addEventListener("resize",mobilSegmentBaslik);
+document.getElementById("filtreAcKapa")?.addEventListener("click",e=>{ e.preventDefault(); document.body.classList.toggle("filtreKapali"); setUstHa();});
+if(window.innerWidth<=768) document.body.classList.add("filtreKapali");
+
+function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
+setUstHa();
+
+function toNum(s){s=(s||"").toString().replace(/\./g,"").replace(/,/g,".").replace(/[^\d.]/g,"");return s?Number(s):NaN;}
+
+function fiyatIsle(rows){
+  const sel=document.getElementById("siralaSec")?.value||"";
+  const minI=document.getElementById("minM"),maxI=document.getElementById("maxM");
+  let min=-Infinity,max=Infinity;
+
+  if(sel==="artan"||sel==="azalan"){if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;}
+  else if(sel==="man"){
+    if(minI)minI.disabled=false;if(maxI)maxI.disabled=false;
+    const a=toNum(minI?.value),b=toNum(maxI?.value);
+    min=isNaN(a)?-Infinity:a*1e3;max=isNaN(b)?Infinity:b*1e3;
+  }else if(sel.includes("-")){
+    if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
+    const p=sel.split("-").map(Number);min=(p[0]||0)*1e3;max=(p[1]||999)*1e3;
+  }else{
+    if(minI)minI.disabled=true;if(maxI)maxI.disabled=true;
+  }
+
+  let out=(rows||[]).filter(x=>{const f=Number(x.fiyat||x.Fiyat||0);return f>=min&&f<=max;});
+  
+  if(sel==="azalan"){
+    out.sort((a,b)=> (Number(b.fiyat||b.Fiyat||0)) - (Number(a.fiyat||a.Fiyat||0)));
+  }else{
+    out.sort((a,b)=> (Number(a.fiyat||a.Fiyat||0)) - (Number(b.fiyat||b.Fiyat||0)));
+  }
+
+  return out;
+}
+
+["siralaSec","minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("change",filtreleVeGoster));
+
+function mtlEkle(inp){
+  inp.addEventListener("blur",()=>{
+    let v=inp.value.replace(/\s*\(bin TL\)$/i,"").replace(/\s*bin TL$/i,"").trim();
+    if(v && !isNaN(v)) inp.value=v+"  (bin TL)"; else inp.value="";
+  });
+  inp.addEventListener("focus",()=>{
+    inp.value=inp.value.replace(/\s*\(bin TL\)$/i,"").replace(/\s*bin TL$/i,"").trim();
+  });
+}
+["minM","maxM"].forEach(id=>{const i=document.getElementById(id);if(i)mtlEkle(i);});
+["minM","maxM"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.target.blur();filtreleVeGoster();}}));
 </script>
 </body>
 </html>
