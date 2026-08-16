@@ -4,96 +4,105 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD0LRD6N1S"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GD0LRD6N1S');</script>
   <meta name="google-adsense-account" content="ca-pub-1268402107177386">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1268402107177386" crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Döviz Çevirici | Güncel Döviz Kurları</title>
-  <meta name="description" content="Döviz çevirici ile USD,EUR,TL ve diğer para birimlerinin kurları arasında hesaplama yapabilirsiniz.">
+  <title>Döviz Çevirici | Güncel Döviz Kurları ve Hesaplama</title>
+  <meta name="description" content="Döviz çevirici ile USD, EUR, TRY ve diğer para birimlerinin kurları arasında anlık hesaplama yapabilir, güncel döviz kurları tablosunu inceleyebilirsiniz.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://nesel.tr/doviz.html">
-  <meta property="og:title" content="Döviz Çevirici">
+  <link rel="icon" href="/favicon.ico">
+
+  <meta property="og:title" content="Döviz Çevirici | NESEL">
   <meta property="og:description" content="USD, EUR, TL ve diğer para birimleri arasında güncel döviz çevirici.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nesel.tr/doviz.html">
+
 <style>
 html{scrollbar-gutter:stable}
 :root{--bg:#f6f7fb;--txt:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--ustH:64px}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5}
 a{color:inherit;text-decoration:none}
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
-.wrap{max-width:1100px;margin:0 auto;padding:12px 16px}
+.wrap{max-width:1140px;margin:0 auto;padding:12px 16px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;min-width:170px}
-.logo{width:180px;height:48px;background:url("/logo.png") center/contain no-repeat}
+.logo{width:140px;height:38px;background:url("/logo.png") center/contain no-repeat;display:block}
 .brand b{letter-spacing:.6px}
 .kicker{color:var(--muted);font-size:12px}
 .nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.nav a{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px}
+.nav a{padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;font-weight:500}
 .nav a:hover{border-color:#cbd5e1}
 .nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
 main{padding-top:var(--ustH)}
-#layout{display:flex;gap:8px;padding:2px 16px 12px;align-items:flex-start}
-#ortaAlan{flex:1;width:100%}
-#sagReklam{font-family:Comic Sans MS;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-#sagReklam{width:300px;position:sticky;top:var(--ustH)}
-.frameWrap{margin:0}
-.frameBox{height:calc(100vh - var(--ustH));min-height:0;padding:5px;background:#eeeeee;border-radius:14px;overflow:auto}
-iframe{width:100%;height:100%;border:0;display:block}
-.platformlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;padding:0;margin:8px 0}
-.platformlar li{list-style:none;background:#e0e0e0;padding:6px 8px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center}
-.platformlar li .acik{font-size:10px;color:#666}
-.dovizler{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;padding:0;margin:8px 0}
-.dovizler li{list-style:none;background:#e0e0e0;padding:6px;border-radius:6px;font-size:12px;text-align:left}
-.dovizler li span{font-size:10px;color:#555}
-.reklamEtiket{font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px}
-#fbk{ margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:12px}#fbk textarea{width:100%;min-height:50px;margin:6px 0;display:none}#fbk button{display:none;padding:4px 10px;cursor:pointer}.fbkbtn span{cursor:pointer;font-size:18px;margin-right:6px}
-#mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:13px;max-width:220px}
 
-  @media (max-width:1200px){
-#layout{flex-direction:column;align-items:stretch}
-#sagReklam{position:static;max-height:none;width:100%}
-#ortaAlan{order:1;width:100%;max-width:none}
-#sagReklam{order:2}
-.frameWrap{max-width:none;width:100%;padding:10px 16px 16px}
+#layout{display:flex;gap:16px;max-width:1140px;margin:16px auto;padding:0 16px;align-items:flex-start}
+#ortaAlan{flex:1;width:100%;min-width:0}
+#sagReklam{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;width:300px;flex-shrink:0;position:sticky;top:calc(var(--ustH) + 16px)}
+
+.frameWrap{margin:0;width:100%}
+.frameBox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:hidden;width:100%}
+
+@media (max-width:1024px){
+  #layout{flex-direction:column;align-items:stretch;padding:0 8px}
+  #sagReklam{width:100%;position:static;margin-top:16px}
+  #ortaAlan{width:100%}
 }
 
-  .container{font-family:Comic Sans MS;max-width:900px;margin:0 auto}
-  .hero{display:block;margin:0 auto 14px;width:160px;height:160px}
-  .result{display:inline-block;font-size:18px;font-weight:bold;color:red;border:1px solid red;padding:10px;border-radius:4px;margin:10px 0 16px}
-  .fxwrap{display:flex;gap:14px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
-  .fxbox{flex:1;min-width:280px;max-width:520px;text-align:center}
-  input:not(#mselect),select:not(#mselect){font-family:Comic Sans MS;padding:8px;width:32%;box-sizing:border-box;margin-top:10px;display:inline-block}
-  .footer-info{margin-top:12px;font-size:14px;text-align:left;color:#b00000}
-  .kurtablo{width:100%;border-collapse:collapse;font-family:Comic Sans MS;font-size:13px;table-layout:fixed}
-  .kurtablo th,.kurtablo td{border:1px solid #999;padding:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .kurtablo th{background:#BDBDBD;text-align:left;position:sticky;top:0;z-index:5}
-  .kurtablo th:nth-child(1),.kurtablo td:nth-child(1){width:45%;text-align:left}
-  .kurtablo th:nth-child(2),.kurtablo td:nth-child(2){width:20%;text-align:center}
-  .kurtablo th:nth-child(3),.kurtablo td:nth-child(3){width:35%;text-align:center}
-  .kurtablo tbody tr:nth-child(odd){background:#FFFFFF}
-  .kurtablo tbody tr:nth-child(even){background:#EEEEEE}
-  .smallnote{margin-top:10px;font-size:13px;color:#b00000;text-align:left}
+.container{max-width:900px;margin:0 auto}
+.hero{display:block;margin:0 auto 14px;width:120px;height:120px;object-fit:contain}
+.result{display:block;font-size:18px;font-weight:700;color:#16a34a;background:#f0fdf4;border:1px solid #bbf7d0;padding:12px;border-radius:8px;margin:10px 0 16px;text-align:center}
+.fxwrap{display:flex;gap:16px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.fxbox{flex:1;min-width:280px;max-width:520px;text-align:center}
+
+.input-grup{display:flex;gap:8px;justify-content:center;margin-top:10px;width:100%}
+.input-grup input, .input-grup select{padding:8px;font-size:14px;border:1px solid var(--line);border-radius:8px;background:#fff;box-sizing:border-box}
+.input-grup input{width:35%}
+.input-grup select{width:30%}
+
+.kurtablo{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;margin-top:10px}
+.kurtablo th,.kurtablo td{border:1px solid var(--line);padding:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kurtablo th{background:#f1f5f9;text-align:left;position:sticky;top:0;z-index:5;color:var(--txt)}
+.kurtablo th:nth-child(1),.kurtablo td:nth-child(1){width:45%;text-align:left}
+.kurtablo th:nth-child(2),.kurtablo td:nth-child(2){width:25%;text-align:center}
+.kurtablo th:nth-child(3),.kurtablo td:nth-child(3){width:30%;text-align:center}
+.kurtablo tbody tr:nth-child(odd){background:#ffffff}
+.kurtablo tbody tr:nth-child(even){background:#f8fafc}
+.smallnote{margin-top:12px;font-size:12px;color:var(--muted);text-align:left;line-height:1.5}
+
 @media(max-width:768px){
-  #solIcerik{overflow:visible;max-height:none;}
   #menu{display:none}
   #mselect{display:block}
-  .logo{width:120px;height:36px}
+  .logo{width:100px;height:32px}
   .brand{min-width:auto;gap:0}
   .brand b,.brand .kicker{display:none}
-  .fxbox{max-width:540px}
-  input:not(#mselect),select:not(#mselect){width:32%}
-  	#layout{padding:2px}
-  	#ortaAlan{max-width:none;width:100%}
-  	.frameWrap{padding:1px;margin:2px}
-  	.frameBox{padding:1px;border-radius:12px}
-  	#sonuclarWrap{padding:1px}
 }
-  
+
 .logoWrap{display:inline-block}
-.filtreKullanim{margin:0 0 10px;padding:8px 10px;background:#f5f7fb;border:1px solid #dbe3f0;border-radius:10px;font-size:13px;line-height:1.5;color:var(--muted)}
+.filtreKullanim{margin:0 0 16px;padding:10px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;font-size:13px;line-height:1.5;color:#1e40af;text-align:left}
 
+/* FOOTER */
+footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding: 24px 16px;
+}
+.footer-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+.footer-links a:hover { color: var(--accent); text-decoration: underline; }
 </style>
-
 </head>
 
 <body>
@@ -104,69 +113,68 @@ iframe{width:100%;height:100%;border:0;display:block}
         <a href="/" class="logoWrap" aria-label="Ana sayfa">
           <div class="logo" aria-hidden="true"></div>
         </a>
-
         <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
       </div>
       <nav class="nav" id="menu">
         <a href="/sifiraraclar.html">Sıfır Araçlar</a>
         <a href="/platformucretleri.html">Platform Ücretleri</a>
         <a href="/doviz.html">Döviz Çevirici</a>
-        <a href="/gelirvergisi.html">Gelir Vergisi Dilimleri</a>
+        <a href="/gelirvergisi.html">Gelir Vergisi</a>
         <a href="/ankara.html">Ankara</a>
         <a href="/elektrik.html">Elektrik</a>
         <a href="/oyunlar.html">Oyunlar</a>
         <a href="/gidalar.html">Gıdalar</a>
       </nav>
-      <select id="mselect" aria-label="Menü">
+      <select id="mselect" aria-label="Menü" onchange="location.href=this.value">
         <option value="/sifiraraclar.html">Sıfır Araçlar</option>
         <option value="/platformucretleri.html">Platform Ücretleri</option>
         <option value="/doviz.html">Döviz Çevirici</option>
-        <option value="/gelirvergisi.html">Gelir Vergisi Dilimleri</option>
+        <option value="/gelirvergisi.html">Gelir Vergisi</option>
         <option value="/ankara.html">Ankara</option>
         <option value="/elektrik.html">Elektrik</option>
         <option value="/oyunlar.html">Oyunlar</option>
         <option value="/gidalar.html">Gıdalar</option>
       </select>
-
     </div>
   </div>
 </header>
 
 <main>
   <div id="layout">
-
     <section id="ortaAlan">
       <div class="frameWrap">
         <div class="frameBox">
-        <div class="container">
-<div class="filtreKullanim">Seçtiğiniz döviz ve tutarın diğer para birimlerindeki yaklaşık karşılıklarını tek tabloda toplu olarak görebilirsiniz. 
-  Banka ve işlem kurları farklı olabilir.</div>  
-  <div class="fxwrap">
-  <div class="fxbox">
-    <img class="hero" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXyM7LQiZJBdXPKYUKIey0WIQXfgYWhpLOgiI8eI5FFkuRxhklAdFsdrrCE2dO6y2HQ0hR6aPaOrXYcAWp98XfRUX6YL3zLmETTc-FEpDBztsDf5wEFGj8ib1NfQM8rTaDyUUZuE5PuNK2BQwM71_xv3gEKXarbBXY8kGErT9yjNWWypWdnkWn960PE6j/s320/ac65c997-a928-4370-b895-7cd33260d789.webp" alt="Döviz resmi - fikirnesel blog" loading="lazy">
-    <div class="result" id="result">Yükleniyor...</div>
-    <div style="width:100%;text-align:center;">
-  <input type="number" id="amount" placeholder="Tutar" value="1" oninput="convertCurrency()">
-  <select id="fromCurrency" onchange="convertCurrency()">
-  <option value="USD" selected>USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="DKK">DKK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
-  </select>
-  <select id="toCurrency" onchange="convertCurrency()">
-  <option value="TRY" selected>TRY</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="DKK">DKK</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
-  </select>
-  </div>
-  </div>
-  <div class="fxbox">
-  <table class="kurtablo" aria-label="Güncel döviz kurları tablosu">
-  <thead><tr><th id="kurBaslik">Döviz</th><th>Kur</th><th>Karşılık</th></tr></thead>
-  <tbody id="kurBody"><tr><td>—</td><td>—</td><td>—</td></tr></tbody>
-</table>
+          <div class="container">
+            <div class="filtreKullanim">Seçtiğiniz döviz ve tutarın diğer para birimlerindeki yaklaşık karşılıklarını tek tabloda toplu olarak görebilirsiniz. Banka ve işlem kurları farklılık gösterebilir.</div>  
+            
+            <div class="fxwrap">
+              <div class="fxbox">
+                <img class="hero" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZXyM7LQiZJBdXPKYUKIey0WIQXfgYWhpLOgiI8eI5FFkuRxhklAdFsdrrCE2dO6y2HQ0hR6aPaOrXYcAWp98XfRUX6YL3zLmETTc-FEpDBztsDf5wEFGj8ib1NfQM8rTaDyUUZuE5PuNK2BQwM71_xv3gEKXarbBXY8kGErT9yjNWWypWdnkWn960PE6j/s320/ac65c997-a928-4370-b895-7cd33260d789.webp" alt="Döviz çevirici simgesi" loading="lazy">
+                <div class="result" id="result">Yükleniyor...</div>
+                
+                <div class="input-grup">
+                  <input type="number" id="amount" placeholder="Tutar" value="1" aria-label="Tutar">
+                  <select id="fromCurrency" aria-label="Kaynak Para Birimi">
+                    <option value="USD" selected>USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="DKK">DKK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
+                  </select>
+                  <select id="toCurrency" aria-label="Hedef Para Birimi">
+                    <option value="TRY" selected>TRY</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="DKK">DKK</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
+                  </select>
+                </div>
+              </div>
 
-  <div class="smallnote" id="kurTarih">ExchangeRate-API tarafından sağlanan kurlar görüntülenmektedir.</div>
-  <div class="smallnote">Kurlar, ExchangeRate-API tarafından sağlanmaktadır.</div>
-  </div>
-  </div>
-  </div>
-        </div></div>
+              <div class="fxbox">
+                <table class="kurtablo" aria-label="Güncel döviz kurları tablosu">
+                  <thead><tr><th id="kurBaslik">Döviz</th><th>Kur</th><th>Karşılık</th></tr></thead>
+                  <tbody id="kurBody"><tr><td>—</td><td>—</td><td>—</td></tr></tbody>
+                </table>
+                <div class="smallnote" id="kurTarih">Güncel kurlar yükleniyor...</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </section>
 
     <aside id="sagReklam">
@@ -179,57 +187,91 @@ iframe{width:100%;height:100%;border:0;display:block}
   </div>
 </main>
 
-<div id="footer"></div>
+<footer>
+  <div class="footer-wrap">
+    <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
+    <ul class="footer-links">
+      <li><a href="/gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+      <li><a href="/cerez-politikasi.html">Çerez Aydınlatma Metni</a></li>
+      <li><a href="/kullanim-sartlari.html">Kullanım Şartları</a></li>
+      <li><a href="/hakkimizda.html">Hakkımızda</a></li>
+      <li><a href="/iletisim.html">İletişim</a></li>
+    </ul>
+  </div>
+</footer>
+
 <script>
-fetch("/footer.html").then(r=>r.text()).then(t=>footer.innerHTML=t);
-(()=>{function setUstH(){const u=document.getElementById("ustBar");if(u)document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");}
-window.addEventListener("resize",setUstH);setUstH();
-function setActive(){const p=location.pathname;document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===p));}
-setActive();
-function kampanyalariKartYap(){const det=[...document.querySelectorAll("#solIcerik details.blok")].find(d=>(d.querySelector("summary")?.textContent||"").trim()==="Sıfır Araç Kampanyaları");if(!det)return;
-const ic=det.querySelector(".icerik");if(!ic)return;const n=ic.querySelectorAll(".madde").length;let s=ic.querySelector(".kampSayac");
-if(!s){s=document.createElement("div");s.className="kampSayac";ic.insertBefore(s,ic.firstChild);}s.innerHTML=`✅ <b>${n}</b> aktif kampanya`;}
-kampanyalariKartYap();
-const cache=window.ratesCache=window.ratesCache||{};
-async function fetchRates(base){const r=await fetch("https://api.exchangerate-api.com/v4/latest/"+base);return r.json();}
-function fmt2(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
-async function ensure(base){if(!cache[base])cache[base]=await fetchRates(base);return cache[base];}
-const ccyList=["USD","EUR","TRY","GBP","CHF","JPY","CAD","AUD","DKK","SEK","NOK","SAR","RUB"];
-function num(v){v=parseFloat(String(v??"").replace(",","."));return isFinite(v)?v:0;}
-function fx(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
-function xrate(r,from,to){if(from===to)return 1;const a=(from==="USD"?1:r[from]);const b=(to==="USD"?1:r[to]);return a&&b?(b/a):0;}
-function renderTable(r,to,amount,from){const tb=document.getElementById("kurBody"),th=document.getElementById("kurBaslik");if(!tb||!th)return;
-th.textContent=`Döviz (*/${to})`;tb.innerHTML="";const amt=num(amount);const rows=ccyList.filter(x=>x!==to);
-rows.sort((a,b)=>(a===from?-1:b===from?1:0));for(const c of rows){const rt=xrate(r,c,to),val=amt?fx(amt*rt):"—";
-const tr=document.createElement("tr");tr.innerHTML=`<td>${c}/${to}</td><td>${rt?rt.toFixed(2):"—"}</td><td>${val}</td>`;tb.appendChild(tr);}}
-async function initRates(){const usd=await ensure("USD"),r=usd.rates||{};const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;
-document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")}`:"";return {usd, r};}
-let R0=null;async function refreshAll(){const amount=document.getElementById("amount").value,from=document.getElementById("fromCurrency").value,to=document.getElementById("toCurrency").value;
-if(!R0)R0=await initRates();const r=R0.r;const rt=xrate(r,from,to);const conv=num(amount)*rt;document.getElementById("result").innerHTML=`${(num(amount)).toLocaleString()} ${from} = ${fx(conv)} ${to}`;
-renderTable(r,to,amount,from);}
-window.convertCurrency=refreshAll;refreshAll();
-      ["amount","fromCurrency","toCurrency"].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener("input",refreshAll);if(el)el.addEventListener("change",refreshAll);});
-     })();
+function setUstH(){
+  const u=document.getElementById("ustBar");
+  if(!u) return;
+  document.documentElement.style.setProperty("--ustH",u.offsetHeight+"px");
+}
+window.addEventListener("resize",setUstH);
+setUstH();
 
-function setUstHa(){const u=document.getElementById("ustBara");if(!u) return; document.documentElement.style.setProperty("--ustHa",(u.offsetHeight)+"px");}
-setUstHa(); 
-
+(()=>{
+  const cache=window.ratesCache=window.ratesCache||{};
+  async function fetchRates(base){
+    const r=await fetch("https://api.exchangerate-api.com/v4/latest/"+base);
+    return r.json();
+  }
+  async function ensure(base){
+    if(!cache[base]) cache[base]=await fetchRates(base);
+    return cache[base];
+  }
   
-function initMS(){const ms=document.getElementById("mselect");if(!ms||!ms.options.length)return;
-const p=location.pathname.replace(/\/$/,"");ms.value=(p&&p!="/")?(p.endsWith(".html")?p:p+".html"):"/sifiraraclar.html";
-ms.onchange=()=>location.href=ms.value;}
-initMS();setTimeout(initMS,0);setTimeout(initMS,50);(()=>{document.querySelectorAll("[data-include]").forEach(e=>fetch(e.dataset.include,{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>t&&(e.innerHTML=t)).catch(()=>{}));})();
+  const ccyList=["USD","EUR","TRY","GBP","CHF","JPY","CAD","AUD","DKK","SEK","NOK","SAR","RUB"];
+  function num(v){v=parseFloat(String(v??"").replace(",","."));return isFinite(v)?v:0;}
+  function fx(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
+  function xrate(r,from,to){if(from===to)return 1;const a=(from==="USD"?1:r[from]);const b=(to==="USD"?1:r[to]);return a&&b?(b/a):0;}
+  
+  function renderTable(r,to,amount,from){
+    const tb=document.getElementById("kurBody"),th=document.getElementById("kurBaslik");
+    if(!tb||!th)return;
+    th.textContent=`Döviz (*/${to})`;
+    tb.innerHTML="";
+    const amt=num(amount);
+    const rows=ccyList.filter(x=>x!==to);
+    rows.sort((a,b)=>(a===from?-1:b===from?1:0));
+    for(const c of rows){
+      const rt=xrate(r,c,to),val=amt?fx(amt*rt):"—";
+      const tr=document.createElement("tr");
+      tr.innerHTML=`<td>${c}/${to}</td><td>${rt?rt.toFixed(2):"—"}</td><td>${val}</td>`;
+      tb.appendChild(tr);
+    }
+  }
 
-(()=>{const f=document.getElementById('fbk');
-    if(!f)return;
-    const t=f.querySelector('textarea'),b=f.querySelector('button');
-    let v=null,k='fbk_'+location.pathname,u='https://script.google.com/macros/s/AKfycbzE-BSW09SWWyApE7F1dTqSvvYXmTFbZKTlVIcwenGy0MzlDSuVE-d3z0RsYL5NKeOQTA/exec';
-      if(localStorage.getItem(k)){f.textContent='Geri bildirimin için teşekkürler';return;}f.querySelectorAll('.fbkbtn span').forEach(s=>s.onclick=()=>{v=s.dataset.v;t.style.display=b.style.display='block';t.placeholder=v=='1'?'Ne hoşuna gitti?':'Ne eksik / hatalı?';});b.onclick=()=>{if(v==null)return alert('Önce 👍/👎 seç');if(v=='0'&&!t.value.trim())return alert('Kısaca yazar mısın?');localStorage.setItem(k,1);
-    const fr=document.getElementById('sayfaFrame');
-    const path=fr&&fr.src?new URL(fr.src).pathname:location.pathname; 
-    const p=JSON.stringify({url:path,val:v,msg:t.value,ua:navigator.userAgent,ts:Date.now()});
-      fetch(u,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:p});f.textContent='Teşekkürler';};})();
+  async function initRates(){
+    const usd=await ensure("USD"),r=usd.rates||{};
+    const ts=usd.time_last_updated?new Date(usd.time_last_updated*1000):null;
+    document.getElementById("kurTarih").textContent=ts?`Son güncelleme: ${ts.toLocaleString("tr-TR")} (ExchangeRate-API)`:"ExchangeRate-API kurları kullanılmaktadır.";
+    return {usd, r};
+  }
+
+  let R0=null;
+  async function refreshAll(){
+    const amount=document.getElementById("amount").value,from=document.getElementById("fromCurrency").value,to=document.getElementById("toCurrency").value;
+    if(!R0) R0=await initRates();
+    const r=R0.r;
+    const rt=xrate(r,from,to);
+    const conv=num(amount)*rt;
+    document.getElementById("result").innerHTML=`${(num(amount)).toLocaleString()} ${from} = ${fx(conv)} ${to}`;
+    renderTable(r,to,amount,from);
+  }
+
+  window.convertCurrency=refreshAll;
+  refreshAll();
+
+  ["amount","fromCurrency","toCurrency"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) {
+      el.addEventListener("input",refreshAll);
+      el.addEventListener("change",refreshAll);
+    }
+  });
+})();
+
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
 </script>
-
 </body>
 </html>
