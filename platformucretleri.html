@@ -27,16 +27,26 @@ a{color:inherit;text-decoration:none}
 #ustBar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid var(--line)}
 .wrap{max-width:1140px;margin:0 auto;padding:12px 16px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:170px}
 .logo{width:140px;height:38px;background:url("/logo.png") center/contain no-repeat;display:block}
+.brand b{letter-spacing:.6px}
+.kicker{color:var(--muted);font-size:12px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;font-weight:500}
+.nav a:hover{border-color:#cbd5e1}
+.nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
 main{padding-top:var(--ustH)}
 
 #layout{display:flex;gap:16px;max-width:1140px;margin:16px auto;padding:0 16px;align-items:flex-start}
 #ortaAlan{flex:1;width:100%;min-width:0}
 #sagReklam{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;width:300px;flex-shrink:0;position:sticky;top:calc(var(--ustH) + 16px)}
 
+#mselect{display:none;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px;font-size:13px;max-width:200px;width:100%}
+
 @media (max-width:1024px){
   #layout{flex-direction:column;align-items:stretch;padding:0 8px}
   #sagReklam{width:100%;position:static;margin-top:16px}
+  #ortaAlan{width:100%}
 }
 
 .filtreKullanim{margin-bottom:16px;padding:10px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;font-size:13px;line-height:1.5;color:#1e40af}
@@ -53,7 +63,11 @@ main{padding-top:var(--ustH)}
   #menu{display:none}
   #mselect{display:block}
   .logo{width:100px;height:32px}
+  .brand{min-width:auto;gap:0}
+  .brand b,.brand .kicker{display:none}
 }
+
+.logoWrap{display:inline-block}
 
 /* FOOTER */
 footer {
@@ -83,7 +97,10 @@ footer {
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <a href="/" class="logoWrap" aria-label="Ana sayfa"><div class="logo" aria-hidden="true"></div></a>
+        <a href="/" class="logoWrap" aria-label="Ana sayfa">
+          <div class="logo" aria-hidden="true"></div>
+        </a>
+        <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
       </div>
       <nav class="nav" id="menu">
         <a href="/sifiraraclar.html">Sıfır Araçlar</a>
@@ -117,7 +134,7 @@ footer {
         <div id="abonelik-tablo" style="padding:20px;color:var(--muted)">Fiyatlar yükleniyor...</div>
       </div>
       <div class="bilgilendirme">
-        * Fiyatlar resmi platform web sitelerinden derlenmiştir ve yalnızca bilgilendirme amaçlıdır.
+        * Fiyatlar resmi platform web sitelerinden derlenmiştir ve yalnızca bilgilendirme amaçlıdır.<br>
         * Güncel ve kesin fiyat için ilgili platformun resmi kanalını ziyaret ediniz.
       </div>
     </section>
