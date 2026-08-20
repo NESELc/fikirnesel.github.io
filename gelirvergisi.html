@@ -163,7 +163,12 @@ footer {
       <div id="icerik">
 
         <div class="aciklama-kart">
-          <p>Gelir vergisi, kişilerin bir takvim yılı içinde elde ettikleri kazanç ve iratlar üzerinden devlete ödedikleri doğrudan bir vergidir. Türkiye'de gelir vergisi, artan oranlı dilim sistemiyle uygulanmaktadır. Bu sistemde geliriniz arttıkça, aşan kısım için daha yüksek vergi oranı uygulanır.</p>
+          <p>Gelir vergisi, kişilerin bir takvim yılı içinde elde ettikleri kazanç ve iratlar üzerinden devlete ödedikleri doğrudan bir vergidir. Türkiye'de gelir vergisi, artan oranlı dilim sistemiyle uygulanmaktadır. Bu sistemde geliriniz arttıkça, aşan kısım için daha yüksek vergi oranı uygulanır. Aşağıdaki tablolar, <a href="https://www.gib.gov.tr" target="_blank" rel="noopener">Gelir İdaresi Başkanlığı (GİB)</a> tarafından yayımlanan resmi tebliğlere dayanmaktadır.</p>
+        </div>
+
+        <div class="aciklama-kart">
+          <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Dilim Sistemi Nasıl Çalışır? En Sık Yapılan Yanlış Anlaşılma</p>
+          <p>Birçok kişi "bir üst dilime geçtim, tüm maaşım daha yüksek oranda vergilendirilecek" diye düşünür — bu yanlıştır. Dilim sistemi yalnızca <strong>o dilimi aşan kısma</strong> uygulanır, gelirinizin tamamına değil. Örneğin 2026'da yıllık 300.000 TL geliriniz varsa: ilk 190.000 TL için %15 (28.500 TL), kalan 110.000 TL için %20 (22.000 TL) vergi hesaplanır — toplam 50.500 TL. Yani efektif vergi oranınız %20 değil, yaklaşık %16,8'dir. Üstteki hesaplama aracı bu kümülatif mantığı otomatik uygular ve size ay ay net maaşınızı gösterir.</p>
         </div>
 
         <section class="maasKart">
@@ -184,6 +189,11 @@ footer {
             </table>
           </div>
         </section>
+
+        <div class="aciklama-kart">
+          <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Brütten Nete Giderken Maaşınızdan Neler Kesilir?</p>
+          <p>Yukarıdaki tablo dört farklı kesintiyi ay ay hesaplar: <strong>SGK işçi primi</strong> (brüt ücretin %14'ü, aylık 297.270 TL'lik SGK tavanına kadar), <strong>işsizlik sigortası primi</strong> (%1), <strong>gelir vergisi</strong> (yıl içinde kümülatif matrah üzerinden dilim sistemine göre) ve <strong>damga vergisi</strong> (brüt ücretin binde 7,59'u). 2022'den bu yana asgari ücretin brüt tutarına denk gelen kısım gelir ve damga vergisinden istisna tutuluyor — hesap aracımız bu istisnayı her ay otomatik düşerek gerçek net maaşınızı gösteriyor. İkramiye ve prim ödemeleri de aynı ay içindeki matrahınıza eklenip birlikte vergilendirildiği için, ikramiye aldığınız aylarda net maaşınızın oransal olarak biraz daha düşük görünmesi normaldir.</p>
+        </div>
 
         <!-- 2026 TABLO -->
         <div>
@@ -285,7 +295,20 @@ footer {
           <button class="ayr-btn" onclick="ayrHesapla()">Hesapla</button>
           <div id="ayrSonuc"></div>
         </div>
-        
+
+        <div class="aciklama-kart">
+          <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Kıdem ve İhbar Tazminatı Hakkı Nasıl Belirlenir?</p>
+          <p><strong>Kıdem tazminatı</strong> almak için aynı işyerinde en az 1 yıl çalışmış olmak ve işten ayrılış şeklinin kanunen kıdem hakkı doğuran türden olması gerekir: işveren tarafından işten çıkarılma, emeklilik, askerlik, evlilik (kadın çalışanlar için) veya SGK'dan alınan yazı ile istifa. Normal istifada kıdem tazminatı hakkı doğmaz. Her tam yıl için bir aylık brüt ücret tutarında kıdem tazminatı hesaplanır, ancak bu tutar yürürlükteki <strong>kıdem tazminatı tavanını</strong> (2026 için hesap aracımızda varsayılan olarak 64.948,77 TL) aşamaz.</p>
+          <p><strong>İhbar tazminatı</strong> ise işveren çalışanı önceden haber vermeden işten çıkardığında devreye girer ve kıdem süresine göre değişir: 6 aya kadar çalışma için 2 hafta, 6 ay-1,5 yıl arası 4 hafta, 1,5-3 yıl arası 6 hafta, 3 yıldan fazla çalışma için 8 haftalık ücret tutarındadır. SGK yazısı ile istifa hakkı ise sigorta başlangıç tarihinize göre üç farklı kural setine tabidir (8 Eylül 1999 öncesi, 2008 öncesi ve sonrası); bu yüzden hesap aracımız ilk sigorta tarihinizi sorar. Bu hesaplamalar yaklaşık değerlerdir — kesin tutar için işyerinizin insan kaynakları biriminden veya bir SGK/iş hukuku uzmanından teyit almanızı öneririz.</p>
+        </div>
+
+        <div class="aciklama-kart">
+          <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Sık Sorulan Sorular</p>
+          <p><strong>Asgari ücret gelir vergisinden muaf mı?</strong> 2022'den itibaren asgari ücrete denk gelen kısım gelir ve damga vergisinden istisna tutuluyor; ancak asgari ücretin üzerindeki kazançlar için bu istisna yalnızca asgari ücret tutarı kadarlık kısma uygulanıyor, kalan kısım normal dilim sistemine göre vergilendiriliyor.</p>
+          <p><strong>İkramiye aldığım ay neden daha az vergi kesiliyor gibi görünüyor?</strong> Aslında tam tersi: ikramiye o ayki matrahınıza eklendiği için, kümülatif dilim sisteminde daha yüksek dilime sıçrayabilir ve o ay için görece daha yüksek gelir vergisi kesilebilir. Yıl ilerledikçe kümülatif matrahınız yükseldiği için genelde yılın son aylarında net maaşınızda küçük bir düşüş gözlemlenir; bu normal bir durumdur.</p>
+          <p><strong>Kıdem tazminatına gelir vergisi kesilir mi?</strong> Kıdem tazminatı gelir vergisinden istisnadır (yalnızca binde 7,59 oranında damga vergisi kesilir), bu yüzden hesap aracımızda kıdem tazminatı netleştirilirken yalnızca damga vergisi düşülüyor.</p>
+        </div>
+
       </div>
     </section>
 
