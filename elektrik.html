@@ -261,13 +261,9 @@ footer {
 
           <div class="card">
             <h3>Bu Hesaplamalar Nasıl Yapılıyor? Formüller ve Kullanım Alanları</h3>
-            <table class="tbl beyazesya" style="text-align:left">
-              <tbody>
-                <tr><td class="besya" style="text-align:left;font-weight:700;width:180px">Trafo Primer/Sekonder Akım</td><td style="text-align:left">Primer akım <b>Ip = S / (√3 × Vp)</b> formülüyle, sekonder akım ise trafo sarım oranına göre <b>Is = (Vp / Vs) × Ip</b> formülüyle hesaplanır (S: trafo gücü kVA, Vp/Vs: primer/sekonder gerilim kV). Bu değerler, trafoyu besleyen ve trafodan çıkan devrelerdeki sigorta ve kesici seçiminde referans alınır.</td></tr>
-                <tr><td class="besya" style="text-align:left;font-weight:700">Kablo Akım Taşıma Kapasitesi</td><td style="text-align:left">Bakır (Cu) iletkenler, alüminyuma göre daha iletken olduğu için aynı kesitte daha yüksek akım taşır; hesap aracımız alüminyum için bakır değerinin 0,62 katını kullanır. Hava döşemede akım taşıma kapasitesi toprak altına göre daha yüksek çıkar çünkü hava, ısıyı toprağa göre daha hızlı dağıtır — bu yüzden aynı kablo, havada döşendiğinde toprağa göre yaklaşık %20 daha fazla akım taşıyabilir.</td></tr>
-                <tr><td class="besya" style="text-align:left;font-weight:700">Havai Hat İletkenleri (AWG/MCM)</td><td style="text-align:left">AWG (American Wire Gauge) ve MCM (Bin Daire Mil) iletken kesitini tanımlayan iki farklı standarttır; sayı küçüldükçe (AWG) veya büyüdükçe (MCM) iletken kalınlaşır. Ortam sıcaklığı arttıkça iletkenin direnci de artar — hesap aracımız bunu <b>R(T) = R20 × (1 + 0,00403 × (T − 20))</b> formülüyle (alüminyum için tipik sıcaklık katsayısı) hesaba katar, bu yüzden farklı ortam sıcaklıkları farklı akım taşıma kapasitesi verir.</td></tr>
-              </tbody>
-            </table>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Trafo Primer/Sekonder Akım:</b> Primer akım <b>Ip = S / (√3 × Vp)</b> formülüyle, sekonder akım ise trafo sarım oranına göre <b>Is = (Vp / Vs) × Ip</b> formülüyle hesaplanır (S: trafo gücü kVA, Vp/Vs: primer/sekonder gerilim kV). Bu değerler, trafoyu besleyen ve trafodan çıkan devrelerdeki sigorta ve kesici seçiminde referans alınır.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kablo Akım Taşıma Kapasitesi:</b> Bakır (Cu) iletkenler, alüminyuma göre daha iletken olduğu için aynı kesitte daha yüksek akım taşır; hesap aracımız alüminyum için bakır değerinin 0,62 katını kullanır. Hava döşemede akım taşıma kapasitesi toprak altına göre daha yüksek çıkar çünkü hava, ısıyı toprağa göre daha hızlı dağıtır — bu yüzden aynı kablo, havada döşendiğinde toprağa göre yaklaşık %20 daha fazla akım taşıyabilir.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Havai Hat İletkenleri (AWG/MCM):</b> AWG (American Wire Gauge) ve MCM (Bin Daire Mil) iletken kesitini tanımlayan iki farklı standarttır; sayı küçüldükçe (AWG) veya büyüdükçe (MCM) iletken kalınlaşır. Ortam sıcaklığı arttıkça iletkenin direnci de artar — hesap aracımız bunu <b>R(T) = R20 × (1 + 0,00403 × (T − 20))</b> formülüyle (alüminyum için tipik sıcaklık katsayısı) hesaba katar, bu yüzden farklı ortam sıcaklıkları farklı akım taşıma kapasitesi verir.</p>
           </div>
 
           <div class="card">
@@ -309,22 +305,14 @@ footer {
 
           <div class="card">
             <h3>kWh ve Watt Arasındaki Fark Nedir?</h3>
-            <table class="tbl beyazesya" style="text-align:left">
-              <tbody>
-                <tr><td class="besya" style="text-align:left;font-weight:700;width:180px">Watt (W)</td><td style="text-align:left">Bir cihazın <b>anlık</b> güç tüketimini gösterir. Örneğin 2.000 W'lık bir klima, çalıştığı her an bu gücü çeker.</td></tr>
-                <tr><td class="besya" style="text-align:left;font-weight:700">Kilowatt-saat (kWh)</td><td style="text-align:left">Bir cihazın belirli bir <b>süre boyunca</b> tükettiği toplam enerjidir; faturanız kWh üzerinden hesaplanır. 2.000 W'lık bir klima 1 saat çalışırsa 2 kWh, 3 saat çalışırsa 6 kWh tüketmiş olur.</td></tr>
-                <tr><td class="besya" style="text-align:left;font-weight:700">Tek Zamanlı / Çok Zamanlı Tarife</td><td style="text-align:left">Tek zamanlı tarifede gün boyu aynı birim fiyat uygulanır. Çok zamanlı (gündüz/puant/gece) tarifede ise gece saatlerinde (genellikle 22:00-06:00 arası) fiyat daha düşük olur; çamaşır/bulaşık makinesi gibi cihazları gece çalıştırmak bu tarifede tasarruf sağlayabilir.</td></tr>
-              </tbody>
-            </table>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Watt (W):</b> Bir cihazın <b>anlık</b> güç tüketimini gösterir. Örneğin 2.000 W'lık bir klima, çalıştığı her an bu gücü çeker.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kilowatt-saat (kWh):</b> Bir cihazın belirli bir <b>süre boyunca</b> tükettiği toplam enerjidir; faturanız kWh üzerinden hesaplanır. 2.000 W'lık bir klima 1 saat çalışırsa 2 kWh, 3 saat çalışırsa 6 kWh tüketmiş olur.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Tek Zamanlı / Çok Zamanlı Tarife:</b> Tek zamanlı tarifede gün boyu aynı birim fiyat uygulanır. Çok zamanlı (gündüz/puant/gece) tarifede ise gece saatlerinde (genellikle 22:00-06:00 arası) fiyat daha düşük olur; çamaşır/bulaşık makinesi gibi cihazları gece çalıştırmak bu tarifede tasarruf sağlayabilir.</p>
 
             <h3 style="margin-top:18px">Elektrik Faturasını Düşürmenin Pratik Yolları</h3>
-            <table class="tbl beyazesya" style="text-align:left">
-              <tbody>
-                <tr><td class="besya" style="text-align:left;font-weight:700;width:180px">Bekleme (standby) tüketimi</td><td style="text-align:left">Prizde takılı ama kullanılmayan modem, televizyon, şarj cihazı gibi ürünler sürekli düşük seviyede elektrik çeker; kullanılmadığında fişten çekmek yıllık tüketimde fark yaratabilir.</td></tr>
-                <tr><td class="besya" style="text-align:left;font-weight:700">Enerji verimlilik sınıfı</td><td style="text-align:left">Buzdolabı, çamaşır makinesi gibi sürekli çalışan cihazlarda A veya üzeri enerji sınıfı, düşük sınıflara göre yıllık tüketimde belirgin fark yaratır — üstteki tablodaki "Etiket kWh/yıl" değerini cihazınızın kendi etiketiyle karşılaştırabilirsiniz.</td></tr>
-                <tr><td class="besya" style="text-align:left;font-weight:700">Klima ve kombi ayarı</td><td style="text-align:left">Klimada her 1°C'lik düşürme (soğutmada) tüketimi belirgin şekilde artırır; termostatı gereğinden düşük ayarlamak yerine ihtiyaca uygun bir sıcaklıkta sabit tutmak genelde daha verimlidir.</td></tr>
-              </tbody>
-            </table>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Bekleme (standby) tüketimi:</b> Prizde takılı ama kullanılmayan modem, televizyon, şarj cihazı gibi ürünler sürekli düşük seviyede elektrik çeker; kullanılmadığında fişten çekmek yıllık tüketimde fark yaratabilir.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Enerji verimlilik sınıfı:</b> Buzdolabı, çamaşır makinesi gibi sürekli çalışan cihazlarda A veya üzeri enerji sınıfı, düşük sınıflara göre yıllık tüketimde belirgin fark yaratır — üstteki tablodaki "Etiket kWh/yıl" değerini cihazınızın kendi etiketiyle karşılaştırabilirsiniz.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Klima ve kombi ayarı:</b> Klimada her 1°C'lik düşürme (soğutmada) tüketimi belirgin şekilde artırır; termostatı gereğinden düşük ayarlamak yerine ihtiyaca uygun bir sıcaklıkta sabit tutmak genelde daha verimlidir.</p>
           </div>
 
           <div class="bilgilendirme">
