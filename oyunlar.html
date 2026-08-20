@@ -68,7 +68,8 @@ main{padding-top:var(--ustH)}
   .brand{min-width:auto;gap:0}
   .brand b,.brand .kicker{display:none}
   #game{height:340px}
-  #msg{max-width:110px}
+  #msg{max-width:80px}
+  #info{white-space:normal;font-size:11px;line-height:1.3;max-width:120px;text-align:right}
 }
 	
 .logoWrap{display:inline-block}
@@ -137,7 +138,7 @@ footer {
       <div class="frameWrap">
         <div class="frameBox">
           <div id="oyunWrap">
-            <div class="bilgiBandi">Bu bölümde dikkat, sıra takibi ve şekil tamamlama mantığına dayalı basit çevrim içi oyunlar yer alır. Kuralları okuyarak şekli tek hamle akışıyla tamamlamayı deneyebilirsiniz.</div>
+            <div class="bilgiBandi">Kolaydan zora doğru sıralanmış 8 farklı şekli, kalemi kaldırmadan (her kenarı yalnızca bir kez kullanarak) tek çizgide tamamlamaya çalışın. Alttaki ◀ ▶ tuşlarıyla şekiller arasında geçiş yapabilirsiniz.</div>
             
             <div id="oyunBar">
               <button id="btnReset" type="button">Sıfırla</button>
@@ -201,17 +202,14 @@ setUstH();
 
   const S={pad:70,r:10,hit:18};
   const SHAPES=[
-    {pts:[[.25,.25],[.75,.25],[.25,.75],[.75,.75]],edges:[[0,1],[1,3],[3,2],[2,0],[1,2]]},
-    {pts:[[.2,.3],[.2,.8],[.35,.55],[.65,.55],[.8,.3],[.8,.8]],edges:[[0,1],[1,2],[2,0],[3,4],[4,5],[5,3],[2,3]]},
-    {pts:[[.2,.65],[.8,.65],[.8,.9],[.2,.9],[.5,.25]],edges:[[0,1],[1,2],[2,3],[3,0],[0,4],[1,4]]},
-    {pts:[[0.853, 0.676], [0.264, 0.186], [0.129, 0.496], [0.356, 0.819], [0.569, 0.49]],edges:[[0, 1], [0, 2], [2, 3], [3, 4], [1, 3], [2, 4], [0, 3]]},
-    {pts:[[.2,.3],[.4,.3],[.4,.6],[.2,.6],[.6,.45],[.8,.45]],edges:[[0,1],[1,2],[2,3],[3,0],[4,5],[1,4],[2,4],[0,2],[0,5]]},
-    {pts:[[0.153, 0.671], [0.111, 0.168], [0.473, 0.842], [0.685, 0.381], [0.856, 0.12]],edges:[[0, 1], [1, 2], [0, 3], [2, 4], [0, 4], [1, 4], [1, 3], [2, 3], [0, 2], [3, 4]]},
-    {pts:[[0.91, 0.514], [0.491, 0.56], [0.716, 0.875], [0.545, 0.355], [0.516, 0.734], [0.257, 0.314]],edges:[[0, 1], [1, 2], [1, 3], [0, 4], [0, 5], [2, 5], [0, 2], [2, 3], [4, 5]]},
-    {pts:[[0.749, 0.64], [0.475, 0.225], [0.282, 0.536], [0.777, 0.297], [0.577, 0.469], [0.439, 0.805]],edges:[[0, 1], [1, 2], [1, 3], [3, 4], [0, 5], [3, 5], [1, 5], [2, 3], [4, 5]]},
-    {pts:[[0.451, 0.877], [0.828, 0.112], [0.852, 0.423], [0.211, 0.443], [0.561, 0.124], [0.213, 0.104]],edges:[[0, 1], [0, 2], [2, 3], [3, 4], [3, 5], [2, 5], [0, 5], [0, 4], [1, 3]]},
-    {pts:[[0.598, 0.673], [0.786, 0.426], [0.189, 0.166], [0.123, 0.536], [0.714, 0.898], [0.598, 0.384]],edges:[[0, 1], [1, 2], [1, 3], [2, 4], [2, 5], [0, 2], [3, 4], [4, 5], [1, 4]]},
-    {pts:[[0.656, 0.551], [0.492, 0.221], [0.13, 0.709], [0.868, 0.867], [0.147, 0.442], [0.823, 0.345], [0.425, 0.724]],edges:[[0, 1], [0, 2], [0, 3], [2, 4], [4, 5], [2, 6], [2, 5], [3, 4], [1, 3], [1, 2], [5, 6], [3, 5], [1, 4]]},
+    {name:"Üçgen",level:"Kolay",pts:[[0.5,0.18],[0.86,0.82],[0.14,0.82]],edges:[[0,1],[1,2],[2,0]]},
+    {name:"Kare",level:"Kolay",pts:[[0.2,0.2],[0.8,0.2],[0.8,0.8],[0.2,0.8]],edges:[[0,1],[1,2],[2,3],[3,0]]},
+    {name:"Yıldız",level:"Orta",pts:[[0.5,0.178],[0.842,0.414],[0.712,0.797],[0.288,0.797],[0.158,0.414]],edges:[[0,2],[2,4],[4,1],[1,3],[3,0]]},
+    {name:"Ok",level:"Orta",pts:[[0.12,0.5],[0.62,0.5],[0.62,0.26],[0.62,0.74],[0.92,0.5]],edges:[[0,1],[1,2],[2,4],[4,3],[3,1]]},
+    {name:"Kum Saati",level:"Orta",pts:[[0.5,0.5],[0.18,0.18],[0.82,0.18],[0.18,0.82],[0.82,0.82]],edges:[[1,2],[2,0],[0,1],[3,4],[4,0],[0,3]]},
+    {name:"Zarf",level:"Zor",pts:[[0.25,0.8],[0.75,0.8],[0.25,0.4],[0.75,0.4],[0.5,0.14]],edges:[[0,1],[0,2],[1,3],[2,3],[2,4],[3,4],[0,3],[1,2]]},
+    {name:"Altıgen Yıldız",level:"Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0]]},
+    {name:"Hexagram",level:"Çok Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0],[1,3],[3,5],[5,1]]},
   ];
 
   let shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
@@ -251,7 +249,7 @@ setUstH();
     });
   }
 
-  function ui(){info.textContent=`Şekil ${shapeId+1}/${SHAPES.length}`;}
+  function ui(){const s=SHAPES[shapeId];info.textContent=`${shapeId+1}/${SHAPES.length} · ${s.name} · ${s.level}`;}
   
   function draw(){
     const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
