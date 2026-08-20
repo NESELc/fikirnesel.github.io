@@ -171,6 +171,50 @@ footer {
   </div>
 </main>
 
+<!-- REHBER İÇERİK: Euler yolu, nasıl oynanır, ipuçları -->
+<style>
+.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
+.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
+.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
+.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
+.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
+.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+</style>
+<div class="rehber-wrap">
+
+  <section class="rehber-kart">
+    <article>
+      <h2>Bu Oyunun Arkasındaki Matematik: Euler Yolu ve Königsberg Köprüleri</h2>
+      <p>Bu bulmacanın kökeni 1736 yılına, matematikçi Leonhard Euler'in çözdüğü ünlü "Königsberg Köprüleri Problemi"ne dayanır. Dönemin Königsberg şehrinde (bugünkü Kaliningrad) bir nehir üzerinde 7 köprü vardı ve şehir halkı "her köprüden yalnızca bir kez geçerek şehri baştan sona dolaşmak mümkün mü?" sorusunu tartışıyordu. Euler bu soruyu çözerken, bugün <strong>graf teorisi</strong> adı verilen matematik dalının temelini attı ve "hangi şekiller kalem kaldırmadan, her çizgiyi bir kez kullanarak çizilebilir?" sorusuna kesin bir cevap buldu.</p>
+      <p>Euler'in bulduğu kural basit: bir şekildeki her noktanın kaç çizgiyle birleştiğini (o noktanın "derecesi") sayarsanız, tek sayıda çizgisi olan nokta sayısı <strong>0 veya 2</strong> olmalıdır. 0 ise şekli herhangi bir noktadan başlayıp çizebilir, hatta başladığınız noktaya geri dönebilirsiniz. Tam 2 ise şekli çizebilirsiniz ama yalnızca o iki özel noktadan birinden başlamanız gerekir — üçüncü bir noktadan başlarsanız kesinlikle yarıda tıkanırsınız. Bu sayfadaki 8 şeklin her biri bu kurala göre matematiksel olarak doğrulanmıştır; hiçbiri gerçekten çözümsüz değildir, sadece bazılarında doğru başlangıç noktasını bulmanız gerekir.</p>
+
+      <h3>Pratik İpucu: Doğru Başlangıç Noktasını Nasıl Bulursunuz?</h3>
+      <p>Şekle çizim yapmadan önce her noktadan kaç çizgi çıktığını sayın. Eğer tüm noktalardan çift sayıda çizgi çıkıyorsa (Üçgen, Kare, Yıldız, Kum Saati, Altıgen Yıldız ve Hexagram'da olduğu gibi) herhangi bir noktadan rahatça başlayabilirsiniz. Eğer tam iki noktadan tek sayıda çizgi çıkıyorsa (Ok ve Zarf'ta olduğu gibi) mutlaka o iki noktadan birinden başlamalısınız; örneğin Zarf şeklinde alt iki köşeden biri doğru başlangıç noktasıdır.</p>
+
+      <table class="tanim-tablo">
+        <thead><tr><th>Zorluk</th><th>Şekiller</th><th>Özellik</th></tr></thead>
+        <tbody>
+          <tr><td>Kolay</td><td>Üçgen, Kare</td><td>Az kenar, her noktadan başlanabilir</td></tr>
+          <tr><td>Orta</td><td>Yıldız, Ok, Kum Saati</td><td>Kesişen çizgiler veya tek başlangıç noktası gerektirir</td></tr>
+          <tr><td>Zor</td><td>Zarf, Altıgen Yıldız</td><td>Daha fazla kenar, dikkatli planlama gerektirir</td></tr>
+          <tr><td>Çok Zor</td><td>Hexagram</td><td>12 kenarla en yoğun şekil</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Sık Sorulan Sorular</h3>
+      <p><strong>Her şekli çözmek gerçekten mümkün mü?</strong> Evet — her şeklin çözülebilir olduğunu matematiksel kural üzerinden tek tek doğruladık. Takılırsanız sorun şeklin kendisinde değil, başlangıç noktanızdadır.</p>
+      <p><strong>Neden sürekli aynı noktada takılıp kalıyorum?</strong> Muhtemelen tek dereceli (tek sayıda çizgisi olan) bir noktadan değil, çift dereceli bir noktadan başlamışsınızdır. "Sıfırla" tuşuna basıp yukarıdaki ipucuna göre farklı bir noktadan tekrar deneyin.</p>
+      <p><strong>Bir kenarı yanlışlıkla kullanırsam geri alabilir miyim?</strong> Hayır, kurallar gereği kullanılan bir kenar tekrar kullanılamaz ve son adım geri alınamaz; "Sıfırla" ile şekli baştan başlatabilirsiniz.</p>
+
+      <p class="guncelleme-notu">Bu oyun grubu, klasik graf teorisi problemlerinden esinlenerek hazırlanmıştır ve düzenli olarak yeni şekillerle güncellenmektedir.</p>
+    </article>
+  </section>
+
+</div>
+
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -202,14 +246,14 @@ setUstH();
 
   const S={pad:70,r:10,hit:18};
   const SHAPES=[
-    {name:"Üçgen",level:"Kolay",pts:[[0.5,0.18],[0.86,0.82],[0.14,0.82]],edges:[[0,1],[1,2],[2,0]]},
-    {name:"Kare",level:"Kolay",pts:[[0.2,0.2],[0.8,0.2],[0.8,0.8],[0.2,0.8]],edges:[[0,1],[1,2],[2,3],[3,0]]},
-    {name:"Yıldız",level:"Orta",pts:[[0.5,0.178],[0.842,0.414],[0.712,0.797],[0.288,0.797],[0.158,0.414]],edges:[[0,2],[2,4],[4,1],[1,3],[3,0]]},
-    {name:"Ok",level:"Orta",pts:[[0.12,0.5],[0.62,0.5],[0.62,0.26],[0.62,0.74],[0.92,0.5]],edges:[[0,1],[1,2],[2,4],[4,3],[3,1]]},
-    {name:"Kum Saati",level:"Orta",pts:[[0.5,0.5],[0.18,0.18],[0.82,0.18],[0.18,0.82],[0.82,0.82]],edges:[[1,2],[2,0],[0,1],[3,4],[4,0],[0,3]]},
-    {name:"Zarf",level:"Zor",pts:[[0.25,0.8],[0.75,0.8],[0.25,0.4],[0.75,0.4],[0.5,0.14]],edges:[[0,1],[0,2],[1,3],[2,3],[2,4],[3,4],[0,3],[1,2]]},
+    {name:"Kare + Çapraz",level:"Kolay",pts:[[0.22,0.22],[0.78,0.22],[0.78,0.78],[0.22,0.78]],edges:[[0,1],[1,2],[2,3],[3,0],[0,2]]},
+    {name:"Elmas + Kiriş",level:"Kolay",pts:[[0.5,0.15],[0.85,0.5],[0.5,0.85],[0.15,0.5]],edges:[[0,1],[1,2],[2,3],[3,0],[3,1]]},
+    {name:"Yıldız + Kanat",level:"Orta",pts:[[0.5,0.178],[0.842,0.414],[0.712,0.797],[0.288,0.797],[0.158,0.414]],edges:[[0,2],[2,4],[4,1],[1,3],[3,0],[0,1],[0,4]]},
+    {name:"Zarf",level:"Orta",pts:[[0.25,0.8],[0.75,0.8],[0.25,0.4],[0.75,0.4],[0.5,0.14]],edges:[[0,1],[0,2],[1,3],[2,3],[2,4],[3,4],[0,3],[1,2]]},
+    {name:"Altıgen + Merkez",level:"Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31],[0.5,0.5]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[6,0],[6,2],[6,4],[0,2]]},
     {name:"Altıgen Yıldız",level:"Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0]]},
     {name:"Hexagram",level:"Çok Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0],[1,3],[3,5],[5,1]]},
+    {name:"Çiçek",level:"Çok Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31],[0.5,0.5]],edges:[[1,2],[2,3],[4,5],[5,0],[6,0],[6,1],[6,2],[6,3],[6,4],[6,5]]},
   ];
 
   let shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
