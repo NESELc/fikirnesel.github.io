@@ -282,18 +282,138 @@ footer {
   </div>
 </main>
 
-<!-- SEO İçerik Bloku -->
-<div style="max-width:1140px;margin:30px auto;padding:0 16px;">
-  <section class="adsense-seo-icerik" style="padding: 25px; background: #ffffff; border-radius: 12px; border: 1px solid var(--line); color: #333; line-height: 1.7;">
+<!-- REHBER İÇERİK: Sınıf / Segment / Yakıt Rehberi + Çok Satanlar -->
+<style>
+.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
+.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
+.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
+.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
+.rehber-kart ul{margin:0 0 12px;padding-left:18px;font-size:13.5px;color:#334155}
+.rehber-kart li{margin-bottom:6px}
+.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
+.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+
+.cok-satan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+@media(max-width:900px){.cok-satan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.cok-satan-grid{grid-template-columns:1fr}}
+.arac-kart{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+.arac-foto{width:100%;aspect-ratio:16/10;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;color:#93a5c4;font-size:12px;text-align:center;padding:8px}
+.arac-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.arac-govde{padding:12px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.arac-govde h4{margin:0;font-size:14.5px;color:var(--txt)}
+.arac-etiketler{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 4px}
+.arac-etiketler span{font-size:11px;background:#f1f5f9;border:1px solid var(--line);border-radius:99px;padding:2px 8px;color:var(--muted);font-weight:600}
+.arac-fiyat{font-size:14px;font-weight:700;color:#16a34a}
+.arac-yorum{font-size:12.5px;color:#475569;line-height:1.55;margin:2px 0 0}
+</style>
+<div class="rehber-wrap">
+
+  <section class="rehber-kart">
     <article>
-      <h2 style="font-size: 18px; color: var(--txt); margin-bottom: 12px; border-bottom: 2px solid var(--accent); padding-bottom: 6px;">
-        Güncel Sıfır Araç Fiyatları ve Otomobil Karşılaştırma Rehberi
-      </h2>
-      <p style="font-size: 13px; margin-bottom: 15px;">
-        Türkiye otomotiv pazarında sıfır kilometre araç satın alma süreci; markaların sunduğu dönemsel indirim kampanyaları, güncellenen matrah oranları ve ÖTV/KDV gibi değişkenler nedeniyle oldukça dinamiktir. Platformumuz, bütçenize ve ihtiyaçlarınıza en uygun sıfır aracı bulmanızı kolaylaştırmak için resmi liste fiyatları ile güncel kampanya indirimlerini tek ekranda sunar.
-      </p>
+      <h2>Sıfır Araç Alırken Sınıf, Segment ve Yakıt Türü Ne Anlama Gelir?</h2>
+      <p>Sıfır araç fiyat listelerinde karşınıza çıkan "sınıf", "segment", "yakıt türü" ve "vites" gibi teknik terimler, aslında aracın hangi ihtiyaca göre tasarlandığını anlamanın en hızlı yoludur. Aşağıdaki filtreleme aracını kullanmadan önce bu kavramları bilmek, bütçenize ve kullanım amacınıza en uygun modeli bulmanızı kolaylaştırır.</p>
+
+      <h3>Araç Sınıfları: A'dan D'ye</h3>
+      <p>Türkiye pazarında araçlar genellikle boyut ve donanım seviyesine göre A'dan D'ye kadar sınıflandırılır. A ve B sınıfı şehir içi kullanıma uygun küçük ve ekonomik modelleri (Fiat Egea Hatchback, Renault Clio gibi), C sınıfı aile kullanımına uygun orta boy sedan/hatchback modelleri, D sınıfı ise daha geniş iç hacme ve güçlü donanıma sahip üst segment araçları kapsar. SUV ve crossover modeller ise kendi içinde küçük (B-SUV), orta (C-SUV) ve büyük (D-SUV) olarak ayrılır.</p>
+
+      <table class="tanim-tablo">
+        <thead><tr><th>Sınıf</th><th>Tipik gövde tipi</th><th>Kime uygun</th></tr></thead>
+        <tbody>
+          <tr><td>A / B</td><td>Hatchback, mini SUV</td><td>Şehir içi, tek/iki kişilik kullanım, düşük yakıt tüketimi önceliği</td></tr>
+          <tr><td>C</td><td>Sedan, hatchback, C-SUV</td><td>Aile kullanımı, şehir içi + şehirlerarası dengeli kullanım</td></tr>
+          <tr><td>D</td><td>Sedan, D-SUV</td><td>Uzun yol ağırlıklı kullanım, geniş bagaj/iç hacim ihtiyacı</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Segment Nedir? (Hatchback, Sedan, SUV, Crossover)</h3>
+      <p>Segment, aracın gövde tipini tanımlar. Hatchback modeller kısa kasa ve geniş bagaj kapağıyla şehir içi kullanımda park kolaylığı sağlar. Sedan modeller ayrı bagaj bölmesi sayesinde daha sessiz bir kabin ve genelde daha fazla bagaj hacmi sunar. SUV/crossover modeller yüksek sürüş pozisyonu, daha iyi yol görüşü ve genelde 4x4 seçeneğiyle öne çıkar; buna karşılık yakıt tüketimi sedan ve hatchback modellere göre bir miktar daha yüksektir.</p>
+
+      <h3>Yakıt Türleri: Benzin, Dizel, Hibrit, Elektrikli</h3>
+      <p>Yakıt türü seçimi, yıllık kaç kilometre yapacağınıza göre belirlenmelidir. Benzinli motorlar düşük-orta kilometre kullanımında (yılda ~15.000 km altı) daha uygun maliyetli olma eğilimindedir. Dizel motorlar yüksek kilometre yapan (yılda 20.000 km üzeri) ve şehirlerarası ağırlıklı kullananlar için yakıt ekonomisi sağlar. Hibrit modeller şehir içi trafikte elektrik motorunun devreye girmesiyle yakıt tüketimini belirgin şekilde düşürür ve günümüzde Türkiye'de en çok satan modeller arasında hızla pay kazanmaktadır. Elektrikli araçlar ise şarj altyapınıza erişiminiz varsa en düşük "yakıt" maliyetini sunar, ancak menzil ve şarj süresi kullanım alışkanlığınıza uygun olmalıdır.</p>
+
+      <h3>Vites Tipi: Manuel, Otomatik, Yarı Otomatik</h3>
+      <p>Manuel vites genellikle daha uygun fiyatlı ve düşük bakım maliyetlidir. Klasik otomatik ve CVT şanzımanlar şehir içi trafikte konfor sağlar. Çift kavramalı (DSG/DCT) şanzımanlar ise hem konfor hem de daha hızlı vites geçişiyle sportif bir sürüş hissi sunar, ancak bakım maliyeti manuel/otomatiğe göre biraz daha yüksek olabilir.</p>
+
+      <p class="guncelleme-notu">Bu rehber genel bilgilendirme amaçlıdır; güncel ÖTV oranı, matrah dilimi ve marka kampanyaları sık değiştiği için kesin fiyat için yukarıdaki karşılaştırma aracını ve ilgili bayiyi kullanmanızı öneririz. Son güncelleme: Ağustos 2026.</p>
     </article>
   </section>
+
+  <section class="rehber-kart">
+    <article>
+      <h2>2026'da Türkiye'de En Çok Satılan Sıfır Otomobiller</h2>
+      <p>ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine göre Türkiye pazarında en çok tercih edilen 10 model arasından, aşağıdaki tablomuzda karşılaştırabileceğiniz 6 modeli seçtik. Fiyatlar, üstteki karşılaştırma aracımızdaki en güncel liste fiyatlarıyla birebir aynıdır.</p>
+
+      <div class="cok-satan-grid">
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/img/cars/renault-clio.jpg" alt="Renault Clio Evolution Plus" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Renault Clio Evolution Plus</h4>
+            <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Otomatik</span></div>
+            <div class="arac-fiyat">1.830.000 TL'den başlıyor</div>
+            <p class="arac-yorum">2026 ilk yarısında satış listesinin açık ara lideri; düşük bakım maliyeti ve park kolaylığı sayesinde ilk araç alacaklar ve şehir içi kullanım için en çok tercih edilen model.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/img/cars/fiat-egea-sedan.jpg" alt="Fiat Egea Sedan Easy" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Fiat Egea Sedan Easy</h4>
+            <div class="arac-etiketler"><span>C-Segment</span><span>Sedan</span><span>Dizel · Manuel</span></div>
+            <div class="arac-fiyat">1.499.900 TL'den başlıyor</div>
+            <p class="arac-yorum">Segmentinin en uygun fiyatlı sedanlarından; geniş bagaj hacmi, düşük dizel tüketimi ve yaygın servis ağı nedeniyle şehirlerarası kullanan aileler arasında öne çıkıyor.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/img/cars/renault-megane-sedan.jpg" alt="Renault Megane Sedan Touch" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Renault Megane Sedan Touch</h4>
+            <div class="arac-etiketler"><span>C-Segment</span><span>Sedan</span><span>Benzinli · Manuel</span></div>
+            <div class="arac-fiyat">1.841.000 TL'den başlıyor</div>
+            <p class="arac-yorum">Egea'ya göre daha üst donanım seçenekleri sunar; şehirlerarası yolculuk yapanlar için sessiz kabini avantajlı. Otomatik vites isteyenler için 2.199.000 TL'den başlayan versiyonu da mevcut.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/img/cars/renault-duster.jpg" alt="Renault Duster Evolution" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Renault Duster Evolution</h4>
+            <div class="arac-etiketler"><span>C-SUV</span><span>Benzinli · Manuel</span></div>
+            <div class="arac-fiyat">1.865.000 TL'den başlıyor</div>
+            <p class="arac-yorum">Yüksek sürüş pozisyonu ve geniş bagajı hatchback fiyatına yakın bir bütçeyle sunuyor; hibrit versiyonu da (2.750.000 TL'den) listede yer alıyor.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/img/cars/hyundai-i20.jpg" alt="Hyundai i20 Jump" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Hyundai i20 Jump</h4>
+            <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Manuel</span></div>
+            <div class="arac-fiyat">1.487.000 TL'den başlıyor</div>
+            <p class="arac-yorum">Listedeki en uygun fiyatlı model; Hyundai'nin garanti ve servis ağı avantajını düşük bütçeyle arayanlar için ilk tercih.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/img/cars/peugeot-e2008.jpg" alt="Peugeot E-2008 Allure" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Peugeot E-2008 Allure</h4>
+            <div class="arac-etiketler"><span>B-SUV</span><span>Elektrikli · Otomatik</span></div>
+            <div class="arac-fiyat">2.201.500 TL'den başlıyor</div>
+            <p class="arac-yorum">Listedeki tek tam elektrikli model; şarj imkanı olanlar için düşük kullanım maliyeti sunuyor. Hibrit GT versiyonu 2.580.000 TL'den başlıyor.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="guncelleme-notu">Fiyatlar, sitemizdeki karşılaştırma aracının Ağustos 2026 verileriyle aynıdır ve marka kampanyalarına göre değişebilir; en güncel hali için yukarıdaki tabloyu kullanın. Satış sıralaması ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine dayanmaktadır.</p>
+    </article>
+  </section>
+
 </div>
 
 <!-- KESİNTİSİZ STANDART FOOTER -->
