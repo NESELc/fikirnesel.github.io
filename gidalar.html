@@ -102,6 +102,18 @@ main{padding-top:var(--ustH)}
 
 .logoWrap{display:inline-block}
 
+.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
+.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
+.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
+.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
+.rehber-kart ul{margin:0 0 12px;padding-left:18px;font-size:13.5px;color:#334155}
+.rehber-kart li{margin-bottom:6px}
+.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
+.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+
 /* FOOTER */
 footer {
   background: #fff;
@@ -219,6 +231,38 @@ footer {
     </aside>
   </div>
 </main>
+
+<!-- REHBER İÇERİK: veri kaynakları, kanıt düzeyleri, gerçek örnekler -->
+<div class="rehber-wrap">
+
+  <section class="rehber-kart">
+    <article>
+      <h2>Bu Araç Nasıl Çalışır, Veriler Nereden Geliyor?</h2>
+      <p>Yukarıdaki filtre, elimizde tuttuğumuz bir veritabanını taramanızı sağlar: <strong>105 gıda</strong>, <strong>23 şikayet başlığı</strong>, bu ikisi arasında kayıtlı <strong>121 eşleşme</strong> ve birlikte tüketildiğinde anlamlı olabilecek <strong>36 gıda karışımı</strong>. Şikayet ve gıda seçtiğinizde araç, veritabanındaki gerçek kayıtları eşleştirir; ekranda gördüğünüz hiçbir metin anlık olarak üretilmez.</p>
+      <p>Gıdaların etken madde ve temel besin bilgileri esas olarak ABD Tarım Bakanlığı'nın halka açık besin veritabanı <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">USDA FoodData Central</a>'dan alınır (105 kaydın 84'ünde birincil kaynak budur). Geleneksel bitkisel kullanım bilgileri için ABD Ulusal Sağlık Enstitüleri'ne bağlı <a href="https://www.nccih.nih.gov/health" target="_blank" rel="noopener">NIH NCCIH</a> kaynak gösterilir (20 kayıt). Birkaç özel güvenlik uyarısı da doğrudan resmi kurum sayfalarından alınmıştır: bal ve bebek botulizmi riski için <a href="https://www.cdc.gov/botulism/prevention.html" target="_blank" rel="noopener">CDC</a>, greyfurt-ilaç etkileşimi için <a href="https://www.fda.gov/food/information-consumers-using-dietary-supplements/grapefruit-juice-and-some-drugs-dont-mix" target="_blank" rel="noopener">FDA</a> kaynaklıdır.</p>
+
+      <h3>Kanıt Düzeyi Etiketleri Ne Anlama Gelir?</h3>
+      <p>Her gıda kartında bir "kanıt düzeyi" etiketi görürsünüz; bu etiket abartılı sağlık iddialarını önlemek için bilinçli olarak eklenmiştir. Veritabanındaki 105 gıdanın 60'ı (yaklaşık %57'si) yalnızca <strong>"Genel besin"</strong> etiketi taşır — yani bu bir tedavi iddiası değil, sadece o gıdanın besin bileşimine dair temel bir kayıttır. Geri kalanının önemli bir kısmı <strong>"Geleneksel/Sınırlı çalışma"</strong> (halk hekimliğinde kullanılır ama sınırlı bilimsel destek vardır) veya <strong>"Orta düzey çalışma"</strong> etiketiyle işaretlenmiştir. Veritabanında yalnızca tek bir gıda — yulaf, beta-glukan lifi nedeniyle — <strong>"Güçlü/Orta düzey klinik kanıt"</strong> etiketine sahiptir; bu da kolesterol ve kan şekeri dengesi üzerindeki etkisinin klinik çalışmalarla nispeten daha sağlam desteklendiği anlamına gelir.</p>
+
+      <h3>Gerçek Bir Örnek: Boğaz Ağrısı ve Öksürükte Hangi Gıdalar Eşleşiyor?</h3>
+      <p>"Boğaz ağrısı" şikayetini seçtiğinizde veritabanı size adaçayı, bal, ıhlamur, kekik ve limonu önerir; hepsi "boğaz ferahlığı için geleneksel kullanım" notuyla işaretlidir, yani bilimsel olarak kanıtlanmış bir tedavi değil, kuşaklardır aktarılan bir kullanım alışkanlığıdır. "Öksürük" şikayetinde ise bal, anason, çörek otu, kekik ve rezene eşleşir. Kayıtlı karışım önerilerinden ikisi tam olarak bu mantığı takip eder: <strong>Bal + Limon</strong> (boğazı yumuşatma ve sıvı alımını destekleme amacıyla) ve <strong>Adaçayı + Kekik</strong> (aromatik bitki karışımı olarak boğaz ferahlığı için). Her iki karışımda da veritabanı net bir sınır çizer: bunlar tedavi değildir, sadece destekleyici geleneksel kullanımlardır.</p>
+
+      <h3>Veritabanında Tekrar Eden Gerçek Uyarılar</h3>
+      <ul>
+        <li><strong>Kan sulandırıcı (warfarin vb.) kullananlar için K vitamini uyarısı:</strong> ıspanak, brokoli, lahana, karnabahar, marul, maydanoz, kuşkonmaz, bamya ve dereotu dahil, K vitamini içeriği yüksek pek çok yeşil sebzenin kartında bu uyarı tekrar eder — düzenli ve yüksek miktarda tüketim, kan sulandırıcı ilaçların etkisini değiştirebilir.</li>
+        <li><strong>Greyfurt ve ilaç etkileşimi:</strong> greyfurt, birçok yaygın ilacın (bazı kolesterol, tansiyon ve bağışıklık baskılayıcı ilaçlar dahil) karaciğerde parçalanma hızını değiştirebilir; düzenli ilaç kullananların FDA'nın da belirttiği gibi doktoruna veya eczacısına danışması önerilir.</li>
+        <li><strong>Bal ve 1 yaş altı bebekler:</strong> bal, nadir de olsa bebek botulizmine yol açabilecek spor içerebilir; CDC 1 yaşın altındaki bebeklere hiçbir şekilde bal verilmemesini önerir.</li>
+        <li><strong>FODMAP hassasiyeti:</strong> armut, elma, kiraz, ahududu ve böğürtlen gibi meyvelerde, hassas bağırsağı olan kişilerde gaz/şişkinlik riskine karşı ölçülü tüketim notu bulunur.</li>
+      </ul>
+
+      <h3>Bu Bilgiler Tanı ya da Tedavi Yerine Geçer mi?</h3>
+      <p><strong>Hayır.</strong> Sayfanın en üstündeki uyarıda da belirtildiği gibi bu araç yalnızca bilgilendirme amaçlıdır; hiçbir gıda veya karışım tıbbi tanı, tedavi ya da ilaç önerisi yerine geçmez. Kronik bir hastalığınız, düzenli ilaç kullanımınız varsa ya da hamilelik/emzirme döneminde iseniz, herhangi bir gıdayı yoğun biçimde tüketmeden önce mutlaka bir sağlık profesyoneline danışın. Nefes darlığı, kanama, yüksek ateş veya ani/şiddetli belirtiler gibi ciddi durumlarda gıda önerisi beklemeden acil sağlık desteği alınmalıdır.</p>
+
+      <p class="guncelleme-notu">Bu sayfadaki veritabanı düzenli olarak yeni gıda, şikayet ve karışım kayıtlarıyla güncellenmektedir; kaynak gösterilen tüm bilgiler kamuya açık resmi sağlık ve beslenme kurumlarından derlenmiştir.</p>
+    </article>
+  </section>
+
+</div>
 
 <footer>
   <div class="footer-wrap">
