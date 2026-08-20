@@ -146,6 +146,73 @@ footer {
   </div>
 </main>
 
+<!-- REHBER İÇERİK: Abonelik paylaşımı, ödeme, iptal rehberi -->
+<style>
+.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
+.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
+.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
+.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
+.rehber-kart ul{margin:0 0 12px;padding-left:18px;font-size:13.5px;color:#334155}
+.rehber-kart li{margin-bottom:6px}
+.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
+.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+.sss-item{margin-bottom:14px}
+.sss-item summary{font-weight:600;font-size:13.5px;cursor:pointer;color:var(--txt);padding:4px 0}
+.sss-item p{margin-top:6px}
+</style>
+<div class="rehber-wrap">
+
+  <section class="rehber-kart">
+    <article>
+      <h2>Dijital Abonelik Ücretleri Neden Sürekli Zamlanıyor?</h2>
+      <p>Netflix, YouTube Premium, Spotify, Disney+ gibi platformların çoğu, Türkiye fiyatlarını dolar/euro bazlı belirleyip TL'ye çeviriyor; bu yüzden kur hareketleri her fiyat güncellemesinde doğrudan etkili oluyor. Buna ek olarak platformlar genelde yılda bir veya iki kez, hem enflasyon hem de global fiyatlandırma stratejilerine göre TL fiyatlarını revize ediyor. Bu nedenle abonelik sayfamızdaki tablo düzenli olarak güncellenir; yine de kesin fiyat için abone olmadan hemen önce platformun kendi ödeme ekranını kontrol etmenizi öneririz.</p>
+
+      <h3>Yerli mi Yabancı mı? Yerli Platformların Avantajı</h3>
+      <p>Exxen, BluTV gibi yerli platformlar TL bazlı fiyatlandığı için döviz kuru dalgalanmalarından daha az etkileniyor; buna karşılık içerik kütüphaneleri genellikle Netflix veya Disney+'a göre daha sınırlı kalıyor. Yabancı platformlar geniş içerik yelpazesi sunarken, kur artışlarında fiyat artışı riski daha yüksek.</p>
+
+      <h3>Ödeme Yöntemi Fiyatı Etkiler mi?</h3>
+      <p>Bu her zaman "mağaza daha pahalıdır" şeklinde tek yönlü işlemiyor. Örneğin ChatGPT Plus'ta web üzerinden ödeme 20 dolar sabit tutuluyor ve TL karşılığı döviz kuru yükseldikçe artıyor; mobil uygulama mağazaları üzerinden ödemede ise sabit bir TL fiyatı (₺499,99) uygulanıyor. Kur ortamına göre hangisinin daha avantajlı olduğu değişebilir — güncel kuru <a href="/doviz.html">döviz çevirici sayfamızdan</a> kontrol edip iki fiyatı karşılaştırmanızı öneririz.</p>
+    </article>
+  </section>
+
+  <section class="rehber-kart">
+    <article>
+      <h2>Hangi Plan Kaç Kişiye Kadar Paylaşılabilir?</h2>
+      <p>Aile veya arkadaş grubuyla abonelik paylaşımı yaparken platformların kendi kurallarına dikkat etmek hem hesabın askıya alınmasını önler hem de bütçenizi kişi başına düşürür. Genel kurallar şöyle:</p>
+
+      <table class="tanim-tablo">
+        <thead><tr><th>Platform</th><th>Paylaşım kuralı</th><th>Not</th></tr></thead>
+        <tbody>
+          <tr><td>YouTube Premium Aile</td><td>Hesap sahibi + 5 aile üyesine kadar (₺159,99/ay)</td><td>Aile üyelerinin aynı adreste olması şart koşuluyor</td></tr>
+          <tr><td>Spotify Duo / Aile</td><td>Duo: aynı adreste 2 kişi (₺135/ay), Aile: aynı adreste 6 hesap (₺165/ay)</td><td>Her üyenin kendi profili olur</td></tr>
+          <tr><td>Apple iCloud+</td><td>Family Sharing ile depolama alanı hane üyeleriyle paylaşılabilir</td><td>Paylaşım için hesapların Aile Paylaşımı grubunda olması gerekir</td></tr>
+          <tr><td>Disney+</td><td>Ana üyelik + ek üye ekleme</td><td>Ek üye: reklamlı ₺164,90, reklamsız ₺233,90 (ana üyelikle aynı türde olmalı)</td></tr>
+        </tbody>
+      </table>
+      <p>Hane dışı paylaşımda platformun tespit sistemi hesabı geçici olarak kısıtlayabilir; bu yüzden gerçekten aynı evde yaşamayan kişilerle paylaşım yapmadan önce ilgili platformun güncel kullanım şartlarını kontrol etmenizi öneririz.</p>
+    </article>
+  </section>
+
+  <section class="rehber-kart">
+    <article>
+      <h2>Aylık mı Yıllık mı Ödeme Daha Mantıklı?</h2>
+      <p>Tablomuzdaki verileri karşılaştırdığımızda ilginç bir kural ortaya çıkıyor: <strong>Disney+ ve HBO Max'ta yıllık ödeme, tam olarak 10 aylık ücrete eşit</strong> — yani yıllık plana geçtiğinizde 2 ay ücretsiz kullanmış oluyorsunuz (Disney+ reklamlı için aylık ₺249,90 × 12 = ₺2.998,80 ederken yıllık paket ₺2.499; HBO Max standart için aylık ₺229,90 × 12 = ₺2.758,80 ederken yıllık paket ₺2.299). MUBI'de fark daha da büyük: yıllık ₺1.980 ödeme aylık ortalama ₺165'e denk geliyor, bu da aylık plana (₺229) göre yaklaşık <strong>%28 daha ucuz</strong>. Buna karşılık yıllık ödemenin mantıklı olması için o platformu kesintisiz en az 10 ay kullanacağınızdan emin olmanız gerekir; sık abonelik değiştirenler için aylık plan daha az risk taşır. Yıllık plana geçmeden önce iptal ve iade koşullarını mutlaka okuyun — çoğu platformda yıllık ödeme sonrası kısmi iade sağlanmıyor.</p>
+
+      <h3>Öğrenci ve Genç İndirimleri</h3>
+      <p>Tablomuzdaki servisler arasında en yüksek öğrenci indirimi GAİN'de: standart ₺249 yerine öğrenci/akademisyen üyeliği ₺49, yani <strong>%80 indirim</strong>. MUBI'de öğrenci üyeliği ₺99 ile standart ₺229'a göre %57 daha ucuz. Spotify'da öğrenci planı ₺55 ile bireysel plana (₺99) göre %44 indirim sağlıyor. Bu indirimler genelde doğrulanmış öğrenci e-postası veya öğrenci belgesi gerektirir ve yılda bir kez yeniden doğrulama istenebilir; abone olmadan önce ilgili platformun öğrenci doğrulama sayfasını kontrol etmenizi öneririz.</p>
+
+      <h3>Abonelik İptal Ederken Nelere Dikkat Edilmeli?</h3>
+      <p>Bir aboneliği App Store veya Google Play üzerinden başlattıysanız, iptal işlemini de o mağazanın abonelik yönetim ekranından yapmanız gerekir — platformun kendi uygulamasından "hesabı sil" yapmak çoğu zaman faturalandırmayı durdurmaz. İptal sonrası genelde mevcut fatura döneminin sonuna kadar erişiminiz devam eder; anlık iade nadiren yapılır.</p>
+
+      <p class="guncelleme-notu">Bu rehber genel bilgilendirme amaçlıdır ve platformların güncel kullanım şartlarının yerini tutmaz; kesin fiyat, paylaşım ve iptal koşulları için ilgili platformun resmi yardım sayfasını kontrol edin. Yukarıdaki tablodaki fiyatlar düzenli olarak güncellenmektedir.</p>
+    </article>
+  </section>
+
+</div>
+
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
