@@ -187,6 +187,56 @@ footer {
   </div>
 </main>
 
+<!-- REHBER İÇERİK: Döviz kuru ve para birimi rehberi -->
+<style>
+.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
+.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
+.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
+.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
+.rehber-kart ul{margin:0 0 12px;padding-left:18px;font-size:13.5px;color:#334155}
+.rehber-kart li{margin-bottom:6px}
+.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
+.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+</style>
+<div class="rehber-wrap">
+
+  <section class="rehber-kart">
+    <article>
+      <h2>Döviz Kuru Nedir, Neye Göre Belirlenir?</h2>
+      <p>Döviz kuru, bir para biriminin başka bir para birimi karşısındaki değeridir ve serbest piyasada arz-talep dengesine göre saniyeler içinde değişir. Türkiye'de USD/TRY ve EUR/TRY kurunu; Türkiye Cumhuriyet Merkez Bankası'nın (TCMB) faiz kararları, enflasyon verileri, cari açık rakamları, jeopolitik gelişmeler ve küresel piyasalardaki dolar talebi birlikte belirler. TCMB her gün bir "resmi gösterge kur" yayınlar, ancak bankalar ve döviz büroları kendi belirledikleri alış-satış kurlarını uygular; bu yüzden yukarıdaki çeviriciyle bulduğunuz rakam, gittiğiniz bankadaki kurdan birkaç kuruş farklı olabilir.</p>
+
+      <h3>Banka Kuru ile "Kapalıçarşı" Kuru Arasındaki Fark</h3>
+      <p>Her döviz işleminde iki farklı fiyat vardır: <strong>alış</strong> (bankanın sizden döviz satın alırken uyguladığı, daha düşük kur) ve <strong>satış</strong> (bankanın size döviz satarken uyguladığı, daha yüksek kur). Bu ikisi arasındaki farka "spread" denir ve bankanın kâr marjını oluşturur. Döviz büroları (halk arasında "kapalıçarşı kuru" olarak bilinir) genellikle bankalara göre daha dar bir spread uygular, bu yüzden büyük miktarlarda döviz alıp satarken fiyat farkı gözle görülür hale gelir. Küçük tutarlarda ise fark genelde ihmal edilebilir düzeydedir.</p>
+
+      <h3>Kredi Kartıyla Yurt Dışı Alışverişte Dikkat Edilmesi Gereken Bir Tuzak: DCC</h3>
+      <p>Yurt dışında veya yabancı bir web sitesinde kredi kartıyla ödeme yaparken karşınıza genellikle "TL olarak öde" ya da "yerel para biriminizde öde" seçeneği çıkar. Bu seçenek kullanıcı dostu görünse de, arka planda "Dynamic Currency Conversion" (DCC) adı verilen bir sistemle işlem yapılır ve genellikle kartınızı çıkaran bankanın uygulayacağı kurdan %3-8 daha pahalıya mal olur. Bu yüzden ödeme ekranında seçenek varsa, işlemin orijinal para biriminde (ör. USD veya EUR) yapılmasına izin vermek, kur çevirimini kendi bankanıza bırakmak genellikle daha ucuza gelir.</p>
+
+      <table class="tanim-tablo">
+        <thead><tr><th>Kod</th><th>Para Birimi</th><th>Kullanıldığı yer</th></tr></thead>
+        <tbody>
+          <tr><td>USD</td><td>Amerikan Doları</td><td>ABD, uluslararası ticaretin referans para birimi</td></tr>
+          <tr><td>EUR</td><td>Euro</td><td>Avrupa Birliği'nin çoğu üye ülkesi</td></tr>
+          <tr><td>GBP</td><td>İngiliz Sterlini</td><td>Birleşik Krallık</td></tr>
+          <tr><td>CHF</td><td>İsviçre Frangı</td><td>İsviçre, güvenli liman para birimi olarak bilinir</td></tr>
+          <tr><td>JPY</td><td>Japon Yeni</td><td>Japonya</td></tr>
+          <tr><td>SAR</td><td>Suudi Arabistan Riyali</td><td>Suudi Arabistan, genelde USD'ye sabitlenmiştir</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Seyahat Öncesi Döviz Bozdururken Pratik İpuçları</h3>
+      <p>Havalimanındaki döviz büroları, şehir merkezindeki bürolara göre genellikle daha yüksek spread uygular; mümkünse seyahatten birkaç gün önce, şehir içindeki bir döviz bürosundan veya bankanızın uygulamasından işlem yapmak daha avantajlıdır. Tüm bütçeyi tek seferde nakde çevirmek yerine bir kısmını kredi/banka kartında bırakmak, hem güvenlik hem de anlık kur takibi açısından esneklik sağlar — özellikle çekiliş ve ATM komisyonlarının düşük olduğu kartlar seyahatte avantajlı olabilir. Kur genellikle hafta sonları ve resmi tatillerde daha az hareketli olur, büyük merkez bankası toplantıları öncesinde ise oynaklık artabilir; büyük bir döviz alımını mümkünse böyle kritik tarihlerin hemen öncesine denk getirmemekte fayda var.</p>
+
+      <p>Bu araç, yalnızca döviz çevirmekle kalmıyor; sitemizdeki diğer hesaplama araçlarıyla da bağlantılı. Örneğin ithal sıfır araçların fiyatları büyük ölçüde <a href="/sifiraraclar.html">EUR/USD bazlı üretici fiyatlarına</a> göre şekillenirken, dolar bazlı fiyatlanan bazı dijital abonelikler için de (ör. ChatGPT Plus web planı) <a href="/platformucretleri.html">güncel kur farkının etkisini platform ücretleri sayfamızda</a> görebilirsiniz.</p>
+
+      <p class="guncelleme-notu">Yukarıdaki kurlar ExchangeRate-API üzerinden anlık olarak çekilmektedir ve piyasa kurlarını yaklaşık olarak yansıtır; bankanızın veya döviz bürosunun uyguladığı kesin alış-satış kuru için ilgili kurumu kontrol etmenizi öneririz.</p>
+    </article>
+  </section>
+
+</div>
+
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
