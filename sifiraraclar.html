@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}
 .nav a:hover{border-color:#cbd5e1}
 .nav a.active{border-color:rgba(37,99,235,.45);background:rgba(37,99,235,.06);color:#1d4ed8;font-weight:600}
 
-main{padding-top:0}
+main{padding-top:var(--ustH)}
 
 #layout{display:flex;gap:16px;max-width:1140px;margin:16px auto;padding:0 16px;align-items:flex-start}
 #ortaAlan{flex:1;width:100%;min-width:0}
@@ -59,7 +59,7 @@ iframe{width:100%;height:100%;border:0;display:block}
 .filtre-grup{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .filtre-grup label{font-weight:600;display:flex;flex-direction:column;font-size:12px;color:var(--muted);min-width:110px;}
 .filtre-grup select{padding:6px;font-size:13px;width:130px;border:1px solid var(--line);border-radius:6px;background:#fff;}
-#sonuclar{margin-top:8px;}
+#sonuclar{margin-top:8px;max-height:600px;overflow-y:auto;border:1px solid var(--line);border-radius:8px}
 #sonuclar table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
 #sonuclar th,#sonuclar td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:middle;word-break:break-word;}
 #sonuclar th{font-weight:700;background:#f1f5f9;color:var(--txt)}
@@ -162,113 +162,6 @@ footer {
     </div>
   </div>
 </header>
-
-<!-- REHBER İÇERİK STİLLERİ: Sınıf / Segment / Yakıt Rehberi + Çok Satanlar -->
-<style>
-.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
-.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
-.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
-.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
-.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
-.rehber-kart ul{margin:0 0 12px;padding-left:18px;font-size:13.5px;color:#334155}
-.rehber-kart li{margin-bottom:6px}
-.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
-.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
-.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
-
-.cok-satan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
-@media(max-width:900px){.cok-satan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.cok-satan-grid{grid-template-columns:1fr}}
-.arac-kart{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
-.arac-foto{width:100%;aspect-ratio:16/10;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;color:#93a5c4;font-size:12px;text-align:center;padding:8px}
-.arac-foto img{width:100%;height:100%;object-fit:cover;display:block}
-.arac-govde{padding:12px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
-.arac-govde h4{margin:0;font-size:14.5px;color:var(--txt)}
-.arac-etiketler{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 4px}
-.arac-etiketler span{font-size:11px;background:#f1f5f9;border:1px solid var(--line);border-radius:99px;padding:2px 8px;color:var(--muted);font-weight:600}
-.arac-fiyat{font-size:14px;font-weight:700;color:#16a34a}
-.arac-yorum{font-size:12.5px;color:#475569;line-height:1.55;margin:2px 0 0}
-.tabloyaGit{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--accent);border:1px solid rgba(37,99,235,.35);background:var(--accent-bg);padding:8px 14px;border-radius:8px}
-.tabloyaGit:hover{background:#dbeafe}
-</style>
-
-<div class="rehber-wrap" id="cokSatanlarUst" style="margin-top:calc(var(--ustH) + 20px)">
-  <section class="rehber-kart">
-    <article>
-      <h2>2026'da Türkiye'de En Çok Satılan Sıfır Otomobiller</h2>
-      <p>ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine göre Türkiye pazarında en çok tercih edilen 10 model arasından, aşağıdaki karşılaştırma tablomuzda da bulabileceğiniz 6 modeli seçtik. Fiyatlar, aşağıdaki karşılaştırma aracımızdaki en güncel liste fiyatlarıyla birebir aynıdır.</p>
-
-      <div class="cok-satan-grid">
-
-        <div class="arac-kart">
-          <div class="arac-foto"><img src="/inc/renault-clio.jpg" alt="Renault Clio Evolution Plus" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
-          <div class="arac-govde">
-            <h4>Renault Clio Evolution Plus</h4>
-            <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Otomatik</span></div>
-            <div class="arac-fiyat">1.830.000 TL'den başlıyor</div>
-            <p class="arac-yorum">2026 ilk yarısında satış listesinin açık ara lideri; düşük bakım maliyeti ve park kolaylığı sayesinde ilk araç alacaklar ve şehir içi kullanım için en çok tercih edilen model.</p>
-          </div>
-        </div>
-
-        <div class="arac-kart">
-          <div class="arac-foto"><img src="/inc/fiat-egea-sedan.jpg" alt="Fiat Egea Sedan Easy" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
-          <div class="arac-govde">
-            <h4>Fiat Egea Sedan Easy</h4>
-            <div class="arac-etiketler"><span>C-Segment</span><span>Sedan</span><span>Dizel · Manuel</span></div>
-            <div class="arac-fiyat">1.499.900 TL'den başlıyor</div>
-            <p class="arac-yorum">Segmentinin en uygun fiyatlı sedanlarından; geniş bagaj hacmi, düşük dizel tüketimi ve yaygın servis ağı nedeniyle şehirlerarası kullanan aileler arasında öne çıkıyor.</p>
-          </div>
-        </div>
-
-        <div class="arac-kart">
-          <div class="arac-foto"><img src="/inc/renault-megane-sedan.jpg" alt="Renault Megane Sedan Touch" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
-          <div class="arac-govde">
-            <h4>Renault Megane Sedan Touch</h4>
-            <div class="arac-etiketler"><span>C-Segment</span><span>Sedan</span><span>Benzinli · Manuel</span></div>
-            <div class="arac-fiyat">1.841.000 TL'den başlıyor</div>
-            <p class="arac-yorum">Egea'ya göre daha üst donanım seçenekleri sunar; şehirlerarası yolculuk yapanlar için sessiz kabini avantajlı. Otomatik vites isteyenler için 2.199.000 TL'den başlayan versiyonu da mevcut.</p>
-          </div>
-        </div>
-
-        <div class="arac-kart">
-          <div class="arac-foto"><img src="/inc/renault-duster.jpg" alt="Renault Duster Evolution" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
-          <div class="arac-govde">
-            <h4>Renault Duster Evolution</h4>
-            <div class="arac-etiketler"><span>C-SUV</span><span>Benzinli · Manuel</span></div>
-            <div class="arac-fiyat">1.865.000 TL'den başlıyor</div>
-            <p class="arac-yorum">Yüksek sürüş pozisyonu ve geniş bagajı hatchback fiyatına yakın bir bütçeyle sunuyor; hibrit versiyonu da (2.750.000 TL'den) listede yer alıyor.</p>
-          </div>
-        </div>
-
-        <div class="arac-kart">
-          <div class="arac-foto"><img src="/inc/hyundai-i20.jpg" alt="Hyundai i20 Jump" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
-          <div class="arac-govde">
-            <h4>Hyundai i20 Jump</h4>
-            <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Manuel</span></div>
-            <div class="arac-fiyat">1.487.000 TL'den başlıyor</div>
-            <p class="arac-yorum">Listedeki en uygun fiyatlı model; Hyundai'nin garanti ve servis ağı avantajını düşük bütçeyle arayanlar için ilk tercih.</p>
-          </div>
-        </div>
-
-        <div class="arac-kart">
-          <div class="arac-foto"><img src="/inc/peugeot-e2008.jpg" alt="Peugeot E-2008 Allure" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
-          <div class="arac-govde">
-            <h4>Peugeot E-2008 Allure</h4>
-            <div class="arac-etiketler"><span>B-SUV</span><span>Elektrikli · Otomatik</span></div>
-            <div class="arac-fiyat">2.201.500 TL'den başlıyor</div>
-            <p class="arac-yorum">Listedeki tek tam elektrikli model; şarj imkanı olanlar için düşük kullanım maliyeti sunuyor. Hibrit GT versiyonu 2.580.000 TL'den başlıyor.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="guncelleme-notu">Fiyatlar, sitemizdeki karşılaştırma aracının Ağustos 2026 verileriyle aynıdır ve marka kampanyalarına göre değişebilir; en güncel hali için aşağıdaki tabloyu kullanın. Satış sıralaması ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine dayanmaktadır.</p>
-
-      <a href="#layout" class="tabloyaGit">↓ Tüm modelleri karşılaştırma tablosunda gör</a>
-    </article>
-  </section>
-</div>
 
 <main>
   <div id="layout">
@@ -389,8 +282,107 @@ footer {
   </div>
 </main>
 
-<!-- REHBER İÇERİK: Sınıf / Segment / Yakıt Rehberi (stiller yukarıya, header sonrasına taşındı) -->
+<!-- REHBER İÇERİK: Sınıf / Segment / Yakıt Rehberi + Çok Satanlar -->
+<style>
+.rehber-wrap{max-width:1140px;margin:30px auto;padding:0 16px;display:flex;flex-direction:column;gap:20px}
+.rehber-kart{padding:25px;background:#fff;border-radius:12px;border:1px solid var(--line);color:var(--txt);line-height:1.75}
+.rehber-kart h2{font-size:19px;color:var(--txt);margin:0 0 12px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.rehber-kart h3{font-size:15px;color:var(--txt);margin:20px 0 8px}
+.rehber-kart p{font-size:13.5px;margin:0 0 12px;color:#334155}
+.rehber-kart ul{margin:0 0 12px;padding-left:18px;font-size:13.5px;color:#334155}
+.rehber-kart li{margin-bottom:6px}
+.tanim-tablo{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 16px}
+.tanim-tablo th,.tanim-tablo td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tanim-tablo th{background:#f1f5f9;font-weight:700;color:var(--txt)}
+.guncelleme-notu{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+
+.cok-satan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+@media(max-width:900px){.cok-satan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.cok-satan-grid{grid-template-columns:1fr}}
+.arac-kart{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+.arac-foto{width:100%;aspect-ratio:16/10;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;color:#93a5c4;font-size:12px;text-align:center;padding:8px}
+.arac-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.arac-govde{padding:12px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.arac-govde h4{margin:0;font-size:14.5px;color:var(--txt)}
+.arac-etiketler{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 4px}
+.arac-etiketler span{font-size:11px;background:#f1f5f9;border:1px solid var(--line);border-radius:99px;padding:2px 8px;color:var(--muted);font-weight:600}
+.arac-fiyat{font-size:14px;font-weight:700;color:#16a34a}
+.arac-yorum{font-size:12.5px;color:#475569;line-height:1.55;margin:2px 0 0}
+</style>
 <div class="rehber-wrap">
+
+  <section class="rehber-kart">
+    <article>
+      <h2>2026'da Türkiye'de En Çok Satılan Sıfır Otomobiller</h2>
+      <p>ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine göre Türkiye pazarında en çok tercih edilen 10 model arasından, aşağıdaki tablomuzda karşılaştırabileceğiniz 6 modeli seçtik. Fiyatlar, üstteki karşılaştırma aracımızdaki en güncel liste fiyatlarıyla birebir aynıdır.</p>
+
+      <div class="cok-satan-grid">
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/inc/renault-clio.jpg" alt="Renault Clio Evolution Plus" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Renault Clio Evolution Plus</h4>
+            <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Otomatik</span></div>
+            <div class="arac-fiyat">1.830.000 TL'den başlıyor</div>
+            <p class="arac-yorum">2026 ilk yarısında satış listesinin açık ara lideri; düşük bakım maliyeti ve park kolaylığı sayesinde ilk araç alacaklar ve şehir içi kullanım için en çok tercih edilen model.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/inc/fiat-egea-sedan.jpg" alt="Fiat Egea Sedan Easy" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Fiat Egea Sedan Easy</h4>
+            <div class="arac-etiketler"><span>C-Segment</span><span>Sedan</span><span>Dizel · Manuel</span></div>
+            <div class="arac-fiyat">1.499.900 TL'den başlıyor</div>
+            <p class="arac-yorum">Segmentinin en uygun fiyatlı sedanlarından; geniş bagaj hacmi, düşük dizel tüketimi ve yaygın servis ağı nedeniyle şehirlerarası kullanan aileler arasında öne çıkıyor.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/inc/renault-megane-sedan.jpg" alt="Renault Megane Sedan Touch" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Renault Megane Sedan Touch</h4>
+            <div class="arac-etiketler"><span>C-Segment</span><span>Sedan</span><span>Benzinli · Manuel</span></div>
+            <div class="arac-fiyat">1.841.000 TL'den başlıyor</div>
+            <p class="arac-yorum">Egea'ya göre daha üst donanım seçenekleri sunar; şehirlerarası yolculuk yapanlar için sessiz kabini avantajlı. Otomatik vites isteyenler için 2.199.000 TL'den başlayan versiyonu da mevcut.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/inc/renault-duster.jpg" alt="Renault Duster Evolution" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Renault Duster Evolution</h4>
+            <div class="arac-etiketler"><span>C-SUV</span><span>Benzinli · Manuel</span></div>
+            <div class="arac-fiyat">1.865.000 TL'den başlıyor</div>
+            <p class="arac-yorum">Yüksek sürüş pozisyonu ve geniş bagajı hatchback fiyatına yakın bir bütçeyle sunuyor; hibrit versiyonu da (2.750.000 TL'den) listede yer alıyor.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/inc/hyundai-i20.jpg" alt="Hyundai i20 Jump" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Hyundai i20 Jump</h4>
+            <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Manuel</span></div>
+            <div class="arac-fiyat">1.487.000 TL'den başlıyor</div>
+            <p class="arac-yorum">Listedeki en uygun fiyatlı model; Hyundai'nin garanti ve servis ağı avantajını düşük bütçeyle arayanlar için ilk tercih.</p>
+          </div>
+        </div>
+
+        <div class="arac-kart">
+          <div class="arac-foto"><img src="/inc/peugeot-e2008.jpg" alt="Peugeot E-2008 Allure" loading="lazy" onerror="this.parentElement.textContent='Fotoğraf yakında eklenecek'"></div>
+          <div class="arac-govde">
+            <h4>Peugeot E-2008 Allure</h4>
+            <div class="arac-etiketler"><span>B-SUV</span><span>Elektrikli · Otomatik</span></div>
+            <div class="arac-fiyat">2.201.500 TL'den başlıyor</div>
+            <p class="arac-yorum">Listedeki tek tam elektrikli model; şarj imkanı olanlar için düşük kullanım maliyeti sunuyor. Hibrit GT versiyonu 2.580.000 TL'den başlıyor.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="guncelleme-notu">Fiyatlar, sitemizdeki karşılaştırma aracının Ağustos 2026 verileriyle aynıdır ve marka kampanyalarına göre değişebilir; en güncel hali için yukarıdaki tabloyu kullanın. Satış sıralaması ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine dayanmaktadır.</p>
+    </article>
+  </section>
 
   <section class="rehber-kart">
     <article>
