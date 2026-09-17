@@ -8,15 +8,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Döviz Çevirici | Güncel Döviz Kurları ve Hesaplama</title>
-  <meta name="description" content="Döviz çevirici ile USD, EUR, TRY ve diğer para birimlerinin kurları arasında anlık hesaplama yapabilir, güncel döviz kurları tablosunu inceleyebilirsiniz.">
+  <meta name="description" content="Döviz çevirici ile USD, EUR, TRY ve diğer para birimlerinin kurları arasında referans hesaplama yapabilir, güncel döviz kurları tablosunu inceleyebilirsiniz.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://nesel.tr/doviz.html">
+  <link rel="canonical" href="https://nesel.tr/doviz">
   <link rel="icon" href="/favicon.ico">
 
   <meta property="og:title" content="Döviz Çevirici | NESEL">
   <meta property="og:description" content="USD, EUR, TL ve diğer para birimleri arasında güncel döviz çevirici.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nesel.tr/doviz.html">
+  <meta property="og:url" content="https://nesel.tr/doviz">
 
 <style>
 html{scrollbar-gutter:stable}
@@ -103,6 +103,8 @@ footer {
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
 </style>
+  <link rel="stylesheet" href="/inc/site-quality.css">
+  <script defer src="/inc/site-quality.js"></script>
 </head>
 
 <body>
@@ -140,6 +142,8 @@ footer {
 </header>
 
 <main>
+<noscript><p class="page-intro">Hesaplama ve filtreleme araçları JavaScript gerektirir. Aşağıdaki rehber ve kaynakları JavaScript olmadan da okuyabilirsiniz.</p></noscript>
+  <div class="page-intro"><h1>Döviz Çevirici ve Kur Rehberi</h1><p><a href="/">Ana sayfa</a> · <a href="#kaynaklar">Yöntem ve kaynaklar</a></p></div>
   <div id="layout">
     <section id="ortaAlan">
       <div class="frameWrap">
@@ -153,7 +157,7 @@ footer {
                 <div class="result" id="result">Yükleniyor...</div>
                 
                 <div class="input-grup">
-                  <input type="number" id="amount" placeholder="Tutar" value="1" aria-label="Tutar">
+                  <input type="number" id="amount" min="0" placeholder="Tutar" value="1" aria-label="Tutar">
                   <select id="fromCurrency" aria-label="Kaynak Para Birimi">
                     <option value="USD" selected>USD</option><option value="EUR">EUR</option><option value="TRY">TRY</option><option value="GBP">GBP</option><option value="CHF">CHF</option><option value="JPY">JPY</option><option value="CAD">CAD</option><option value="AUD">AUD</option><option value="SEK">SEK</option><option value="NOK">NOK</option><option value="DKK">DKK</option><option value="SAR">SAR</option><option value="RUB">RUB</option>
                   </select>
@@ -177,13 +181,7 @@ footer {
       </div>
     </section>
 
-    <aside id="sagReklam">
-      <ins class="adsbygoogle"
-        style="display:block;width:100%;height:600px"
-        data-ad-client="ca-pub-1268402107177386"
-        data-ad-slot="2157595670"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
+    
   </div>
 </main>
 
@@ -206,13 +204,13 @@ footer {
   <section class="rehber-kart">
     <article>
       <h2>Döviz Kuru Nedir, Neye Göre Belirlenir?</h2>
-      <p>Döviz kuru, bir para biriminin başka bir para birimi karşısındaki değeridir ve serbest piyasada arz-talep dengesine göre saniyeler içinde değişir. Türkiye'de USD/TRY ve EUR/TRY kurunu; Türkiye Cumhuriyet Merkez Bankası'nın (TCMB) faiz kararları, enflasyon verileri, cari açık rakamları, jeopolitik gelişmeler ve küresel piyasalardaki dolar talebi birlikte belirler. TCMB her gün bir "resmi gösterge kur" yayınlar, ancak bankalar ve döviz büroları kendi belirledikleri alış-satış kurlarını uygular; bu yüzden yukarıdaki çeviriciyle bulduğunuz rakam, gittiğiniz bankadaki kurdan birkaç kuruş farklı olabilir.</p>
+      <p>Döviz kuru, bir para biriminin başka bir para birimi karşısındaki değeridir ve serbest piyasada arz-talep dengesine göre saniyeler içinde değişir. Türkiye'de USD/TRY ve EUR/TRY kurunu; Türkiye Cumhuriyet Merkez Bankası'nın (TCMB) faiz kararları, enflasyon verileri, cari açık rakamları, jeopolitik gelişmeler ve küresel piyasalardaki dolar talebi birlikte belirler. TCMB iş günlerinde gösterge niteliğinde kurlar yayımlar, ancak bankalar ve döviz büroları kendi belirledikleri alış-satış kurlarını uygular; bu yüzden yukarıdaki çeviriciyle bulduğunuz rakam, gittiğiniz bankanın işlem kurundan farklı olabilir.</p>
 
       <h3>Banka Kuru ile "Kapalıçarşı" Kuru Arasındaki Fark</h3>
       <p>Her döviz işleminde iki farklı fiyat vardır: <strong>alış</strong> (bankanın sizden döviz satın alırken uyguladığı, daha düşük kur) ve <strong>satış</strong> (bankanın size döviz satarken uyguladığı, daha yüksek kur). Bu ikisi arasındaki farka "spread" denir ve bankanın kâr marjını oluşturur. Döviz büroları (halk arasında "kapalıçarşı kuru" olarak bilinir) genellikle bankalara göre daha dar bir spread uygular, bu yüzden büyük miktarlarda döviz alıp satarken fiyat farkı gözle görülür hale gelir. Küçük tutarlarda ise fark genelde ihmal edilebilir düzeydedir.</p>
 
       <h3>Kredi Kartıyla Yurt Dışı Alışverişte Dikkat Edilmesi Gereken Bir Tuzak: DCC</h3>
-      <p>Yurt dışında veya yabancı bir web sitesinde kredi kartıyla ödeme yaparken karşınıza genellikle "TL olarak öde" ya da "yerel para biriminizde öde" seçeneği çıkar. Bu seçenek kullanıcı dostu görünse de, arka planda "Dynamic Currency Conversion" (DCC) adı verilen bir sistemle işlem yapılır ve genellikle kartınızı çıkaran bankanın uygulayacağı kurdan %3-8 daha pahalıya mal olur. Bu yüzden ödeme ekranında seçenek varsa, işlemin orijinal para biriminde (ör. USD veya EUR) yapılmasına izin vermek, kur çevirimini kendi bankanıza bırakmak genellikle daha ucuza gelir.</p>
+      <p>Yurt dışında veya yabancı bir web sitesinde kredi kartıyla ödeme yaparken karşınıza genellikle "TL olarak öde" ya da "yerel para biriminizde öde" seçeneği çıkar. Bu seçenek kullanıcı dostu görünse de, arka planda "Dynamic Currency Conversion" (DCC) adı verilen bir sistemle işlem yapılır ve sunulan kur ile ek ücretler kart kuruluşunun veya bankanızın dönüşümünden farklı olabilir. Bu yüzden ödeme ekranında seçenek varsa, işlemin orijinal para biriminde (ör. USD veya EUR) yapılmasına izin vermek, kur çevirimini kendi bankanıza bırakmak genellikle daha ucuza gelir.</p>
 
       <table class="tanim-tablo">
         <thead><tr><th>Kod</th><th>Para Birimi</th><th>Kullanıldığı yer</th></tr></thead>
@@ -227,16 +225,17 @@ footer {
       </table>
 
       <h3>Seyahat Öncesi Döviz Bozdururken Pratik İpuçları</h3>
-      <p>Havalimanındaki döviz büroları, şehir merkezindeki bürolara göre genellikle daha yüksek spread uygular; mümkünse seyahatten birkaç gün önce, şehir içindeki bir döviz bürosundan veya bankanızın uygulamasından işlem yapmak daha avantajlıdır. Tüm bütçeyi tek seferde nakde çevirmek yerine bir kısmını kredi/banka kartında bırakmak, hem güvenlik hem de anlık kur takibi açısından esneklik sağlar — özellikle çekiliş ve ATM komisyonlarının düşük olduğu kartlar seyahatte avantajlı olabilir. Kur genellikle hafta sonları ve resmi tatillerde daha az hareketli olur, büyük merkez bankası toplantıları öncesinde ise oynaklık artabilir; büyük bir döviz alımını mümkünse böyle kritik tarihlerin hemen öncesine denk getirmemekte fayda var.</p>
+      <p>Havalimanındaki döviz büroları, şehir merkezindeki bürolara göre genellikle daha yüksek spread uygular; mümkünse seyahatten birkaç gün önce, şehir içindeki bir döviz bürosundan veya bankanızın uygulamasından işlem yapmak daha avantajlıdır. Tüm bütçeyi tek seferde nakde çevirmek yerine bir kısmını kredi/banka kartında bırakmak, hem güvenlik hem de referans kur takibi açısından esneklik sağlar — özellikle nakit çekim ve ATM komisyonlarının düşük olduğu kartlar seyahatte avantajlı olabilir. İşlem öncesinde kurun zaman damgasını, alış-satış farkını ve varsa komisyonu birlikte karşılaştırın. Gösterilen referans kur üzerinden işlem yapılacağı garanti edilmez.</p>
 
       <p>Bu araç, yalnızca döviz çevirmekle kalmıyor; sitemizdeki diğer hesaplama araçlarıyla da bağlantılı. Örneğin ithal sıfır araçların fiyatları büyük ölçüde <a href="/sifiraraclar.html">EUR/USD bazlı üretici fiyatlarına</a> göre şekillenirken, dolar bazlı fiyatlanan bazı dijital abonelikler için de (ör. ChatGPT Plus web planı) <a href="/platformucretleri.html">güncel kur farkının etkisini platform ücretleri sayfamızda</a> görebilirsiniz.</p>
 
-      <p class="guncelleme-notu">Yukarıdaki kurlar ExchangeRate-API üzerinden anlık olarak çekilmektedir ve piyasa kurlarını yaklaşık olarak yansıtır; bankanızın veya döviz bürosunun uyguladığı kesin alış-satış kuru için ilgili kurumu kontrol etmenizi öneririz.</p>
+      <p class="guncelleme-notu">Yukarıdaki kurlar ExchangeRate-API üzerinden sayfa açıldığında çekilmektedir ve piyasa kurlarını yaklaşık olarak yansıtır; bankanızın veya döviz bürosunun uyguladığı kesin alış-satış kuru için ilgili kurumu kontrol etmenizi öneririz.</p>
     </article>
   </section>
 
 </div>
 
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Çevirici, ExchangeRate-API servisinin döndürdüğü USD bazlı referans kurları kullanır. Sonuç = tutar × (hedef kur / kaynak kur). Örneğin varsayımsal olarak USD/TRY 40 ve USD/EUR 0,90 ise 90 EUR = 4.000 TRY olur. Bu örnek güncel fiyat değildir.</p><p>Veri sayfa açıldığında alınır ve açık oturumda yeniden kullanılır; saniyelik piyasa akışı veya bankanın alış-satış fiyatı değildir. Tablodaki tarih sağlayıcının zaman damgasıdır. Komisyon, makas ve kart işlem ücretleri hesaplamaya dahil değildir.</p><ul><li><a href="https://www.exchangerate-api.com/docs/free">ExchangeRate-API: veri güncelleme ve kullanım bilgisi</a></li><li><a href="https://www.tcmb.gov.tr/kurlar/today.xml">TCMB gösterge kurları</a> — ayrı bir resmî karşılaştırma kaynağı; bu aracın veri sağlayıcısı değildir.</li></ul><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim.html">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -262,8 +261,11 @@ setUstH();
 (()=>{
   const cache=window.ratesCache=window.ratesCache||{};
   async function fetchRates(base){
-    const r=await fetch("https://api.exchangerate-api.com/v4/latest/"+base);
-    return r.json();
+    const r=await fetch("https://api.exchangerate-api.com/v4/latest/"+base,{signal:AbortSignal.timeout(12000)});
+    if(!r.ok) throw new Error("Kur servisine ulaşılamadı");
+    const data=await r.json();
+    if(!data.rates || !Number.isFinite(data.rates.TRY)) throw new Error("Geçersiz kur verisi");
+    return data;
   }
   async function ensure(base){
     if(!cache[base]) cache[base]=await fetchRates(base);
@@ -271,7 +273,7 @@ setUstH();
   }
   
   const ccyList=["USD","EUR","TRY","GBP","CHF","JPY","CAD","AUD","DKK","SEK","NOK","SAR","RUB"];
-  function num(v){v=parseFloat(String(v??"").replace(",","."));return isFinite(v)?v:0;}
+  function num(v){v=parseFloat(String(v??"").replace(",","."));return isFinite(v)?Math.max(0,v):0;}
   function fx(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});}
   function xrate(r,from,to){if(from===to)return 1;const a=(from==="USD"?1:r[from]);const b=(to==="USD"?1:r[to]);return a&&b?(b/a):0;}
   
@@ -309,19 +311,28 @@ setUstH();
     renderTable(r,to,amount,from);
   }
 
-  window.convertCurrency=refreshAll;
-  refreshAll();
+  async function safeRefresh(){
+    try {await refreshAll();} catch(error) {
+      R0=null;
+      document.getElementById("result").textContent="Kur verisi alınamadı. Lütfen daha sonra tekrar deneyin.";
+      document.getElementById("kurTarih").textContent="Bağlantı kurulamadığı için sonuç hesaplanmadı.";
+      document.getElementById("kurBody").innerHTML="<tr><td colspan=3>Kur verisi kullanılamıyor</td></tr>";
+    }
+  }
+  window.convertCurrency=safeRefresh;
+  safeRefresh();
 
   ["amount","fromCurrency","toCurrency"].forEach(id=>{
     const el=document.getElementById(id);
     if(el) {
-      el.addEventListener("input",refreshAll);
-      el.addEventListener("change",refreshAll);
+      el.addEventListener("input",safeRefresh);
+      el.addEventListener("change",safeRefresh);
     }
   });
 })();
 
-(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\.html$/,"").replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
 </script>
 </body>
 </html>
+

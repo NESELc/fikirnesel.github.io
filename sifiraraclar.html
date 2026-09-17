@@ -10,13 +10,13 @@
   <title>Sıfır Araç Fiyatları | Tüm Markalar ve Güncel Kampanyalar</title>
   <meta name="description" content="Sıfır araç fiyatları tüm markalar için listelendi. Segment, yakıt türü, vites tipi ve güncel kampanya indirimlerine göre arabaları karşılaştırın.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://nesel.tr/sifiraraclar.html">
+  <link rel="canonical" href="https://nesel.tr/sifiraraclar">
   <link rel="icon" href="/favicon.ico">
 
   <meta property="og:title" content="Sıfır Araç Fiyatları | NESEL">
   <meta property="og:description" content="Segment, yakıt türü ve vites tipine göre sıfır arabaları karşılaştırın.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nesel.tr/sifiraraclar.html">
+  <meta property="og:url" content="https://nesel.tr/sifiraraclar">
 
 <style>
 html{scrollbar-gutter:stable}
@@ -156,6 +156,8 @@ footer {
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
 </style>
+  <link rel="stylesheet" href="/inc/site-quality.css">
+  <script defer src="/inc/site-quality.js"></script>
 </head>
 
 <body>
@@ -193,6 +195,9 @@ footer {
 </header>
 
 <main>
+<noscript><p class="page-intro">Hesaplama ve filtreleme araçları JavaScript gerektirir. Aşağıdaki rehber ve kaynakları JavaScript olmadan da okuyabilirsiniz.</p></noscript>
+  <div class="page-intro"><h1>Sıfır Araç Fiyatları ve Karşılaştırma</h1><p><a href="/">Ana sayfa</a> · <a href="#kaynaklar">Yöntem ve kaynaklar</a></p></div>
+  <p id="vehicle-status" class="page-intro load-status" role="status">Fiyat listesi yükleniyor…</p>
   <div id="layout">
     <section id="ortaAlan">
       <div class="frameWrap">
@@ -301,13 +306,7 @@ footer {
       </div>
     </section>
 
-    <aside id="sagReklam">
-      <ins class="adsbygoogle"
-        style="display:block;width:100%;height:600px"
-        data-ad-client="ca-pub-1268402107177386"
-        data-ad-slot="2157595670"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
+    
   </div>
 </main>
 
@@ -342,8 +341,8 @@ footer {
 
   <section class="rehber-kart">
     <article>
-      <h2>2026'da Türkiye'de En Çok Satılan Sıfır Otomobiller</h2>
-      <p>ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine göre Türkiye pazarında en çok tercih edilen 10 model arasından, aşağıdaki tablomuzda karşılaştırabileceğiniz 6 modeli seçtik. Fiyatlar, üstteki karşılaştırma aracımızdaki en güncel liste fiyatlarıyla birebir aynıdır.</p>
+      <h2>Farklı İhtiyaçlar İçin Altı Model Örneği</h2>
+      <p>Aşağıdaki altı kart, farklı gövde ve motor seçeneklerini karşılaştırmak için hazırlanmış model örnekleridir; satış sıralaması değildir. Kartlardaki fiyatlar Eylül 2026 tarihli editoryal kayıttır ve canlı tabloyla aynı anda güncellenmeyebilir.</p>
 
       <div class="cok-satan-grid">
 
@@ -353,7 +352,7 @@ footer {
             <h4>Renault Clio Evolution Plus</h4>
             <div class="arac-etiketler"><span>B-Segment</span><span>Hatchback</span><span>Benzinli · Otomatik</span></div>
             <div class="arac-fiyat">1.830.000 TL'den başlıyor</div>
-            <p class="arac-yorum">2026 ilk yarısında satış listesinin açık ara lideri; düşük bakım maliyeti ve park kolaylığı sayesinde ilk araç alacaklar ve şehir içi kullanım için en çok tercih edilen model.</p>
+            <p class="arac-yorum">Şehir içi kullanımda kompakt gövde ve otomatik vites arayanların karşılaştırabileceği bir hatchback örneği. Bakım ve sigorta giderlerini ayrıca teklif alarak değerlendirin.</p>
           </div>
         </div>
 
@@ -409,17 +408,17 @@ footer {
 
       </div>
 
-      <p class="guncelleme-notu">Fiyatlar, sitemizdeki karşılaştırma aracının Eylül 2026 verileriyle aynıdır ve marka kampanyalarına göre değişebilir; en güncel hali için yukarıdaki tabloyu kullanın. Satış sıralaması ODD/ODMD'nin 2026 ilk yarı kümülatif tescil verilerine dayanmaktadır.</p>
+      <p class="guncelleme-notu">Kartlar Eylül 2026 fiyat kaydını gösterir; stok, donanım, model yılı ve kampanya koşulları değişebilir. Satın almadan önce ilgili markadan tarihli fiyat teklifi alın.</p>
     </article>
   </section>
 
   <section class="rehber-kart">
     <article>
       <h2>Sıfır Araç Alırken Sınıf, Segment ve Yakıt Türü Ne Anlama Gelir?</h2>
-      <p>Sıfır araç fiyat listelerinde karşınıza çıkan "sınıf", "segment", "yakıt türü" ve "vites" gibi teknik terimler, aslında aracın hangi ihtiyaca göre tasarlandığını anlamanın en hızlı yoludur. Aşağıdaki filtreleme aracını kullanmadan önce bu kavramları bilmek, bütçenize ve kullanım amacınıza en uygun modeli bulmanızı kolaylaştırır.</p>
+      <p>Sıfır araç fiyat listelerinde karşınıza çıkan "sınıf", "segment", "yakıt türü" ve "vites" gibi teknik terimler, aslında aracın hangi ihtiyaca göre tasarlandığını anlamanın en hızlı yoludur. Yukarıdaki filtreleme aracını kullanmadan önce bu kavramları bilmek, bütçenize ve kullanım amacınıza en uygun modeli bulmanızı kolaylaştırır.</p>
 
-      <h3>Araç Sınıfları: A'dan D'ye</h3>
-      <p>Türkiye pazarında araçlar genellikle boyut ve donanım seviyesine göre A'dan D'ye kadar sınıflandırılır. A ve B sınıfı şehir içi kullanıma uygun küçük ve ekonomik modelleri (Fiat Egea Hatchback, Renault Clio gibi), C sınıfı aile kullanımına uygun orta boy sedan/hatchback modelleri, D sınıfı ise daha geniş iç hacme ve güçlü donanıma sahip üst segment araçları kapsar. SUV ve crossover modeller ise kendi içinde küçük (B-SUV), orta (C-SUV) ve büyük (D-SUV) olarak ayrılır.</p>
+      <h3>Araç Segmentleri: A'dan D'ye</h3>
+      <p>Türkiye pazarında araçlar genellikle boyut ve donanım seviyesine göre A'dan D'ye kadar sınıflandırılır. A ve B sınıfı şehir içi kullanıma uygun küçük ve ekonomik modelleri (Hyundai i20, Renault Clio gibi), C sınıfı aile kullanımına uygun orta boy sedan/hatchback modelleri, D sınıfı ise daha geniş iç hacme ve güçlü donanıma sahip üst segment araçları kapsar. SUV ve crossover modeller ise kendi içinde küçük (B-SUV), orta (C-SUV) ve büyük (D-SUV) olarak ayrılır.</p>
 
       <table class="tanim-tablo">
         <thead><tr><th>Sınıf</th><th>Tipik gövde tipi</th><th>Kime uygun</th></tr></thead>
@@ -430,8 +429,8 @@ footer {
         </tbody>
       </table>
 
-      <h3>Segment Nedir? (Hatchback, Sedan, SUV, Crossover)</h3>
-      <p>Segment, aracın gövde tipini tanımlar. Hatchback modeller kısa kasa ve geniş bagaj kapağıyla şehir içi kullanımda park kolaylığı sağlar. Sedan modeller ayrı bagaj bölmesi sayesinde daha sessiz bir kabin ve genelde daha fazla bagaj hacmi sunar. SUV/crossover modeller yüksek sürüş pozisyonu, daha iyi yol görüşü ve genelde 4x4 seçeneğiyle öne çıkar; buna karşılık yakıt tüketimi sedan ve hatchback modellere göre bir miktar daha yüksektir.</p>
+      <h3>Gövde Tipi Nedir? (Hatchback, Sedan, SUV, Crossover)</h3>
+      <p>A/B/C/D segmentleri ile gövde tipi farklı kavramlardır. Filtrede “Sınıf” gövde tipini, “Segment” ise A/B/C gibi pazar gruplarını gösterir. Hatchback modeller kısa kasa ve geniş bagaj kapağıyla şehir içi kullanımda park kolaylığı sağlar. Sedan modeller ayrı bagaj bölmesi sayesinde daha sessiz bir kabin ve genelde daha fazla bagaj hacmi sunar. SUV/crossover modeller yüksek sürüş pozisyonu, daha iyi yol görüşü ve genelde 4x4 seçeneğiyle öne çıkar; buna karşılık yakıt tüketimi sedan ve hatchback modellere göre bir miktar daha yüksektir.</p>
 
       <h3>Yakıt Türleri: Benzin, Dizel, Hibrit, Elektrikli</h3>
       <p>Yakıt türü seçimi, yıllık kaç kilometre yapacağınıza göre belirlenmelidir. Benzinli motorlar düşük-orta kilometre kullanımında (yılda ~15.000 km altı) daha uygun maliyetli olma eğilimindedir. Dizel motorlar yüksek kilometre yapan (yılda 20.000 km üzeri) ve şehirlerarası ağırlıklı kullananlar için yakıt ekonomisi sağlar. Hibrit modeller şehir içi trafikte elektrik motorunun devreye girmesiyle yakıt tüketimini belirgin şekilde düşürür ve günümüzde Türkiye'de en çok satan modeller arasında hızla pay kazanmaktadır. Elektrikli araçlar ise şarj altyapınıza erişiminiz varsa en düşük "yakıt" maliyetini sunar, ancak menzil ve şarj süresi kullanım alışkanlığınıza uygun olmalıdır.</p>
@@ -446,6 +445,7 @@ footer {
 </div>
 
 <!-- KESİNTİSİZ STANDART FOOTER -->
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Üstteki filtreleme aracı harici fiyat tablosunu yükler; altı örnek kart ve rehber metni ise sayfanın içinde saklanır. Her fiyat kaydı aynı tarihte güncellenmiş olmayabilir. Liste fiyatı, kampanyalı fiyat ve bayinin teslim teklifini ayrı değerlendirin.</p><p>Karşılaştırırken aynı model yılı, motor, şanzıman ve donanımı seçin. Örneğin daha düşük etiket fiyatı; zorunlu kredi, takas veya sınırlı stok koşuluna bağlı olabilir. Teklifte toplam ödeme, ek donanım, teslim tarihi ve kampanya koşullarını birlikte kontrol edin.</p><p>Birincil fiyat kaynaklarına yukarıdaki “Marka Linkleri” düğmesinden ulaşabilirsiniz. Model kartları kişisel test sürüşü veya satış liderliği iddiası taşımaz.</p><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim.html">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -485,9 +485,13 @@ var tumVeri=[];
 async function veriYukle(){
   try {
     const url="https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
-    const response=await fetch(url);
+    const response=await fetch(url,{signal:AbortSignal.timeout(15000)});
+    if(!response.ok) throw new Error("Fiyat servisine ulaşılamadı");
     const data=await response.json();
+    if(!Array.isArray(data)) throw new Error("Geçersiz fiyat listesi");
     tumVeri=data.filter(d=>d.marka);
+    if(!tumVeri.length) throw new Error("Fiyat listesi boş");
+    document.getElementById("vehicle-status").textContent="Fiyat listesi yüklendi. Fiyat tarihlerini kartlardan kontrol edin.";
     
     const unique=key=>[...new Set(tumVeri.map(item=>item[key]?.toLowerCase().trim()).filter(Boolean))];
     const secimYukle=(id,key)=>{
@@ -591,7 +595,7 @@ async function veriYukle(){
 
     filtreleVeGoster();
   } catch(err) {
-    console.error("Veri yükleme hatası:", err);
+    document.getElementById("vehicle-status").innerHTML='Fiyat listesi yüklenemedi. Aşağıdaki rehberi okuyabilir veya marka bağlantılarını kullanabilirsiniz. <button type="button" onclick="location.reload()">Tekrar dene</button>';
   }
 }
 
@@ -754,3 +758,4 @@ function mtlEkle(inp){
 </script>
 </body>
 </html>
+

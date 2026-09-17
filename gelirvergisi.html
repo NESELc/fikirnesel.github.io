@@ -10,13 +10,13 @@
   <title>Gelir Vergisi Dilimleri 2026 | Ücretliler İçin Güncel Oranlar | NESEL</title>
   <meta name="description" content="2026, 2025, 2024, 2023 ve 2022 yılları gelir vergisi dilimleri, oranları ve brütten nete maaş/tazminat hesaplama araçları.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://nesel.tr/gelirvergisi.html">
+  <link rel="canonical" href="https://nesel.tr/gelirvergisi">
   <link rel="icon" href="/favicon.ico">
 
   <meta property="og:title" content="Gelir Vergisi Dilimleri 2026 | NESEL">
   <meta property="og:description" content="Ücretliler için güncel gelir vergisi dilimleri, oranları ve hesaplama araçları.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://nesel.tr/gelirvergisi.html">
+  <meta property="og:url" content="https://nesel.tr/gelirvergisi">
 
 <style>
 html{scrollbar-gutter:stable}
@@ -124,6 +124,8 @@ footer {
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
 </style>
+  <link rel="stylesheet" href="/inc/site-quality.css">
+  <script defer src="/inc/site-quality.js"></script>
 </head>
 <body>
 <header id="ustBar">
@@ -158,6 +160,8 @@ footer {
 </header>
 
 <main>
+<noscript><p class="page-intro">Hesaplama ve filtreleme araçları JavaScript gerektirir. Aşağıdaki rehber ve kaynakları JavaScript olmadan da okuyabilirsiniz.</p></noscript>
+  <div class="page-intro"><h1>2026 Ücret Gelir Vergisi ve Maaş Hesaplama</h1><p><a href="/">Ana sayfa</a> · <a href="#kaynaklar">Yöntem ve kaynaklar</a></p></div>
   <div id="layout">
     <section id="ortaAlan">
       <div id="icerik">
@@ -169,7 +173,7 @@ footer {
         <div class="aciklama-kart">
           <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Dilim Sistemi Nasıl Çalışır? En Sık Yapılan Yanlış Anlaşılma</p>
           <p>Birçok kişi "bir üst dilime geçtim, tüm maaşım daha yüksek oranda vergilendirilecek" diye düşünür — bu yanlıştır. Dilim sistemi yalnızca <strong>
-            o dilimi aşan kısma</strong> uygulanır, gelirinizin tamamına değil. Örneğin 2026'da yıllık 300.000 TL geliriniz varsa: ilk 190.000 TL için %15 
+            o dilimi aşan kısma</strong> uygulanır, gelirinizin tamamına değil. Örneğin 2026'da istisnalar uygulanmadan yıllık 300.000 TL ücret vergi matrahınız varsa: ilk 190.000 TL için %15 
             (28.500 TL), kalan 110.000 TL için %20 (22.000 TL) vergi hesaplanır — toplam 50.500 TL. Yani efektif vergi oranınız %20 değil, yaklaşık %16,8'dir. 
             Hesaplama aracı bu kümülatif mantığı otomatik uygular ve size ay ay net maaşınızı gösterir.</p>
         </div>
@@ -177,12 +181,12 @@ footer {
         <section class="maasKart">
           <h2>Brütten Nete Maaş Hesaplama</h2>
           <div class="maasGrid">
-            <label>Brüt Maaş<input id="brutMaas" type="number" value="50000" oninput="bruttenNete()"></label>
-            <label>İkramiye Maaş-Brüt Adedi<input id="ikramiyeAdet" type="number" value="0" min="0" max="12" oninput="bruttenNete()"></label>
+            <label>Brüt Maaş<input id="brutMaas" min="0" type="number" value="50000" oninput="bruttenNete()"></label>
+            <label>İkramiye Maaş-Brüt Adedi<input id="ikramiyeAdet" min="0" type="number" value="0"  max="12" oninput="bruttenNete()"></label>
             <label>İkramiye Şekli<select id="ikramiyeSekli" oninput="bruttenNete()"><option value="aylik">12 Aya Bölünmüş</option><option value="ucaylik">3 Aylık</option><option value="altiaylik">6 Aylık</option><option value="yillik">Yıllık Tek Ödeme</option></select></label>
-            <label>Prim-Brüt<input id="primTutar" type="number" value="0" oninput="bruttenNete()"></label>
+            <label>Prim-Brüt<input id="primTutar" min="0" type="number" value="0" oninput="bruttenNete()"></label>
             <label>Prim Ayı<select id="primAy" oninput="bruttenNete()"><option value="-1">Yok</option><option value="0">Ocak</option><option value="1">Şubat</option><option value="2">Mart</option><option value="3">Nisan</option><option value="4">Mayıs</option><option value="5">Haziran</option><option value="6">Temmuz</option><option value="7">Ağustos</option><option value="8">Eylül</option><option value="9">Ekim</option><option value="10">Kasım</option><option value="11">Aralık</option></select></label>
-            <label>Sağlık Sigortası-Net<input id="saglikTutar" type="number" value="0" oninput="bruttenNete()"></label>
+            <label>Sağlık Sigortası-Net<input id="saglikTutar" min="0" type="number" value="0" oninput="bruttenNete()"></label>
             <label>Sağlık Etkisi<select id="saglikIndirim" oninput="bruttenNete()"><option value="1">Vergiden Düşsün</option><option value="0">Sadece Netten</option></select></label>
           </div>
           <div class="tabloSarma">
@@ -195,7 +199,7 @@ footer {
 
         <div class="aciklama-kart">
           <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Brütten Nete Giderken Maaşınızdan Neler Kesilir?</p>
-          <p>Yukarıdaki tablo dört farklı kesintiyi ay ay hesaplar: <strong>SGK işçi primi</strong> (brüt ücretin %14'ü, aylık 297.270 TL'lik SGK tavanına kadar), <strong>işsizlik sigortası primi</strong> (%1), <strong>gelir vergisi</strong> (yıl içinde kümülatif matrah üzerinden dilim sistemine göre) ve <strong>damga vergisi</strong> (brüt ücretin binde 7,59'u). 2022'den bu yana asgari ücretin brüt tutarına denk gelen kısım gelir ve damga vergisinden istisna tutuluyor — hesap aracımız bu istisnayı her ay otomatik düşerek gerçek net maaşınızı gösteriyor. İkramiye ve prim ödemeleri de aynı ay içindeki matrahınıza eklenip birlikte vergilendirildiği için, ikramiye aldığınız aylarda net maaşınızın oransal olarak biraz daha düşük görünmesi normaldir.</p>
+          <p>Yukarıdaki tablo dört farklı kesintiyi ay ay hesaplar: <strong>SGK işçi primi</strong> (brüt ücretin %14'ü, aylık 297.270 TL'lik SGK tavanına kadar), <strong>işsizlik sigortası primi</strong> (%1), <strong>gelir vergisi</strong> (yıl içinde kümülatif matrah üzerinden dilim sistemine göre) ve <strong>damga vergisi</strong> (brüt ücretin binde 7,59'u). 2022'den bu yana asgari ücretin brüt tutarına denk gelen kısım gelir ve damga vergisinden istisna tutuluyor — hesap aracımız bu istisnayı her ay otomatik düşerek yaklaşık net maaşınızı gösteriyor. İkramiye ve prim ödemeleri de aynı ay içindeki matrahınıza eklenip birlikte vergilendirildiği için, ikramiye aldığınız aylarda net maaşınızın oransal olarak biraz daha düşük görünmesi normaldir.</p>
         </div>
 
         <!-- 2026 TABLO -->
@@ -274,17 +278,17 @@ footer {
 
         <div class="ayr-kutu">
           <h2>İşten Ayrılma Tazminatı Hesaplama</h2>
-          <p class="ayr-not">Para girişleri brüttür. Net sonuçlar yaklaşık hesaplanır; kesin bordro hesabı değildir.</p>
+          <p class="ayr-not">Para girişleri brüttür. İhbar ve izin için aşağıda yalnızca brüt tutarlar gösterilir; net tutarlar vergi matrahı ve bordro koşullarına bağlıdır. İşten çıkarılma seçeneği, kıdeme hak kazandıran bir fesih varsayar.</p>
           <div class="ayr-grid">
-            <label>Aylık brüt maaş<input id="ayrBrut" type="number" placeholder="Örn: 50000"></label>
-            <label>Aylık düzenli brüt prim<input id="ayrPrim" type="number" placeholder="Örn: 5000"></label>
-            <label>Yol, yemek vb. brüt<input id="ayrYan" type="number" placeholder="Örn: 3000"></label>
-            <label>Kıdem tavanı brüt<input id="ayrTavan" type="number" value="73729.87"></label>
-            <label>Çalışılan yıl<input id="ayrYil" type="number" placeholder="Örn: 5"></label>
-            <label>Ek ay<input id="ayrAy" type="number" placeholder="Örn: 6"></label>
-            <label>Kalan izin günü<input id="ayrIzin" type="number" placeholder="Örn: 14"></label>
-            <label>SGK toplam prim günü<input id="ayrPrimGun" type="number" placeholder="Örn: 7000"></label>
-            <label>İlk sigorta tarihi<input id="ayrIlkSigorta" type="date"></label>
+            <label>Aylık brüt maaş<input id="ayrBrut" min="0" type="number" placeholder="Örn: 50000"></label>
+            <label>Aylık düzenli brüt prim<input id="ayrPrim" min="0" type="number" placeholder="Örn: 5000"></label>
+            <label>Yol, yemek vb. brüt<input id="ayrYan" min="0" type="number" placeholder="Örn: 3000"></label>
+            <label>Kıdem tavanı brüt<input id="ayrTavan" min="0" type="number" value="73729.87"></label>
+            <label>Çalışılan yıl<input id="ayrYil" min="0" type="number" placeholder="Örn: 5"></label>
+            <label>Ek ay<input id="ayrAy" min="0" type="number" placeholder="Örn: 6"></label>
+            <label>Kalan izin günü<input id="ayrIzin" min="0" type="number" placeholder="Örn: 14"></label>
+            <label>SGK kıdem yazısı mevcut mu?<select id="ayrSgkBelge"><option value="hayir">Hayır / Henüz teyit edilmedi</option><option value="evet">Evet, SGK tarafından verildi</option></select></label>
+            <label>Bildirim süresi kullandırıldı mı?<select id="ayrBildirim"><option value="evet">Evet / İhbar hesaplanmasın</option><option value="hayir">Hayır / İhbar varsayımı hesaplansın</option></select></label>
             <label>İşten ayrılma durumu 
               <select id="ayrDurum">
                 <option value="istifa">Normal istifa</option>
@@ -301,8 +305,8 @@ footer {
 
         <div class="aciklama-kart">
           <p style="color:var(--txt);font-weight:700;margin-bottom:8px">Kıdem ve İhbar Tazminatı Hakkı Nasıl Belirlenir?</p>
-          <p><strong>Kıdem tazminatı</strong> almak için aynı işyerinde en az 1 yıl çalışmış olmak ve işten ayrılış şeklinin kanunen kıdem hakkı doğuran türden olması gerekir: işveren tarafından işten çıkarılma, emeklilik, askerlik, evlilik (kadın çalışanlar için) veya SGK'dan alınan yazı ile istifa. Normal istifada kıdem tazminatı hakkı doğmaz. Her tam yıl için bir aylık brüt ücret tutarında kıdem tazminatı hesaplanır, ancak bu tutar yürürlükteki <strong>kıdem tazminatı tavanını</strong> (2026 için hesap aracımızda varsayılan olarak 64.948,77 TL) aşamaz.</p>
-          <p><strong>İhbar tazminatı</strong> ise işveren çalışanı önceden haber vermeden işten çıkardığında devreye girer ve kıdem süresine göre değişir: 6 aya kadar çalışma için 2 hafta, 6 ay-1,5 yıl arası 4 hafta, 1,5-3 yıl arası 6 hafta, 3 yıldan fazla çalışma için 8 haftalık ücret tutarındadır. SGK yazısı ile istifa hakkı ise sigorta başlangıç tarihinize göre üç farklı kural setine tabidir (8 Eylül 1999 öncesi, 2008 öncesi ve sonrası); bu yüzden hesap aracımız ilk sigorta tarihinizi sorar. Bu hesaplamalar yaklaşık değerlerdir — kesin tutar için işyerinizin insan kaynakları biriminden veya bir SGK/iş hukuku uzmanından teyit almanızı öneririz.</p>
+          <p><strong>Kıdem tazminatı</strong> almak için aynı işyerinde en az 1 yıl çalışmış olmak ve işten ayrılış şeklinin kanunen kıdem hakkı doğuran türden olması gerekir: işveren tarafından işten çıkarılma, emeklilik, askerlik, evlilik (kadın çalışanlar için) veya SGK'dan alınan yazı ile istifa. Normal istifada kıdem tazminatı hakkı doğmaz. Her tam yıl için bir aylık brüt ücret tutarında kıdem tazminatı hesaplanır, ancak bu tutar yürürlükteki <strong>kıdem tazminatı tavanını</strong> (1 Temmuz–31 Aralık 2026 için 73.729,87 TL) aşamaz.</p>
+          <p><strong>İhbar tazminatı</strong> ise işveren çalışanı önceden haber vermeden işten çıkardığında devreye girer ve kıdem süresine göre değişir: 6 aya kadar çalışma için 2 hafta, 6 ay-1,5 yıl arası 4 hafta, 1,5-3 yıl arası 6 hafta, 3 yıldan fazla çalışma için 8 haftalık ücret tutarındadır. SGK yazısı ile ayrılmada ilk sigorta tarihi, statü ve prim koşulları birlikte değerlendirilir. Araç bu hak sahipliğini otomatik belirlemez; SGK belgesinin durumunu aşağıdaki seçimde belirtin. Bu hesaplamalar yaklaşık değerlerdir — kesin tutar için işyerinizin insan kaynakları biriminden veya bir SGK/iş hukuku uzmanından teyit almanızı öneririz.</p>
         </div>
 
         <div class="aciklama-kart">
@@ -315,15 +319,11 @@ footer {
       </div>
     </section>
 
-    <aside id="sagReklam">
-      <div style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px"></div>
-      <ins class="adsbygoogle" style="display:block;width:100%;height:600px"
-        data-ad-client="ca-pub-1268402107177386" data-ad-slot="2157595670"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
+    
   </div>
 </main>
 
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Maaş hesabı 2026 ücret tarifesini, tek işverende Ocak ayından başlayan kümülatif matrahı ve standart işçi primlerini esas alır. Önceki işverenden devreden matrah, engellilik indirimi, emekli çalışan statüsü ve özel istisnalar modellenmez. Sağlık primi indirimi, şartları sağlayan primlerde aylık brüt ücretin %15’i ve yıllık 396.360 TL sınırıyla uygulanır; diğer indirimlerle ortak sınırlar ayrıca kontrol edilmelidir.</p><ul><li><a href="https://intvrg.gib.gov.tr/hazirbeyan/assets/pdf/DUYURU_UNIVERSAL_2026_2026_Ucret_Geliri.pdf">GİB 2026 ücret geliri rehberi ve tarife</a></li><li><a href="https://gib.gov.tr/mevzuat/kanun/433/ozelge/38652">GİB: şahıs sigorta primlerinde indirim sınırları</a></li><li><a href="https://www.csgb.gov.tr/yayinlar/calisma-hayati-istatistikleri-e-bulteni/temmuz-2026/ucret-ve-sendikal-istatistikler.html">ÇSGB: 2026 ikinci yarı kıdem tavanı</a></li></ul><p>Kıdem tavanını ayrılış tarihinize göre değiştirin. Bildirim süreleri ve tazminat hakkı fesih gerekçesine ve sözleşmeye bağlıdır; sonuçlar kesin bordro veya hukuki hak tespiti değildir.</p><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim.html">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -345,7 +345,7 @@ const aylar=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağusto
 const gvIst=[4211.33,4211.33,4211.33,4211.33,4211.33,4211.33,4537.75,5615.10,5615.10,5615.10,5615.10,5615.10];
 const dvIst=250.70,sgkTavan=297270,dilim=[[0,190000,.15,0],[190000,400000,.20,28500],[400000,1500000,.27,70500],[1500000,5300000,.35,367500],[5300000,1e12,.40,1697500]];
 function tl(x){return x.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+" TL"}
-function gvToplam(m){let d=dilim.find(x=>m>x[0]&&m<=x[1])||dilim.at(-1);return d[3]+(m-d[0])*d[2]}
+function gvToplam(m){if(!Number.isFinite(m)||m<=0)return 0;let d=dilim.find(x=>m>x[0]&&m<=x[1])||dilim.at(-1);return d[3]+(m-d[0])*d[2]}
 function ikramiyeHesapla(brut,i,adet,sekil){
   if(!adet)return 0;
   if(sekil=="aylik")return brut*adet/12;
@@ -355,12 +355,13 @@ function ikramiyeHesapla(brut,i,adet,sekil){
   return 0;
 }
 function bruttenNete(){
-  let brut=+brutMaas.value||0,kum=0,oncekiGv=0,html="";
-  let ikAdet=+ikramiyeAdet.value||0,ikSekil=ikramiyeSekli.value,prim=+primTutar.value||0,pAy=+primAy.value,saglik=+saglikTutar.value||0,ind=saglikIndirim.value=="1";
+  let brut=Math.max(0,+brutMaas.value||0),kum=0,oncekiGv=0,saglikYillik=0,html="";
+  let ikAdet=Math.max(0,+ikramiyeAdet.value||0),ikSekil=ikramiyeSekli.value,prim=Math.max(0,+primTutar.value||0),pAy=+primAy.value,saglik=Math.max(0,+saglikTutar.value||0),ind=saglikIndirim.value=="1";
   aylar.forEach((ay,i)=>{
     let ik=ikramiyeHesapla(brut,i,ikAdet,ikSekil),brutAy=brut+ik+(i==pAy?prim:0);
     let sgkMatrah=Math.min(brutAy,sgkTavan),sgk=sgkMatrah*.14,issiz=sgkMatrah*.01,matrah=brutAy-sgk-issiz;
-    let saglikIndirimTutar=ind?Math.min(saglik,matrah*.15):0;
+    let saglikIndirimTutar=ind?Math.min(Math.max(0,saglik),brutAy*.15,Math.max(0,396360-saglikYillik)):0;
+    saglikYillik+=saglikIndirimTutar;
     matrah=Math.max(matrah-saglikIndirimTutar,0);
     kum+=matrah;
     let hesapGv=gvToplam(kum),aylikGv=hesapGv-oncekiGv,gv=Math.max(aylikGv-gvIst[i],0);
@@ -372,35 +373,29 @@ function bruttenNete(){
 }
 bruttenNete();
 
-function ayrVal(id){return Number(document.getElementById(id).value)||0}
+function ayrVal(id){return Math.max(0,Number(document.getElementById(id).value)||0)}
 function ayrTL(x){return x.toLocaleString("tr-TR",{style:"currency",currency:"TRY"})}
-function ayrSgkHakki(){
-  const ilk=document.getElementById("ayrIlkSigorta").value,gun=ayrVal("ayrPrimGun"); if(!ilk||!gun)return false;
-  const d=new Date(ilk),bugun=new Date(),yil=(bugun-d)/(365.25*24*60*60*1000);
-  if(d<new Date("1999-09-08"))return yil>=15&&gun>=3600;
-  if(d<new Date("2008-05-01"))return gun>=7000||(yil>=25&&gun>=4500);
-  return gun>=7200;
-}
+function ayrSgkHakki(){return document.getElementById("ayrSgkBelge").value==="evet";}
 function ayrHesapla(){
-  const brut=ayrVal("ayrBrut"),prim=ayrVal("ayrPrim"),yan=ayrVal("ayrYan"),tavan=ayrVal("ayrTavan")||64948.77;
+  const brut=ayrVal("ayrBrut"),prim=ayrVal("ayrPrim"),yan=ayrVal("ayrYan"),tavan=ayrVal("ayrTavan")||73729.87;
   const yil=ayrVal("ayrYil"),ay=ayrVal("ayrAy"),izin=ayrVal("ayrIzin"),gv=.15,dv=.00759;
   const durum=document.getElementById("ayrDurum").value,sure=yil+ay/12,toplamAy=yil*12+ay,giydirilmis=brut+prim+yan;
   const sgkHak=durum=="sgk"&&ayrSgkHakki(),kidemHak=(["isten","emekli","hakli"].includes(durum)||sgkHak)&&sure>=1;
   const kidemBrut=kidemHak?Math.min(giydirilmis,tavan)*sure:0,kidemNet=kidemBrut*(1-dv);
-  const ihbarGun=toplamAy<6?14:toplamAy<18?28:toplamAy<36?42:56,ihbarBrut=durum=="isten"?giydirilmis/30*ihbarGun:0;
-  const ihbarNet=ihbarBrut-(ihbarBrut*gv)-(ihbarBrut*dv),izinBrut=brut/30*izin,izinNet=izinBrut-(izinBrut*gv)-(izinBrut*dv);
-  const toplamBrut=kidemBrut+ihbarBrut+izinBrut,toplamNet=kidemNet+ihbarNet+izinNet;
+  const ihbarGun=toplamAy<6?14:toplamAy<=18?28:toplamAy<=36?42:56,ihbarBrut=durum=="isten"&&document.getElementById("ayrBildirim").value==="hayir"?giydirilmis/30*ihbarGun:0;
+  const izinBrut=brut/30*izin;
+  const toplamBrut=kidemBrut+ihbarBrut+izinBrut;
   document.getElementById("ayrSonuc").innerHTML=`<table>
     <tr><td>Giydirilmiş Brüt Ücret</td><td>${ayrTL(giydirilmis)}</td></tr>
-    <tr><td>Kıdem Tazminatı Net</td><td>${ayrTL(kidemNet)}</td></tr>
-    <tr><td>İhbar Tazminatı Net</td><td>${ayrTL(ihbarNet)}</td></tr>
-    <tr><td>Kalan İzin Net</td><td>${ayrTL(izinNet)}</td></tr>
+    <tr><td>Kıdem (damga vergisi sonrası tahmin)</td><td>${ayrTL(kidemNet)}</td></tr>
+    <tr><td>İhbar Tazminatı Brüt</td><td>${ayrTL(ihbarBrut)}</td></tr>
+    <tr><td>Kalan İzin Brüt</td><td>${ayrTL(izinBrut)}</td></tr>
     <tr><td>Toplam Brüt</td><td>${ayrTL(toplamBrut)}</td></tr>
-    <tr><td>Yaklaşık Toplam Net</td><td>${ayrTL(toplamNet)}</td></tr>
-  </table><p class="ayr-not">${kidemHak?"Kıdem hakkı var görünüyor.":"Bu seçime göre kıdem hakkı görünmüyor."} SGK yazısı gerekiyorsa belge alınmadan işlem yapılmamalıdır.</p>`;
+  </table><p class="ayr-not">${kidemHak?"Girilen varsayımla kıdem tutarı hesaplandı; bu sonuç hak sahipliği tespiti değildir.":"Bu seçimle kıdem tutarı hesaplanmadı; bu sonuç hakkınız olmadığı anlamına gelmez."} SGK yazısı gerekiyorsa belge alınmadan işlem yapılmamalıdır.</p>`;
 }
 
-(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\.html$/,"").replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
 </script>
 </body>
 </html>
+
