@@ -10,13 +10,13 @@
   <title>Elektriksel Hesaplamalar ve Elektrik Tüketimi | NESEL</title>
   <meta name="description" content="Ev eşyaları elektrik tüketimleri, verimlilik, trafo güçlerine göre primer-sekonder akımlar ve XLPE kablo akım taşıma kapasiteleri hesaplama araçları.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://nesel.tr/elektrik.html">
+  <link rel="canonical" href="https://nesel.tr/elektrik">
   <link rel="icon" href="/favicon.ico">
 
   <meta property="og:title" content="Elektriksel Hesaplamalar ve Tüketimler | NESEL">
   <meta property="og:description" content="Elektrik tüketimlerinizi karşılaştırın, temel elektrik hesaplamalarına ulaşın.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nesel.tr/elektrik.html">
+  <meta property="og:url" content="https://nesel.tr/elektrik">
 
 <style>
 html{scrollbar-gutter:stable}
@@ -105,6 +105,8 @@ footer {
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
 </style>
+  <link rel="stylesheet" href="/inc/site-quality.css">
+  <script defer src="/inc/site-quality.js"></script>
 </head>
 
 <body>
@@ -142,6 +144,8 @@ footer {
 </header>
 
 <main>
+<noscript><p class="page-intro">Hesaplama ve filtreleme araçları JavaScript gerektirir. Aşağıdaki rehber ve kaynakları JavaScript olmadan da okuyabilirsiniz.</p></noscript>
+  <div class="page-intro"><h1>Elektrik ve Enerji Hesaplamaları</h1><p><a href="/">Ana sayfa</a> · <a href="#kaynaklar">Yöntem ve kaynaklar</a></p></div>
   <div id="layout">
     <section id="ortaAlan">
       <div class="frameWrap">
@@ -196,9 +200,9 @@ footer {
                 <tr>
                   <td>
                     <select id="kabkesit" name="kabkesit" aria-label="Kablo Kesiti">
-                      <option value="875">630 mm2</option><option value="786">500 mm2</option><option value="701">400 mm2</option><option value="627">300 mm2</option>
-                      <option value="559">240 mm2</option><option value="484">185 mm2</option><option value="430">150 mm2</option><option value="385">120 mm2</option>
-                      <option value="339">95 mm2</option><option value="284">70 mm2</option><option value="232">50 mm2</option><option value="165">35 mm2</option>
+                      <option value="875" data-area="630">630 mm²</option><option value="786" data-area="500">500 mm²</option><option value="701" data-area="400">400 mm²</option><option value="627" data-area="300">300 mm²</option>
+                      <option value="559" data-area="240">240 mm²</option><option value="484" data-area="185">185 mm²</option><option value="430" data-area="150">150 mm²</option><option value="385" data-area="120">120 mm²</option>
+                      <option value="339" data-area="95">95 mm²</option><option value="284" data-area="70">70 mm²</option><option value="232" data-area="50">50 mm²</option><option value="165" data-area="35">35 mm²</option>
                     </select>  
                   </td>  
                   <td>
@@ -262,7 +266,7 @@ footer {
           <div class="card">
             <h3>Bu Hesaplamalar Nasıl Yapılıyor? Formüller ve Kullanım Alanları</h3>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Trafo Primer/Sekonder Akım:</b> Primer akım <b>Ip = S / (√3 × Vp)</b> formülüyle, sekonder akım ise trafo sarım oranına göre <b>Is = (Vp / Vs) × Ip</b> formülüyle hesaplanır (S: trafo gücü kVA, Vp/Vs: primer/sekonder gerilim kV). Bu değerler, trafoyu besleyen ve trafodan çıkan devrelerdeki sigorta ve kesici seçiminde referans alınır.</p>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kablo Akım Taşıma Kapasitesi:</b> Bakır (Cu) iletkenler, alüminyuma göre daha iletken olduğu için aynı kesitte daha yüksek akım taşır; hesap aracımız alüminyum için bakır değerinin 0,62 katını kullanır. Hava döşemede akım taşıma kapasitesi toprak altına göre daha yüksek çıkar çünkü hava, ısıyı toprağa göre daha hızlı dağıtır — bu yüzden aynı kablo, havada döşendiğinde toprağa göre yaklaşık %20 daha fazla akım taşıyabilir.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kablo Akım Taşıma Kapasitesi:</b> Bakır (Cu) iletkenler, alüminyuma göre daha iletken olduğu için aynı kesitte daha yüksek akım taşır; hesap aracımız alüminyum için bakır değerinin 0,62 katını kullanır. Buradaki 0,62 malzeme ve 1,20 hava/toprak çarpanları basitleştirilmiş model varsayımlarıdır; genel bir kablo seçim kuralı değildir. Gerçek akım kapasitesi kablo yapısı, döşeme biçimi, ortam sıcaklığı, gruplama ve toprağın ısıl direncine bağlıdır.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Havai Hat İletkenleri (AWG/MCM):</b> AWG (American Wire Gauge) ve MCM (Bin Daire Mil) iletken kesitini tanımlayan iki farklı standarttır; sayı küçüldükçe (AWG) veya büyüdükçe (MCM) iletken kalınlaşır. Ortam sıcaklığı arttıkça iletkenin direnci de artar — hesap aracımız bunu <b>R(T) = R20 × (1 + 0,00403 × (T − 20))</b> formülüyle (alüminyum için tipik sıcaklık katsayısı) hesaba katar, bu yüzden farklı ortam sıcaklıkları farklı akım taşıma kapasitesi verir.</p>
           </div>
 
@@ -273,7 +277,7 @@ footer {
                 <tr><th>Tarih</th><th>Kullanıcı</th><th>Birim Fiyat</th></tr>
               </thead>
               <tbody>
-                <tr><td>02/04/2026</td><td>Mesken</td><td><input id="meskentl" onchange="ctuketimhesap(this)" type="text" value="3,24" aria-label="Birim Fiyat" /> &#8378</td></tr>
+                <tr><td>Örnek birim fiyat</td><td>Mesken</td><td><input id="meskentl" onchange="ctuketimhesap(this)" type="text" value="3,24" aria-label="Birim Fiyat" /> &#8378</td></tr>
               </tbody>
             </table>
             
@@ -305,23 +309,23 @@ footer {
 
           <div class="card">
             <h3>kWh ve Watt Arasındaki Fark Nedir?</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Watt (W):</b> Bir cihazın <b>anlık</b> güç tüketimini gösterir. Örneğin 2.000 W'lık bir klima, çalıştığı her an bu gücü çeker.</p>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kilowatt-saat (kWh):</b> Bir cihazın belirli bir <b>süre boyunca</b> tükettiği toplam enerjidir; faturanız kWh üzerinden hesaplanır. 2.000 W'lık bir klima 1 saat çalışırsa 2 kWh, 3 saat çalışırsa 6 kWh tüketmiş olur.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Watt (W):</b> Bir cihazın <b>anlık</b> güç tüketimini gösterir. Örneğin 2.000 W anlık güç çeken bir cihazın gücü 2 kW'tır; klimanın gerçek çekişi çalışma koşullarına göre değişebilir.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kilowatt-saat (kWh):</b> Bir cihazın belirli bir <b>süre boyunca</b> tükettiği toplam enerjidir; faturanız kWh üzerinden hesaplanır. Sabit 2.000 W çeken bir cihaz 1 saat çalışırsa 2 kWh, 3 saat çalışırsa 6 kWh tüketmiş olur.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Tek Zamanlı / Çok Zamanlı Tarife:</b> Tek zamanlı tarifede gün boyu aynı birim fiyat uygulanır. Çok zamanlı (gündüz/puant/gece) tarifede ise gece saatlerinde (genellikle 22:00-06:00 arası) fiyat daha düşük olur; çamaşır/bulaşık makinesi gibi cihazları gece çalıştırmak bu tarifede tasarruf sağlayabilir.</p>
 
             <h3 style="margin-top:18px">Elektrik Faturasını Düşürmenin Pratik Yolları</h3>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Bekleme (standby) tüketimi:</b> Prizde takılı ama kullanılmayan modem, televizyon, şarj cihazı gibi ürünler sürekli düşük seviyede elektrik çeker; kullanılmadığında fişten çekmek yıllık tüketimde fark yaratabilir.</p>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Enerji verimlilik sınıfı:</b> Buzdolabı, çamaşır makinesi gibi sürekli çalışan cihazlarda A veya üzeri enerji sınıfı, düşük sınıflara göre yıllık tüketimde belirgin fark yaratır — üstteki tablodaki "Etiket kWh/yıl" değerini cihazınızın kendi etiketiyle karşılaştırabilirsiniz.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Enerji verimlilik sınıfı:</b> Buzdolabı, çamaşır makinesi gibi sürekli çalışan cihazlarda aynı etiket ölçeğinde daha verimli enerji sınıfı, düşük sınıflara göre yıllık tüketimde belirgin fark yaratır — üstteki tablodaki "Etiket kWh/yıl" değerini cihazınızın kendi etiketiyle karşılaştırabilirsiniz.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Klima ve kombi ayarı:</b> Klimada her 1°C'lik düşürme (soğutmada) tüketimi belirgin şekilde artırır; termostatı gereğinden düşük ayarlamak yerine ihtiyaca uygun bir sıcaklıkta sabit tutmak genelde daha verimlidir.</p>
           </div>
 
           <div class="bilgilendirme">
             * Primer ve Sekonder akım hesaplamaları formüller doğrultusunda yapılmaktadır.
-            <br>* Kablo/İletken akım taşıma kapasiteleri kablo/iletken üreticilerinden birinin Bakır(Cu) kablo/Alüminyum(Al) iletken katalog verilerinden alınmıştır.
+            <br>* Akım tabloları örnek veri içerir; ürün kodu, katalog sürümü ve döşeme koşulları doğrulanmadığından kesin kablo seçimi için kullanılamaz.
             <br>* Alüminyum(Al) kablolar için akım taşıma kapasiteleri Bakır(Cu) kabloların 0.62 katı olarak hesaplanmaktadır.
             <br>* Havada akım taşıma kapasiteleri toprağın 1.2 katı olarak alınmıştır.
             <br>* Cos φ değeri kablo ve iletken hesaplamalarında 0.95 olarak kabul edilmiştir.
-            <br>* Beyaz Eşya ve Elektrikli Küçük Ev Aletleri hesaplamaları görünen birim fiyat (mesken, 4.000 kwh/yıl - 8 kwh/gün ve altı için tek zamanlı tarife) üzerinden yapılmaktadır, vergi ve fonlar dahil yaklaşık bedeli gösterir, elle değiştirebilirsiniz. 
+            <br>* Beyaz Eşya ve Elektrikli Küçük Ev Aletleri hesaplamaları görünen birim fiyat (kullanıcının girdiği TL/kWh varsayımı) üzerinden yapılmaktadır, girilen fiyat vergi ve fonları içeriyorsa bunlar dahil yaklaşık bedeli gösterir, elle değiştirebilirsiniz. 
             <a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank" rel="noopener">EPDK Fatura Hesaplama Sitesi</a>
             <br>* İlk Etiket değerleri tahmini değerlerdir, etiket değerlerini bildiğiniz cihazlar için değerleri değiştirebilirsiniz. Tarife uygulamaları nedeniyle daha düşük veya daha fazla ücretler ortaya çıkabilir.
           </div>
@@ -329,16 +333,11 @@ footer {
       </div>
     </section>
 
-    <aside id="sagReklam">
-      <ins class="adsbygoogle"
-        style="display:block;width:100%;height:600px"
-        data-ad-client="ca-pub-1268402107177386"
-        data-ad-slot="2157595670"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
+    
   </div>
 </main>
 
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Direnç hesabı R = ρ × 1.000 / A formülünü kullanır; A seçilen gerçek kesittir (mm²), sonuç Ω/km cinsindedir. Örneğin 630 mm² bakır için bu modelde ρ = 0,017857 alınır ve R ≈ 0,0283 Ω/km bulunur. AC etkileri ve iletken sıcaklığı bu kablo hesabına dahil değildir.</p><p>Aylık enerji maliyeti = yıllık tüketim / 12 × TL/kWh. Örneğin 240 kWh/yıl ve varsayımsal 3 TL/kWh için aylık ortalama 60 TL olur. Mevsimsellik, tüketim kademeleri ve tedarik sözleşmesi gerçek faturayı değiştirebilir; birim fiyatı kendi faturanızdan girin.</p><ul><li><a href="https://tr.prysmian.com/tr/medya/teknik-makaleler/orta-gerilim-kablo-akim-tasima-kapasite-hesabi">Prysmian: akım taşıma hesabının koşulları</a> — yöntem kaynağıdır; örnek tablodaki sayıları onaylayan bir ürün kataloğu değildir.</li><li><a href="https://www.epdk.gov.tr/Detay/Icerik/3-0-1/elektrik">EPDK elektrik piyasası ve tarife bilgileri</a></li></ul><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim.html">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -358,7 +357,7 @@ window.addEventListener("resize",setUstH);
 setUstH();
 
 const $=id=>document.getElementById(id);
-const n=v=>{v=(""+(v??"")).trim().replace(",",".");return Number(v)||0};
+const n=v=>{v=(""+(v??"")).trim().replace(",",".");return Math.max(0,Number(v)||0)};
 const fmt=(v,d=1)=>new Intl.NumberFormat("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
 
 function trhesap(){
@@ -370,8 +369,8 @@ function trhesap(){
 
 function kablohesap(){
   const tip=$("kabtipi").value,k=(tip==="Al")?0.62:1;
-  const I=n($("kabkesit").value)*k,A=n($("kabkesit").value),V=n($("kabseviye").value);
-  const R=(tip==="Al"?0.0282:0.017857)*(1000/A),P=(V*1.73*I*0.95)/1000;
+  const I=n($("kabkesit").value)*k,A=n($("kabkesit").selectedOptions[0].dataset.area),V=n($("kabseviye").value);
+  const R=(tip==="Al"?0.0282:0.017857)*(1000/A),P=(V*Math.sqrt(3)*I*0.95)/1000;
   $("kabomaj").innerHTML=`${fmt(R,4)} &#8486/km`;
   $("kabakim").textContent=`${fmt(I,1)} A`;
   $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
@@ -420,7 +419,8 @@ document.getElementById("hhGerilim")?.addEventListener("change",hhHesap);
 document.getElementById("hhOrtam")?.addEventListener("change",hhHesap);
 hhHesap();
 
-(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
+(()=>{const ms=document.getElementById("mselect");if(!ms)return;const p=location.pathname.replace(/\.html$/,"").replace(/\/$/,"");if(p && p!="/") ms.value=p+".html"; ms.onchange=()=>location.href=ms.value;})();
 </script>
 </body>
 </html>
+

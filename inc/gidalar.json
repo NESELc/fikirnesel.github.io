@@ -18,7 +18,7 @@
       "dikkat": "Reflü, gastrit, hemoroid ve mide hassasiyetinde rahatsız edebilir.",
       "kanit": "Genel besin/Sınırlı çalışma",
       "kaynak": "https://fdc.nal.usda.gov/; https://pubmed.ncbi.nlm.nih.gov/",
-      "url": "https://fdc.nal.usda.gov/;"
+      "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "adacayi",
@@ -36,8 +36,8 @@
       ],
       "dikkat": "Hamilelik, emzirme, epilepsi ve yüksek miktarda kullanımda dikkat; tujon içerir.",
       "kanit": "Geleneksel/Sınırlı çalışma",
-      "kaynak": "https://www.nccih.nih.gov/health",
-      "url": "https://www.nccih.nih.gov/health"
+      "kaynak": "NCCIH — Sage",
+      "url": "https://www.nccih.nih.gov/health/sage"
     },
     {
       "id": "ahududu",
@@ -75,7 +75,7 @@
       "dikkat": "Kan sulandırıcı kullananlar, mide hassasiyeti ve alerjisi olanlar dikkat etmeli.",
       "kanit": "Genel besin/Sınırlı çalışma",
       "kaynak": "https://fdc.nal.usda.gov/; https://www.nccih.nih.gov/health",
-      "url": "https://fdc.nal.usda.gov/;"
+      "url": "https://fdc.nal.usda.gov/"
     },
     {
       "id": "anason",
@@ -364,7 +364,7 @@
       "dikkat": "Kan sulandırıcı kullananlar K vitamini nedeniyle düzenli yüksek tüketimde dikkat.",
       "kanit": "Genel besin/Orta düzey çalışma",
       "kaynak": "https://ods.od.nih.gov/factsheets/VitaminC/; https://fdc.nal.usda.gov/",
-      "url": "https://ods.od.nih.gov/factsheets/VitaminC/;"
+      "url": "https://ods.od.nih.gov/factsheets/VitaminC/"
     },
     {
       "id": "bruksel-lahanasi",

@@ -1,2 +1,14 @@
 /*
-  Content-Type: text/html; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+/footer.html
+  X-Robots-Tag: noindex
+
+/inc/top.html
+  X-Robots-Tag: noindex
+
+/inc/left.html
+  X-Robots-Tag: noindex
+
+/inc/right.html
+  X-Robots-Tag: noindex
