@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilinç mi, Veri mi? — NESEL</title>
+<meta name="description" content="Bilinç, verinin bir çıktısı olabilir mi? İnsan kararlarını, hafızayı, biyolojik durumu ve yapay zekâyı veri işleme açısından ele alan bir düşünce
+yazısı.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nesel.tr/bilinc-mi-veri-mi">
+<meta property="og:title" content="Bilinç mi, Veri mi? — NESEL">
+<meta property="og:description" content="Bilinç, verinin bir çıktısı olabilir mi? İnsan kararlarını, hafızayı, biyolojik durumu ve yapay zekâyı veri işleme açısından ele alan bir
+düşünce yazısı.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nesel.tr/bilinc-mi-veri-mi">
+<meta property="og:site_name" content="NESEL">
+<meta property="og:locale" content="tr_TR">
+<meta property="article:published_time" content="2026-09-19">
+<meta property="article:modified_time" content="2026-09-19">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "Bilinç mi, Veri mi?",
+"description": "Bilinç, verinin bir çıktısı olabilir mi? İnsan kararlarını, hafızayı, biyolojik durumu ve yapay zekâyı veri işleme açısından ele alan bir düşünce yazısı.",
+"inLanguage": "tr-TR",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://nesel.tr/bilinc-mi-veri-mi"
+},
+"url": "https://nesel.tr/bilinc-mi-veri-mi",
+"datePublished": "2026-09-19",
+"dateModified": "2026-09-19",
+"author": {
+"@type": "Organization",
+"name": "NESEL",
+"url": "https://nesel.tr/hakkimizda"
+},
+"publisher": {
+"@type": "Organization",
+"name": "NESEL",
+"url": "https://nesel.tr/"
+},
+"articleSection": "Düşünce Yazıları"
+}
+</script>
+<style>
+html { scrollbar-gutter: stable; }
+:root { --bg: #f8fafc; --card-bg: #ffffff; --txt: #0f172a; --muted: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-bg: #eff6ff; --ustH: 64px; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--txt);
+line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+#ustBar { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; background: #fff; border-bottom: 1px solid var(--line); }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 12px 16px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo { width: 140px; height: 38px; background: url("/logo.png") center/contain no-repeat; display: block; }
+.brand-text { display: flex; flex-direction: column; }
+.brand-text b { font-size: 15px; letter-spacing: .5px; }
+.kicker { color: var(--muted); font-size: 11px; }
+.nav { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav a { padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; font-size: 13px; font-weight: 500; transition: all .2s ease; }
+.nav a:hover { border-color: #cbd5e1; background: var(--bg); }
+.nav a.active { border-color: rgba(37,99,235,.45); background: var(--accent-bg); color: var(--accent); font-weight: 600; }
+#mselect { display: none; border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 8px; font-size: 13px; width: 100%; max-width: 200px; }
+main { padding-top: var(--ustH); }
+#layout { display: flex; gap: 20px; max-width: 1140px; margin: 16px auto; padding: 0 16px; align-items: flex-start; }
+#ortaAlan { flex: 1; min-width: 0; }
+#sagReklam { width: 300px; position: sticky; top: calc(var(--ustH) + 16px); display: flex; flex-direction: column; gap: 16px; }
+#anaIcerik { display: flex; flex-direction: column; gap: 20px; }
+.page-title { font-size: 20px; font-weight: 800; margin: 0 0 12px; color: var(--txt); }
+.bolum-baslik { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin: 8px 0 12px; display: flex; align-items: center;
+gap: 8px; }
+.bolum-baslik::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.arac-kart, .kucuk-kart, .bilgi-kutu { background: var(--card-bg); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.arac-kart { transition: transform .2s, box-shadow .2s; }
+.arac-kart:hover { box-shadow: 0 6px 16px rgba(0,0,0,.05); }
+.arac-kart-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
+.arac-kart-icon { width: 44px; height: 44px; background: var(--accent-bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px;
+flex-shrink: 0; }
+.arac-kart-meta { flex: 1; }
+.arac-kart-meta h2 { font-size: 16px; font-weight: 700; margin: 0 0 2px; }
+.arac-kart-meta p { font-size: 13px; color: var(--muted); margin: 0; }
+.arac-kart-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: #fff; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight:
+600; flex-shrink: 0; }
+.arac-kart-btn:hover { background: #1d4ed8; }
+.arac-kart-body { font-size: 13px; line-height: 1.6; color: #475569; }
+.ozellik-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; margin-top: 14px; }
+.ozellik-item { background: var(--bg); border-radius: 8px; padding: 8px 10px; border: 1px solid var(--line); }
+.ozellik-item .etiket { font-size: 11px; color: var(--muted); }
+.ozellik-item .deger { font-size: 12px; font-weight: 600; color: var(--txt); }
+.iki-sutun { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kucuk-kart-ust { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.kucuk-kart-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.kucuk-kart h3 { font-size: 14px; font-weight: 700; margin: 0; }
+.kucuk-kart p { font-size: 13px; color: #475569; line-height: 1.5; margin: 0 0 12px; }
+.kucuk-kart-link { font-size: 12px; font-weight: 600; color: var(--accent); }
+.kucuk-kart-link:hover { text-decoration: underline; }
+.ic-bg-yesil { background: #f0fdf4; }
+.ic-bg-mor { background: #faf5ff; }
+.ic-bg-turuncu { background: #fff7ed; }
+.ic-bg-kirmizi { background: #fff1f2; }
+.adsense-kapsayici { background: var(--card-bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; min-height: 100px; }
+footer { background: #fff; border-top: 1px solid var(--line); margin-top: 40px; padding: 24px 16px; }
+.footer-wrap { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color:
+var(--muted); }
+.footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+.footer-links a:hover { color: var(--accent); text-decoration: underline; }
+@media (max-width: 1024px) { #layout { flex-direction: column; }
+#sagReklam { width: 100%; position: static; }
+}
+@media (max-width: 768px) { #menu { display: none; }
+#mselect { display: block; }
+.brand-text { display: none; }
+.iki-sutun { grid-template-columns: 1fr; }
+.footer-wrap { flex-direction: column; text-align: center; justify-content: center; }
+}
+.makale-alan{max-width:880px;margin:24px auto;padding:0 16px}
+.makale{background:var(--card-bg);border:1px solid var(--line);border-radius:12px;padding:28px;overflow-wrap:anywhere}
+.makale h1{font-size:clamp(26px,5vw,36px);line-height:1.2;margin:12px 0}
+.makale h2{font-size:22px;line-height:1.4;margin:32px 0 12px}
+.makale p,.makale li{font-size:16px;line-height:1.8}
+.makale a,.makale-alan .geri{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.makale-meta{color:var(--muted);font-size:13px;margin:10px 0 20px}
+.makale blockquote{margin:20px 0;padding:2px 18px;border-left:3px solid var(--accent);background:var(--accent-bg);border-radius:6px}
+.makale pre{max-width:100%;overflow-x:auto;padding:18px;background:var(--bg);border:1px solid var(--line);border-radius:8px;white-space:pre}
+.makale code{font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
+.makale hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+.icindekiler{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:24px 0}
+.icindekiler summary{cursor:pointer;font-weight:600}.icindekiler li{font-size:14px}
+.formul{font-family:Georgia,serif;font-size:22px!important;text-align:center}
+.makale-kart h2{font-size:22px;margin:0 0 10px}.makale-kart p{line-height:1.7}
+@media(max-width:480px){.makale{padding:20px 16px}.logo{width:110px}.top{gap:8px}#mselect{min-width:0;width:160px}}
+</style>
+<link rel="stylesheet" href="/inc/site-quality.css">
+<script defer src="/inc/site-quality.js"></script>
+</head>
+<body>
+<header id="ustBar">
+<div class="wrap">
+<div class="top">
+<div class="brand">
+<a href="/" class="logoWrap" aria-label="NESEL Ana Sayfa">
+<div class="logo" aria-hidden="true"></div>
+</a>
+<div class="brand-text">
+<b>NESEL</b>
+<span class="kicker">Bilgi Merkezi</span>
+</div>
+</div>
+<nav class="nav" id="menu" aria-label="Ana Menü">
+<a href="/sifiraraclar.html">Sıfır Araçlar</a>
+<a href="/platformucretleri.html">Platform Ücretleri</a>
+<a href="/doviz.html">Döviz Çevirici</a>
+<a href="/gelirvergisi.html">Gelir Vergisi</a>
+<a href="/ankara.html">Ankara</a>
+<a href="/elektrik.html">Elektrik</a>
+<a href="/oyunlar.html">Oyunlar</a>
+<a href="/gidalar.html">Gıdalar</a>
+<a href="/makaleler.html" class="active">Makaleler</a>
+</nav>
+<select id="mselect" aria-label="Menü Seçimi" onchange="location.href=this.value">
+<option value="">Menüden Seçin...</option>
+<option value="/sifiraraclar.html">Sıfır Araçlar</option>
+<option value="/platformucretleri.html">Platform Ücretleri</option>
+<option value="/doviz.html">Döviz Çevirici</option>
+<option value="/gelirvergisi.html">Gelir Vergisi</option>
+<option value="/ankara.html">Ankara</option>
+<option value="/elektrik.html">Elektrik</option>
+<option value="/oyunlar.html">Oyunlar</option>
+<option value="/gidalar.html">Gıdalar</option>
+<option value="/makaleler.html" selected>Makaleler</option>
+</select>
+</div>
+</div>
+</header>
+<main><div class="makale-alan">
+<nav aria-label="İçerik yolu"><a class="geri" href="/">Ana Sayfa</a> / <a class="geri" href="/makaleler.html">Makaleler</a></nav>
+<article class="makale">
+<header><h1>Bilinç mi, Veri mi?</h1>
+<div class="makale-meta">NESEL · Düşünce Yazısı · <time datetime="2026-09-19">19 Eylül 2026</time></div></header>
+<details class="icindekiler"><summary>İçindekiler</summary><ol>
+<li><a href="#bolum-1">İnsan bir veri işleme sistemi olarak düşünülebilir mi?</a></li>
+<li><a href="#bolum-2">İlk yollar neden çok önemli olabilir?</a></li>
+<li><a href="#bolum-3">Bir karar gerçekten o anda mı veriliyor?</a></li>
+<li><a href="#bolum-4">Din, karar mekanizmasını anlamak için ilginç bir örnek</a></li>
+<li><a href="#bolum-5">%50–%50 karar anı</a></li>
+<li><a href="#bolum-6">Rastlantı özgür irade midir?</a></li>
+<li><a href="#bolum-7">İlaçlar neden önemli bir örnek?</a></li>
+<li><a href="#bolum-8">Hafıza kaybolduğunda “ben” neden değişiyor?</a></li>
+<li><a href="#bolum-9">“His” gerçekten ayrı bir problem mi?</a></li>
+<li><a href="#bolum-10">Beyin devasa veriyi sıkıştırıyor olabilir</a></li>
+<li><a href="#bolum-11">Kullanıcı arayüzü altyapıyı göremiyor</a></li>
+<li><a href="#bolum-12">Peki “ben” nedir?</a></li>
+<li><a href="#bolum-13">Yapay zekâ neden bu tartışmanın içine giriyor?</a></li>
+<li><a href="#bolum-14">Bu yaklaşım yaratıcı düşüncesini dışlıyor mu?</a></li>
+<li><a href="#bolum-15">Sonuç: Bilinç mi, Veri mi?</a></li>
+</ol></details>
+<div class="makale-metni">
+<p>İnsan bilincini açıklamaya çalışırken çoğu zaman çok yukarıdan bakıyoruz. “Neden böyle hissettim?”, “Neden bu kararı verdim?”, “Ben kimim?”, “Bilinç nerede başlıyor?” gibi
+sorular soruyoruz.</p>
+<p>Ben ise meseleyi tersinden ele almak istiyorum.</p>
+<p>Belki ortada ayrıca açıklanması gereken, fiziksel süreçlerden bağımsız bir “bilinç” yoktur. Belki bilinç dediğimiz şey; sensörlerden gelen verilerin, geçmişte oluşmuş
+bağlantıların, biyolojik durumun ve daha önce verilmiş sayısız kararın oluşturduğu <strong>nihai çıktıdan</strong> ibarettir.</p>
+<p>Bu düşünceyi materyalist bir dünya görüşünü savunmak için kurmuyorum. İlahi bir yaratıcının varlığıyla da zorunlu olarak çeliştiğini düşünmüyorum. Buradaki soru daha dar:</p>
+<blockquote><p><strong>İnsanın karar verme sürecini açıklamak için ayrıca bağımsız bir “bilinç” mekanizmasına gerçekten ihtiyaç var mı?</strong></p></blockquote>
+<hr>
+<h2 id="bolum-1">İnsan bir veri işleme sistemi olarak düşünülebilir mi?</h2>
+<p>İnsan vücudunun çevreyi ve kendisini algılamak için çok sayıda sensörü var.</p>
+<p>Gözler, kulaklar, deri, burun ve dil en belirgin olanları. Ancak sistem bunlardan ibaret değil. İç organlardan, denge sisteminden, ağrı reseptörlerinden, hormonlardan, kandaki
+kimyasal değişimlerden ve başka birçok biyolojik süreçten de sürekli bilgi geliyor.</p>
+<p>Beyin ise bu verilerin tamamını olduğu gibi “görmüyor”. Bunları işliyor, ilişkilendiriyor, geçmiş kayıtlarla karşılaştırıyor ve daha küçük anlam kümelerine dönüştürüyor.</p>
+<p>Akışı en basit haliyle şöyle düşünüyorum:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>DIŞ DÜNYA + VÜCUT
+        ↓
+     SENSÖRLER
+        ↓
+   ANLIK VERİLER
+        ↓
+GEÇMİŞ KAYITLARLA KARŞILAŞTIRMA
+        ↓
+MEVCUT BAĞLANTI YOLLARI
+        ↓
+OLASI SONUÇLARIN AĞIRLIKLANDIRILMASI
+        ↓
+       KARAR
+        ↓
+ YENİ KAYIT / YENİ BAĞLANTI</code></pre>
+<p>Bu sistem doğduğumuz andan itibaren sürekli kendisini değiştiriyor.</p>
+<p>Dolayısıyla bugün verdiğimiz herhangi bir karar aslında yalnızca “şu anda düşündüğümüz şeyin” sonucu olmayabilir.</p>
+<p>Arkasında yıllar boyunca oluşmuş milyonlarca, belki milyarlarca küçük karar ve bağlantı bulunabilir.</p>
+<hr>
+<h2 id="bolum-2">İlk yollar neden çok önemli olabilir?</h2>
+<p>Beyin ilk oluştuğunda bütün düşünce yollarının eşit olduğunu varsayamayız.</p>
+<p>Genetik yapı belirli bir başlangıç mimarisi sağlıyor. Ardından ilk duyusal deneyimler, aile, dil, kültür, korkular, ödüller, cezalar ve çevre bazı yolların diğerlerinden daha
+sık kullanılmasına neden oluyor.</p>
+<p>Bir yol ne kadar çok kullanılırsa gelecekte tekrar kullanılma ihtimali de artabilir.</p>
+<p>Bunu elektrik devresine benzetiyorum.</p>
+<p>Paralel kollarda aynı gerilim altında:</p>
+<p class="formul"><span aria-label="Akım eşittir gerilim bölü direnç">I = V / R</span></p>
+<p>olduğundan düşük dirençli koldan daha fazla akım geçer.</p>
+<p>Eğer birçok paralel kolu bir karşılaştırıcıya bağlayıp:</p>
+<blockquote><p>“En yüksek akıma sahip kol sonuç olsun.”</p></blockquote>
+<p>dersek, düşük dirençli yol avantaj kazanır.</p>
+<p>Beyindeki “direnç” elbette doğrudan ohmik direnç değildir. Burada bunu bir benzetme olarak kullanıyorum:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>DAHA ÖNCE KULLANILMIŞ YOL
+          ↓
+DAHA GÜÇLÜ BAĞLANTILAR
+          ↓
+DAHA KOLAY AKTİVASYON
+          ↓
+TEKRAR AYNI YOLUN SEÇİLMESİ
+          ↓
+YOLUN DAHA DA GÜÇLENMESİ</code></pre>
+<p>Bu nedenle erken dönemde oluşan yollar yalnızca geçmişte kalmış kayıtlar olmayabilir.</p>
+<p><strong>Sonraki bütün verilerin yorumlandığı altyapıyı oluşturabilirler.</strong></p>
+<hr>
+<h2 id="bolum-3">Bir karar gerçekten o anda mı veriliyor?</h2>
+<p>Örneğin kendimi İslam inancına mensup biri olarak konumlandırmış olayım.</p>
+<p>Yalnız olduğum bir adada önümde su ve alkollü içecek bulunduğunu düşünelim.</p>
+<p>Benim kararım büyük ihtimalle suyu içmek olacaktır.</p>
+<p>Fakat burada gerçekten o anda sıfırdan bir ahlaki değerlendirme mi yapıyorum?</p>
+<p>Muhtemelen hayır.</p>
+<p>Daha önce oluşmuş bir veri ağı zaten mevcut:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>İSLAM'A AİT BİLGİLER
+        ↓
+ALKOLÜN YASAK OLDUĞU BİLGİSİ
+        ↓
+&quot;BEN BU İNANCA GÖRE YAŞIYORUM&quot; KAYDI
+        ↓
+GEÇMİŞ BENZER KARARLAR
+        ↓
+MEVCUT DURUM
+        ↓
+SUYU SEÇ</code></pre>
+<p>Son kararı “bilincim verdi” demek mümkün.</p>
+<p>Ama aynı sonucu şöyle açıklamak da mümkün:</p>
+<blockquote><p>Yeni veri, geçmişte oluşmuş karar ağına girdi ve mevcut yollar içerisinden en yüksek ağırlığa sahip olan sonuç üretildi.</p></blockquote>
+<p>Bu durumda bilinç ayrıca karar veren ikinci bir mekanizma olmak zorunda değil.</p>
+<hr>
+<h2 id="bolum-4">Din, karar mekanizmasını anlamak için ilginç bir örnek</h2>
+<p>Dini inanışlar bu konuda özellikle öğretici olabilir.</p>
+<p>İnsanların büyük kısmı doğdukları çevrede baskın olan dini veya kültürel sistemi öğrenerek büyüyor.</p>
+<p>Çocuk ilk yıllarında kendisine sunulan dünyanın tamamını bağımsız olarak test edebilecek durumda değildir.</p>
+<p>Dolayısıyla ilk veri kümesi oldukça güçlüdür.</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>DOĞDUĞUN COĞRAFYA
+       +
+      AİLE
+       +
+     KÜLTÜR
+       +
+      DİL
+       +
+ERKEN DÖNEM EĞİTİM
+       ↓
+İLK DÜNYA MODELİ</code></pre>
+<p>Bu dünya modeli oluştuktan sonra yeni bilgi boş bir sisteme gelmez.</p>
+<p>Mevcut sistem üzerinden değerlendirilir.</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>YENİ BİLGİ
+    ↓
+MEVCUT İNANÇ SİSTEMİYLE KARŞILAŞTIR
+    ↓
+   ┌───────────────┐
+   │               │
+UYUMLU          UYUMSUZ
+   │               │
+GÜÇLENDİR     YENİDEN YORUMLA
+                   │
+              ÇELİŞKİ BİRİKİR
+                   │
+               EŞİK AŞILIR
+                   │
+               MODEL DEĞİŞİR</code></pre>
+<p>Burada kişinin inanç değiştirmesi de mutlaka “bilincin özgürce yaptığı tamamen bağımsız bir seçim” olmak zorunda değildir.</p>
+<p>Yıllar boyunca biriken yeni veriler mevcut modelle sürekli çelişmiş olabilir.</p>
+<p>Sistem en sonunda farklı bir sonuca ulaşmış olabilir.</p>
+<hr>
+<h2 id="bolum-5">%50–%50 karar anı</h2>
+<p>Bilinç hissinin özellikle kararsız kaldığımız anlarda belirginleşmesi bana ilginç geliyor.</p>
+<p>Bir seçeneğin ağırlığı %90, diğerinin %10 ise genellikle:</p>
+<blockquote><p>“Çok düşündüm ve bilinçli karar verdim.”</p></blockquote>
+<p>demeyiz.</p>
+<p>Karar zaten kolaydır.</p>
+<p>Asıl “ben karar veriyorum” hissi iki seçenek birbirine yaklaştığında güçleniyor.</p>
+<p>Örneğin:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>SEÇENEK A → %50
+SEÇENEK B → %50</code></pre>
+<p>Bu noktada çok küçük değişkenler sonucu belirleyebilir.</p>
+<p>Geçmişte daha güvenli sonuç vermiş olması, daha sık kullanılmış olması, kişinin o anki korkusu, yorgunluğu, hormonal durumu veya çok küçük nöral farklılıklar…</p>
+<p>Sonuç:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>%50 A
+%50 B
+   ↓
+KÜÇÜK BİR AĞIRLIK FARKI
+   ↓
+A = %50,01
+B = %49,99
+   ↓
+A KARARI</code></pre>
+<p>Sonra sistem:</p>
+<blockquote><p>“A'yı seçtim.”</p></blockquote>
+<p>diyor.</p>
+<p>Belki de “seçmek” dediğimiz şey tam olarak budur.</p>
+<hr>
+<h2 id="bolum-6">Rastlantı özgür irade midir?</h2>
+<p>Burada başka bir problem ortaya çıkıyor.</p>
+<p>İki seçenek gerçekten tamamen eşitse sistemdeki küçük rastlantısal farklılık sonucu belirleyebilir.</p>
+<p>Fakat rastgelelik de özgür irade değildir.</p>
+<p>Bilgisayarda:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>if A == B:
+    sonuc = random(A, B)</code></pre>
+<p>yazabiliriz.</p>
+<p>Bilgisayar bundan dolayı bilinçli hale gelmez.</p>
+<p>Dolayısıyla insan beynindeki kararların bazılarında rastlantısallık bulunması, tek başına özgür ve bağımsız bir bilinç bulunduğunu göstermez.</p>
+<hr>
+<h2 id="bolum-7">İlaçlar neden önemli bir örnek?</h2>
+<p>Karar mekanizmasının girdilere ne kadar bağlı olduğunu gösteren en çarpıcı alanlardan biri ilaçlardır.</p>
+<p>Bazı ilaçlar ruh hali, kaygı, dürtüler, düşünce biçimleri ve davranış üzerinde ciddi değişikliklere yol açabilir.</p>
+<p>Bu durumda şu soru önem kazanıyor:</p>
+<p>Aynı insan, aynı geçmiş, aynı aile, aynı eğitim ve aynı hatıralara sahipken yalnızca biyokimyasal durum değiştiğinde neden daha önce hiç düşünmediği düşünceleri değerlendirmeye
+başlayabiliyor?</p>
+<p>Akış şöyle olabilir:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>AYNI KİŞİ
+  +
+AYNI GEÇMİŞ
+  +
+AYNI HAFIZA
+  +
+FARKLI BİYOKİMYASAL DURUM
+        ↓
+FARKLI NÖRAL AĞIRLIKLAR
+        ↓
+FARKLI DÜŞÜNCE OLASILIKLARI
+        ↓
+FARKLI KARAR</code></pre>
+<p>Bu durumda “ben” dediğimiz karar vericinin sabitliği tartışmalı hale geliyor.</p>
+<p>Belki “ben” dediğimiz şey zaten o anda çalışan sistemin toplam durumudur.</p>
+<hr>
+<h2 id="bolum-8">Hafıza kaybolduğunda “ben” neden değişiyor?</h2>
+<p>Alzheimer ve diğer nörolojik hastalıklar da bu açıdan düşündürücü.</p>
+<p>Kişinin bazı geçmiş kayıtlarına ve bağlantılarına erişimi bozulduğunda yalnızca bilgi kaybolmuyor.</p>
+<p>Kendi hastalığına ilişkin farkındalığı, tercihleri, davranışları ve bazen kişiliğinin çeşitli yönleri de değişebiliyor.</p>
+<p>Bu durumda:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>ESKİ SİSTEM
+
+BELİRTİ
+   ↓
+GEÇMİŞ HASTALIK BİLGİSİ
+   ↓
+HAFIZA
+   ↓
+RİSK DEĞERLENDİRMESİ
+   ↓
+&quot;İLACIMI ALMALIYIM&quot;</code></pre>
+<p>Bağlantıların bir kısmı kaybolduğunda:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>BELİRTİ
+   ↓
+EKSİK VERİ
+   ↓
+EKSİK KARŞILAŞTIRMA
+   ↓
+&quot;SORUN YOK&quot;</code></pre>
+<p>Aynı insan.</p>
+<p>Fakat farklı erişilebilir veri.</p>
+<p>Farklı bağlantılar.</p>
+<p>Farklı çıktı.</p>
+<p>Bu durumda değişmeyen, sistemden bağımsız bir karar merkezini nerede aramalıyız?</p>
+<hr>
+<h2 id="bolum-9">“His” gerçekten ayrı bir problem mi?</h2>
+<p>Bilinç tartışmalarında sıkça şu soru soruluyor:</p>
+<blockquote><p>“Bütün nöral süreçleri açıklasak bile neden bir şey hissediyoruz?”</p></blockquote>
+<p>Ben bu sorunun kendisinin problemli olabileceğini düşünüyorum.</p>
+<p>Örneğin korkuyu ele alalım:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>TEHDİT
+  ↓
+DUYUSAL VERİ
+  ↓
+BEYİNDE TEHDİT ANALİZİ
+  ↓
+OTONOM SİSTEM
+  ↓
+KALP HIZI + KAS GERİLİMİ + HORMONLAR
+  ↓
+BEDENDEN GELEN YENİ VERİLER
+  ↓
+BEYNİN BU VERİLERİ BİRLEŞTİRMESİ
+  ↓
+&quot;KORKUYORUM&quot;</code></pre>
+<p>Buradaki son satır için neden ayrıca fiziksel süreçlerden bağımsız yeni bir şey arıyoruz?</p>
+<p>Belki “korku hissi” dediğimiz şey zaten bu devasa veri akışının sıkıştırılmış çıktısıdır.</p>
+<p>Aynı durum acı, huzur, sevgi, öfke veya kırmızı rengi görme deneyimi için de düşünülebilir.</p>
+<hr>
+<h2 id="bolum-10">Beyin devasa veriyi sıkıştırıyor olabilir</h2>
+<p>İnsan vücudunda trilyonlarca hücre bulunuyor.</p>
+<p>Bunların tamamının durumu, hormonlar, bağışıklık sistemi, mikroorganizmalar, dış çevre, sıcaklık, ışık, ses, geçmiş kayıtlar ve bunların karşılıklı etkileşimleri düşünüldüğünde
+olası fiziksel durum sayısı tahayyül edilmesi zor büyüklüklere ulaşıyor.</p>
+<p>Beynin bütün mikro durumları tek tek bilinçli biçimde takip etmesi mümkün değil.</p>
+<p>Bu nedenle sistem bilgiyi sıkıştırıyor olabilir.</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>DEVASA BİYOLOJİK DURUM UZAYI
+        ↓
+MİLYONLARCA ALT İŞLEM
+        ↓
+VERİ SIKIŞTIRMA
+        ↓
+&quot;Huzursuzum&quot;
+&quot;İyiyim&quot;
+&quot;Korkuyorum&quot;
+&quot;Güveniyorum&quot;
+&quot;İstemiyorum&quot;
+        ↓
+DAVRANIŞ</code></pre>
+<p>Belki “bilinç” dediğimiz kullanıcı arayüzü tam olarak budur.</p>
+<p>Sistemin altında olanların çok küçük bir özetini görüyoruz.</p>
+<hr>
+<h2 id="bolum-11">Kullanıcı arayüzü altyapıyı göremiyor</h2>
+<p>Bir bilgisayarın masaüstünde bir dosyaya tıklarken işlemcide gerçekleşen milyarlarca transistor değişimini görmeyiz.</p>
+<p>Ekranda sadece:</p>
+<blockquote><p>“Dosya açıldı.”</p></blockquote>
+<p>çıktısını görürüz.</p>
+<p>İnsan beyninde de benzer bir durum olabilir.</p>
+<p>Alt tarafta:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>DUYUSAL VERİLER
++
+HAFIZA
++
+NÖROTRANSMİTTERLER
++
+HORMONLAR
++
+ÖĞRENİLMİŞ BAĞLANTILAR
++
+BEDEN DURUMU
++
+SOSYAL KAYITLAR
++
+TAHMİNLER
++
+RİSK HESABI
++
+SAYISIZ ARA İŞLEM</code></pre>
+<p>çalışırken kullanıcı arayüzüne yalnızca:</p>
+<blockquote><p><strong>“Bence bunu yapmalıyım.”</strong></p></blockquote>
+<p>geliyor.</p>
+<p>Biz de bu son cümleye “bilinç” diyor olabiliriz.</p>
+<hr>
+<h2 id="bolum-12">Peki “ben” nedir?</h2>
+<p>Bu modelde “ben” sabit bir merkez olmak zorunda değil.</p>
+<p>Daha çok sürekli değişen bir durum:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>BEN(t) =
+genetik başlangıç
++ bugüne kadarki veriler
++ bağlantıların mevcut hali
++ bedenin mevcut durumu
++ o anki çevre</code></pre>
+<p>Bir saniye sonra yeni veri gelir:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>BEN(t+1) = BEN(t) + yeni veri + yeni bağlantı değişiklikleri</code></pre>
+<p>Bu nedenle “ben” sürekli güncellenir.</p>
+<p>Çok küçük değişikliklerde aynı kişi olduğumuzu düşünürüz.</p>
+<p>Fakat yeterince büyük veri veya bağlantı değişikliği meydana geldiğinde davranışlarımız, inançlarımız hatta kendimiz hakkındaki düşüncemiz değişebilir.</p>
+<hr>
+<h2 id="bolum-13">Yapay zekâ neden bu tartışmanın içine giriyor?</h2>
+<p>Yapay zekâ sistemleri açısından da benzer bir soru ortaya çıkıyor.</p>
+<p>Bir sistem:</p>
+<ul>
+<li>daha fazla veriye erişebiliyorsa,</li>
+<li>geçmiş verileri daha hızlı karşılaştırabiliyorsa,</li>
+<li>daha fazla olasılığı değerlendirebiliyorsa,</li>
+<li>hatalarını düzeltebiliyorsa,</li>
+<li>kendi önceki çıktılarından öğrenebiliyorsa,</li>
+</ul>
+<p>bazı konularda insandan daha iyi karar verebilir.</p>
+<p>O zaman soru değişiyor.</p>
+<blockquote><p>Bilinç gerçekten “insana özel bir cevher” midir?</p></blockquote>
+<p>Yoksa yüksek karmaşıklıktaki bilgi işleme sistemlerinin ürettiği bir çıktı mıdır?</p>
+<p>Eğer ikinci tanımı kabul edersek, daha gelişmiş bir veri işleme sistemi bazı alanlarda insandan daha “bilinçli” bile görünebilir.</p>
+<p>Ancak burada kullandığımız “bilinç” kelimesinin anlamını yeniden tanımlamamız gerekir.</p>
+<p>Belki doğru kavram:</p>
+<blockquote><p><strong>yüksek düzeyli bilgi işleme ve karar sistemi</strong></p></blockquote>
+<p>olmalıdır.</p>
+<hr>
+<h2 id="bolum-14">Bu yaklaşım yaratıcı düşüncesini dışlıyor mu?</h2>
+<p>Bence hayır.</p>
+<p>Bir mekanizmayı anlamaya çalışmak, o mekanizmanın yaratılmış olamayacağı anlamına gelmez.</p>
+<p>Tam tersine, insanın genetik başlangıç koşullarından sensörlerine, sinir sisteminden öğrenme kapasitesine kadar inanılmaz karmaşık bir sistem olması ayrı bir tartışmadır.</p>
+<p>Bu düşüncenin dini açıdan benim için ilginç tarafı başka.</p>
+<p>Kur’an’da insanın seçiminden söz edilirken aynı zamanda Allah’ın dilemesi, hidayeti ve dalaleti de vurgulanır.</p>
+<p>Eğer insanın kararı:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>GEÇMİŞ
++
+MARUZ KALDIĞI VERİLER
++
+KARŞILAŞTIĞI İNSANLAR
++
+YAŞADIĞI OLAYLAR
++
+MEVCUT BAĞLANTI YOLLARI
+        ↓
+SON KARAR</code></pre>
+<p>şeklinde oluşuyorsa, insanın maruz kaldığı şartlardaki değişiklikler karar yolunu da değiştirebilir.</p>
+<p>Bu açıdan ilahi iradeyi yalnızca karar anında sisteme dışarıdan “0” veya “1” yazılması gibi düşünmek zorunda değiliz.</p>
+<p>Karşılaşmaların, verilerin, fırsatların ve bütün neden-sonuç zincirinin yaratılması da karar sürecinin parçası olabilir.</p>
+<p>Bu düşünce benim dini inancımı reddetmemi gerektirmiyor.</p>
+<p>Aksine insanın ne kadar sınırlı, çevresine ne kadar bağımlı ve kendisini ne kadar az tanıyan bir varlık olabileceğini düşündürüyor.</p>
+<hr>
+<h2 id="bolum-15">Sonuç: Bilinç mi, Veri mi?</h2>
+<p>Bugün “bilincimle karar verdim” dediğimiz bir olayın altında belki şu süreç çalışıyor:</p>
+<pre tabindex="0" aria-label="Akış şeması veya kod örneği"><code>GENETİK BAŞLANGIÇ
+        ↓
+İLK MARUZİYETLER
+        ↓
+İLK BAĞLANTI YOLLARI
+        ↓
+TEKRARLAR
+        ↓
+GÜÇLENEN YOLLAR
+        ↓
+YENİ VERİLER
+        ↓
+GEÇMİŞLE KARŞILAŞTIRMA
+        ↓
+OLASI ÇIKTILAR
+        ↓
+AĞIRLIKLANDIRMA
+        ↓
+BASKIN YOL
+        ↓
+KARAR
+        ↓
+&quot;BEN KARAR VERDİM&quot;</code></pre>
+<p>Belki son kutuyu ayrı bir metafizik olay olarak görüyoruz.</p>
+<p>Halbuki o da zincirin bir parçası olabilir.</p>
+<p>İnsan beyninin olağanüstü karmaşıklığı, ortaya çıkan sonucun açıklanamaz olduğu anlamına gelmez.</p>
+<p>Tam tersine, belki açıklamanın zor olmasının nedeni sistemin olağanüstü büyüklüğüdür.</p>
+<p>Bu nedenle benim için soru artık:</p>
+<blockquote><p><strong>“Bilinç nerede?”</strong></p></blockquote>
+<p>değil.</p>
+<p>Daha çok:</p>
+<blockquote><p><strong>“Geçmiş veriler, bağlantılar, biyolojik durum ve anlık girdiler hangi yollar üzerinden birleşerek ‘ben’ dediğimiz nihai çıktıyı
+oluşturuyor?”</strong></p></blockquote>
+<p>Belki bir gün bu yollar yeterince ayrıntılı çözüldüğünde, bugün “bilinç” adını verdiğimiz gizemin önemli bir kısmının aslında <strong>veri, bağlantı ve çıktıdan</strong>
+oluştuğunu göreceğiz.</p>
+<p><strong>Bilinç mi, veri mi?</strong></p>
+<p>Benim şimdilik vardığım nokta şu:</p>
+<blockquote><p><strong>Belki de bilinç dediğimiz şey, verinin kendisini yorumlayan sistemde bıraktığı en karmaşık çıktıdır.</strong></p></blockquote>
+</div>
+<p><a href="/makaleler.html">← Tüm makalelere dön</a></p>
+</article>
+</div></main>
+<footer>
+<div class="footer-wrap">
+<div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
+<ul class="footer-links">
+<li><a href="/gizlilik-politikasi.html">Gizlilik Politikası</a></li>
+<li><a href="/cerez-politikasi.html">Çerez Aydınlatma Metni</a></li>
+<li><a href="/kullanim-sartlari.html">Kullanım Şartları</a></li>
+<li><a href="/hakkimizda.html">Hakkımızda</a></li>
+<li><a href="/iletisim.html">İletişim</a></li>
+</ul>
+</div>
+</footer>
+</body>
+</html>
