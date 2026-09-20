@@ -9,7 +9,7 @@
   {href:'/elektrik.html',label:'Elektrik'},
   {href:'/oyunlar.html',label:'Oyunlar'},
   {href:'/gidalar.html',label:'Gıdalar'},
-  {href:'/makaleler.html',label:'Makaleler'}
+  {href:'/yazilarim.html',label:'Makaleler'}
  ];
  const normalize=path=>path.replace(/\/+$/,'').replace(/\.html$/,'').replace(/^\/index$/,'')||'/';
  function initialize(){
