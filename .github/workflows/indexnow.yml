@@ -1,0 +1,40 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - '.github/workflows/indexnow.yml'
+      - '7f4c8d2e91b6430aa58f24d7c3e6b190.txt'
+  workflow_dispatch:
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Submit URLs to IndexNow
+        shell: bash
+        run: |
+          KEY="7f4c8d2e91b6430aa58f24d7c3e6b190"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            FILES=$(find . -type f -name '*.html' -not -path './.git/*' | sed 's#^./##')
+          else
+            BEFORE="${{ github.event.before }}"
+            AFTER="${{ github.sha }}"
+            if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              FILES=$(find . -type f -name '*.html' -not -path './.git/*' | sed 's#^./##')
+            else
+              FILES=$(git diff --name-only "$BEFORE" "$AFTER" -- '*.html')
+            fi
+          fi
+          [ -z "$FILES" ] && exit 0
+          URLS=$(printf '%s\n' "$FILES" | while IFS= read -r f; do
+            [ "$f" = "index.html" ] && echo "https://nesel.tr/" || echo "https://nesel.tr/$f"
+          done | jq -R . | jq -s .)
+          PAYLOAD=$(jq -n --arg host "nesel.tr" --arg key "$KEY" --arg keyLocation "https://nesel.tr/$KEY.txt" --argjson urlList "$URLS" \
+            '{host:$host,key:$key,keyLocation:$keyLocation,urlList:$urlList}')
+          curl -fsS -X POST "https://api.indexnow.org/indexnow" -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD"
