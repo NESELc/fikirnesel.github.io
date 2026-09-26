@@ -486,7 +486,7 @@ var tumVeri=[];
 
 async function veriYukle(){
   try {
-    const url="https://script.google.com/macros/s/AKfycbzwPXMtL657ud1Ydq4k2p2sArDQjIIiU85TnuWuFfH3aQhRYTaIpGKyquTzmi5qFbEl/exec";
+    const url="https://script.google.com/macros/s/AKfycbzWRkuSxydLo2rGWtI13m6FtURNWuOHD547EKMqZTUc-ZQ7AAM6_MixK_NEL1l68d5R/exec";
     const response=await fetch(url,{signal:AbortSignal.timeout(15000)});
     if(!response.ok) throw new Error("Fiyat servisine ulaşılamadı");
     const data=await response.json();
