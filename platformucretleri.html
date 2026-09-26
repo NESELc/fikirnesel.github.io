@@ -223,13 +223,14 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
   if(!Array.isArray(data)||!data.length)throw Error("Fiyat listesi boş");
   const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
   const norm=v=>String(v??"").trim(),key=v=>norm(v).toLocaleLowerCase("tr-TR");
-  const iconMap=[
-    [/youtube/,"youtube"],[/netflix/,"netflix"],[/spotify/,"spotify"],[/disney/,"disneyplus"],[/apple|icloud/,"apple"],[/amazon|prime/,"amazonprime"],
-    [/chatgpt|openai/,"openai"],[/gemini|google one|google/,"google"],[/claude|anthropic/,"anthropic"],[/max|hbo/,"hbo"],[/mubi/,"mubi"],[/twitch/,"twitch"]
+  const domainMap=[
+    [/youtube/,"youtube.com"],[/netflix/,"netflix.com"],[/spotify/,"spotify.com"],[/disney/,"disneyplus.com"],[/apple|icloud/,"apple.com"],
+    [/amazon|prime/,"amazon.com"],[/chatgpt|openai/,"openai.com"],[/gemini|google one|google/,"google.com"],[/claude|anthropic/,"anthropic.com"],
+    [/max|hbo/,"max.com"],[/mubi/,"mubi.com"],[/exxen/,"exxen.com"],[/gain/,"gain.tv"],[/tabii/,"tabii.com"],[/tv\+/,"tvplus.com.tr"],[/supergrok|grok/,"x.ai"]
   ];
   const logo=service=>{
-    const hit=iconMap.find(([re])=>re.test(key(service))),initial=esc(norm(service).slice(0,1).toUpperCase()||"?");
-    return hit?`<img class="servis-logo" src="https://cdn.simpleicons.org/${hit[1]}/111827" alt="" loading="lazy" decoding="async">`:
+    const hit=domainMap.find(([re])=>re.test(key(service))),initial=esc(norm(service).slice(0,1).toUpperCase()||"?");
+    return hit?`<img class="servis-logo" src="https://www.google.com/s2/favicons?sz=64&domain=${hit[1]}" alt="" loading="lazy" decoding="async">`:
       `<span class="servis-logo-fallback" aria-hidden="true">${initial}</span>`;
   };
   const groups=[],byService=new Map();
