@@ -95,6 +95,9 @@ footer {
 }
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
+.kategori-filtre{display:flex;align-items:center;gap:10px;padding:12px;border-bottom:1px solid var(--line);font-size:13px}
+.kategori-filtre select{max-width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--txt)}
+.kategori-hucre{font-size:12px;min-width:115px}
 </style>
   <link rel="stylesheet" href="/inc/site-quality.css">
   <script defer src="/inc/site-quality.js"></script>
@@ -227,7 +230,7 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
   const norm=v=>String(v??"").trim(),key=v=>norm(v).toLocaleLowerCase("tr-TR");
   const domainMap=[
     [/youtube/,"youtube.com"],[/netflix/,"netflix.com"],[/spotify/,"spotify.com"],[/disney/,"disneyplus.com"],[/apple|icloud/,"apple.com"],
-    [/amazon|prime/,"amazon.com"],[/chatgpt|openai/,"openai.com"],[/gemini|google one|google/,"google.com"],[/claude|anthropic/,"anthropic.com"],
+    [/amazon|prime/,"amazon.com"],[/chatgpt|openai/,"openai.com"],[/gemini|google one|google/,"google.com"],[/claude|anthropic/,"claude.ai"],[/canva/,"canva.com"],[/microsoft\s*365|office\s*365/,"microsoft.com"],
     [/max|hbo/,"max.com"],[/mubi/,"mubi.com"],[/exxen/,"exxen.com"],[/gain/,"gain.tv"],[/tabii/,"tabii.com"],[/tv\+/,"tvplus.com.tr"],[/supergrok|grok/,"x.ai"]
   ];
   const logo=service=>{
@@ -237,14 +240,33 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
     return hit?`<img class="servis-logo" src="https://www.google.com/s2/favicons?sz=64&domain=${hit[1]}" alt="" loading="lazy" decoding="async">`:
       `<span class="servis-logo-fallback" aria-hidden="true">${initial}</span>`;
   };
-  const groups=[],byService=new Map();
-  data.forEach(row=>{const k=key(row["Servis"]);if(!byService.has(k)){const g={service:norm(row["Servis"]),rows:[]};byService.set(k,g);groups.push(g);}byService.get(k).rows.push(row);});
-  let html=`<table class="abonelik-tablo"><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Aylık Fiyat</th><th>Not</th></tr></thead><tbody>`;
-  groups.forEach(group=>group.rows.forEach((row,i)=>{
-    html+=`<tr>${i===0?`<td class="servis-hucre" rowspan="${group.rows.length}"><div class="servis-etiket">${logo(group.service)}<span class="servis-adi">${esc(group.service)}</span></div></td>`:""}<td>${esc(row["Plan"])}</td><td class="fiyat">${esc(row["Fiyat"])}</td><td>${esc(row["Not"])}</td></tr>`;
-  }));
-  html+=`</tbody></table>`;
-  document.getElementById("abonelik-tablo").innerHTML=html;
+  const category=row=>norm(row["Kategori"])||"Diğer";
+  const host=document.getElementById("abonelik-tablo");
+  const categories=[...new Set(data.map(category))].sort((a,b)=>a.localeCompare(b,"tr"));
+  const filter=document.createElement("div");filter.className="kategori-filtre";
+  filter.innerHTML='<label for="abonelik-kategori">Kategori</label><select id="abonelik-kategori"><option value="">Tüm kategoriler</option></select>';
+  const select=filter.querySelector("select");categories.forEach(c=>{const option=document.createElement("option");option.value=c;option.textContent=c;select.append(option);});
+  host.before(filter);
+  const render=()=>{
+    const rows=data.filter(row=>!select.value||category(row)===select.value),groups=[],byService=new Map();
+    rows.forEach(row=>{
+      const k=key(row["Servis"]);if(!byService.has(k)){const g={service:norm(row["Servis"]),rows:[]};byService.set(k,g);groups.push(g);}
+      byService.get(k).rows.push(row);
+    });
+    let html='<table class="abonelik-tablo"><thead><tr><th scope="col">Servis</th><th scope="col">Plan</th>';
+    html+='<th scope="col" class="fiyat">Aylık Fiyat</th><th scope="col">Not</th><th scope="col">Kategori</th></tr></thead><tbody>';
+    groups.forEach(group=>group.rows.forEach((row,i)=>{
+      html+='<tr>';
+      if(i===0){
+        html+='<td class="servis-hucre" rowspan="'+group.rows.length+'"><div class="servis-etiket">'+logo(group.service);
+        html+='<span class="servis-adi">'+esc(group.service)+'</span></div></td>';
+      }
+      html+='<td>'+esc(row["Plan"])+'</td><td class="fiyat">'+esc(row["Fiyat"])+'</td>';
+      html+='<td>'+esc(row["Not"])+'</td><td class="kategori-hucre">'+esc(category(row))+'</td></tr>';
+    }));
+    host.innerHTML=html+'</tbody></table>';
+  };
+  select.addEventListener("change",render);render();
 }).catch(()=>{document.getElementById("abonelik-tablo").innerHTML='<p class="load-status" role="status">Fiyat servisine şu anda ulaşılamıyor. Aşağıdaki karşılaştırma rehberini ve resmî platform bağlantılarını kullanabilirsiniz. Sayfayı yenileyerek tekrar deneyebilirsiniz.</p>';});
 </script>
 </body>
