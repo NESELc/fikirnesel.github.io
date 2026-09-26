@@ -218,7 +218,7 @@ const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcF
 fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fiyat servisine ulaşılamadı");return r.json();}).then(data=>{
   if(!Array.isArray(data)||!data.length)throw Error("Fiyat listesi boş");
   const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-  let html=`<table class="abonelik-tablo"><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Fiyat (₺)</th><th>Not</th></tr></thead><tbody>`;
+  let html=`<table class="abonelik-tablo"><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Aylık Fiyat</th><th>Not</th></tr></thead><tbody>`;
   data.forEach(row => {
     html+=`<tr><td>${esc(row["Servis"])}</td><td>${esc(row["Plan"])}</td><td class="fiyat">${esc(row["Fiyat"])}</td><td>${esc(row["Not"])}</td></tr>`;
   });
