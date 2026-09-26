@@ -55,7 +55,7 @@ main{padding-top:var(--ustH)}
 .abonelik-tablo thead th{background:#f8fafc;padding:12px;border-bottom:2px solid var(--line);text-align:left;color:var(--txt)}
 .abonelik-tablo td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted)}
 .abonelik-tablo td.servis-hucre{width:170px;vertical-align:middle;background:#fff;color:var(--txt);font-weight:700;border-right:1px solid var(--line)}
-.servis-etiket{display:flex;align-items:center;gap:9px;min-width:0}.servis-logo{width:24px;height:24px;min-width:24px;object-fit:contain}
+.servis-etiket{display:flex;align-items:center;gap:9px;min-width:0}.servis-logo{width:24px;height:24px;min-width:24px;object-fit:contain}.servis-logo-genis{width:34px;min-width:34px}
 .servis-logo-fallback{width:24px;height:24px;min-width:24px;border-radius:6px;background:#e2e8f0;color:#334155;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
 .servis-adi{overflow-wrap:anywhere}
 .abonelik-tablo td.fiyat{text-align:right;font-weight:700;color:var(--txt)}
@@ -229,7 +229,9 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
     [/max|hbo/,"max.com"],[/mubi/,"mubi.com"],[/exxen/,"exxen.com"],[/gain/,"gain.tv"],[/tabii/,"tabii.com"],[/tv\+/,"tvplus.com.tr"],[/supergrok|grok/,"x.ai"]
   ];
   const logo=service=>{
-    const hit=domainMap.find(([re])=>re.test(key(service))),initial=esc(norm(service).slice(0,1).toUpperCase()||"?");
+    const k=key(service),initial=esc(norm(service).slice(0,1).toUpperCase()||"?");
+    if(/mubi/.test(k))return '<img class="servis-logo servis-logo-genis" src="https://mubi.com/MUBI-logo.png" alt="" loading="lazy" decoding="async">';
+    const hit=domainMap.find(([re])=>re.test(k));
     return hit?`<img class="servis-logo" src="https://www.google.com/s2/favicons?sz=64&domain=${hit[1]}" alt="" loading="lazy" decoding="async">`:
       `<span class="servis-logo-fallback" aria-hidden="true">${initial}</span>`;
   };
