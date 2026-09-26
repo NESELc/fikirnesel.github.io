@@ -54,6 +54,10 @@ main{padding-top:var(--ustH)}
 .abonelik-tablo{width:100%;border-collapse:collapse;font-size:13px}
 .abonelik-tablo thead th{background:#f8fafc;padding:12px;border-bottom:2px solid var(--line);text-align:left;color:var(--txt)}
 .abonelik-tablo td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted)}
+.abonelik-tablo td.servis-hucre{width:170px;vertical-align:middle;background:#fff;color:var(--txt);font-weight:700;border-right:1px solid var(--line)}
+.servis-etiket{display:flex;align-items:center;gap:9px;min-width:0}.servis-logo{width:24px;height:24px;min-width:24px;object-fit:contain}
+.servis-logo-fallback{width:24px;height:24px;min-width:24px;border-radius:6px;background:#e2e8f0;color:#334155;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.servis-adi{overflow-wrap:anywhere}
 .abonelik-tablo td.fiyat{text-align:right;font-weight:700;color:var(--txt)}
 .abonelik-tablo tr:last-child td{border-bottom:0}
 
@@ -218,10 +222,22 @@ const URL="https://script.google.com/macros/s/AKfycbyJLGGQVMjVCgKsuKaSSJNKpFxLcF
 fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fiyat servisine ulaşılamadı");return r.json();}).then(data=>{
   if(!Array.isArray(data)||!data.length)throw Error("Fiyat listesi boş");
   const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+  const norm=v=>String(v??"").trim(),key=v=>norm(v).toLocaleLowerCase("tr-TR");
+  const iconMap=[
+    [/youtube/,"youtube"],[/netflix/,"netflix"],[/spotify/,"spotify"],[/disney/,"disneyplus"],[/apple|icloud/,"apple"],[/amazon|prime/,"amazonprime"],
+    [/chatgpt|openai/,"openai"],[/gemini|google one|google/,"google"],[/claude|anthropic/,"anthropic"],[/max|hbo/,"hbo"],[/mubi/,"mubi"],[/twitch/,"twitch"]
+  ];
+  const logo=service=>{
+    const hit=iconMap.find(([re])=>re.test(key(service))),initial=esc(norm(service).slice(0,1).toUpperCase()||"?");
+    return hit?`<img class="servis-logo" src="https://cdn.simpleicons.org/${hit[1]}/111827" alt="" loading="lazy" decoding="async">`:
+      `<span class="servis-logo-fallback" aria-hidden="true">${initial}</span>`;
+  };
+  const groups=[],byService=new Map();
+  data.forEach(row=>{const k=key(row["Servis"]);if(!byService.has(k)){const g={service:norm(row["Servis"]),rows:[]};byService.set(k,g);groups.push(g);}byService.get(k).rows.push(row);});
   let html=`<table class="abonelik-tablo"><thead><tr><th>Servis</th><th>Plan</th><th class="fiyat">Aylık Fiyat</th><th>Not</th></tr></thead><tbody>`;
-  data.forEach(row => {
-    html+=`<tr><td>${esc(row["Servis"])}</td><td>${esc(row["Plan"])}</td><td class="fiyat">${esc(row["Fiyat"])}</td><td>${esc(row["Not"])}</td></tr>`;
-  });
+  groups.forEach(group=>group.rows.forEach((row,i)=>{
+    html+=`<tr>${i===0?`<td class="servis-hucre" rowspan="${group.rows.length}"><div class="servis-etiket">${logo(group.service)}<span class="servis-adi">${esc(group.service)}</span></div></td>`:""}<td>${esc(row["Plan"])}</td><td class="fiyat">${esc(row["Fiyat"])}</td><td>${esc(row["Not"])}</td></tr>`;
+  }));
   html+=`</tbody></table>`;
   document.getElementById("abonelik-tablo").innerHTML=html;
 }).catch(()=>{document.getElementById("abonelik-tablo").innerHTML='<p class="load-status" role="status">Fiyat servisine şu anda ulaşılamıyor. Aşağıdaki karşılaştırma rehberini ve resmî platform bağlantılarını kullanabilirsiniz. Sayfayı yenileyerek tekrar deneyebilirsiniz.</p>';});
