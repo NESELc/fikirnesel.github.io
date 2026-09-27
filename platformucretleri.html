@@ -230,7 +230,7 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
   const norm=v=>String(v??"").trim(),key=v=>norm(v).toLocaleLowerCase("tr-TR");
   const domainMap=[
     [/youtube/,"youtube.com"],[/netflix/,"netflix.com"],[/spotify/,"spotify.com"],[/disney/,"disneyplus.com"],[/apple|icloud/,"apple.com"],
-    [/amazon|prime/,"amazon.com"],[/chatgpt|openai/,"openai.com"],[/gemini|google one|google/,"google.com"],[/claude|anthropic/,"claude.ai"],[/canva/,"canva.com"],[/microsoft\s*365|office\s*365/,"microsoft.com"],
+    [/amazon|prime/,"amazon.com"],[/chatgpt|openai/,"openai.com"],[/gemini|google one|google/,"google.com"],[/claude|anthropic/,"claude.ai"],[/canva/,"canva.com"],[/microsoft\s*365|office\s*365|onedrive/,"microsoft.com"],[/dropbox/,"dropbox.com"],[/proton\s*drive/,"proton.me"],
     [/max|hbo/,"max.com"],[/mubi/,"mubi.com"],[/exxen/,"exxen.com"],[/gain/,"gain.tv"],[/tabii/,"tabii.com"],[/tv\+/,"tvplus.com.tr"],[/supergrok|grok/,"x.ai"]
   ];
   const logo=service=>{
