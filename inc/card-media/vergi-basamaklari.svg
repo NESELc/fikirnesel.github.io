@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 156" fill="none">
+<rect width="232" height="156" rx="18" fill="#f5f3ff"/>
+<circle cx="57" cy="59" r="32" fill="#ede9fe"/>
+<text x="57" y="75" text-anchor="middle" font-family="Arial,sans-serif" font-size="48" fill="#6d28d9">₺</text>
+<path d="M28 130h176" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round"/>
+<rect x="100" y="96" width="27" height="32" rx="4" fill="#c4b5fd"/>
+<rect x="138" y="69" width="27" height="59" rx="4" fill="#a78bfa"/>
+<rect x="176" y="35" width="27" height="93" rx="4" fill="#7c3aed"/>
+</svg>
