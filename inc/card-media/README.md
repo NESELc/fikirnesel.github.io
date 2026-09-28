@@ -22,3 +22,5 @@ Use case: product-mockup. Wide editorial website thumbnail. Realistic modern sin
 ### battery
 Use case: scientific-educational. Edit the Baghdad Battery illustrative reconstruction into a clean cutaway view. Keep the warm ivory background, terracotta and copper material style, soft museum lighting. Replace separate disassembled components with ONE assembled terracotta jar shown in three-quarter cutaway: front quarter of ceramic wall removed so its thickness is visible, an upright hollow copper cylinder INSIDE the jar, copper cylinder also cut away in front to reveal a single central dark iron rod, dark bitumen stopper at the narrow neck around the rod. Rod and copper separated by a clearly visible gap. Closed copper base resting inside the jar. Entire jar visible with breathing room. No liquid, no wires, no sparks, no modern battery, no labels, no text, no watermark. Historically inspired conceptual reconstruction, not archival evidence. Landscape 3:2 framing.
 
+
+Elektrik kartında elektrik-trafo.webp kullanılır: kullanıcı tarafından sağlanan fotoğraf, oranı korunarak WebP biçimine dönüştürüldü. Önceki sayaç görselinin yerini alır.
