@@ -143,6 +143,16 @@
     .ozellik-item .etiket { font-size: 11px; color: var(--muted); }
     .ozellik-item .deger { font-size: 12px; font-weight: 600; color: var(--txt); }
 
+    .arac-kart-header{flex-wrap:wrap}
+    .arac-kart-gorsel{flex:0 0 200px;margin:0;max-width:100%}
+    .arac-kart-gorsel img{display:block;width:200px;height:134px;max-width:100%;object-fit:contain;border-radius:10px}
+    .arac-kart-meta{min-width:180px}
+    .platform-logolari{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 14px}
+    .platform-logolari li{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:10px}
+    .platform-logolari img{display:block;width:26px;height:26px;object-fit:contain}
+    .platform-logolari img[alt="Prime Video"]{width:34px}
+    @media(max-width:540px){.platform-logolari{gap:6px}.platform-logolari li{width:40px;height:40px}}
+    @media(max-width:540px){.arac-kart-gorsel{flex-basis:100%}.arac-kart-gorsel img{width:240px;height:160px;margin:auto}}
     /* İKİ SÜTUN VE KÜÇÜK KARTLAR */
     .iki-sutun { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .kucuk-kart-ust { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
@@ -262,10 +272,12 @@
 
         <!-- SIFIR ARAÇ KART -->
         <article>
-          <div class="bolum-baslik">🚗 Öne Çıkan Bölüm</div>
+          <div class="bolum-baslik">Öne Çıkan Bölüm</div>
           <div class="arac-kart">
             <div class="arac-kart-header">
-              <div class="arac-kart-icon">🚗</div>
+              <figure class="arac-kart-gorsel">
+                <img src="/inc/peugeot-e2008.jpg" alt="Peugeot E-2008" width="360" height="240" decoding="async">
+              </figure>
               <div class="arac-kart-meta">
                 <h2>Sıfır Araç Fiyatları</h2>
                 <p>39 marka, 700'den fazla modelin güncel liste ve kampanya fiyatları</p>
@@ -290,9 +302,15 @@
           <div class="iki-sutun">
             <div class="kucuk-kart">
               <div class="kucuk-kart-ust">
-                <div class="kucuk-kart-icon ic-bg-kirmizi">📺</div>
                 <h3>Platform Abonelik Ücretleri</h3>
               </div>
+              <ul class="platform-logolari" aria-label="Popüler abonelik platformları">
+                <li><img src="/inc/platform-logos/netflix.svg" alt="Netflix" width="26" height="26" loading="lazy" decoding="async"></li>
+                <li><img src="/inc/platform-logos/youtube.svg" alt="YouTube Premium" width="26" height="26" loading="lazy" decoding="async"></li>
+                <li><img src="/inc/platform-logos/spotify.svg" alt="Spotify" width="26" height="26" loading="lazy" decoding="async"></li>
+                <li><img src="/inc/platform-logos/openai.svg" alt="ChatGPT" width="26" height="26" loading="lazy" decoding="async"></li>
+                <li><img src="/inc/platform-logos/primevideo.svg" alt="Prime Video" width="26" height="26" loading="lazy" decoding="async"></li>
+              </ul>
               <p>Popüler dijital platformların ve abonelik servislerinin güncel aylık paket ücretlerini karşılaştırın.</p>
               <a href="/platformucretleri.html" class="kucuk-kart-link">Tüm platformları gör →</a>
             </div>
