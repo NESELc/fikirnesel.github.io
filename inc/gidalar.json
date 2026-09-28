@@ -2037,117 +2037,278 @@
     {
       "id": "bagirsak-duzeni",
       "ad": "Bağırsak düzeni",
-      "uyari": "Uzun süren ishal/kabızlık, kanama, kilo kaybı veya gece uykudan uyandıran şikayetlerde doktora başvurun."
+      "uyari": "Uzun süren ishal/kabızlık, kanama, kilo kaybı veya gece uykudan uyandıran şikayetlerde doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "kaynakli_kayit_var",
+        "not": "Doğrudan kaynakta birlikte kullanım örneği bulundu. Aşağıdaki kapsam ve uyarılar geçerlidir.",
+        "kaynak": "Cambridge University Hospitals NHS — Improving bowel function in constipation",
+        "url": "https://www.cuh.nhs.uk/patient-information/improving-bowel-function-in-constipation/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "bagisiklik-destegi",
       "ad": "Bağışıklık desteği",
-      "uyari": "Bu başlık hastalık tedavisi değildir; dengeli beslenme, uyku ve tıbbi takip esastır."
+      "uyari": "Bu başlık hastalık tedavisi değildir; dengeli beslenme, uyku ve tıbbi takip esastır.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Bağışıklık desteği için mevcut gıdalardan oluşan belirli bir karışımı doğrulayamadık. Genel dengeli beslenme bilgisi, karışımın hastalığı önlediği anlamına gelmez.",
+        "kaynak": "NHS Cornwall — Eating well after COVID-19",
+        "url": "https://cios.icb.nhs.uk/health/nutrition/eating-well-after-covid-19/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "balgam",
       "ad": "Balgam",
-      "uyari": "Kanlı balgam, nefes darlığı, göğüs ağrısı, yüksek ateş veya uzun süren şikayette doktora başvurun."
+      "uyari": "Kanlı balgam, nefes darlığı, göğüs ağrısı, yüksek ateş veya uzun süren şikayette doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Balgama yönelik belirli bir gıda karışımı doğrulanmadı. Öksürük için verilen bir içecek, balgam söktürücü karışım olarak kabul edilmez.",
+        "kaynak": "NHS — Chest infection",
+        "url": "https://www.nhs.uk/conditions/chest-infection/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "bas-agrisi",
       "ad": "Baş ağrısı",
-      "uyari": "Ani, çok şiddetli, görme/konuşma bozukluğu, uyuşma veya travma varsa acil tıbbi destek alın."
+      "uyari": "Ani, çok şiddetli, görme/konuşma bozukluğu, uyuşma veya travma varsa acil tıbbi destek alın.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Baş ağrısı için listedeki gıdalardan belirli bir karışımı doğrulayamadık.",
+        "kaynak": "NHS — Headaches",
+        "url": "https://www.nhs.uk/symptoms/headaches/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "bogaz-agrisi",
       "ad": "Boğaz ağrısı",
-      "uyari": "Yüksek ateş, nefes alma güçlüğü, yutamama veya 3 günden uzun süren şikayette doktora başvurun."
+      "uyari": "Yüksek ateş, nefes alma güçlüğü, yutamama veya 3 günden uzun süren şikayette doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "kaynakli_kayit_var",
+        "not": "Doğrudan kaynakta birlikte kullanım örneği bulundu. Aşağıdaki kapsam ve uyarılar geçerlidir.",
+        "kaynak": "NHS — Common cold",
+        "url": "https://www.nhs.uk/conditions/common-cold/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "bogaz-yanmasi",
       "ad": "Boğaz yanması",
-      "uyari": "Reflü, alerji, enfeksiyon veya tahriş kaynaklı olabilir; uzun sürerse veya nefes/yutma güçlüğü varsa doktora başvurun."
+      "uyari": "Reflü, alerji, enfeksiyon veya tahriş kaynaklı olabilir; uzun sürerse veya nefes/yutma güçlüğü varsa doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Bu başlık için belirli bir gıda karışımı doğrulanmadı. Boğaz ağrısı için bal–limon kaydı reflü/yanma için kullanılmaz.",
+        "kaynak": "NHS — Heartburn and acid reflux",
+        "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "burun-tikanikligi",
       "ad": "Burun tıkanıklığı",
-      "uyari": "Uzun süren tıkanıklık, yüz ağrısı, yüksek ateş veya nefes alma güçlüğünde tıbbi değerlendirme gerekir."
+      "uyari": "Uzun süren tıkanıklık, yüz ağrısı, yüksek ateş veya nefes alma güçlüğünde tıbbi değerlendirme gerekir.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Burun yıkama çözeltileri içilen gıda karışımı değildir; bu listeye eklenmedi.",
+        "kaynak": "NHS — Common cold",
+        "url": "https://www.nhs.uk/conditions/common-cold/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "gaz-siskinlik",
       "ad": "Gaz / Şişkinlik",
-      "uyari": "Şiddetli karın ağrısı, kusma, kanama, kilo kaybı veya uzun süren şişkinlikte doktora başvurun."
+      "uyari": "Şiddetli karın ağrısı, kusma, kanama, kilo kaybı veya uzun süren şişkinlikte doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "kaynakli_kayit_var",
+        "not": "Doğrudan kaynakta birlikte kullanım örneği bulundu. Aşağıdaki kapsam ve uyarılar geçerlidir.",
+        "kaynak": "University Hospitals Sussex NHS — Irritable bowel syndrome",
+        "url": "https://www.uhsussex.nhs.uk/wp-content/uploads/2024/11/2442-Irritable-bowel-syndrome-2024.pdf#page=7",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "halsizlik",
       "ad": "Halsizlik",
-      "uyari": "Ani, şiddetli veya uzun süren halsizlikte; ateş, kilo kaybı, nefes darlığı veya çarpıntı varsa tıbbi değerlendirme gerekir."
+      "uyari": "Ani, şiddetli veya uzun süren halsizlikte; ateş, kilo kaybı, nefes darlığı veya çarpıntı varsa tıbbi değerlendirme gerekir.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Bu belirti için belirli bir gıda karışımı doğrulanmadı. Hastalığa veya yetersiz beslenmeye özel tarifler genel halsizlik/yorgunluk önerisi olarak aktarılmadı.",
+        "kaynak": "NHS — Tiredness and fatigue",
+        "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "hazimsizlik",
       "ad": "Hazımsızlık",
-      "uyari": "Göğüs ağrısı, kilo kaybı, yutma güçlüğü veya uzun süren şikayette doktora başvurun."
+      "uyari": "Göğüs ağrısı, kilo kaybı, yutma güçlüğü veya uzun süren şikayette doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Mevcut mutfak gıdalarıyla hazırlanacak belirli bir karışım doğrulanmadı. EMA bitkisel ilaç çaylarının tür, bitki kısmı ve formül koşulları ev tarifine genellenmedi.",
+        "kaynak": "EMA — Species digestivae",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-digestivae",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "ishal",
       "ad": "İshal",
-      "uyari": "Kanlı ishal, ateş, sıvı kaybı, bebek/yaşlı hasta veya 2 günden uzun sürme durumunda doktora başvurun."
+      "uyari": "Kanlı ishal, ateş, sıvı kaybı, bebek/yaşlı hasta veya 2 günden uzun sürme durumunda doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "İshal için listemizdeki gıdalardan bir karışımı doğrulayamadık. Oral rehidrasyon ürünleri gıda karışımı olarak sunulmaz.",
+        "kaynak": "NHS — Diarrhoea and vomiting",
+        "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "kabizlik",
       "ad": "Kabızlık",
-      "uyari": "Şiddetli karın ağrısı, kanama, kusma veya uzun süre dışkılayamama varsa doktora başvurun."
+      "uyari": "Şiddetli karın ağrısı, kanama, kusma veya uzun süre dışkılayamama varsa doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "kaynakli_kayit_var",
+        "not": "Doğrudan kaynakta birlikte kullanım örneği bulundu. Aşağıdaki kapsam ve uyarılar geçerlidir.",
+        "kaynak": "Cambridge University Hospitals NHS — Improving bowel function in constipation",
+        "url": "https://www.cuh.nhs.uk/patient-information/improving-bowel-function-in-constipation/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "kan-sekeri-dengesi",
       "ad": "Kan şekeri dengesi",
-      "uyari": "Diyabet veya hipoglisemi şüphesi varsa gıda önerisi yerine hekim takibi ve ölçüm esas alınmalıdır."
+      "uyari": "Diyabet veya hipoglisemi şüphesi varsa gıda önerisi yerine hekim takibi ve ölçüm esas alınmalıdır.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Kan şekeri kontrolü için belirli bir gıda karışımı doğrulanmadı; takviye araştırmaları mutfak tarifinin etkinliğini doğrulamaz.",
+        "kaynak": "NIH NCCIH — Diabetes and Dietary Supplements",
+        "url": "https://www.nccih.nih.gov/health/diabetes-and-dietary-supplements-what-you-need-to-know",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "karin-agrisi",
       "ad": "Karın ağrısı",
-      "uyari": "Ani, şiddetli, sağ alt karın ağrısı, ateş, kusma, kanama veya gebelik şüphesi varsa acil destek alın."
+      "uyari": "Ani, şiddetli, sağ alt karın ağrısı, ateş, kusma, kanama veya gebelik şüphesi varsa acil destek alın.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Nedeni bilinmeyen karın ağrısına karışım eklenmedi; nedeni değerlendirilmelidir.",
+        "kaynak": "NHS — Stomach ache",
+        "url": "https://www.nhs.uk/symptoms/stomach-ache/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "mide-bulantisi",
       "ad": "Mide bulantısı",
-      "uyari": "Sürekli kusma, kan, ateş, gebelik veya sıvı kaybında doktora başvurun."
+      "uyari": "Sürekli kusma, kan, ateş, gebelik veya sıvı kaybında doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "NHS zencefil veya nane çayını ayrı seçenekler olarak verir. Bu bilgi zencefil + nane + limon karışımını doğrulamaz.",
+        "kaynak": "NHS — Feeling sick (nausea)",
+        "url": "https://www.nhs.uk/symptoms/feeling-sick-nausea/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "mide-yanmasi",
       "ad": "Mide yanması",
-      "uyari": "Sık tekrarlayan yanma, yutma güçlüğü, kilo kaybı veya göğüs ağrısı varsa doktora başvurun."
+      "uyari": "Sık tekrarlayan yanma, yutma güçlüğü, kilo kaybı veya göğüs ağrısı varsa doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Bu başlık için belirli bir gıda karışımı doğrulanmadı. Boğaz ağrısı için bal–limon kaydı reflü/yanma için kullanılmaz.",
+        "kaynak": "NHS — Heartburn and acid reflux",
+        "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "nefes-sorunu",
       "ad": "Nefes sorunu",
-      "uyari": "Nefes darlığı acil belirti olabilir; gıda önerisi yerine tıbbi destek alın."
+      "uyari": "Nefes darlığı acil belirti olabilir; gıda önerisi yerine tıbbi destek alın.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Nefes darlığına gıda karışımı önerilmez; şiddetli solunum güçlüğünde Türkiye’de 112 aranmalıdır.",
+        "kaynak": "NHS — Shortness of breath",
+        "url": "https://www.nhs.uk/symptoms/shortness-of-breath/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "oksuruk",
       "ad": "Öksürük",
-      "uyari": "Nefes darlığı, kanlı balgam, göğüs ağrısı veya uzun süren öksürükte doktora başvurun."
+      "uyari": "Nefes darlığı, kanlı balgam, göğüs ağrısı veya uzun süren öksürükte doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "kaynakli_kayit_var",
+        "not": "Doğrudan kaynakta birlikte kullanım örneği bulundu. Aşağıdaki kapsam ve uyarılar geçerlidir.",
+        "kaynak": "NHS — Cough",
+        "url": "https://www.nhs.uk/symptoms/cough/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "reflu",
       "ad": "Reflü",
-      "uyari": "Sık tekrarlayan reflü, yutma güçlüğü, kilo kaybı veya gece öksürüğü varsa doktora başvurun."
+      "uyari": "Sık tekrarlayan reflü, yutma güçlüğü, kilo kaybı veya gece öksürüğü varsa doktora başvurun.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Bu başlık için belirli bir gıda karışımı doğrulanmadı. Boğaz ağrısı için bal–limon kaydı reflü/yanma için kullanılmaz.",
+        "kaynak": "NHS — Heartburn and acid reflux",
+        "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "stres-gerginlik",
       "ad": "Stres / Gerginlik",
-      "uyari": "Yoğun kaygı, panik, uyku/işlev kaybı veya kendine zarar düşüncesi varsa profesyonel destek alın."
+      "uyari": "Yoğun kaygı, panik, uyku/işlev kaybı veya kendine zarar düşüncesi varsa profesyonel destek alın.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Mevcut gıda listesiyle belirli bir karışım doğrulanmadı. EMA’nın bitkisel ilaç çayı değerlendirmesi papatya + bal tarifini desteklemek için kullanılmadı.",
+        "kaynak": "EMA — Species sedativae",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-sedativae",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "uyku-sorunu",
       "ad": "Uyku sorunu",
-      "uyari": "Uzun süren uyku sorunu, gündüz işlev kaybı, horlama/nefes durması veya psikolojik belirti varsa uzman desteği alın."
+      "uyari": "Uzun süren uyku sorunu, gündüz işlev kaybı, horlama/nefes durması veya psikolojik belirti varsa uzman desteği alın.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Mevcut gıda listesiyle belirli bir karışım doğrulanmadı. EMA’nın bitkisel ilaç çayı değerlendirmesi papatya + bal tarifini desteklemek için kullanılmadı.",
+        "kaynak": "EMA — Species sedativae",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-sedativae",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "uykusuzluk",
       "ad": "Uykusuzluk",
-      "uyari": "Uzun süren uykusuzluk, gündüz işlev kaybı veya ilaç/psikolojik durum eşlik ediyorsa uzman desteği alın."
+      "uyari": "Uzun süren uykusuzluk, gündüz işlev kaybı veya ilaç/psikolojik durum eşlik ediyorsa uzman desteği alın.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Mevcut gıda listesiyle belirli bir karışım doğrulanmadı. EMA’nın bitkisel ilaç çayı değerlendirmesi papatya + bal tarifini desteklemek için kullanılmadı.",
+        "kaynak": "EMA — Species sedativae",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-sedativae",
+        "kontrol_tarihi": "2026-09-28"
+      }
     },
     {
       "id": "yorgunluk",
       "ad": "Yorgunluk",
-      "uyari": "Uzun süren, ani başlayan veya kilo kaybı/nefes darlığıyla birlikte olan yorgunlukta tıbbi değerlendirme gerekir."
+      "uyari": "Uzun süren, ani başlayan veya kilo kaybı/nefes darlığıyla birlikte olan yorgunlukta tıbbi değerlendirme gerekir.",
+      "karisim_incelemesi": {
+        "durum": "dogrulanamadi",
+        "not": "Bu belirti için belirli bir gıda karışımı doğrulanmadı. Hastalığa veya yetersiz beslenmeye özel tarifler genel halsizlik/yorgunluk önerisi olarak aktarılmadı.",
+        "kaynak": "NHS — Tiredness and fatigue",
+        "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/",
+        "kontrol_tarihi": "2026-09-28"
+      }
     }
   ],
   "eslesmeler": [
@@ -2888,7 +3049,9 @@
       "sikayet_id": "bogaz-agrisi",
       "baslik": "Adaçayı + Bal",
       "etki": "Boğaz ferahlığı için geleneksel kullanım vardır; hamilelik/emzirme ve çocuklarda dikkat.",
-      "kanit": "Geleneksel"
+      "kanit": "Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-8",
@@ -2899,7 +3062,9 @@
       "sikayet_id": "bogaz-agrisi",
       "baslik": "Adaçayı + Kekik",
       "etki": "Aromatik bitki karışımı olarak boğaz ferahlığı amacıyla geleneksel kullanılır; yüksek miktarda tüketilmemeli.",
-      "kanit": "Geleneksel"
+      "kanit": "Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-33",
@@ -2908,9 +3073,17 @@
         "limon"
       ],
       "sikayet_id": "oksuruk",
-      "baslik": "Bal + Limon",
-      "etki": "Boğazı yumuşatma ve sıvı alımını destekleme amacıyla kullanılır; 1 yaş altına bal verilmez.",
-      "kanit": "Sınırlı"
+      "baslik": "Bal + Limon (ılık içecek)",
+      "etki": "NHS öksürük öz bakımında bu içeceğe yer verir; faydasına ilişkin kanıtın sınırlı olduğunu belirtir.",
+      "kanit": "Resmî hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Öksürüğü rahatlatmaya yönelik öz bakım; nedeni tedavi ettiği anlamına gelmez.",
+      "hazirlama": "NHS tarifi: bir kupa kaynatılmış suya yarım limonun suyu ve 1–2 çay kaşığı bal eklenir; içecek ılıdıktan sonra içilir.",
+      "dikkat": "1 yaş altına bal verilmez. Küçük çocuklara sıcak içecek verilmez. Bileşen alerjisi varsa kullanmayın; diyabette balın şeker içeriğini hesaba katın.",
+      "kaynak": "NHS — Cough",
+      "url": "https://www.nhs.uk/symptoms/cough/",
+      "kaynak_bolumu": "How you can treat a cough yourself / How to make a hot lemon and honey drink",
+      "kontrol_tarihi": "2026-09-28"
     },
     {
       "id": "karisim-1",
@@ -2922,7 +3095,9 @@
       "sikayet_id": "bagisiklik-destegi",
       "baslik": "Brokoli + Sarımsak + Yoğurt",
       "etki": "Mikro besin, fermente gıda ve farklı fitokimyasal desteği olan beslenme kombinasyonudur.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-4",
@@ -2933,7 +3108,9 @@
       "sikayet_id": "bagisiklik-destegi",
       "baslik": "Çörek otu + Bal",
       "etki": "Geleneksel kullanımı vardır; bağışıklık tedavisi değildir, bal için yaş ve şeker uyarısı geçerlidir.",
-      "kanit": "Sınırlı/Geleneksel"
+      "kanit": "Sınırlı/Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-12",
@@ -2944,7 +3121,9 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Dereotu + Yoğurt",
       "etki": "Yoğurtlu ferah bir karışım olarak sindirim sonrası hafiflik hissini destekleyebilir.",
-      "kanit": "Genel besin/Geleneksel"
+      "kanit": "Genel besin/Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-20",
@@ -2955,7 +3134,9 @@
       "sikayet_id": "kabizlik",
       "baslik": "Elma + Yulaf",
       "etki": "Pektin ve beta-glukan gibi lifler nedeniyle beslenme desteği sağlar.",
-      "kanit": "Orta"
+      "kanit": "Orta",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-29",
@@ -2967,7 +3148,9 @@
       "sikayet_id": "yorgunluk",
       "baslik": "Fındık + Badem + Antep fıstığı",
       "etki": "Sağlıklı yağ, protein ve mineral desteği sağlar; kalori yüksek olduğu için porsiyon küçük tutulmalı.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-34",
@@ -2978,7 +3161,9 @@
       "sikayet_id": "oksuruk",
       "baslik": "Ihlamur + Bal",
       "etki": "Sıcak içecek ve boğaz yumuşatma etkisi beklentisiyle geleneksel kullanılır.",
-      "kanit": "Geleneksel"
+      "kanit": "Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-9",
@@ -2990,7 +3175,9 @@
       "sikayet_id": "bogaz-agrisi",
       "baslik": "Ihlamur + Bal + Limon",
       "etki": "Sıcak içecek, boğaz yumuşatma ve sıvı alımını destekleme amacıyla geleneksel kullanılır.",
-      "kanit": "Geleneksel/Sınırlı"
+      "kanit": "Geleneksel/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-30",
@@ -3001,7 +3188,9 @@
       "sikayet_id": "yorgunluk",
       "baslik": "Kabak çekirdeği + Yoğurt",
       "etki": "Protein, çinko/magnezyum ve fermente gıda desteği sağlar; tuzlu çekirdek tercih edilmemeli.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-31",
@@ -3013,7 +3202,9 @@
       "sikayet_id": "yorgunluk",
       "baslik": "Kaju + Badem + Ay çekirdeği",
       "etki": "Magnezyum, E vitamini ve sağlıklı yağ desteği sağlar; kuruyemiş alerjisinde uygun değildir.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-10",
@@ -3024,7 +3215,9 @@
       "sikayet_id": "bogaz-agrisi",
       "baslik": "Kekik + Bal",
       "etki": "Boğaz ferahlığı ve boğaz yumuşatma amacıyla geleneksel kullanılır; tedavi yerine geçmez.",
-      "kanit": "Geleneksel/Sınırlı"
+      "kanit": "Geleneksel/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-11",
@@ -3036,7 +3229,9 @@
       "sikayet_id": "bogaz-agrisi",
       "baslik": "Kekik + Limon + Bal",
       "etki": "Sıcak içecek formunda boğaz yumuşatma, sıvı alımı ve ferahlık sağlayabilir.",
-      "kanit": "Geleneksel/Sınırlı"
+      "kanit": "Geleneksel/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-35",
@@ -3047,7 +3242,9 @@
       "sikayet_id": "oksuruk",
       "baslik": "Kekik + Nane",
       "etki": "Aromatik ferahlık sağlayabilir; öksürük uzarsa veya nefes darlığı varsa tıbbi değerlendirme gerekir.",
-      "kanit": "Geleneksel"
+      "kanit": "Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-22",
@@ -3058,7 +3255,9 @@
       "sikayet_id": "kabizlik",
       "baslik": "Keten tohumu + Kefir",
       "etki": "Lif ve fermente içecek desteğiyle bağırsak düzenine yardımcı olabilir; su alımı önemlidir.",
-      "kanit": "Genel besin/Sınırlı"
+      "kanit": "Genel besin/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-21",
@@ -3068,8 +3267,16 @@
       ],
       "sikayet_id": "kabizlik",
       "baslik": "Keten tohumu + Yoğurt",
-      "etki": "Lif ve fermente gıda desteği sağlar; bol suyla tüketilmelidir.",
-      "kanit": "Genel besin/Sınırlı"
+      "etki": "CUH kabızlık rehberi keten tohumunun yoğurda eklenebileceğini açıkça belirtir.",
+      "kanit": "Resmî hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Kabızlıkta lif alımına yönelik beslenme örneği; karışımın ayrı bir tedavi etkisi gösterilmiş değildir.",
+      "hazirlama": "Keten tohumu hazırlanmış yoğurda eklenebilir. Miktar ve sıvı alımı kişisel duruma göre değerlendirilmelidir.",
+      "dikkat": "Lifi kademeli artırın ve yeterli sıvı alın. Süt alerjisi, sıvı kısıtlaması veya bağırsak hastalığınız varsa önce sağlık uzmanına danışın.",
+      "kaynak": "Cambridge University Hospitals NHS — Improving bowel function in constipation",
+      "url": "https://www.cuh.nhs.uk/patient-information/improving-bowel-function-in-constipation/",
+      "kaynak_bolumu": "Linseeds/Flaxseeds",
+      "kontrol_tarihi": "2026-09-28"
     },
     {
       "id": "karisim-13",
@@ -3080,7 +3287,9 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Kimyon + Yoğurt",
       "etki": "Yemek sonrası gaz/şişkinlik hissinde geleneksel kullanım ve fermente gıda desteği sağlar.",
-      "kanit": "Geleneksel/Genel besin"
+      "kanit": "Geleneksel/Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-5",
@@ -3091,7 +3300,9 @@
       "sikayet_id": "bas-agrisi",
       "baslik": "Limon + Nane",
       "etki": "Doğrudan güçlü kanıt yoktur; ferahlık ve sıvı alımını destekleyebilir.",
-      "kanit": "Bilinmiyor"
+      "kanit": "Bilinmiyor",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-2",
@@ -3103,7 +3314,9 @@
       "sikayet_id": "bagisiklik-destegi",
       "baslik": "Limon + Zencefil + Bal",
       "etki": "C vitamini, sıcak içecek ve geleneksel rahatlatıcı kullanım sağlar; hastalık tedavisi değildir.",
-      "kanit": "Geleneksel/Sınırlı"
+      "kanit": "Geleneksel/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-3",
@@ -3114,7 +3327,9 @@
       "sikayet_id": "bagisiklik-destegi",
       "baslik": "Maydanoz + Limon",
       "etki": "C vitamini ve yeşillik tüketimini artırır; hastalık tedavisi değildir.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-19",
@@ -3125,7 +3340,9 @@
       "sikayet_id": "ishal",
       "baslik": "Muz + Yoğurt",
       "etki": "Yumuşak gıda ve fermente süt desteği olabilir; sıvı kaybı ve hijyen kritik önemdedir.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-27",
@@ -3136,7 +3353,9 @@
       "sikayet_id": "nefes-sorunu",
       "baslik": "Nane + Limon",
       "etki": "Nefes sorunu için öneri değildir. Bu belirti acil olabilir; tıbbi destek önceliklidir.",
-      "kanit": "Uyarı"
+      "kanit": "Uyarı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-15",
@@ -3147,7 +3366,9 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Nane + Rezene",
       "etki": "Ferahlık ve sindirim sonrası rahatlık hissi sağlayabilir; reflüsü olanlarda nane rahatsız edebilir.",
-      "kanit": "Sınırlı/Geleneksel"
+      "kanit": "Sınırlı/Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-14",
@@ -3158,7 +3379,9 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Nane + Yoğurt",
       "etki": "Ferahlık ve fermente gıda desteği sağlar; reflüsü olanlarda nane rahatsız edebilir.",
-      "kanit": "Sınırlı"
+      "kanit": "Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-28",
@@ -3169,7 +3392,9 @@
       "sikayet_id": "uykusuzluk",
       "baslik": "Papatya + Bal",
       "etki": "Sıcak içecek rutini ve gevşeme amacıyla geleneksel kullanılır; kesin uyku tedavisi değildir.",
-      "kanit": "Sınırlı/Geleneksel"
+      "kanit": "Sınırlı/Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-16",
@@ -3180,7 +3405,9 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Rezene + Anason",
       "etki": "Geleneksel olarak gaz/şişkinlik sonrası rahatlama amacıyla kullanılan aromatik tohum karışımıdır.",
-      "kanit": "Geleneksel/Sınırlı"
+      "kanit": "Geleneksel/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-24",
@@ -3191,7 +3418,9 @@
       "sikayet_id": "mide-bulantisi",
       "baslik": "Rezene + Zencefil",
       "etki": "Geleneksel sindirim ferahlığı ve zencefilin bulantı desteği birlikte düşünülebilir; kesin tedavi değildir.",
-      "kanit": "Sınırlı/Geleneksel"
+      "kanit": "Sınırlı/Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-17",
@@ -3202,7 +3431,9 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Sumak + Yoğurt",
       "etki": "Ekşi aromasıyla ferah bir yoğurt karışımıdır; kesin tedavi etkisi beklenmemelidir.",
-      "kanit": "Genel besin/Geleneksel"
+      "kanit": "Genel besin/Geleneksel",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-32",
@@ -3213,7 +3444,9 @@
       "sikayet_id": "yorgunluk",
       "baslik": "Yeşil Çay + Badem",
       "etki": "Kafein ve enerji desteği sağlar; uykusuzluk veya tansiyon sorunu olanlarda dikkat.",
-      "kanit": "Genel besin"
+      "kanit": "Genel besin",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-6",
@@ -3224,7 +3457,9 @@
       "sikayet_id": "bas-agrisi",
       "baslik": "Yeşil Çay + Limon",
       "etki": "Kafein bazı kişilerde baş ağrısı algısını değiştirebilir; migren/uykusuzlukta ters etki yapabilir.",
-      "kanit": "Bilinmiyor"
+      "kanit": "Bilinmiyor",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-23",
@@ -3236,7 +3471,9 @@
       "sikayet_id": "kabizlik",
       "baslik": "Yulaf + Kefir + Kivi",
       "etki": "Lif, sıvı ve fermente gıda desteğiyle bağırsak düzenini destekleyebilir.",
-      "kanit": "Sınırlı-Orta"
+      "kanit": "Sınırlı-Orta",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-36",
@@ -3248,7 +3485,9 @@
       "sikayet_id": "oksuruk",
       "baslik": "Zencefil + Kekik + Bal",
       "etki": "Sıcak içecek olarak boğaz yumuşatma ve aromatik ferahlık sağlayabilir; ilaç etkileşimlerine dikkat.",
-      "kanit": "Geleneksel/Sınırlı"
+      "kanit": "Geleneksel/Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-25",
@@ -3260,7 +3499,9 @@
       "sikayet_id": "mide-bulantisi",
       "baslik": "Zencefil + Limon + Nane",
       "etki": "Geleneksel olarak mide rahatlatma ve ferahlık amacıyla kullanılan bir kombinasyondur; tıbbi tedavi yerine geçmez.",
-      "kanit": "Sınırlı-Orta"
+      "kanit": "Sınırlı-Orta",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-26",
@@ -3271,7 +3512,9 @@
       "sikayet_id": "mide-bulantisi",
       "baslik": "Zencefil + Muz",
       "etki": "Zencefil bulantı desteği, muz ise yumuşak/kolay tüketilen gıda olarak seçilebilir.",
-      "kanit": "Sınırlı"
+      "kanit": "Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
     },
     {
       "id": "karisim-18",
@@ -3283,7 +3526,66 @@
       "sikayet_id": "hazimsizlik",
       "baslik": "Zerdeçal + Zencefil + Limon",
       "etki": "Baharat hassasiyeti olanlarda mideyi rahatsız edebilir; düşük miktar ve kişisel tolerans önemlidir.",
-      "kanit": "Sınırlı"
+      "kanit": "Sınırlı",
+      "dogrulama": "beklemede",
+      "dogrulama_notu": "Bu karışımın bu şikâyet için birlikte kullanımını destekleyen doğrudan resmî kaynak henüz doğrulanmadı; öneri listesinde gösterilmez."
+    },
+    {
+      "id": "karisim-resmi-bogaz",
+      "gidalar": [
+        "bal",
+        "limon"
+      ],
+      "sikayet_id": "bogaz-agrisi",
+      "baslik": "Bal + Limon (ılık içecek)",
+      "etki": "NHS soğuk algınlığına eşlik eden boğaz ağrısında bu içeceği rahatlatıcı öz bakım seçeneği olarak belirtir.",
+      "kanit": "Resmî hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Soğuk algınlığına bağlı boğaz ağrısı; reflü kaynaklı yanmaya genellenmez.",
+      "hazirlama": "NHS tarifi: bir kupa kaynatılmış suya yarım limonun suyu ve 1–2 çay kaşığı bal eklenir; içecek ılıdıktan sonra içilir.",
+      "dikkat": "1 yaş altına bal verilmez. Küçük çocuklara sıcak içecek verilmez. Bileşen alerjisi varsa kullanmayın; diyabette balın şeker içeriğini hesaba katın.",
+      "kaynak": "NHS — Common cold",
+      "url": "https://www.nhs.uk/conditions/common-cold/",
+      "kaynak_bolumu": "How you can treat a cold yourself",
+      "kontrol_tarihi": "2026-09-28"
+    },
+    {
+      "id": "karisim-resmi-bagirsak",
+      "gidalar": [
+        "keten-tohumu",
+        "yogurt"
+      ],
+      "sikayet_id": "bagirsak-duzeni",
+      "baslik": "Keten tohumu + Yoğurt (kabızlık durumunda)",
+      "etki": "Kabızlığa yönelik resmî rehberde keten tohumu için yoğurtla birlikte tüketim örneği bulunur.",
+      "kanit": "Resmî hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Yalnız kabızlıkla ilişkili bağırsak düzeni için; ishal veya nedeni bilinmeyen bağırsak değişikliği için genel öneri değildir.",
+      "hazirlama": "Keten tohumu yoğurda eklenebilir; lif artışı ve yeterli sıvı birlikte değerlendirilir.",
+      "dikkat": "Lifi kademeli artırın ve yeterli sıvı alın. Süt alerjisi, sıvı kısıtlaması veya bağırsak hastalığınız varsa önce sağlık uzmanına danışın.",
+      "kaynak": "Cambridge University Hospitals NHS — Improving bowel function in constipation",
+      "url": "https://www.cuh.nhs.uk/patient-information/improving-bowel-function-in-constipation/",
+      "kaynak_bolumu": "Linseeds/Flaxseeds",
+      "kontrol_tarihi": "2026-09-28"
+    },
+    {
+      "id": "karisim-resmi-gaz",
+      "gidalar": [
+        "keten-tohumu",
+        "yogurt"
+      ],
+      "sikayet_id": "gaz-siskinlik",
+      "baslik": "Keten tohumu + Yoğurt (IBS kapsamında)",
+      "etki": "Sussex NHS IBS rehberi keten tohumunu gaz ve şişkinlik için ele alır; yoğurda karıştırmayı tüketim örneği olarak verir.",
+      "kanit": "Resmî hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "IBS tanısı olan kişiler için hazırlanmış rehber; her gaz/şişkinlik nedenine uygulanmaz.",
+      "hazirlama": "Rehberde keten tohumunun yoğurda eklenmesi ve her yemek kaşığı için 150 ml sıvıyla alınması belirtilir. Kişisel uygunluk için diyetisyen görüşü alınmalıdır.",
+      "dikkat": "Lifi kademeli artırın ve yeterli sıvı alın. Süt alerjisi, sıvı kısıtlaması veya bağırsak hastalığınız varsa önce sağlık uzmanına danışın. Laktoz yakınmaları artırabilir; belirtiler kötüleşirse sürdürmeyin.",
+      "kaynak": "University Hospitals Sussex NHS — Irritable bowel syndrome",
+      "url": "https://www.uhsussex.nhs.uk/wp-content/uploads/2024/11/2442-Irritable-bowel-syndrome-2024.pdf#page=7",
+      "kaynak_bolumu": "Sayfa 7: Linseeds",
+      "kontrol_tarihi": "2026-09-28"
     }
   ]
 }
