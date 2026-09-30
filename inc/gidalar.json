@@ -3586,6 +3586,216 @@
       "url": "https://www.uhsussex.nhs.uk/wp-content/uploads/2024/11/2442-Irritable-bowel-syndrome-2024.pdf#page=7",
       "kaynak_bolumu": "Sayfa 7: Linseeds",
       "kontrol_tarihi": "2026-09-28"
+    },
+    {
+      "id": "geleneksel-tr-cacik",
+      "gidalar": [
+        "yogurt",
+        "salatalik",
+        "sarimsak"
+      ],
+      "baslik": "Cacık — Yoğurt + Salatalık + Sarımsak",
+      "etki": "Kültür Portalı'ndaki Ankara Yemlik Cacığı tarifinde bu bileşenler birlikte kullanılır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Türkiye · Ankara",
+      "kapsam": "Geleneksel mutfakta birlikte kullanım örneği; tedavi veya sağlık önerisi değildir.",
+      "hazirlama": "Kaynak tarifte yoğurt, salatalık ve sarımsak aynı hazırlamada yer alır; kart tam tarifi temsil etmez.",
+      "dikkat": "Süt veya sarımsak hassasiyeti olanlar kendi toleransına göre değerlendirmelidir.",
+      "kaynak": "T.C. Kültür ve Turizm Bakanlığı Kültür Portalı — Yemlik Cacığı",
+      "url": "https://www.kulturportali.gov.tr/turkiye/ankara/neyenir/yemlik-cacigi",
+      "kaynak_bolumu": "Malzemeler ve hazırlanışı",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-tr-coban",
+      "gidalar": [
+        "domates",
+        "salatalik",
+        "biber"
+      ],
+      "baslik": "Çoban Salata — Domates + Salatalık + Biber",
+      "etki": "Kültür Portalı'ndaki Kilis Çoban Salata tarifinde bu sebzeler birlikte kullanılır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Türkiye · Kilis",
+      "kapsam": "Geleneksel salata bileşimi; sağlık amacıyla öneri değildir.",
+      "hazirlama": "Kaynak tarifte domates, salatalık ve biber aynı salatada yer alır; kart tam tarifi göstermez.",
+      "dikkat": "Reflü veya çiğ sebze hassasiyetinde kişisel tolerans değişebilir.",
+      "kaynak": "T.C. Kültür ve Turizm Bakanlığı Kültür Portalı — Çoban Salata",
+      "url": "https://www.kulturportali.gov.tr/turkiye/kilis/neyenir/coban-salata",
+      "kaynak_bolumu": "Malzemeler ve hazırlanışı",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-tr-ezme",
+      "gidalar": [
+        "domates",
+        "maydanoz",
+        "sarimsak"
+      ],
+      "baslik": "Acılı Ezme — Domates + Maydanoz + Sarımsak",
+      "etki": "Kültür Portalı'ndaki Adana Acılı Ezme tarifinde bu bileşenler aynı hazırlamada bulunur.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Türkiye · Adana",
+      "kapsam": "Geleneksel meze içindeki birlikte kullanım örneği; kart tam tarif değildir.",
+      "hazirlama": "Kaynak tarifte domates, maydanoz ve sarımsak diğer bileşenlerle birlikte kullanılır.",
+      "dikkat": "Acı, sarımsak ve asitli eşlikçiler reflü veya mide hassasiyetini artırabilir.",
+      "kaynak": "T.C. Kültür ve Turizm Bakanlığı Kültür Portalı — Acılı Ezme",
+      "url": "https://www.kulturportali.gov.tr/turkiye/adana/neyenir/acili-ezme",
+      "kaynak_bolumu": "Malzemeler ve hazırlanışı",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-tr-patlatma",
+      "gidalar": [
+        "patlican",
+        "sogan",
+        "maydanoz"
+      ],
+      "baslik": "Patlatma — Patlıcan + Soğan + Maydanoz",
+      "etki": "Kültür Portalı'ndaki Ankara Patlatma tarifinde bu üç bileşen birlikte kullanılır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Türkiye · Ankara",
+      "kapsam": "Geleneksel sebze yemeğindeki bileşen eşleşmesi; sağlık önerisi değildir.",
+      "hazirlama": "Kaynak tarifte közlenmiş patlıcan, soğan ve maydanoz diğer malzemelerle karıştırılır.",
+      "dikkat": "Soğan veya baharat hassasiyetinde miktar kişisel toleransa göre ayarlanmalıdır.",
+      "kaynak": "T.C. Kültür ve Turizm Bakanlığı Kültür Portalı — Patlatma",
+      "url": "https://www.kulturportali.gov.tr/turkiye/ankara/neyenir/patlatma",
+      "kaynak_bolumu": "Malzemeler ve hazırlanışı",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-tr-semizotu",
+      "gidalar": [
+        "semizotu",
+        "yogurt",
+        "sarimsak"
+      ],
+      "baslik": "Yoğurtlu Semizotu — Semizotu + Yoğurt + Sarımsak",
+      "etki": "Kültür Portalı'ndaki Aksaray Yoğurtlu Temizlik Otu tarifinde semizotu, yoğurt ve sarımsak birlikte kullanılır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Türkiye · Aksaray",
+      "kapsam": "Yöresel yemekte birlikte kullanım örneği; tedavi veya sağlık önerisi değildir.",
+      "hazirlama": "Kaynak tarifte yoğurda sarımsak eklenir ve semizotuyla birleştirilir.",
+      "dikkat": "Süt veya sarımsak hassasiyetinde uygun olmayabilir.",
+      "kaynak": "T.C. Kültür ve Turizm Bakanlığı Kültür Portalı — Yoğurtlu Temizlik Otu",
+      "url": "https://www.kulturportali.gov.tr/turkiye/aksaray/neyenir/yogurtlu-temizlik-otu-",
+      "kaynak_bolumu": "Malzemeler ve hazırlanışı",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-tr-fasulye",
+      "gidalar": [
+        "fasulye",
+        "sogan",
+        "maydanoz"
+      ],
+      "baslik": "Fasulye Salatası — Fasulye + Soğan + Maydanoz",
+      "etki": "Kültür Portalı'ndaki Bitlis Fasulye Salatası tarifinde bu bileşenler birlikte kullanılır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Türkiye · Bitlis",
+      "kapsam": "Geleneksel salata içindeki birlikte kullanım örneği; sağlık önerisi değildir.",
+      "hazirlama": "Kaynak tarifte haşlanmış fasulye, kuru soğan ve maydanoz diğer sebzelerle karıştırılır.",
+      "dikkat": "Baklagiller bazı kişilerde gaz ve şişkinliği artırabilir.",
+      "kaynak": "T.C. Kültür ve Turizm Bakanlığı Kültür Portalı — Fasulye Salatası",
+      "url": "https://www.kulturportali.gov.tr/turkiye/bitlis/neyenir/fasulye-salatasi",
+      "kaynak_bolumu": "Malzemeler ve hazırlanışı",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-gr-tzatziki",
+      "gidalar": [
+        "yogurt",
+        "salatalik",
+        "dereotu"
+      ],
+      "baslik": "Tzatziki — Yoğurt + Salatalık + Dereotu",
+      "etki": "Yunanistan'ın resmî turizm sitesindeki tzatziki tarifinde yoğurt, salatalık ve dereotu birlikte yer alır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Avrupa · Yunanistan",
+      "kapsam": "Geleneksel sos/meze bileşimi; sağlık amacıyla öneri değildir.",
+      "hazirlama": "Kaynak tarifte salatalık ve yoğurt temel karışım olarak hazırlanır, dereotu ile tamamlanır.",
+      "dikkat": "Süt ürünlerine hassasiyette uygun olmayabilir.",
+      "kaynak": "Visit Greece — Tzatziki",
+      "url": "https://www.visitgreece.gr/en/experiences/leisure/shopping/tzatziki",
+      "kaynak_bolumu": "Preparation",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-es-gazpacho",
+      "gidalar": [
+        "domates",
+        "biber",
+        "sarimsak"
+      ],
+      "baslik": "Gazpacho — Domates + Biber + Sarımsak",
+      "etki": "İspanya'nın resmî turizm sitesindeki gazpacho tarifinde bu bileşenler aynı hazırlamada yer alır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Avrupa · İspanya",
+      "kapsam": "Geleneksel soğuk çorbadaki bileşen eşleşmesi; kart tam tarif değildir.",
+      "hazirlama": "Kaynak tarifte domates, yeşil biber ve sarımsak diğer malzemelerle birlikte ezilir.",
+      "dikkat": "Sarımsak ve çiğ sebzeler reflü veya hassas bağırsakta rahatsızlık oluşturabilir.",
+      "kaynak": "Spain.info — Gazpacho",
+      "url": "https://www.spain.info/en/recipe/gazpacho/",
+      "kaynak_bolumu": "Ingredients / Preparation",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-fr-ratatouille",
+      "gidalar": [
+        "kabak",
+        "patlican",
+        "domates"
+      ],
+      "baslik": "Ratatouille — Kabak + Patlıcan + Domates",
+      "etki": "Fransa'nın resmî turizm sitesinde ratatouille için kabak, patlıcan ve domatesin birlikte kullanıldığı belirtilir.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Avrupa · Fransa",
+      "kapsam": "Geleneksel sebze yemeğindeki temel bileşen eşleşmesi; kart tam tarif değildir.",
+      "hazirlama": "Kaynak, ratatouille'in kabak, patlıcan, domates ve soğan gibi yerel sebzeleri birleştirdiğini belirtir.",
+      "dikkat": "Hazırlama biçimi, yağ ve tuz miktarı tarife göre değişir.",
+      "kaynak": "France.fr — Cuisine of the French Riviera",
+      "url": "https://www.france.fr/en/article/discover-cuisine-french-riviera/",
+      "kaynak_bolumu": "Niçoise Cuisine / ratatouille",
+      "kontrol_tarihi": "2026-09-30"
+    },
+    {
+      "id": "geleneksel-it-pesto",
+      "gidalar": [
+        "feslegen",
+        "cam-fistigi",
+        "sarimsak"
+      ],
+      "baslik": "Pesto Genovese — Fesleğen + Çam Fıstığı + Sarımsak",
+      "etki": "İtalya'nın resmî turizm sitesindeki Pesto Genovese tarifinde fesleğen, çam fıstığı ve sarımsak birlikte yer alır.",
+      "kanit": "Geleneksel mutfak kaydı; sağlık etkisi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "tur": "geleneksel",
+      "bolge": "Avrupa · İtalya / Ligurya",
+      "kapsam": "Geleneksel sos içindeki bileşen eşleşmesi; kart tam pesto tarifi değildir.",
+      "hazirlama": "Kaynak tarifte fesleğen, çam fıstığı ve sarımsak peynir, tuz ve zeytinyağıyla birlikte hazırlanır.",
+      "dikkat": "Kuruyemiş alerjisinde çam fıstığı uygun değildir; kaynak tarif ayrıca süt ürünü içerir.",
+      "kaynak": "Italia.it — Pesto Genovese",
+      "url": "https://www.italia.it/en/liguria/things-to-do/pesto-genovese",
+      "kaynak_bolumu": "The Traditional Recipe",
+      "kontrol_tarihi": "2026-09-30"
     }
   ]
 }
