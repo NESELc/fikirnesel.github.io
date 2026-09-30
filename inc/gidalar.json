@@ -2051,11 +2051,11 @@
       "ad": "Bağışıklık desteği",
       "uyari": "Bu başlık hastalık tedavisi değildir; dengeli beslenme, uyku ve tıbbi takip esastır.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Bağışıklık desteği için mevcut gıdalardan oluşan belirli bir karışımı doğrulayamadık. Genel dengeli beslenme bilgisi, karışımın hastalığı önlediği anlamına gelmez.",
-        "kaynak": "NHS Cornwall — Eating well after COVID-19",
-        "url": "https://cios.icb.nhs.uk/health/nutrition/eating-well-after-covid-19/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Kapadokya Üniversitesi — Bağışıklık Sistemini Destekleyici Beslenme Önerileri",
+        "url": "https://blog.kapadokya.edu.tr/akademik/beslenme-ve-diyetetik/bagisiklik-sistemini-destekleyici-beslenme-onerileri",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2063,11 +2063,11 @@
       "ad": "Balgam",
       "uyari": "Kanlı balgam, nefes darlığı, göğüs ağrısı, yüksek ateş veya uzun süren şikayette doktora başvurun.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Balgama yönelik belirli bir gıda karışımı doğrulanmadı. Öksürük için verilen bir içecek, balgam söktürücü karışım olarak kabul edilmez.",
-        "kaynak": "NHS — Chest infection",
-        "url": "https://www.nhs.uk/conditions/chest-infection/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Marmara Üniversitesi açık erişim tezi — bitkisel ürün kullanımları",
+        "url": "https://katalog.marmara.edu.tr/veriler/yordambt/cokluortam/5C/eTez024400.pdf",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2075,11 +2075,11 @@
       "ad": "Baş ağrısı",
       "uyari": "Ani, çok şiddetli, görme/konuşma bozukluğu, uyuşma veya travma varsa acil tıbbi destek alın.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Baş ağrısı için listedeki gıdalardan belirli bir karışımı doğrulayamadık.",
-        "kaynak": "NHS — Headaches",
-        "url": "https://www.nhs.uk/symptoms/headaches/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "KTÜ Farabi Hastanesi — Yaz Aylarında Migrene Dikkat",
+        "url": "https://dents.ktu.edu.tr/farabi/haber/yaz-aylarinda-migrene-dikkat",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2099,11 +2099,11 @@
       "ad": "Boğaz yanması",
       "uyari": "Reflü, alerji, enfeksiyon veya tahriş kaynaklı olabilir; uzun sürerse veya nefes/yutma güçlüğü varsa doktora başvurun.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Bu başlık için belirli bir gıda karışımı doğrulanmadı. Boğaz ağrısı için bal–limon kaydı reflü/yanma için kullanılmaz.",
-        "kaynak": "NHS — Heartburn and acid reflux",
-        "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+        "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2111,11 +2111,11 @@
       "ad": "Burun tıkanıklığı",
       "uyari": "Uzun süren tıkanıklık, yüz ağrısı, yüksek ateş veya nefes alma güçlüğünde tıbbi değerlendirme gerekir.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Burun yıkama çözeltileri içilen gıda karışımı değildir; bu listeye eklenmedi.",
-        "kaynak": "NHS — Common cold",
-        "url": "https://www.nhs.uk/conditions/common-cold/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Gazi Devlet Hastanesi — Burun Tıkanıklığı Nedenleri ve Tedavisi",
+        "url": "https://servergazidh.saglik.gov.tr/TR-930512/burun-tikanikligi-nedenleri-ve-tedavisi.html",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2135,11 +2135,11 @@
       "ad": "Halsizlik",
       "uyari": "Ani, şiddetli veya uzun süren halsizlikte; ateş, kilo kaybı, nefes darlığı veya çarpıntı varsa tıbbi değerlendirme gerekir.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Bu belirti için belirli bir gıda karışımı doğrulanmadı. Hastalığa veya yetersiz beslenmeye özel tarifler genel halsizlik/yorgunluk önerisi olarak aktarılmadı.",
-        "kaynak": "NHS — Tiredness and fatigue",
-        "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Uşak Üniversitesi — Beslenme Hizmetleri Şube Müdürlüğü",
+        "url": "https://beslenmediyet.usak.edu.tr/menu/1023",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2159,11 +2159,11 @@
       "ad": "İshal",
       "uyari": "Kanlı ishal, ateş, sıvı kaybı, bebek/yaşlı hasta veya 2 günden uzun sürme durumunda doktora başvurun.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "İshal için listemizdeki gıdalardan bir karışımı doğrulayamadık. Oral rehidrasyon ürünleri gıda karışımı olarak sunulmaz.",
-        "kaynak": "NHS — Diarrhoea and vomiting",
-        "url": "https://www.nhs.uk/symptoms/diarrhoea-and-vomiting/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Şanlıurfa İl Sağlık Müdürlüğü — Çocuklarda ishal olması durumunda neler yapılmalı",
+        "url": "https://sanliurfaism.saglik.gov.tr/TR-285944/cocuklarda-ishal-olmasi-durumunda-neler-yapilmali.html",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2195,11 +2195,11 @@
       "ad": "Karın ağrısı",
       "uyari": "Ani, şiddetli, sağ alt karın ağrısı, ateş, kusma, kanama veya gebelik şüphesi varsa acil destek alın.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Nedeni bilinmeyen karın ağrısına karışım eklenmedi; nedeni değerlendirilmelidir.",
-        "kaynak": "NHS — Stomach ache",
-        "url": "https://www.nhs.uk/symptoms/stomach-ache/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Çanakkale Onsekiz Mart Üniversitesi açık erişim tezi — geleneksel bitki kullanımları",
+        "url": "https://acikerisim.comu.edu.tr/bitstreams/960d82e0-2e23-46cf-8b4c-cf1b9dc28986/download",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2219,11 +2219,11 @@
       "ad": "Mide yanması",
       "uyari": "Sık tekrarlayan yanma, yutma güçlüğü, kilo kaybı veya göğüs ağrısı varsa doktora başvurun.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Bu başlık için belirli bir gıda karışımı doğrulanmadı. Boğaz ağrısı için bal–limon kaydı reflü/yanma için kullanılmaz.",
-        "kaynak": "NHS — Heartburn and acid reflux",
-        "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+        "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2231,11 +2231,11 @@
       "ad": "Nefes sorunu",
       "uyari": "Nefes darlığı acil belirti olabilir; gıda önerisi yerine tıbbi destek alın.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Nefes darlığına gıda karışımı önerilmez; şiddetli solunum güçlüğünde Türkiye’de 112 aranmalıdır.",
-        "kaynak": "NHS — Shortness of breath",
-        "url": "https://www.nhs.uk/symptoms/shortness-of-breath/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "University Hospitals Sussex NHS — Nutrition & COPD",
+        "url": "https://www.uhsussex.nhs.uk/resources/nutrition-chronic-obstructive-pulmonary-disease-copd/",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2255,11 +2255,11 @@
       "ad": "Reflü",
       "uyari": "Sık tekrarlayan reflü, yutma güçlüğü, kilo kaybı veya gece öksürüğü varsa doktora başvurun.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Bu başlık için belirli bir gıda karışımı doğrulanmadı. Boğaz ağrısı için bal–limon kaydı reflü/yanma için kullanılmaz.",
-        "kaynak": "NHS — Heartburn and acid reflux",
-        "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+        "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2267,11 +2267,11 @@
       "ad": "Stres / Gerginlik",
       "uyari": "Yoğun kaygı, panik, uyku/işlev kaybı veya kendine zarar düşüncesi varsa profesyonel destek alın.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Mevcut gıda listesiyle belirli bir karışım doğrulanmadı. EMA’nın bitkisel ilaç çayı değerlendirmesi papatya + bal tarifini desteklemek için kullanılmadı.",
-        "kaynak": "EMA — Species sedativae",
-        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-sedativae",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Eskişehir Osmangazi Üniversitesi — Stres ile Başetme Yolları",
+        "url": "https://web.ogu.edu.tr/zaltac/Sayfa/Index/25",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2279,11 +2279,11 @@
       "ad": "Uyku sorunu",
       "uyari": "Uzun süren uyku sorunu, gündüz işlev kaybı, horlama/nefes durması veya psikolojik belirti varsa uzman desteği alın.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Mevcut gıda listesiyle belirli bir karışım doğrulanmadı. EMA’nın bitkisel ilaç çayı değerlendirmesi papatya + bal tarifini desteklemek için kullanılmadı.",
-        "kaynak": "EMA — Species sedativae",
-        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-sedativae",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "T.C. Sağlık Bakanlığı — Hastalık Yönetim Platformu Tarama ve Takip Kılavuzu",
+        "url": "https://hsgm.saglik.gov.tr/depo/birimler/aile-hekimligi-uygulama-ve-gelistirme-db/Dokumanlar/Yonerge/Ek_Hastalik_Yonetim_Platformu_HYP_Tarama_ve_Takip_Kilavuzu_1.pdf",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2291,11 +2291,11 @@
       "ad": "Uykusuzluk",
       "uyari": "Uzun süren uykusuzluk, gündüz işlev kaybı veya ilaç/psikolojik durum eşlik ediyorsa uzman desteği alın.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Mevcut gıda listesiyle belirli bir karışım doğrulanmadı. EMA’nın bitkisel ilaç çayı değerlendirmesi papatya + bal tarifini desteklemek için kullanılmadı.",
-        "kaynak": "EMA — Species sedativae",
-        "url": "https://www.ema.europa.eu/en/medicines/herbal/species-sedativae",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "T.C. Sağlık Bakanlığı — Hastalık Yönetim Platformu Tarama ve Takip Kılavuzu",
+        "url": "https://hsgm.saglik.gov.tr/depo/birimler/aile-hekimligi-uygulama-ve-gelistirme-db/Dokumanlar/Yonerge/Ek_Hastalik_Yonetim_Platformu_HYP_Tarama_ve_Takip_Kilavuzu_1.pdf",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -2303,11 +2303,11 @@
       "ad": "Yorgunluk",
       "uyari": "Uzun süren, ani başlayan veya kilo kaybı/nefes darlığıyla birlikte olan yorgunlukta tıbbi değerlendirme gerekir.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Bu belirti için belirli bir gıda karışımı doğrulanmadı. Hastalığa veya yetersiz beslenmeye özel tarifler genel halsizlik/yorgunluk önerisi olarak aktarılmadı.",
-        "kaynak": "NHS — Tiredness and fatigue",
-        "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Bu başlık için kaynaklı destekleyici gıda karışımı kaydı eklendi. Kanıt düzeyi ve kapsam kartta ayrıca belirtilir.",
+        "kaynak": "Uşak Üniversitesi — Beslenme Hizmetleri Şube Müdürlüğü",
+        "url": "https://beslenmediyet.usak.edu.tr/menu/1023",
+        "kontrol_tarihi": "2026-09-30"
       }
     }
   ],
@@ -3750,6 +3750,309 @@
       "kaynak": "Ufuk Üniversitesi Dr. Rıdvan Ege Hastanesi — Diyabet Hastalığında Beslenme",
       "url": "https://hastane.ufuk.edu.tr/ufukta-saglik/diyabet-hastaliginda-beslenme-kan-sekerini-yonetmek-icin-ipuclari",
       "kaynak_bolumu": "Meyve Tüketiminde Dikkatli Olun",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-bagisiklik-yogurt-elma",
+      "gidalar": [
+        "yogurt",
+        "elma"
+      ],
+      "sikayet_id": "bagisiklik-destegi",
+      "baslik": "Yoğurt + Elma",
+      "etki": "Kapadokya Üniversitesi bağışıklığı destekleyici beslenme önerilerinde probiyotik yoğurt ile meyvenin doğal meyveli yoğurt şeklinde birleştirilebileceğini belirtir.",
+      "kanit": "Üniversite beslenme önerisi; hastalık önleme veya tedavi kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Dengeli beslenme içinde probiyotik yoğurt ve meyveyi birleştiren pratik ara öğün örneği.",
+      "hazirlama": "Sade yoğurda doğranmış elma eklenebilir. Kaynak belirli bir meyve zorunluluğu koymaz; elma evde yaygın bulunan örnek olarak seçildi.",
+      "dikkat": "Süt alerjisi/laktoz intoleransında uygun olmayabilir. 'Bağışıklık desteği' enfeksiyonu önlediği veya tedavi ettiği anlamına gelmez.",
+      "kaynak": "Kapadokya Üniversitesi — Bağışıklık Sistemini Destekleyici Beslenme Önerileri",
+      "url": "https://blog.kapadokya.edu.tr/akademik/beslenme-ve-diyetetik/bagisiklik-sistemini-destekleyici-beslenme-onerileri",
+      "kaynak_bolumu": "Doğal meyveli yoğurt önerisi",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-balgam-ihlamur-zencefil-bal",
+      "gidalar": [
+        "ihlamur",
+        "zencefil",
+        "bal"
+      ],
+      "sikayet_id": "balgam",
+      "baslik": "Ihlamur + Zencefil + Bal",
+      "etki": "Marmara Üniversitesi'nde yayımlanan bir tezde ıhlamur ve zencefilin birlikte kaynatılıp balla karıştırılmasının balgam söktürücü amaçla geleneksel kullanımına yer verilir.",
+      "kanit": "Üniversite tezinde aktarılmış geleneksel kullanım; klinik etkinlik kanıtı değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Balgamlı yakınmalarda geleneksel destekleyici kullanım kaydıdır; enfeksiyon, astım, KOAH veya zatürre tedavisi değildir.",
+      "hazirlama": "Kaynak ıhlamur ile zencefilin birlikte kaynatılıp tadı için balla karıştırılarak içildiğini aktarır; standart doz vermez.",
+      "dikkat": "1 yaş altına bal verilmez. Uzayan, kanlı, kötü kokulu balgam veya nefes darlığında tıbbi değerlendirme gerekir.",
+      "kaynak": "Marmara Üniversitesi açık erişim tezi — bitkisel ürün kullanımları",
+      "url": "https://katalog.marmara.edu.tr/veriler/yordambt/cokluortam/5C/eTez024400.pdf",
+      "kaynak_bolumu": "Ihlamur + zencefil + bal geleneksel kullanımı",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-basagrisi-zencefil-zerdecal",
+      "gidalar": [
+        "zencefil",
+        "zerdecal"
+      ],
+      "sikayet_id": "bas-agrisi",
+      "baslik": "Zencefil + Zerdeçal",
+      "etki": "Karadeniz Teknik Üniversitesi migren/baş ağrısı beslenme desteği bölümünde zencefil ve zerdeçalı destekleyici baharatlar arasında ayrı ayrı listeler.",
+      "kanit": "Üniversite sağlık bilgilendirmesinde bileşenler ayrı ayrı destekleyici olarak listelenir; karışımın ayrıca klinik kanıtı yoktur",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Baş ağrısında beslenme desteği düzeyinde pratik birlikte kullanım örneğidir; migren tedavisinin yerine geçmez.",
+      "hazirlama": "Az miktarda zencefil ve zerdeçal sıcak suya eklenerek içilebilir; kaynak iki bileşeni aynı tarifte vermediği için bu hazırlama pratik birleştirmedir.",
+      "dikkat": "Yeni, çok şiddetli, nörolojik bulgulu veya tekrarlayan baş ağrılarında tıbbi değerlendirme gerekir. Reflü/mide hassasiyetinde rahatsızlık yapabilir.",
+      "kaynak": "KTÜ Farabi Hastanesi — Yaz Aylarında Migrene Dikkat",
+      "url": "https://dents.ktu.edu.tr/farabi/haber/yaz-aylarinda-migrene-dikkat",
+      "kaynak_bolumu": "Baş Ağrısı Tedavisinde Beslenme Desteği",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-bogazyanmasi-yulaf-muz",
+      "gidalar": [
+        "yulaf",
+        "muz"
+      ],
+      "sikayet_id": "bogaz-yanmasi",
+      "baslik": "Yulaf + Muz",
+      "etki": "Rumeli Üniversitesi GERD beslenme rehberinde yulaf ezmesi ve muz tüketilebilecek besinler arasında yer alır. Reflüye bağlı boğaz yanmasında asitli/naneli karışımlar yerine daha nötr bir öğün seçeneği olarak değerlendirilebilir.",
+      "kanit": "Üniversite GERD beslenme önerisinden oluşturulmuş pratik eşleştirme; doğrudan karışım deneyi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Yalnız reflüyle ilişkili boğaz yanması için destekleyici beslenme örneği; enfeksiyon, alerji veya kimyasal tahrişe genellenmez.",
+      "hazirlama": "Yulaf su veya tolere ediliyorsa sütle hazırlanıp üzerine muz eklenebilir.",
+      "dikkat": "Boğaz yanmasının nedeni bilinmiyorsa, yutma güçlüğü veya nefes sorunu eşlik ediyorsa değerlendirme gerekir.",
+      "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+      "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+      "kaynak_bolumu": "GERD için tüketilmesi gereken yiyecekler",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-burun-zencefil-nane",
+      "gidalar": [
+        "zencefil",
+        "nane"
+      ],
+      "sikayet_id": "burun-tikanikligi",
+      "baslik": "Zencefil + Nane",
+      "etki": "Sağlık Bakanlığına bağlı Gazi Devlet Hastanesi burun tıkanıklığında zencefil ve nane gibi bitki çaylarının tüketilmesinin tıkanıklığı azaltabileceğini belirtir.",
+      "kanit": "Sağlık Bakanlığı hastane bilgilendirmesi; bileşenler aynı öneri grubunda, karışım için ayrı klinik kanıt yoktur",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Geçici burun tıkanıklığında destekleyici sıcak içecek örneği; alerji, sinüzit veya yapısal tıkanıklığın tedavisi değildir.",
+      "hazirlama": "Az miktarda zencefil ve nane sıcak suda demlenebilir. Kaynak bunları bitki çayı seçenekleri olarak verir, standart karışım dozu belirtmez.",
+      "dikkat": "Reflüde nane ve zencefil bazı kişilerde yakınmayı artırabilir. Uzun süren veya tek taraflı tıkanıklıkta KBB değerlendirmesi gerekir.",
+      "kaynak": "Gazi Devlet Hastanesi — Burun Tıkanıklığı Nedenleri ve Tedavisi",
+      "url": "https://servergazidh.saglik.gov.tr/TR-930512/burun-tikanikligi-nedenleri-ve-tedavisi.html",
+      "kaynak_bolumu": "Evde yapılabilecek yöntemler",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-halsizlik-yogurt-yulaf-badem",
+      "gidalar": [
+        "yogurt",
+        "yulaf",
+        "badem"
+      ],
+      "sikayet_id": "halsizlik",
+      "baslik": "Yoğurt + Yulaf + Badem",
+      "etki": "Uşak Üniversitesi egzersiz öncesinde enerji düşüklüğünü önlemeye yönelik olarak meyveli yoğurtlu karışıma yulaf ezmesi veya badem eklenmesini önerir.",
+      "kanit": "Üniversite beslenme önerisinde doğrudan birlikte kullanım; genel halsizlik tedavisi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Yetersiz öğün veya enerji alımıyla ilişkili günlük halsizlikte besleyici ara öğün örneği.",
+      "hazirlama": "Sade yoğurda yulaf ve bir miktar badem eklenebilir.",
+      "dikkat": "Süregelen veya belirgin halsizlik; anemi, enfeksiyon, tiroid ve başka nedenlerle ilişkili olabilir. Kuruyemiş alerjisinde kullanılmaz.",
+      "kaynak": "Uşak Üniversitesi — Beslenme Hizmetleri Şube Müdürlüğü",
+      "url": "https://beslenmediyet.usak.edu.tr/menu/1023",
+      "kaynak_bolumu": "Egzersiz öncesi beslenme seçenekleri",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-ishal-muz-yogurt",
+      "gidalar": [
+        "muz",
+        "yogurt"
+      ],
+      "sikayet_id": "ishal",
+      "baslik": "Muz + Yoğurt",
+      "etki": "Sağlık Bakanlığı kaynaklarında ishal sırasında muz ve yoğurt evde tercih edilebilecek gıdalar arasında birlikte sayılır.",
+      "kanit": "Sağlık Bakanlığı hasta bilgilendirmesinde birlikte önerilen gıdalar; özel bir karışımın klinik deneyi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Hafif ishalde tolere edilebilen beslenme örneği; temel öncelik sıvı ve elektrolit kaybının yerine konmasıdır.",
+      "hazirlama": "Muz ezilip yoğurtla birlikte küçük porsiyon halinde tüketilebilir.",
+      "dikkat": "Kanlı ishal, yüksek ateş, şiddetli karın ağrısı veya sıvı kaybında sağlık kuruluşuna başvurulmalıdır. Laktoz intoleransında yoğurt yakınmayı artırabilir.",
+      "kaynak": "Şanlıurfa İl Sağlık Müdürlüğü — Çocuklarda ishal olması durumunda neler yapılmalı",
+      "url": "https://sanliurfaism.saglik.gov.tr/TR-285944/cocuklarda-ishal-olmasi-durumunda-neler-yapilmali.html",
+      "kaynak_bolumu": "Evde neler yapılabilir",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-karinagrisi-papatya-bal",
+      "gidalar": [
+        "papatya",
+        "bal"
+      ],
+      "sikayet_id": "karin-agrisi",
+      "baslik": "Papatya + Bal",
+      "etki": "Çanakkale Onsekiz Mart Üniversitesi açık erişim çalışmasında papatyanın karın ağrısı için geleneksel kullanımına yer verilir. Bal yalnız tatlandırıcı/pratik eşlikçi olarak eklenmiştir.",
+      "kanit": "Üniversite tezinde geleneksel papatya kullanımı; balın ek faydası gösterilmiş değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Nedeni bilinen hafif ve geçici karın rahatsızlığında geleneksel destek; nedeni bilinmeyen veya şiddetli karın ağrısına öneri değildir.",
+      "hazirlama": "Papatya çayı hazırlanıp ılıdıktan sonra az miktarda bal eklenebilir.",
+      "dikkat": "Şiddetli, giderek artan, sağ alt karında yoğunlaşan ağrı, ateş, kusma veya kanama acil değerlendirme gerektirebilir. 1 yaş altına bal verilmez.",
+      "kaynak": "Çanakkale Onsekiz Mart Üniversitesi açık erişim tezi — geleneksel bitki kullanımları",
+      "url": "https://acikerisim.comu.edu.tr/bitstreams/960d82e0-2e23-46cf-8b4c-cf1b9dc28986/download",
+      "kaynak_bolumu": "Papatya — karın ağrısı için geleneksel kullanım",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-mideyanmasi-yulaf-muz",
+      "gidalar": [
+        "yulaf",
+        "muz"
+      ],
+      "sikayet_id": "mide-yanmasi",
+      "baslik": "Yulaf + Muz",
+      "etki": "Rumeli Üniversitesi GERD beslenme rehberinde yulaf ezmesi ve muz tüketilebilecek besinler arasında yer alır; asitli ve naneli seçeneklerden kaçınılması önerilir.",
+      "kanit": "Üniversite GERD beslenme önerisinden pratik eşleştirme; karışımın ayrı klinik kanıtı yoktur",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Reflü/GERD ile ilişkili mide yanmasında daha nötr bir öğün seçeneğidir.",
+      "hazirlama": "Yulaf hazırlanıp üzerine muz eklenebilir; yağ ve baharat eklenmeden küçük porsiyon tercih edilebilir.",
+      "dikkat": "Sık tekrarlayan mide yanması, yutma güçlüğü, kilo kaybı veya kanama belirtisinde tıbbi değerlendirme gerekir.",
+      "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+      "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+      "kaynak_bolumu": "GERD için tüketilmesi gereken yiyecekler",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-nefes-yogurt-yulaf-bal",
+      "gidalar": [
+        "yogurt",
+        "yulaf",
+        "bal"
+      ],
+      "sikayet_id": "nefes-sorunu",
+      "baslik": "Yoğurt + Yulaf + Bal",
+      "etki": "University Hospitals Sussex NHS COPD beslenme rehberi nefes darlığında küçük ve sık öğünleri önerir; kahvaltılık tahılların yoğurt ve bal gibi besleyici eklerle zenginleştirilebileceğini belirtir.",
+      "kanit": "NHS solunum hastalığı beslenme desteği; nefes açıcı tedavi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Kronik solunum hastalığında yemek yerken zorlanan kişiler için küçük, besleyici öğün örneği; akut nefes darlığını tedavi etmez.",
+      "hazirlama": "Küçük porsiyon yulaf, yoğurt ve az miktarda bal ile hazırlanabilir.",
+      "dikkat": "Ani veya şiddetli nefes darlığı, göğüs ağrısı, morarma veya bilinç değişikliği acildir; gıda karışımıyla beklenmemelidir. 1 yaş altına bal verilmez.",
+      "kaynak": "University Hospitals Sussex NHS — Nutrition & COPD",
+      "url": "https://www.uhsussex.nhs.uk/resources/nutrition-chronic-obstructive-pulmonary-disease-copd/",
+      "kaynak_bolumu": "Shortness of breath / Fortify your food",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Avrupa · Birleşik Krallık"
+    },
+    {
+      "id": "karisim-reflu-yulaf-muz",
+      "gidalar": [
+        "yulaf",
+        "muz"
+      ],
+      "sikayet_id": "reflu",
+      "baslik": "Yulaf + Muz",
+      "etki": "Rumeli Üniversitesi GERD beslenme rehberinde yulaf ezmesi ve muz tüketilmesi önerilen besinler arasında; nane ve turunçgiller ise kaçınılması gerekenler arasında yer alır.",
+      "kanit": "Üniversite GERD beslenme önerisinden pratik eşleştirme; karışımın ayrı klinik kanıtı yoktur",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Reflü yakınmalarında nötr, düşük irritasyonlu bir öğün seçeneği.",
+      "hazirlama": "Yulaf hazırlanıp muzla birlikte küçük porsiyon halinde tüketilebilir.",
+      "dikkat": "Kişisel tetikleyiciler değişebilir. Gece yatmadan 3–4 saat önce yemek yememek ve küçük öğünler de önemlidir.",
+      "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+      "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+      "kaynak_bolumu": "GERD için beslenme",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-stres-papatya-bal",
+      "gidalar": [
+        "papatya",
+        "bal"
+      ],
+      "sikayet_id": "stres-gerginlik",
+      "baslik": "Papatya + Bal",
+      "etki": "Eskişehir Osmangazi Üniversitesi sayfası papatya çayının sakinleştirici etkisinden söz eder. Bal burada yalnız tatlandırıcı ve pratik eşlikçi olarak kullanılır.",
+      "kanit": "Üniversite bilgilendirmesinde papatya için sakinleştirici kullanım; balın ek stres etkisi kanıtlanmış değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Hafif günlük gerginlikte rahatlatıcı sıcak içecek örneği; anksiyete bozukluğu tedavisi değildir.",
+      "hazirlama": "Papatya çayı hazırlanıp ılıdıktan sonra az miktarda bal eklenebilir.",
+      "dikkat": "Papatyagiller alerjisinde kullanılmamalıdır. Süreğen veya günlük işlevi bozan kaygıda profesyonel destek gerekir. 1 yaş altına bal verilmez.",
+      "kaynak": "Eskişehir Osmangazi Üniversitesi — Stres ile Başetme Yolları",
+      "url": "https://web.ogu.edu.tr/zaltac/Sayfa/Index/25",
+      "kaynak_bolumu": "Beslenme ve stres",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-uyku-yogurt-yulaf",
+      "gidalar": [
+        "yogurt",
+        "yulaf"
+      ],
+      "sikayet_id": "uyku-sorunu",
+      "baslik": "Yoğurt + Yulaf",
+      "etki": "Sağlık Bakanlığı Hastalık Yönetim Platformu uyku kalitesini destekleyebilecek gıdalar arasında yoğurt/süt ve yulafı ayrı ayrı listeler.",
+      "kanit": "Sağlık Bakanlığı rehberinde iki bileşen ayrı ayrı uyku destekleyici gıda olarak listelenir; karışımın ayrı klinik kanıtı yoktur",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Akşam küçük ara öğünü olarak beslenme desteği; uyku bozukluğunun nedenini tedavi etmez.",
+      "hazirlama": "Küçük porsiyon sade yoğurda yulaf eklenebilir.",
+      "dikkat": "Gece geç saatte büyük öğünlerden kaçınmak gerekir. Süreğen uyku bozukluğunda neden araştırılmalıdır.",
+      "kaynak": "T.C. Sağlık Bakanlığı — Hastalık Yönetim Platformu Tarama ve Takip Kılavuzu",
+      "url": "https://hsgm.saglik.gov.tr/depo/birimler/aile-hekimligi-uygulama-ve-gelistirme-db/Dokumanlar/Yonerge/Ek_Hastalik_Yonetim_Platformu_HYP_Tarama_ve_Takip_Kilavuzu_1.pdf",
+      "kaynak_bolumu": "Uyku kalitesini destekleyebilecek gıdalar",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-uykusuzluk-papatya-bal",
+      "gidalar": [
+        "papatya",
+        "bal"
+      ],
+      "sikayet_id": "uykusuzluk",
+      "baslik": "Papatya + Bal",
+      "etki": "Sağlık Bakanlığı uyku rehberi papatya çayı ve küçük miktarda balı uykuya geçişi destekleyebilecek gıdalar arasında ayrı ayrı belirtir.",
+      "kanit": "Sağlık Bakanlığı rehberindeki iki bileşenin pratik birlikte kullanımı; kombinasyonun ayrı klinik kanıtı yoktur",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Uyku öncesi küçük, kafeinsiz içecek seçeneği; kronik insomnia tedavisi değildir.",
+      "hazirlama": "Papatya çayı hazırlanıp ılıdıktan sonra az miktarda bal eklenebilir.",
+      "dikkat": "Papatyagiller alerjisinde kullanılmamalıdır. 1 yaş altına bal verilmez. Uzun süren uykusuzlukta uyku hijyeni ve tıbbi değerlendirme önemlidir.",
+      "kaynak": "T.C. Sağlık Bakanlığı — Hastalık Yönetim Platformu Tarama ve Takip Kılavuzu",
+      "url": "https://hsgm.saglik.gov.tr/depo/birimler/aile-hekimligi-uygulama-ve-gelistirme-db/Dokumanlar/Yonerge/Ek_Hastalik_Yonetim_Platformu_HYP_Tarama_ve_Takip_Kilavuzu_1.pdf",
+      "kaynak_bolumu": "Uyku kalitesini destekleyebilecek gıdalar",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-yorgunluk-yulaf-muz",
+      "gidalar": [
+        "yulaf",
+        "muz"
+      ],
+      "sikayet_id": "yorgunluk",
+      "baslik": "Yulaf + Muz",
+      "etki": "Uşak Üniversitesi enerji düşüklüğünü önlemeye yönelik örnekler arasında yağsız sütle hazırlanmış yulafa muz eklenmesini doğrudan önerir.",
+      "kanit": "Üniversite beslenme önerisinde doğrudan birlikte kullanım; kronik yorgunluk tedavisi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Öğün yetersizliği veya fiziksel aktivite öncesi enerji ihtiyacında pratik beslenme örneği.",
+      "hazirlama": "Yulaf süt veya suyla hazırlanıp üzerine muz eklenebilir.",
+      "dikkat": "Uzun süren açıklanamayan yorgunlukta anemi, tiroid, enfeksiyon, uyku ve başka nedenler araştırılmalıdır.",
+      "kaynak": "Uşak Üniversitesi — Beslenme Hizmetleri Şube Müdürlüğü",
+      "url": "https://beslenmediyet.usak.edu.tr/menu/1023",
+      "kaynak_bolumu": "Egzersiz öncesi beslenme seçenekleri",
       "kontrol_tarihi": "2026-09-30",
       "bolge": "Türkiye"
     }
