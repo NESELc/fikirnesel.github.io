@@ -3277,7 +3277,8 @@
       "kaynak": "Cambridge University Hospitals NHS — Improving bowel function in constipation",
       "url": "https://www.cuh.nhs.uk/patient-information/improving-bowel-function-in-constipation/",
       "kaynak_bolumu": "Linseeds/Flaxseeds",
-      "kontrol_tarihi": "2026-09-28"
+      "kontrol_tarihi": "2026-09-28",
+      "bolge": "Avrupa · Birleşik Krallık"
     },
     {
       "id": "karisim-13",
@@ -3548,7 +3549,8 @@
       "kaynak": "NHS — Common cold",
       "url": "https://www.nhs.uk/conditions/common-cold/",
       "kaynak_bolumu": "How you can treat a cold yourself",
-      "kontrol_tarihi": "2026-09-28"
+      "kontrol_tarihi": "2026-09-28",
+      "bolge": "Avrupa · Birleşik Krallık"
     },
     {
       "id": "karisim-resmi-bagirsak",
@@ -3567,7 +3569,8 @@
       "kaynak": "Cambridge University Hospitals NHS — Improving bowel function in constipation",
       "url": "https://www.cuh.nhs.uk/patient-information/improving-bowel-function-in-constipation/",
       "kaynak_bolumu": "Linseeds/Flaxseeds",
-      "kontrol_tarihi": "2026-09-28"
+      "kontrol_tarihi": "2026-09-28",
+      "bolge": "Avrupa · Birleşik Krallık"
     },
     {
       "id": "karisim-resmi-gaz",
@@ -3586,7 +3589,8 @@
       "kaynak": "University Hospitals Sussex NHS — Irritable bowel syndrome",
       "url": "https://www.uhsussex.nhs.uk/wp-content/uploads/2024/11/2442-Irritable-bowel-syndrome-2024.pdf#page=7",
       "kaynak_bolumu": "Sayfa 7: Linseeds",
-      "kontrol_tarihi": "2026-09-28"
+      "kontrol_tarihi": "2026-09-28",
+      "bolge": "Avrupa · Birleşik Krallık"
     },
     {
       "id": "karisim-tr-bal-zencefil",
@@ -3605,6 +3609,106 @@
       "kaynak": "Ankara Üniversitesi Tıp Fakültesi — Prof. Dr. İsmail Balık: Geçmeyen Öksürüğe Dikkat",
       "url": "https://www.medicine.ankara.edu.tr/2024/05/22/prof-dr-ismail-balik-gecmeyen-oksuruge-dikkat-cekti/",
       "kaynak_bolumu": "Kuru öksürükte destekleyici öneriler",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-tr-bogaz-bal-limon",
+      "gidalar": [
+        "bal",
+        "limon"
+      ],
+      "sikayet_id": "bogaz-agrisi",
+      "baslik": "Bal + Limon — Türkiye",
+      "etki": "Sağlık Bakanlığına bağlı hastane bilgilendirmesinde sıcak suya bal ve limon eklenmesinin boğaz ağrısı yakınmasını hafifletebileceği belirtilir.",
+      "kanit": "Sağlık Bakanlığına bağlı hastane uzman bilgilendirmesi; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Soğuk algınlığı/grip sırasında boğaz ağrısında destekleyici kullanım; nedeni tedavi ettiği anlamına gelmez.",
+      "hazirlama": "Kaynak: 1 bardak sıcak suya 1 tatlı kaşığı bal ve yarım limon suyu.",
+      "dikkat": "1 yaş altına bal verilmez. Küçük çocuklarda sıcak içecek yanık riski taşır. Reflüde limon yakınmayı artırabilir.",
+      "kaynak": "Adıyaman Eğitim ve Araştırma Hastanesi — Dr. Tayfun Börta",
+      "url": "https://adiyamaneah.saglik.gov.tr/TR-1179192/drtayfun-borta-hastalarimizi-uyardi.html",
+      "kaynak_bolumu": "Soğuk algınlığı ve gripte destek tedavi önerileri",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-tr-bulanti-nane-limon",
+      "gidalar": [
+        "nane",
+        "limon"
+      ],
+      "sikayet_id": "mide-bulantisi",
+      "baslik": "Nane + Limon — Türkiye",
+      "etki": "Sağlık Bakanlığına bağlı hastane bilgilendirmesinde taze nane ve limonun suya eklenebileceği; nane-limonun bulantı ve şişkinlikte rahatlatıcı olabileceği belirtilir.",
+      "kanit": "Sağlık Bakanlığına bağlı hastane bilgilendirmesi; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Bulantıyı hafifletmeye yönelik destekleyici kullanım; sürekli veya şiddetli bulantının nedenini tedavi etmez.",
+      "hazirlama": "Kaynak miktar vermiyor; taze nane ve limonun suya eklenmesinden söz ediyor.",
+      "dikkat": "Reflü veya mide yanmasında nane ve limon bazı kişilerde yakınmayı artırabilir. Uzayan bulantıda tıbbi değerlendirme gerekir.",
+      "kaynak": "Sivas Numune Hastanesi — Bulantı ve Kusmaya Dikkat",
+      "url": "https://sivasnumunedh.saglik.gov.tr/TR-239055/bulanti-ve-kusmaya-dikkat.html",
+      "kaynak_bolumu": "Bulantıda sıvı ve bitkisel destek önerileri",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-eu-bulanti-zencefil-limon",
+      "gidalar": [
+        "zencefil",
+        "limon"
+      ],
+      "sikayet_id": "mide-bulantisi",
+      "baslik": "Zencefil + Limon — Avrupa",
+      "etki": "Birleşik Krallık NHS kanser merkezinin hasta bilgilendirmesinde limon-zencefil meyve çayının bulantıda yatıştırıcı ve yardımcı olabileceği belirtilir.",
+      "kanit": "NHS hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Bulantıda destekleyici içecek örneği; altta yatan nedeni tedavi etmez.",
+      "hazirlama": "Kaynak limon ve zencefil içeren meyve çayını örnek verir; belirli doz tarif etmez.",
+      "dikkat": "Zencefil veya limon reflü/mide yanmasını artırabilir. Sürekli kusma ve sıvı kaybında sağlık hizmetine başvurulmalıdır.",
+      "kaynak": "The Christie NHS Foundation Trust — Eating during cancer treatment",
+      "url": "https://www.christie.nhs.uk/understanding-cancer/staying-healthy/eating-help-yourself-during-cancer-treatment",
+      "kaynak_bolumu": "Feeling sick",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Avrupa · Birleşik Krallık"
+    },
+    {
+      "id": "karisim-eu-hazimsizlik-zencefil-limon",
+      "gidalar": [
+        "zencefil",
+        "limon"
+      ],
+      "sikayet_id": "hazimsizlik",
+      "baslik": "Zencefil + Limon — Avrupa",
+      "etki": "Guy's and St Thomas' NHS Foundation Trust, hazımsızlıkta limon-zencefil çayının yardımcı olabileceğini belirtir.",
+      "kanit": "NHS hasta bilgilendirmesinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Hazımsızlık belirtilerinde destekleyici kullanım; tekrarlayan veya şiddetli yakınmanın nedenini tedavi etmez.",
+      "hazirlama": "Kaynak limon ve zencefil çayını örnek verir; standart doz belirtmez.",
+      "dikkat": "Reflü veya mide yanmasında limon ve zencefil bazı kişilerde yakınmayı artırabilir.",
+      "kaynak": "Guy's and St Thomas' NHS Foundation Trust — How drinks affect your bladder and bowel",
+      "url": "https://www.guysandstthomas.nhs.uk/health-information/how-drinks-affect-your-bladder-and-bowel",
+      "kaynak_bolumu": "Drinks that can affect your bowel / indigestion",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Avrupa · Birleşik Krallık"
+    },
+    {
+      "id": "karisim-tr-gaz-nane-limon",
+      "gidalar": [
+        "nane",
+        "limon"
+      ],
+      "sikayet_id": "gaz-siskinlik",
+      "baslik": "Nane + Limon — Türkiye",
+      "etki": "Sağlık Bakanlığına bağlı hastane bilgilendirmesinde nane-limonun şişkinlikte rahatlatıcı etki gösterebileceği belirtilir.",
+      "kanit": "Sağlık Bakanlığına bağlı hastane bilgilendirmesi; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Şişkinlikte destekleyici kullanım; IBS veya başka bir hastalığın tedavisi değildir.",
+      "hazirlama": "Kaynak belirli miktar vermiyor; nane ve limonun birlikte kullanımından söz ediyor.",
+      "dikkat": "Reflü ve mide yanmasında nane veya limon yakınmayı artırabilir. Kalıcı şişkinlikte neden araştırılmalıdır.",
+      "kaynak": "Siirt Eğitim ve Araştırma Hastanesi — Gebelik Döneminde Bitki Çayı Uyarısı",
+      "url": "https://siirteah.saglik.gov.tr/TR-1531866/siirt-egitim-ve-arastirma-hastanesi-kadin-hastaliklari-ve-dogum-uzmani-op-dr-aylin-ustun-guzelden-gebelik-doneminde-bitki-cayi-uyarisi.html",
+      "kaynak_bolumu": "Bitki çayları ve nane-limon",
       "kontrol_tarihi": "2026-09-30",
       "bolge": "Türkiye"
     }
