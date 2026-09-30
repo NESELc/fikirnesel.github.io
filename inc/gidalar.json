@@ -2183,11 +2183,11 @@
       "ad": "Kan şekeri dengesi",
       "uyari": "Diyabet veya hipoglisemi şüphesi varsa gıda önerisi yerine hekim takibi ve ölçüm esas alınmalıdır.",
       "karisim_incelemesi": {
-        "durum": "dogrulanamadi",
-        "not": "Kan şekeri kontrolü için belirli bir gıda karışımı doğrulanmadı; takviye araştırmaları mutfak tarifinin etkinliğini doğrulamaz.",
-        "kaynak": "NIH NCCIH — Diabetes and Dietary Supplements",
-        "url": "https://www.nccih.nih.gov/health/diabetes-and-dietary-supplements-what-you-need-to-know",
-        "kontrol_tarihi": "2026-09-28"
+        "durum": "kaynakli_kayit_var",
+        "not": "Üniversite hastanesi kaynağında meyvenin yoğurt/fındık gibi protein veya yağ kaynaklarıyla birlikte tüketilmesi önerilir. Aşağıdaki kayıt tedavi değil, öğün eşleştirme örneğidir.",
+        "kaynak": "Ufuk Üniversitesi Dr. Rıdvan Ege Hastanesi — Diyabet Hastalığında Beslenme",
+        "url": "https://hastane.ufuk.edu.tr/ufukta-saglik/diyabet-hastaliginda-beslenme-kan-sekerini-yonetmek-icin-ipuclari",
+        "kontrol_tarihi": "2026-09-30"
       }
     },
     {
@@ -3709,6 +3709,47 @@
       "kaynak": "Siirt Eğitim ve Araştırma Hastanesi — Gebelik Döneminde Bitki Çayı Uyarısı",
       "url": "https://siirteah.saglik.gov.tr/TR-1531866/siirt-egitim-ve-arastirma-hastanesi-kadin-hastaliklari-ve-dogum-uzmani-op-dr-aylin-ustun-guzelden-gebelik-doneminde-bitki-cayi-uyarisi.html",
       "kaynak_bolumu": "Bitki çayları ve nane-limon",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-bagirsak-yogurt-muz-bal",
+      "gidalar": [
+        "yogurt",
+        "muz",
+        "bal"
+      ],
+      "sikayet_id": "bagirsak-duzeni",
+      "baslik": "Yoğurt + Muz + Bal",
+      "etki": "Rumeli Üniversitesi gastrointestinal beslenme rehberinde probiyotik yoğurtlu smoothie tarifi içinde yoğurt, muz ve bal birlikte verilir.",
+      "kanit": "Üniversite beslenme rehberinde birlikte kullanım; klinik etkinlik derecesi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Genel sindirim/bağırsak sağlığını destekleyen tarif örneği; belirli bir hastalığın tedavisi değildir.",
+      "hazirlama": "Kaynak tarifte 1 su bardağı yoğurt, 1 muz, 1 avuç ıspanak ve 1 tatlı kaşığı bal blenderda karıştırılır. Kartta yalnız veri tabanında mevcut üç ana bileşen gösterilir.",
+      "dikkat": "1 yaş altına bal verilmez. Süt ürünleri veya bal bazı kişilerde uygun olmayabilir; kişisel tolerans dikkate alınmalıdır.",
+      "kaynak": "İstanbul Rumeli Üniversitesi — Gastrointestinal Sistem Hastalıkları ve Beslenme",
+      "url": "https://rumeli.edu.tr/tr/saglikli-yasam-egzersiz-ve-spor-bilimleri-uygulama-ve-arastirma-merkezi/beslenme-ve-diyet/brosurler/gastrointestinal-sistem-hastaliklari-ve-beslenme",
+      "kaynak_bolumu": "Sağlıklı Tarif Önerileri / Probiyotik Yoğurtlu Smoothie",
+      "kontrol_tarihi": "2026-09-30",
+      "bolge": "Türkiye"
+    },
+    {
+      "id": "karisim-kansekeri-elma-yogurt",
+      "gidalar": [
+        "elma",
+        "yogurt"
+      ],
+      "sikayet_id": "kan-sekeri-dengesi",
+      "baslik": "Elma + Yoğurt",
+      "etki": "Ufuk Üniversitesi, meyvelerin yoğurt veya fındık gibi protein/yağ kaynaklarıyla birlikte tüketilmesini kan şekerinin daha dengeli kalmasına yardımcı olabilecek bir ara öğün yaklaşımı olarak önerir.",
+      "kanit": "Üniversite hastanesi beslenme önerisi; klinik tedavi değildir",
+      "dogrulama": "dogrulandi",
+      "kapsam": "Meyvenin tek başına tüketilmesi yerine protein/yağ kaynağıyla eşleştirilmesine dayalı ara öğün örneği. Burada yaygın bir meyve olan elma kullanılmıştır.",
+      "hazirlama": "Bir porsiyon elma, sade yoğurtla birlikte ara öğün olarak tüketilebilir. Porsiyon kişisel kan şekeri hedeflerine göre değişir.",
+      "dikkat": "Diyabet tedavisi, ilaç/insülin kullanımı ve porsiyon gereksinimi kişiye özeldir; bu kayıt tedavi planının yerine geçmez.",
+      "kaynak": "Ufuk Üniversitesi Dr. Rıdvan Ege Hastanesi — Diyabet Hastalığında Beslenme",
+      "url": "https://hastane.ufuk.edu.tr/ufukta-saglik/diyabet-hastaliginda-beslenme-kan-sekerini-yonetmek-icin-ipuclari",
+      "kaynak_bolumu": "Meyve Tüketiminde Dikkatli Olun",
       "kontrol_tarihi": "2026-09-30",
       "bolge": "Türkiye"
     }
