@@ -82,8 +82,8 @@ main{padding-top:var(--ustH)}
 .gidaKarisim{margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px}
 .gidaKarisim h2{font-size:14px;margin:0 0 8px;font-weight:700}
 .status{font-weight:700;color:var(--accent)}
-.karisimGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:8px}
-.karisimKart{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px}
+.karisimGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:8px}
+.karisimKart{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px;width:100%;box-sizing:border-box}
 .karisimKart b{display:block;margin-bottom:4px;font-size:13px}
 .karisimKart p{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 6px}
 .karisimKart small{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}
@@ -99,7 +99,7 @@ main{padding-top:var(--ustH)}
   .brand{min-width:auto;gap:0}
   .brand b,.brand .kicker{display:none}
   .gidaFiltre{display:grid;grid-template-columns:repeat(2,1fr)}
-  .gidaOzet,.gidaKartlar{grid-template-columns:1fr}
+  .gidaOzet,.gidaKartlar,.karisimGrid{grid-template-columns:1fr}
 }
 
 .logoWrap{display:inline-block}
@@ -294,7 +294,8 @@ function sortDB(){DB.foods.sort(az);DB.complaints.sort(az);DB.mixtures.sort(mixA
 function safeSource(url){try{const u=new URL(url);return u.protocol==="https:"&&!!u.hostname}catch{return false}}
 function sourceLink(url,label){return safeSource(url)?`<a href="${escapeText(url)}" target="_blank" rel="noopener">${escapeText(label)}</a>`:"Kaynak yok"}
 function mixtureDetails(k){
-  return `<p>${escapeText(k.effect)}</p><p><b>Kapsam:</b> ${escapeText(k.scope)}</p><p><b>Birlikte kullanım:</b> ${escapeText(k.method)}</p>`+
+  const tag=k.kind==="geleneksel"?`Geleneksel mutfak kaydı${k.origin?` · ${escapeText(k.origin)}`:""}`:"Kaynakla doğrulanmış birlikte kullanım";
+  return `<div class="gidaMeta">${tag}</div><p>${escapeText(k.effect)}</p><p><b>Kapsam:</b> ${escapeText(k.scope)}</p><p><b>Birlikte kullanım:</b> ${escapeText(k.method)}</p>`+
     `<p class="gidaWarn"><b>Dikkat:</b> ${escapeText(k.caution)}</p><p class="gidaSrc">${sourceLink(k.url,k.source)}<br>`+
     `${escapeText(k.section)} · Kontrol: ${escapeText(k.checked)}</p><small>${escapeText(k.evidence)}</small>`;
 }
@@ -308,7 +309,7 @@ function dbNormalize(raw){
     matches:matches.map(x=>({complaint:x.complaint||x.sikayet_id,food:x.food||x.gida_id,effect:x.effect||x.etki||"",evidence:x.evidence||x.kanit||""})),
     mixtures:mixtures.filter(x=>x.dogrulama==="dogrulandi"&&safeSource(x.url)).map(x=>({id:x.id||"",foods:x.foods||x.gidalar||[],
       complaint:x.complaint||x.sikayet_id,title:x.title||x.baslik||"",effect:x.effect||x.etki||"",evidence:x.evidence||x.kanit||"",
-      scope:x.kapsam||"",method:x.hazirlama||"",caution:x.dikkat||"",source:x.kaynak||"",url:x.url||"",
+      scope:x.kapsam||"",method:x.hazirlama||"",caution:x.dikkat||"",source:x.kaynak||"",url:x.url||"",kind:x.tur||x.kind||"saglik",origin:x.bolge||x.origin||"",
       section:x.kaynak_bolumu||"",checked:x.kontrol_tarihi||""}))};
 }
 async function init(){try{DB=dbNormalize(await fetch(DATA_URL,{cache:"no-store"}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}));sortDB()}catch(e){$("cards").innerHTML='<div class="gidaEmpty">Gıda kayıtları yüklenemedi. Sayfayı yenileyerek tekrar deneyin; aşağıdaki rehber okunabilir.</div>';return}fill();render()}
@@ -321,8 +322,13 @@ function render(){let c=activeComplaint(),sel=$("complaint").value,m=norm($("man
 function renderCards(fs,c){let rel=c?DB.matches.filter(x=>x.complaint===c).map(x=>x.food):[],list=fs.length?fs.map(food).filter(Boolean):(rel.length?[...new Set(rel)].map(food).filter(Boolean).sort(az):DB.foods.slice(0,6)),html=list.map(x=>{let mt=DB.matches.find(y=>y.food===x.id&&y.complaint===c);return `<article class="gidaKart"><h3>${x.name}</h3><div class="gidaMeta">${x.category} • Kayıt etiketi: ${x.evidence}</div><b>Etken maddeler</b><div>${(x.actives||[]).map(a=>`<span class="pill">${a}</span>`).join("")}</div><b>Kayıttaki besin ve kullanım notları</b><ul>${(x.benefits||[]).map(b=>`<li>${b}</li>`).join("")}</ul>${mt?`<div class="gidaWarn"><b>Veritabanı eşleşmesi (öneri değildir):</b> ${mt.effect}<br><b>Düzey:</b> ${mt.evidence}</div>`:""}<div class="gidaWarn"><b>Dikkat:</b> ${x.caution}</div><div class="gidaSrc">Kaynak / başvuru bağlantısı: <a href="${x.url}" target="_blank" rel="noopener">${x.source}</a></div></article>`}).join("");$("cards").innerHTML=html||'<div class="gidaEmpty">Sonuç bulunamadı.</div>'}
 function mixTitle(k){return (k.title||"") || (k.foods||[]).map(x=>food(x)?.name).filter(Boolean).join(" + ")}
 function renderMixSuggestions(c){
-  const a=$("mixSuggestions");activeMixtures=c?DB.mixtures.filter(x=>x.complaint===c).sort(mixAz):[];
-  if(!c){a.innerHTML="";return}
+  const a=$("mixSuggestions");
+  if(!c){
+    activeMixtures=DB.mixtures.filter(x=>x.kind==="geleneksel").sort(mixAz);
+    if(!activeMixtures.length){a.innerHTML="";return}
+    a.innerHTML='<h2>Geleneksel mutfak karışımları</h2><p>Bu kartlar sağlık önerisi değildir; kültürel/kurumsal kaynakta aynı tarifte birlikte geçen mevcut gıda bileşenlerini gösterir. Kart, tam tarif yerine veri tabanındaki bileşen eşleşmesini özetler.</p><div class="karisimGrid">'+activeMixtures.map((k,i)=>`<div class="karisimKart"><b>${escapeText(mixTitle(k))}</b>${mixtureDetails(k)}<button type="button" onclick="selectMix(${i})">Bu kaydı incele</button></div>`).join("")+'</div>';return;
+  }
+  activeMixtures=DB.mixtures.filter(x=>x.complaint===c&&x.kind!=="geleneksel").sort(mixAz);
   const review=comp(c).review,heading=`<h2>${escapeText(comp(c).name)}: karışım kaynak kontrolü</h2>`;
   const note=`<p>${escapeText(review.not||"Bu şikâyet için kaynak kontrolü tamamlanmadı.")}</p>`;
   if(!activeMixtures.length){
