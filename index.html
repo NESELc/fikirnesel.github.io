@@ -294,7 +294,7 @@
               </a>
               <div class="arac-kart-meta">
                 <h2><a href="/sifiraraclar.html">Sıfır Araç Fiyatları</a></h2>
-                <p>39 marka, 700'den fazla modelin güncel liste ve kampanya fiyatları</p>
+                <p id="vehicle-summary">Markaların güncel liste ve kampanya fiyatları</p>
               </div>
               <a href="/sifiraraclar.html" class="arac-kart-btn">Listeye Git →</a>
             </div>
@@ -302,7 +302,7 @@
               <p>Türkiye'de satışa sunulan sıfır araçların güncel fiyatlarını marka, model, segment, yakıt türü ve vites tipine göre filtreleyerek kolayca inceleyebilirsiniz. Resmi bayii verileri baz alınmaktadır.</p>
             </div>
             <div class="ozellik-grid">
-              <div class="ozellik-item"><div class="etiket">Marka Sayısı</div><div class="deger">39 Marka</div></div>
+              <div class="ozellik-item"><div class="etiket">Marka Sayısı</div><div class="deger" id="vehicle-brand-count">Güncel liste</div></div>
               <div class="ozellik-item"><div class="etiket">Filtreleme</div><div class="deger">Segment, Yakıt, Vites</div></div>
               <div class="ozellik-item"><div class="etiket">Kampanyalar</div><div class="deger">Aktif</div></div>
               <div class="ozellik-item"><div class="etiket">Güncelleme</div><div class="deger">Düzenli / Aylık</div></div>
@@ -423,7 +423,7 @@
         <section class="bilgi-kutu">
           <h3>NESEL Hakkında ve Veri Politikası</h3>
           <p>NESEL, günlük hayatta sıkça ihtiyaç duyulan pratik bilgilere hızlıca ulaşmanızı sağlamak amacıyla kurulmuş bağımsız bir bilgi platformudur. Her araç ve rehberde kullandığımız veri kaynağı farklıdır ve mümkün olduğunca şeffaf tutulur:</p>
-          <p><strong>Sıfır Araç Fiyatları</strong> sayfasında 39 markanın 700'den fazla modeline ait fiyatları elle takip ettiğimiz bir fiyat tablosundan güncelliyoruz. <strong>Gelir Vergisi</strong> sayfasındaki dilim ve oranlar doğrudan Gelir İdaresi Başkanlığı'nın (GİB) resmi tebliğlerinden alınır. <strong>Gıda Rehberi</strong>'ndeki besin ve etken madde bilgileri ABD Tarım Bakanlığı'nın halka açık veritabanı USDA FoodData Central ile ABD Ulusal Sağlık Enstitüleri'ne bağlı NIH NCCIH kaynaklıdır; her gıda kartında ayrıca bilginin "genel besin verisi" mi yoksa "geleneksel kullanım" mı olduğunu gösteren bir kanıt düzeyi etiketi bulunur. <strong>Döviz Çevirici</strong> canlı kur verisi kullanır, <strong>Platform Ücretleri</strong> sayfası ise platformların kendi güncel fiyatlandırmalarını takip eder.</p>
+          <p><strong>Sıfır Araç Fiyatları</strong> sayfasında <span id="vehicle-data-scope">Araç fiyatlarını takip ettiğimiz fiyat tablosundan güncelliyoruz.</span> <strong>Gelir Vergisi</strong> sayfasındaki dilim ve oranlar doğrudan Gelir İdaresi Başkanlığı'nın (GİB) resmi tebliğlerinden alınır. <strong>Gıda Rehberi</strong>'ndeki besin ve etken madde bilgileri ABD Tarım Bakanlığı'nın halka açık veritabanı USDA FoodData Central ile ABD Ulusal Sağlık Enstitüleri'ne bağlı NIH NCCIH kaynaklıdır; her gıda kartında ayrıca bilginin "genel besin verisi" mi yoksa "geleneksel kullanım" mı olduğunu gösteren bir kanıt düzeyi etiketi bulunur. <strong>Döviz Çevirici</strong> canlı kur verisi kullanır, <strong>Platform Ücretleri</strong> sayfası ise platformların kendi güncel fiyatlandırmalarını takip eder.</p>
           <p>Bu sitedeki hiçbir içerik tıbbi, mali veya hukuki tavsiye yerine geçmez; her sayfada ilgili konuya özel uyarılar ayrıca belirtilir. Verilerde bir hata fark ederseniz <a href="/iletisim.html">iletişim sayfamızdan</a> bize ulaşabilirsiniz, düzeltmeleri mümkün olan en kısa sürede yaparız.</p>
         </section>
 
@@ -468,6 +468,7 @@
   })();
 </script>
 
+<script defer src="/inc/vehicle-summary.js"></script>
 </body>
 </html>
 
