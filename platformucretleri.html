@@ -51,6 +51,7 @@ main{padding-top:var(--ustH)}
 
 .filtreKullanim{margin-bottom:16px;padding:10px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;font-size:13px;line-height:1.5;color:#1e40af}
 .aboneWrap{background:#fff;border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+.abonelik-guncelleme{margin:0 0 12px;font-size:13px;font-weight:600;color:var(--muted)}
 .abonelik-tablo{width:100%;border-collapse:collapse;font-size:13px}
 .abonelik-tablo thead th{background:#f8fafc;padding:12px;border-bottom:2px solid var(--line);text-align:left;color:var(--txt)}
 .abonelik-tablo td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted)}
@@ -143,6 +144,7 @@ footer {
   <div id="layout">
     <section id="ortaAlan">
       <div class="filtreKullanim">Tablodaki fiyatlar platformların Türkiye'deki resmi web sitelerinden alınmaktadır. Abone olmadan önce güncel fiyatlar için resmi web sitelerini ziyaret ediniz.</div>
+      <p id="abonelik-guncelleme" class="abonelik-guncelleme" role="status" hidden></p>
       <div class="aboneWrap" id="aboneWrap">
         <div id="abonelik-tablo" style="padding:20px;color:var(--muted)">Fiyatlar yükleniyor...</div>
       </div>
@@ -228,6 +230,8 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
   if(!Array.isArray(data)||!data.length)throw Error("Fiyat listesi boş");
   const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
   const norm=v=>String(v??"").trim(),key=v=>norm(v).toLocaleLowerCase("tr-TR");
+  const update=data.map(row=>norm(row["Son güncelleme"])).find(Boolean),updateHost=document.getElementById("abonelik-guncelleme");
+  if(update){updateHost.textContent="Son güncelleme: "+update;updateHost.hidden=false;}
   const domainMap=[
     [/youtube/,"youtube.com"],[/netflix/,"netflix.com"],[/spotify/,"spotify.com"],[/disney/,"disneyplus.com"],[/apple|icloud/,"apple.com"],
     [/amazon|prime/,"amazon.com"],[/chatgpt|openai/,"openai.com"],[/gemini|google one|google/,"google.com"],[/claude|anthropic/,"claude.ai"],[/canva/,"canva.com"],[/microsoft\s*365|office\s*365|onedrive/,"microsoft.com"],[/dropbox/,"dropbox.com"],[/proton\s*drive/,"proton.me"],
