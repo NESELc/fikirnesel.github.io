@@ -149,6 +149,7 @@ footer {
         <div id="abonelik-tablo" style="padding:20px;color:var(--muted)">Fiyatlar yükleniyor...</div>
       </div>
       <div class="bilgilendirme">
+        * Tutarların çoğu aylıktır. Yıllık ücret, yıllık ödemede aylık karşılık ve taahhüt koşulları için “Not” sütununu kontrol ediniz.<br>
         * Fiyatlar resmi platform web sitelerinden derlenmiştir ve yalnızca bilgilendirme amaçlıdır.<br>
         * Güncel ve kesin fiyat için ilgili platformun resmi kanalını ziyaret ediniz.
       </div>
@@ -258,7 +259,7 @@ fetch(URL,{signal:AbortSignal.timeout(15000)}).then(r=>{if(!r.ok)throw Error("Fi
       byService.get(k).rows.push(row);
     });
     let html='<table class="abonelik-tablo"><thead><tr><th scope="col">Servis</th><th scope="col">Plan</th>';
-    html+='<th scope="col" class="fiyat">Aylık Fiyat</th><th scope="col">Not</th><th scope="col">Kategori</th></tr></thead><tbody>';
+    html+='<th scope="col" class="fiyat">Abonelik Ücreti</th><th scope="col">Not</th><th scope="col">Kategori</th></tr></thead><tbody>';
     groups.forEach(group=>group.rows.forEach((row,i)=>{
       html+='<tr>';
       if(i===0){
