@@ -118,24 +118,24 @@ footer {
         <div><b>NESEL</b><div class="kicker">Bilgi Merkezi</div></div>
       </div>
       <nav class="nav" id="menu">
-        <a href="/sifiraraclar.html">Sıfır Araçlar</a>
-        <a href="/platformucretleri.html">Platform Ücretleri</a>
-        <a href="/doviz.html" class="active">Döviz Çevirici</a>
-        <a href="/gelirvergisi.html">Gelir Vergisi</a>
-        <a href="/ankara.html">Ankara</a>
-        <a href="/elektrik.html">Elektrik</a>
-        <a href="/oyunlar.html">Oyunlar</a>
-        <a href="/gidalar.html">Gıdalar</a>
+        <a href="/sifiraraclar">Sıfır Araçlar</a>
+        <a href="/platformucretleri">Platform Ücretleri</a>
+        <a href="/doviz" class="active">Döviz Çevirici</a>
+        <a href="/gelirvergisi">Gelir Vergisi</a>
+        <a href="/ankara">Ankara</a>
+        <a href="/elektrik">Elektrik</a>
+        <a href="/oyunlar">Oyunlar</a>
+        <a href="/gidalar">Gıdalar</a>
       </nav>
       <select id="mselect" aria-label="Menü" onchange="location.href=this.value">
-        <option value="/sifiraraclar.html">Sıfır Araçlar</option>
-        <option value="/platformucretleri.html">Platform Ücretleri</option>
-        <option value="/doviz.html" selected>Döviz Çevirici</option>
-        <option value="/gelirvergisi.html">Gelir Vergisi</option>
-        <option value="/ankara.html">Ankara</option>
-        <option value="/elektrik.html">Elektrik</option>
-        <option value="/oyunlar.html">Oyunlar</option>
-        <option value="/gidalar.html">Gıdalar</option>
+        <option value="/sifiraraclar">Sıfır Araçlar</option>
+        <option value="/platformucretleri">Platform Ücretleri</option>
+        <option value="/doviz" selected>Döviz Çevirici</option>
+        <option value="/gelirvergisi">Gelir Vergisi</option>
+        <option value="/ankara">Ankara</option>
+        <option value="/elektrik">Elektrik</option>
+        <option value="/oyunlar">Oyunlar</option>
+        <option value="/gidalar">Gıdalar</option>
       </select>
     </div>
   </div>
@@ -227,7 +227,7 @@ footer {
       <h3>Seyahat Öncesi Döviz Bozdururken Pratik İpuçları</h3>
       <p>Havalimanındaki döviz büroları, şehir merkezindeki bürolara göre genellikle daha yüksek spread uygular; mümkünse seyahatten birkaç gün önce, şehir içindeki bir döviz bürosundan veya bankanızın uygulamasından işlem yapmak daha avantajlıdır. Tüm bütçeyi tek seferde nakde çevirmek yerine bir kısmını kredi/banka kartında bırakmak, hem güvenlik hem de referans kur takibi açısından esneklik sağlar — özellikle nakit çekim ve ATM komisyonlarının düşük olduğu kartlar seyahatte avantajlı olabilir. İşlem öncesinde kurun zaman damgasını, alış-satış farkını ve varsa komisyonu birlikte karşılaştırın. Gösterilen referans kur üzerinden işlem yapılacağı garanti edilmez.</p>
 
-      <p>Bu araç, yalnızca döviz çevirmekle kalmıyor; sitemizdeki diğer hesaplama araçlarıyla da bağlantılı. Örneğin ithal sıfır araçların fiyatları büyük ölçüde <a href="/sifiraraclar.html">EUR/USD bazlı üretici fiyatlarına</a> göre şekillenirken, dolar bazlı fiyatlanan bazı dijital abonelikler için de (ör. ChatGPT Plus web planı) <a href="/platformucretleri.html">güncel kur farkının etkisini platform ücretleri sayfamızda</a> görebilirsiniz.</p>
+      <p>Bu araç, yalnızca döviz çevirmekle kalmıyor; sitemizdeki diğer hesaplama araçlarıyla da bağlantılı. Örneğin ithal sıfır araçların fiyatları büyük ölçüde <a href="/sifiraraclar">EUR/USD bazlı üretici fiyatlarına</a> göre şekillenirken, dolar bazlı fiyatlanan bazı dijital abonelikler için de (ör. ChatGPT Plus web planı) <a href="/platformucretleri">güncel kur farkının etkisini platform ücretleri sayfamızda</a> görebilirsiniz.</p>
 
       <p class="guncelleme-notu">Yukarıdaki kurlar ExchangeRate-API üzerinden sayfa açıldığında çekilmektedir ve piyasa kurlarını yaklaşık olarak yansıtır; bankanızın veya döviz bürosunun uyguladığı kesin alış-satış kuru için ilgili kurumu kontrol etmenizi öneririz.</p>
     </article>
@@ -235,16 +235,16 @@ footer {
 
 </div>
 
-<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Çevirici, ExchangeRate-API servisinin döndürdüğü USD bazlı referans kurları kullanır. Sonuç = tutar × (hedef kur / kaynak kur). Örneğin varsayımsal olarak USD/TRY 40 ve USD/EUR 0,90 ise 90 EUR = 4.000 TRY olur. Bu örnek güncel fiyat değildir.</p><p>Veri sayfa açıldığında alınır ve açık oturumda yeniden kullanılır; saniyelik piyasa akışı veya bankanın alış-satış fiyatı değildir. Tablodaki tarih sağlayıcının zaman damgasıdır. Komisyon, makas ve kart işlem ücretleri hesaplamaya dahil değildir.</p><ul><li><a href="https://www.exchangerate-api.com/docs/free">ExchangeRate-API: veri güncelleme ve kullanım bilgisi</a></li><li><a href="https://www.tcmb.gov.tr/kurlar/today.xml">TCMB gösterge kurları</a> — ayrı bir resmî karşılaştırma kaynağı; bu aracın veri sağlayıcısı değildir.</li></ul><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim.html">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Çevirici, ExchangeRate-API servisinin döndürdüğü USD bazlı referans kurları kullanır. Sonuç = tutar × (hedef kur / kaynak kur). Örneğin varsayımsal olarak USD/TRY 40 ve USD/EUR 0,90 ise 90 EUR = 4.000 TRY olur. Bu örnek güncel fiyat değildir.</p><p>Veri sayfa açıldığında alınır ve açık oturumda yeniden kullanılır; saniyelik piyasa akışı veya bankanın alış-satış fiyatı değildir. Tablodaki tarih sağlayıcının zaman damgasıdır. Komisyon, makas ve kart işlem ücretleri hesaplamaya dahil değildir.</p><ul><li><a href="https://www.exchangerate-api.com/docs/free">ExchangeRate-API: veri güncelleme ve kullanım bilgisi</a></li><li><a href="https://www.tcmb.gov.tr/kurlar/today.xml">TCMB gösterge kurları</a> — ayrı bir resmî karşılaştırma kaynağı; bu aracın veri sağlayıcısı değildir.</li></ul><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
     <ul class="footer-links">
-      <li><a href="/gizlilik-politikasi.html">Gizlilik Politikası</a></li>
-      <li><a href="/cerez-politikasi.html">Çerez Aydınlatma Metni</a></li>
-      <li><a href="/kullanim-sartlari.html">Kullanım Şartları</a></li>
-      <li><a href="/hakkimizda.html">Hakkımızda</a></li>
-      <li><a href="/iletisim.html">İletişim</a></li>
+      <li><a href="/gizlilik-politikasi">Gizlilik Politikası</a></li>
+      <li><a href="/cerez-politikasi">Çerez Aydınlatma Metni</a></li>
+      <li><a href="/kullanim-sartlari">Kullanım Şartları</a></li>
+      <li><a href="/hakkimizda">Hakkımızda</a></li>
+      <li><a href="/iletisim">İletişim</a></li>
     </ul>
   </div>
 </footer>

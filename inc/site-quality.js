@@ -1,15 +1,15 @@
 (() => {
  // Ana menü için tek kaynak: bölüm eklemek, kaldırmak veya sıralamak için yalnızca bu listeyi düzenleyin.
  const navigation=[
-  {href:'/sifiraraclar.html',label:'Sıfır Araçlar'},
-  {href:'/platformucretleri.html',label:'Platform Ücretleri'},
-  {href:'/doviz.html',label:'Döviz Çevirici'},
-  {href:'/gelirvergisi.html',label:'Gelir Vergisi'},
-  {href:'/ankara.html',label:'Ankara'},
-  {href:'/elektrik.html',label:'Elektrik'},
-  {href:'/oyunlar.html',label:'Oyunlar'},
-  {href:'/gidalar.html',label:'Gıdalar'},
-  {href:'/yazilarim.html',label:'Yazılarım'}
+  {href:'/sifiraraclar',label:'Sıfır Araçlar'},
+  {href:'/platformucretleri',label:'Platform Ücretleri'},
+  {href:'/doviz',label:'Döviz Çevirici'},
+  {href:'/gelirvergisi',label:'Gelir Vergisi'},
+  {href:'/ankara',label:'Ankara'},
+  {href:'/elektrik',label:'Elektrik'},
+  {href:'/oyunlar',label:'Oyunlar'},
+  {href:'/gidalar',label:'Gıdalar'},
+  {href:'/yazilarim',label:'Yazılarım'}
  ];
  const normalize=path=>path.replace(/\/+$/,'').replace(/\.html$/,'').replace(/^\/index$/,'')||'/';
  function initialize(){
