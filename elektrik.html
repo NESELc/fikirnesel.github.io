@@ -419,9 +419,11 @@ if(!Number.isFinite(diger)||yillik.some(v=>!Number.isFinite(v)))hata="Tüketim a
 if(cok&&(pay.some(v=>!Number.isFinite(v)||v>100)||Math.abs(pay.reduce((a,b)=>a+b,0)-100)>0.000001))hata="Saat paylarının toplamı %100 olmalıdır.";
 $("tuketimHata").hidden=!hata;$("tuketimHata").textContent=hata;
 const t=meskenTarife;
+const birimFiyat=enerji=>fmt((enerji*1.05+t.dagitim)*1.10,2);
 $("tarifeAciklama").textContent=cok?
-`Enerji: gündüz ${fmt(t.gunduz,6)}, puant ${fmt(t.puant,6)}, gece ${fmt(t.gece,6)} TL/kWh. Dağıtım: ${fmt(t.dagitim,4)} TL/kWh.`:
-`Enerji: günlük ilk 8 kWh için ${fmt(t.dusuk,6)}, aşan kısım için ${fmt(t.yuksek,6)} TL/kWh. Dağıtım: ${fmt(t.dagitim,4)} TL/kWh.`;
+`Vergiler dahil birim fiyatlar: gündüz ${birimFiyat(t.gunduz)}, puant ${birimFiyat(t.puant)}, gece ${birimFiyat(t.gece)} TL/kWh. Dağıtım bedeli dahildir.`:
+`Vergiler dahil birim fiyatlar: düşük kademe ${birimFiyat(t.dusuk)} TL/kWh, yüksek kademe ${birimFiyat(t.yuksek)} TL/kWh. Dağıtım bedeli dahildir. `+
+`Günlük ilk 8 kWh düşük, aşan kısım yüksek kademeden hesaplanır.`;
 if(hata){
 tuketimIds.forEach(k=>$(k+"tl").textContent="—");
 $("toplamtuketim").textContent="—";$("toplamtl").textContent="—";$("tuketimDokum").textContent="Hesaplama için girişleri düzeltin.";return;
