@@ -194,16 +194,16 @@ footer {
           <div class="card">
             <table class="tbl">
               <thead>
-                <tr><th colspan="7">XLPE Kablolar - Akım ve Güç Taşıma Kapasiteleri</th></tr>
-                <tr class="elk"><th>Kesit</th><th>Gerilim</th><th>Tipi</th><th>R</th><th>I-Toprak</th><th>I-Hava</th><th>P</th></tr>
+                <tr><th colspan="7">XLPE Kablolar - Yaklaşık Akım ve Güç Hesabı</th></tr>
+                <tr class="elk"><th>Kesit</th><th>Gerilim</th><th>Tipi</th><th>R AC (90 °C)</th><th>I-Toprak</th><th>I-Hava</th><th>P-Toprak</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
                     <select id="kabkesit" name="kabkesit" aria-label="Kablo Kesiti">
-                      <option value="875" data-area="630">630 mm²</option><option value="786" data-area="500">500 mm²</option><option value="701" data-area="400">400 mm²</option><option value="627" data-area="300">300 mm²</option>
-                      <option value="559" data-area="240">240 mm²</option><option value="484" data-area="185">185 mm²</option><option value="430" data-area="150">150 mm²</option><option value="385" data-area="120">120 mm²</option>
-                      <option value="339" data-area="95">95 mm²</option><option value="284" data-area="70">70 mm²</option><option value="232" data-area="50">50 mm²</option><option value="165" data-area="35">35 mm²</option>
+                      <option value="630">630 mm²</option><option value="500">500 mm²</option><option value="400">400 mm²</option><option value="300">300 mm²</option>
+                      <option value="240">240 mm²</option><option value="185">185 mm²</option><option value="150">150 mm²</option><option value="120">120 mm²</option>
+                      <option value="95">95 mm²</option><option value="70">70 mm²</option><option value="50">50 mm²</option><option value="35">35 mm²</option>
                     </select>  
                   </td>  
                   <td>
@@ -224,6 +224,28 @@ footer {
                 </tr>
               </tbody>
             </table>
+<div class="bilgilendirme" id="kabloReferans">
+<b>Sabit referans koşulları:</b> 50 Hz, dengeli üç faz, tek damarlı yuvarlak iletkenli XLPE kablolar; iletken sıcaklığı 90 °C.
+Hava 30 °C, toprak 20 °C; doğrudan gömme derinliği 0,8 m, toprak ısıl direnci 1,5 K·m/W.
+Üç faz yatay, merkezler arası 0,5 m; toprakta ortadaki fazın karşılıklı ısınması hesaba katılır. Havada güneş ve rüzgâr yoktur.
+Modelde XLPE kalınlığı 10 mm, dış PE kılıf 2,5 mm; hava için eşdeğer ısı geçiş katsayısı 10 W/(m²·K) sabittir.
+Gerilim, fazlar arası işletme gerilimidir; yalıtım geometrisi değişmez. Bu model gerilim sınıfı veya yalıtım dayanımı doğrulamaz.
+<br><b>Yöntem:</b> I = √[(ΔT − Wd × (Tyalıtım / 2 + Tdış)) / (Rac × (Tyalıtım + Tdış))].
+Rac, 90 °C DC direncine yuvarlak iletkenin deri etkisi eklenerek bulunur. Wd, faz-toprak geriliminden hesaplanan dielektrik kayıptır.
+P-Toprak = √3 × U × I-Toprak × 0,95. Toprak ve hava kapasiteleri ayrı ısıl dengeyle hesaplanır.
+<br>Bu, idealize edilmiş geometriye ait yaklaşık modeldir; katalog kapasitesi veya tam IEC 60287 hesabı değildir.
+Ekran tek noktadan topraklı, zırh yok kabul edilir; ekran girdap kayıpları, yakınlık etkisi, ek devreler ve toprağın kuruması modellenmez.
+Gerçek kablo seçimi için ürün yapısı ve döşeme koşulları ayrıca doğrulanmalıdır.
+<details><summary>Model sabitleri ve kaynaklar</summary>
+<p>ρ20: Cu 0,017241, Al 0,028264 Ω·mm²/m; α20: Cu 0,00393, Al 0,00403 1/K.
+İletken çapı d = √(4A/π). XLPE ve PE ısıl direnci 3,5 K·m/W; bağıl permitivite 2,5, kayıp tanjantı 0,001 model kabulüdür.
+Silindirik katman: T = ρth × ln(D/d)/(2π). Havada Tdış = Tkılıf + 1/(hπD).
+Toprakta Tdış = Tkılıf + ρtoprak/(2π) × [acosh(2L/D) + 2ln(√(s² + 4L²)/s)].
+L = 0,8 m, s = 0,5 m; bütün boyutlar ısıl hesapta metreye çevrilir.</p>
+<p><a href="https://webstore.iec.ch/en/publication/68118" target="_blank" rel="noopener">IEC 60287-1-1: kayıplar ve akım hesabının kapsamı</a> ·
+<a href="https://webstore.iec.ch/en/publication/68134" target="_blank" rel="noopener">IEC 60287-2-1: ısıl direnç hesabının kapsamı</a>.
+Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonuçlarını onaylayan ürün belgesi değildir.</p>
+</details></div>
           </div>
 
           <div class="card">
@@ -267,7 +289,10 @@ footer {
           <div class="card">
             <h3>Bu Hesaplamalar Nasıl Yapılıyor? Formüller ve Kullanım Alanları</h3>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Trafo Primer/Sekonder Akım:</b> Primer akım <b>Ip = S / (√3 × Vp)</b> formülüyle, sekonder akım ise trafo sarım oranına göre <b>Is = (Vp / Vs) × Ip</b> formülüyle hesaplanır (S: trafo gücü kVA, Vp/Vs: primer/sekonder gerilim kV). Bu değerler, trafoyu besleyen ve trafodan çıkan devrelerdeki sigorta ve kesici seçiminde referans alınır.</p>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kablo Akım Taşıma Kapasitesi:</b> Bakır (Cu) iletkenler, alüminyuma göre daha iletken olduğu için aynı kesitte daha yüksek akım taşır; hesap aracımız alüminyum için bakır değerinin 0,62 katını kullanır. Buradaki 0,62 malzeme ve 1,20 hava/toprak çarpanları basitleştirilmiş model varsayımlarıdır; genel bir kablo seçim kuralı değildir. Gerçek akım kapasitesi kablo yapısı, döşeme biçimi, ortam sıcaklığı, gruplama ve toprağın ısıl direncine bağlıdır.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b>Kablo Akım Taşıma Kapasitesi:</b>
+Kesit ve malzeme, iletken direncini; sabit geometri ve ortam koşulları, ısının uzaklaştırılmasını belirler.
+Akım, 90 °C iletken sıcaklığında oluşan kayıplarla ısı geçişinin dengelenmesiyle hesaplanır.
+Gerilim dielektrik kaybı ve güç hesabına girer. Referans koşulları ve modelin kapsamı XLPE tablosunun altında verilmiştir.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Havai Hat İletkenleri (AWG/MCM):</b> AWG (American Wire Gauge) ve MCM (Bin Daire Mil) iletken kesitini tanımlayan iki farklı standarttır; sayı küçüldükçe (AWG) veya büyüdükçe (MCM) iletken kalınlaşır. Ortam sıcaklığı arttıkça iletkenin direnci de artar — hesap aracımız bunu <b>R(T) = R20 × (1 + 0,00403 × (T − 20))</b> formülüyle (alüminyum için tipik sıcaklık katsayısı) hesaba katar, bu yüzden farklı ortam sıcaklıkları farklı akım taşıma kapasitesi verir.</p>
           </div>
 
@@ -322,9 +347,7 @@ Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV to
 
           <div class="bilgilendirme">
             * Primer ve Sekonder akım hesaplamaları formüller doğrultusunda yapılmaktadır.
-            <br>* Akım tabloları örnek veri içerir; ürün kodu, katalog sürümü ve döşeme koşulları doğrulanmadığından kesin kablo seçimi için kullanılamaz.
-            <br>* Alüminyum(Al) kablolar için akım taşıma kapasiteleri Bakır(Cu) kabloların 0.62 katı olarak hesaplanmaktadır.
-            <br>* Havada akım taşıma kapasiteleri toprağın 1.2 katı olarak alınmıştır.
+            <br>* XLPE sonuçları belirtilen sabit koşullardaki yaklaşık ısıl modelden, havai hat akımları örnek tablodan üretilir; kesin seçim için kullanılamaz.
             <br>* Cos φ değeri kablo ve iletken hesaplamalarında 0.95 olarak kabul edilmiştir.
             <br>* Tüketim hesabı, yüklenen 4 Nisan 2026 tarife tablosunun AG tek terimli mesken verilerini kullanır. Sonuçlar %5 BTV ve %10 KDV dahil hesaplanır.
             <a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank" rel="noopener">EPDK Fatura Hesaplama</a>
@@ -337,7 +360,9 @@ Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV to
   </div>
 </main>
 
-<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Direnç hesabı R = ρ × 1.000 / A formülünü kullanır; A seçilen gerçek kesittir (mm²), sonuç Ω/km cinsindedir. Örneğin 630 mm² bakır için bu modelde ρ = 0,017857 alınır ve R ≈ 0,0283 Ω/km bulunur. AC etkileri ve iletken sıcaklığı bu kablo hesabına dahil değildir.</p><p>Aylık tahmini tüketim = yıllık etiket tüketimi / 365 × 30. Tek zamanlı meskende günlük 8 kWh sınırı korunur; 30 günde ilk 240 kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>XLPE hesabında Rdc(90) = ρ20/A × [1 + α20 × (90 − 20)] kullanılır; deri etkisiyle Rac elde edilir.
+Tablodaki direnç 90 °C AC model direncidir (Ω/km). Akım kapasitesi için idealize edilmiş kablo geometrisi ve ısıl denge kullanılır.
+Model sabitleri, formüller ve hariç tutulan etkiler XLPE tablosunun altındadır.</p><p>Aylık tahmini tüketim = yıllık etiket tüketimi / 365 × 30. Tek zamanlı meskende günlük 8 kWh sınırı korunur; 30 günde ilk 240 kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
 Dağıtım bedeli tüm tüketime eklenir. Kaynak: kullanıcı tarafından sağlanan “Tarife Tablosu”, 4 Nisan 2026, E20:I21 ve B32:B34. Dosyadaki fiyatlar vergiler hariçtir; hesapta enerjiye %5 BTV ve enerji + dağıtım + BTV toplamına %10 KDV eklenir.
 Vergi uygulaması: <a href="https://www.ckbogazici.com.tr/tr/45-soruda-elektrik-tuketicisi-olmak">CK Boğaziçi</a> ve
 <a href="https://gib.gov.tr/mevzuat/kanun/436/ozelge/32121">GİB KDV matrahı açıklaması</a>.
@@ -374,16 +399,28 @@ function trhesap(){
   $("ogSakim").textContent=`${fmt(Is,1)} A`;
 }
 
-function kablohesap(){
-  const tip=$("kabtipi").value,k=(tip==="Al")?0.62:1;
-  const I=n($("kabkesit").value)*k,A=n($("kabkesit").selectedOptions[0].dataset.area),V=n($("kabseviye").value);
-  const R=(tip==="Al"?0.0282:0.017857)*(1000/A),P=(V*Math.sqrt(3)*I*0.95)/1000;
-  $("kabomaj").innerHTML=`${fmt(R,4)} &#8486/km`;
-  $("kabakim").textContent=`${fmt(I,1)} A`;
-  $("kabakimH").textContent=`${fmt(I*1.2,1)} A`;
-  $("kabguc").textContent=`${fmt(P,1)} MW`;
+// İdealize XLPE ısıl modeli; birimler: A mm², U kV, çaplar m, R Ω/m, T K·m/W.
+function xlpeHesap(A,U,tip){
+const rho=tip==="Al"?0.028264:0.017241,alpha=tip==="Al"?0.00403:0.00393;
+const dc=Math.sqrt(4*A/Math.PI)/1000,di=dc+0.020,D=di+0.005;
+const rdc=rho/A*(1+alpha*70),x2=8*Math.PI*50*1e-7/rdc;
+const ys=x2*x2/(192+0.8*x2*x2),rac=rdc*(1+ys);
+const ti=3.5*Math.log(di/dc)/(2*Math.PI),tj=3.5*Math.log(D/di)/(2*Math.PI);
+const ta=tj+1/(10*Math.PI*D),L=0.8,s=0.5;
+const tg=tj+1.5/(2*Math.PI)*(Math.acosh(2*L/D)+2*Math.log(Math.hypot(s,2*L)/s));
+const cap=2*Math.PI*8.8541878128e-12*2.5/Math.log(di/dc);
+const wd=2*Math.PI*50*cap*(U*1000/Math.sqrt(3))**2*0.001;
+const courant=(temp,te)=>Math.sqrt(Math.max(0,(90-temp-wd*(ti/2+te))/(rac*(ti+te))));
+const toprak=courant(20,tg),hava=courant(30,ta),guc=Math.sqrt(3)*U*toprak*0.95/1000;
+return {rac:rac*1000,toprak,hava,guc,wd,ti,tg,ta};
 }
-
+function kablohesap(){
+const sonuc=xlpeHesap(n($("kabkesit").value),n($("kabseviye").value),$("kabtipi").value);
+$("kabomaj").textContent=`${fmt(sonuc.rac,4)} Ω/km`;
+$("kabakim").textContent=`≈ ${fmt(sonuc.toprak,0)} A`;
+$("kabakimH").textContent=`≈ ${fmt(sonuc.hava,0)} A`;
+$("kabguc").textContent=`≈ ${fmt(sonuc.guc,2)} MW`;
+}
 const tuketimIds=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi","lamba"];
 // Kaynak: Tarife Tablosu E20:I21, B32:B34. Birim dönüşümü: kr/kWh / 100 = TL/kWh.
 const meskenTarife={dusuk:0.494065,yuksek:1.895808,dagitim:2.4249};
