@@ -95,6 +95,11 @@ footer {
 }
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
+#btnHint{margin-top:10px;padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:#eff6ff;color:#1d4ed8;cursor:pointer}
+.sekil-sec{display:flex;flex-direction:column;gap:5px;font-size:13px;margin-bottom:12px}
+#shapeSelect{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--txt)}
+.ipucu{font-size:13px;line-height:1.6;padding:10px;border:1px solid #fcd34d;border-radius:8px;background:#fffbeb;color:#78350f}
+#btnHint:disabled{opacity:.5;cursor:default}
 </style>
   <link rel="stylesheet" href="/inc/site-quality.css">
   <script defer src="/inc/site-quality.js"></script>
@@ -142,22 +147,25 @@ footer {
       <div class="frameWrap">
         <div class="frameBox">
           <div id="oyunWrap">
-            <div class="bilgiBandi">Kolaydan zora doğru sıralanmış 8 farklı şekli, kalemi kaldırmadan (her kenarı yalnızca bir kez kullanarak) tek çizgide tamamlamaya çalışın. Alttaki ◀ ▶ tuşlarıyla şekiller arasında geçiş yapabilirsiniz.</div>
+            <div class="bilgiBandi">2 kolay, 6 orta ve 8 zor bulmacayı, her kenarı yalnızca bir kez kullanarak tamamlayın. Şekli listeden veya ◀ ▶ tuşlarıyla seçin; takıldığınızda İpucu düğmesini kullanın.</div>
             
+            <label class="sekil-sec" for="shapeSelect">Bulmaca seçin<select id="shapeSelect"></select></label>
             <div id="oyunBar">
               <button id="btnReset" type="button">Sıfırla</button>
-              <span id="msg">Seç</span>
+              <span id="msg" role="status">Seç</span>
               <small id="info"></small>
               <button id="btnPrev" type="button" aria-label="Önceki">◀</button>
               <button id="btnNext" type="button" aria-label="Sonraki">▶</button>
             </div>    
             
-            <canvas id="game"></canvas>
+            <canvas id="game" aria-label="Tek çizgi bulmacası; noktaları seçerek çizgileri tamamlayın"></canvas>
+            <button id="btnHint" type="button">İpucu</button>
+            <p id="hintText" class="ipucu" aria-live="polite" hidden></p>
           </div>
 
           <div class="bilgilendirme">
             <b>Oyun Kuralları</b>
-            <p>* Herhangi bir noktadan başlayarak, komşu noktalar seçildiğinde kenarlar aktif hale gelir.
+            <p>* Bir başlangıç noktası seçin; komşu noktaları tıklayarak her kenardan bir kez geçin. İki tek dereceli nokta varsa bunlardan biriyle başlayın.
             <br>* Tüm kenarlar aktif hale geldiğinde oyun biter.
             <br>* İki nokta arasında kenar oluştuysa geri dönülemez.</p>
           </div>
@@ -187,18 +195,20 @@ footer {
     <article>
       <h2>Bu Oyunun Arkasındaki Matematik: Euler Yolu ve Königsberg Köprüleri</h2>
       <p>Bu bulmacanın kökeni 1736 yılına, matematikçi Leonhard Euler'in çözdüğü ünlü "Königsberg Köprüleri Problemi"ne dayanır. Dönemin Königsberg şehrinde (bugünkü Kaliningrad) bir nehir üzerinde 7 köprü vardı ve şehir halkı "her köprüden yalnızca bir kez geçerek şehri baştan sona dolaşmak mümkün mü?" sorusunu tartışıyordu. Euler bu soruyu çözerken, bugün <strong>graf teorisi</strong> adı verilen matematik dalının temelini attı ve "hangi şekiller kalem kaldırmadan, her çizgiyi bir kez kullanarak çizilebilir?" sorusuna kesin bir cevap buldu.</p>
-      <p>Euler'in bulduğu kural basit: bağlantılı bir şekildeki her noktanın kaç çizgiyle birleştiğini (o noktanın "derecesi") sayarsanız, tek sayıda çizgisi olan nokta sayısı <strong>0 veya 2</strong> olmalıdır. 0 ise şekli herhangi bir noktadan başlayıp çizebilir, hatta başladığınız noktaya geri dönebilirsiniz. Tam 2 ise şekli çizebilirsiniz ama yalnızca o iki özel noktadan birinden başlamanız gerekir — üçüncü bir noktadan başlarsanız kesinlikle yarıda tıkanırsınız. Bu sayfadaki 8 şeklin her biri bu kurala göre matematiksel olarak doğrulanmıştır; hiçbiri gerçekten çözümsüz değildir, başlangıç noktasını ve kenar sırasını birlikte seçmeniz gerekir.</p>
+      <p>Euler'in bulduğu kural basit: bağlantılı bir şekildeki her noktanın kaç çizgiyle birleştiğini (o noktanın "derecesi") sayarsanız, tek sayıda çizgisi olan nokta sayısı <strong>0 veya 2</strong> olmalıdır. 0 ise şekli herhangi bir noktadan başlayıp çizebilir, hatta başladığınız noktaya geri dönebilirsiniz. Tam 2 ise şekli çizebilirsiniz ama yalnızca o iki özel noktadan birinden başlamanız gerekir — üçüncü bir noktadan başlarsanız kesinlikle yarıda tıkanırsınız. Bu sayfadaki 16 şeklin her biri bu kurala göre matematiksel olarak doğrulanmıştır; hiçbiri gerçekten çözümsüz değildir, başlangıç noktasını ve kenar sırasını birlikte seçmeniz gerekir.</p>
 
       <h3>Pratik İpucu: Doğru Başlangıç Noktasını Nasıl Bulursunuz?</h3>
-      <p>Şekle çizim yapmadan önce her noktadan kaç çizgi çıktığını sayın. Eğer tüm noktalardan çift sayıda çizgi çıkıyorsa (Altıgen Yıldız ve Hexagram'da olduğu gibi) herhangi bir noktadan rahatça başlayabilirsiniz. Eğer tam iki noktadan tek sayıda çizgi çıkıyorsa (diğer 6 şekilde olduğu gibi) mutlaka o iki noktadan birinden başlamalısınız; örneğin Zarf şeklinde alt iki köşeden biri doğru başlangıç noktasıdır. Yüksek dereceli "göbek" noktaları (Altıgen + Merkez ve Çiçek'teki merkez nokta gibi) size her seferinde birden fazla yön seçeneği sunar; bu da bulmacayı gerçek bir karar problemine dönüştürür.</p>
+      <p>Her noktadan çıkan çizgileri sayın. İki noktada tek sayıda çizgi varsa bunlardan biriyle başlayın; tüm sayılar çiftse herhangi bir nokta uygundur.
+İpucu düğmesi başlangıçta uygun noktaları işaretler. Oyun sırasında kalan bağlantılar hakkında yönlendirme verir; tam rotayı veya bir sonraki hamleyi göstermez.
+Üzerinde nokta bulunmayan çizgi kesişimleri bağlantı sayılmaz.</p>
 
       <table class="tanim-tablo">
         <thead><tr><th>Zorluk</th><th>Şekiller</th><th>Özellik</th></tr></thead>
         <tbody>
-          <tr><td>Kolay</td><td>Kare + Çapraz, Elmas + Kiriş</td><td>4 nokta, tek köşegenle ilk dallanma noktası</td></tr>
-          <tr><td>Orta</td><td>Yıldız + Kanat, Zarf</td><td>5 nokta, kesişen çizgiler ve zorunlu başlangıç noktaları</td></tr>
-          <tr><td>Zor</td><td>Altıgen + Merkez, Altıgen Yıldız</td><td>6-7 nokta, merkez göbek veya iç yıldız kesişimleri</td></tr>
-          <tr><td>Çok Zor</td><td>Hexagram, Çiçek</td><td>12 kenar veya derece-6 merkez nokta ile en yoğun şekiller</td></tr>
+          <tr><td>Kolay · 2 bulmaca</td><td>Kare ve Köşegen, Üçgen ve Kuyruk</td><td>Az çizgiyle başlangıç kuralını öğrenme</td></tr>
+          <tr><td>Orta · 6 bulmaca</td><td>Yıldız ve Kanat, Zarf, İki Ada, Altıgen ve Üçgen, Altıgen ve Kiriş, Üç Yaprak</td><td>Döngüler ve bağlantı sırası</td></tr>
+          <tr><td>Zor · 8 bulmaca</td><td>Altıgen ve Merkez, Çiçek, Sekizgen Düğüm, Çift Yıldız, Sekizli Örgü, Dokuzlu Örgü, Onlu Yıldız, Köprülü Ağ</td>
+          <td>Yoğun bağlantılar, ortak düğümler ve erken geçilmemesi gereken köprüler</td></tr>
         </tbody>
       </table>
 
@@ -207,13 +217,13 @@ footer {
       <p><strong>Neden sürekli aynı noktada takılıp kalıyorum?</strong> Başlangıç noktanız uygun olmayabilir veya kalan kenarları ayıran bir bağlantıyı çok erken kullanmış olabilirsiniz. "Sıfırla" tuşuna basıp yukarıdaki ipucuna göre farklı bir noktadan tekrar deneyin.</p>
       <p><strong>Bir kenarı yanlışlıkla kullanırsam geri alabilir miyim?</strong> Hayır, kurallar gereği kullanılan bir kenar tekrar kullanılamaz ve son adım geri alınamaz; "Sıfırla" ile şekli baştan başlatabilirsiniz.</p>
 
-      <p class="guncelleme-notu">Bu oyun grubu, klasik graf teorisi problemlerinden esinlenerek hazırlanmıştır ve düzenli olarak yeni şekillerle güncellenmektedir.</p>
+      <p class="guncelleme-notu">Bu oyun grubu, klasik graf teorisi problemlerinden esinlenerek hazırlanmıştır ve 16 bulmacadan oluşmaktadır.</p>
     </article>
   </section>
 
 </div>
 
-<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Bulmacada noktalar düğüm, çizgiler kenardır. Amaç her kenarı bir kez kullanmaktır; aynı noktaya tekrar uğramak serbesttir. Geometrik kesişim, üzerinde düğüm yoksa yeni bağlantı sayılmaz.</p><p>Örnek strateji: Önce tek dereceli noktaları bulun. İki tane varsa birinden başlayın. İki rota arasında tek bağlantı kalmışsa, bulunduğunuz taraftaki kenarları bitirmeden bu bağlantıyı geçmeyin. Uygun başlangıç, her hamle sırasının çözüleceği anlamına gelmez.</p><p>Şekiller sayfanın kendi kodundaki düğüm ve kenar listelerinden çizilir. Matematiksel koşul bağlantılı graf ve sıfır ya da iki tek dereceli düğümdür.</p><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Bulmacada noktalar düğüm, çizgiler kenardır. Amaç her kenarı bir kez kullanmaktır; aynı noktaya tekrar uğramak serbesttir. Geometrik kesişim, üzerinde düğüm yoksa yeni bağlantı sayılmaz.</p><p>Örnek strateji: Önce tek dereceli noktaları bulun. İki tane varsa birinden başlayın. İki rota arasında tek bağlantı kalmışsa, bulunduğunuz taraftaki kenarları bitirmeden bu bağlantıyı geçmeyin. Uygun başlangıç, her hamle sırasının çözüleceği anlamına gelmez.</p><p>Şekiller sayfanın kendi kodundaki düğüm ve kenar listelerinden çizilir. Matematiksel koşul bağlantılı graf ve sıfır ya da iki tek dereceli düğümdür.</p><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-11-10">10 Kasım 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -243,19 +253,92 @@ setUstH();
   const msg=document.getElementById("msg"),info=document.getElementById("info"),btn=document.getElementById("btnReset");
   const prev=document.getElementById("btnPrev"),next=document.getElementById("btnNext");
 
+  const hintBtn=document.getElementById("btnHint"),hintText=document.getElementById("hintText"),picker=document.getElementById("shapeSelect");
   const S={pad:70,r:10,hit:18};
   const SHAPES=[
-    {name:"Kare + Çapraz",level:"Kolay",pts:[[0.22,0.22],[0.78,0.22],[0.78,0.78],[0.22,0.78]],edges:[[0,1],[1,2],[2,3],[3,0],[0,2]]},
-    {name:"Elmas + Kiriş",level:"Kolay",pts:[[0.5,0.15],[0.85,0.5],[0.5,0.85],[0.15,0.5]],edges:[[0,1],[1,2],[2,3],[3,0],[3,1]]},
-    {name:"Yıldız + Kanat",level:"Orta",pts:[[0.5,0.178],[0.842,0.414],[0.712,0.797],[0.288,0.797],[0.158,0.414]],edges:[[0,2],[2,4],[4,1],[1,3],[3,0],[0,1],[0,4]]},
-    {name:"Zarf",level:"Orta",pts:[[0.25,0.8],[0.75,0.8],[0.25,0.4],[0.75,0.4],[0.5,0.14]],edges:[[0,1],[0,2],[1,3],[2,3],[2,4],[3,4],[0,3],[1,2]]},
-    {name:"Altıgen + Merkez",level:"Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31],[0.5,0.5]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[6,0],[6,2],[6,4],[0,2]]},
-    {name:"Altıgen Yıldız",level:"Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0]]},
-    {name:"Hexagram",level:"Çok Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31]],edges:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0],[1,3],[3,5],[5,1]]},
-    {name:"Çiçek",level:"Çok Zor",pts:[[0.5,0.12],[0.829,0.31],[0.829,0.69],[0.5,0.88],[0.171,0.69],[0.171,0.31],[0.5,0.5]],edges:[[1,2],[2,3],[4,5],[5,0],[6,0],[6,1],[6,2],[6,3],[6,4],[6,5]]},
+    {"name":"Kare ve Köşegen","level":"Kolay","pts":[
+      [0.22,0.22],[0.78,0.22],[0.78,0.78],[0.22,0.78]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,0],[0,2]
+    ]},
+    {"name":"Üçgen ve Kuyruk","level":"Kolay","pts":[
+      [0.5,0.17],[0.25,0.65],[0.75,0.65],[0.82,0.85]
+    ],"edges":[
+      [0,1],[1,2],[2,0],[2,3]
+    ]},
+    {"name":"Yıldız ve Kanat","level":"Orta","pts":[
+      [0.5,0.13],[0.8519,0.3857],[0.7175,0.7993],[0.2825,0.7993],[0.1481,0.3857]
+    ],"edges":[
+      [0,2],[2,4],[4,1],[1,3],[3,0],[0,1],[0,4]
+    ]},
+    {"name":"Zarf","level":"Orta","pts":[
+      [0.25,0.8],[0.75,0.8],[0.25,0.4],[0.75,0.4],[0.5,0.14]
+    ],"edges":[
+      [0,1],[0,2],[1,3],[2,3],[2,4],[3,4],[0,3],[1,2]
+    ]},
+    {"name":"İki Ada","level":"Orta","pts":[
+      [0.12,0.3],[0.35,0.15],[0.35,0.65],[0.65,0.35],[0.88,0.7],[0.65,0.85]
+    ],"edges":[
+      [0,1],[1,2],[2,0],[3,4],[4,5],[5,3],[2,3]
+    ]},
+    {"name":"Altıgen ve Üçgen","level":"Orta","pts":[
+      [0.5,0.13],[0.8204,0.315],[0.8204,0.685],[0.5,0.87],[0.1796,0.685],[0.1796,0.315]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[2,4],[4,0]
+    ]},
+    {"name":"Altıgen ve Kiriş","level":"Orta","pts":[
+      [0.5,0.13],[0.8204,0.315],[0.8204,0.685],[0.5,0.87],[0.1796,0.685],[0.1796,0.315]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,3]
+    ]},
+    {"name":"Üç Yaprak","level":"Orta","pts":[
+      [0.5,0.5],[0.15,0.2],[0.5,0.12],[0.85,0.2],[0.88,0.65],[0.5,0.88],[0.12,0.65]
+    ],"edges":[
+      [0,1],[1,2],[2,0],[0,3],[3,4],[4,0],[0,5],[5,6],[6,0]
+    ]},
+    {"name":"Altıgen ve Merkez","level":"Zor","pts":[
+      [0.5,0.13],[0.8204,0.315],[0.8204,0.685],[0.5,0.87],[0.1796,0.685],[0.1796,0.315],[0.5,0.5]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[6,0],[6,2],[6,4],[0,2]
+    ]},
+    {"name":"Çiçek","level":"Zor","pts":[
+      [0.5,0.13],[0.8204,0.315],[0.8204,0.685],[0.5,0.87],[0.1796,0.685],[0.1796,0.315],[0.5,0.5]
+    ],"edges":[
+      [1,2],[2,3],[4,5],[5,0],[6,0],[6,1],[6,2],[6,3],[6,4],[6,5]
+    ]},
+    {"name":"Sekizgen Düğüm","level":"Zor","pts":[
+      [0.5,0.13],[0.7616,0.2384],[0.87,0.5],[0.7616,0.7616],[0.5,0.87],[0.2384,0.7616],[0.13,0.5],[0.2384,0.2384]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[0,2],[2,5],[5,0],[1,4]
+    ]},
+    {"name":"Çift Yıldız","level":"Zor","pts":[
+      [0.5,0.13],[0.7616,0.2384],[0.87,0.5],[0.7616,0.7616],[0.5,0.87],[0.2384,0.7616],[0.13,0.5],[0.2384,0.2384]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[0,2],[2,4],[4,0],[0,3],[3,6],[6,0]
+    ]},
+    {"name":"Sekizli Örgü","level":"Zor","pts":[
+      [0.5,0.13],[0.7616,0.2384],[0.87,0.5],[0.7616,0.7616],[0.5,0.87],[0.2384,0.7616],[0.13,0.5],[0.2384,0.2384]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[0,3],[3,6],[6,1],[1,4],[4,7],[7,2],[2,5],[5,0]
+    ]},
+    {"name":"Dokuzlu Örgü","level":"Zor","pts":[
+      [0.5,0.13],[0.7378,0.2166],[0.8644,0.4358],[0.8204,0.685],[0.6265,0.8477],[0.3735,0.8477],[0.1796,0.685],[0.1356,0.4358],[0.2622,0.2166]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,0],[0,3],[3,6],[6,0],[1,4],[4,7],[7,1]
+    ]},
+    {"name":"Onlu Yıldız","level":"Zor","pts":[
+      [0.5,0.13],[0.7175,0.2007],[0.8519,0.3857],[0.8519,0.6143],[0.7175,0.7993],[0.5,0.87],[0.2825,0.7993],[0.1481,0.6143],[0.1481,0.3857],[0.2825,0.2007]
+    ],"edges":[
+      [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,0],[0,4],[4,8],[8,2],[2,6],[6,0]
+    ]},
+    {"name":"Köprülü Ağ","level":"Zor","pts":[
+      [0.26,0.3],[0.4502,0.4382],[0.3776,0.6618],[0.1424,0.6618],[0.0698,0.4382],[0.74,0.3],[0.9302,0.4382],[0.8576,0.6618],[0.6224,0.6618],[0.5498,0.4382]
+    ],"edges":[
+      [0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4],[5,6],[5,7],[5,8],[5,9],[6,7],[6,8],[6,9],[7,8],[7,9],[8,9],[1,9]
+    ]}
   ];
 
-  let shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
+  let hintNodes=[],shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
 
   const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
   const R=()=>cv.getBoundingClientRect();
@@ -265,7 +348,7 @@ setUstH();
     const r=R(),k=DPR();
     cv.width=Math.floor(r.width*k);cv.height=Math.floor(r.height*k);
     ctx.setTransform(k,0,0,k,0,0);
-    reset();
+    buildNodes();draw();
   }
 
   function buildNodes(){
@@ -292,7 +375,7 @@ setUstH();
     });
   }
 
-  function ui(){const s=SHAPES[shapeId];info.textContent=`${shapeId+1}/${SHAPES.length} · ${s.name} · ${s.level}`;}
+  function ui(){const s=SHAPES[shapeId];picker.value=String(shapeId);info.textContent=`${shapeId+1}/${SHAPES.length} · ${s.name} · ${s.level}`;}
   
   function draw(){
     const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
@@ -318,6 +401,9 @@ setUstH();
     if(walk.length>1)ctx.stroke();
 
     nodes.forEach((p,i)=>{
+      if(hintNodes.includes(i)){
+      ctx.beginPath();ctx.arc(p.x,p.y,S.r+6,0,Math.PI*2);ctx.lineWidth=3;ctx.strokeStyle="#d97706";ctx.stroke();
+      }
       ctx.beginPath();
       ctx.fillStyle=i===selected?"#f59e0b":"#0f172a";
       ctx.arc(p.x,p.y,S.r,0,Math.PI*2);
@@ -329,14 +415,14 @@ setUstH();
   }
 
   function winCheck(){
-    if(visitedE.size===edges.length){msg.textContent=TXT.win;dead=true;}
+    if(visitedE.size===edges.length){msg.textContent=TXT.win;dead=true;hintBtn.disabled=true;}
   }
   function deadCheck(){
     if(visitedE.size===edges.length)return;
     if(possibleMoves(selected).length===0){msg.textContent=TXT.lose;dead=true;}
   }
   function reset(){
-    edges=SHAPES[shapeId].edges;
+    clearHint();hintBtn.disabled=false;edges=SHAPES[shapeId].edges;
     buildNodes();
     selected=-1;walk=[];visitedE=new Set();lastEdge=null;dead=false;
     msg.textContent=TXT.start;
@@ -349,6 +435,7 @@ setUstH();
     const n=hitNode(x,y);
     if(n<0)return;
 
+    clearHint();
     if(selected<0){ selected=n;walk=[n]; msg.textContent=TXT.move; draw();return; }
 
     if(n===selected)return;
@@ -369,12 +456,43 @@ setUstH();
     deadCheck();
   });
 
+  function clearHint(){hintNodes=[];hintText.hidden=true;hintText.textContent="";}
+  function remainingGraph(){
+    const adj=nodes.map(()=>[]);
+    edges.forEach(([a,b])=>{if(!visitedE.has(key(a,b))){adj[a].push(b);adj[b].push(a);}});return adj;
+  }
+  function reachable(adj,start){
+    const seen=new Set([start]),queue=[start];
+    for(const a of queue)for(const b of adj[a])if(!seen.has(b)){seen.add(b);queue.push(b);}return seen;
+  }
+  function showHint(){
+    clearHint();const adj=remainingGraph(),odd=adj.map((a,i)=>a.length%2?i:-1).filter(i=>i>=0);
+    if(selected<0){
+    hintNodes=odd.length?odd:nodes.map((_,i)=>i);
+    hintText.textContent=odd.length?"Turuncu halkalı iki noktadan biriyle başlayın; bu noktalardan tek sayıda çizgi çıkıyor.":
+    "Her noktadan çift sayıda çizgi çıkıyor. İstediğiniz noktadan başlayın; başladığınız noktada bitirmelisiniz.";
+    }else{
+    const seen=reachable(adj,selected),active=adj.map((a,i)=>a.length?i:-1).filter(i=>i>=0);
+    const uygun=active.every(i=>seen.has(i))&&(odd.length===0||(odd.length===2&&odd.includes(selected)));
+    if(!uygun){hintText.textContent="Kalan çizgiler bu noktadan tek seferde tamamlanamıyor. Sıfırlayıp başlangıç veya geçiş sırasını değiştirin.";}
+    else if(adj[selected].length===1){hintText.textContent="Bulunduğunuz noktadan kullanılmamış tek bir bağlantı kalmış. Bu bağlantıyı takip edebilirsiniz.";}
+    else{hintText.textContent="Önce bulunduğunuz taraftaki döngüleri tamamlamayı düşünün. Başka çizgiler varken iki bölümü bağlayan son geçişi erken kullanmayın.";}
+    }
+    hintText.hidden=false;draw();
+  }
+  for(const level of ["Kolay","Orta","Zor"]){
+    const group=document.createElement("optgroup");group.label=level;
+    SHAPES.forEach((shape,i)=>{if(shape.level!==level)return;const option=document.createElement("option");
+    option.value=String(i);option.textContent=`${i+1}. ${shape.name}`;group.appendChild(option);});picker.appendChild(group);
+  }
+  picker.addEventListener("change",()=>{shapeId=Number(picker.value);reset();});
+  hintBtn.addEventListener("click",showHint);
   btn.addEventListener("click",reset);
   prev.addEventListener("click",()=>{shapeId=(shapeId-1+SHAPES.length)%SHAPES.length;reset();});
   next.addEventListener("click",()=>{shapeId=(shapeId+1)%SHAPES.length;reset();});
 
   window.addEventListener("resize",fit);
-  fit();
+  reset();fit();
 })();
 
 (()=>{const ms=document.getElementById("mselect");if(!ms)return;
