@@ -251,18 +251,18 @@ Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonu�
           <div class="card">
             <table class="tbl hhTbl">
               <thead>
-                <tr><th colspan="6">Havai Hat İletkenleri – Akım ve Güç Taşıma Kapasiteleri</th></tr>
-                <tr class="elk"><th>İletken</th><th>Gerilim</th><th>Ortam</th><th>R</th><th>I</th><th>P</th></tr>
+                <tr><th colspan="6">Havai Hat İletkenleri – Yaklaşık Akım ve Güç Hesabı</th></tr>
+                <tr class="elk"><th>İletken</th><th>Gerilim</th><th>Ortam</th><th>R DC (75 °C)</th><th>I</th><th>P</th></tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
                     <select id="hhKesit" aria-label="Havai Hat İletkeni">
-                      <option data-i40="120" data-i25="160" data-i20="180" data-r="1.0742">3 AWG-Swallow</option>
-                      <option data-i40="195" data-i25="230" data-i20="280" data-r="0.5362">1/0 AWG-Raven</option>
-                      <option data-i40="275" data-i25="300" data-i20="360" data-r="0.3366">3/0 AWG-Pigeon</option>
-                      <option data-i40="345" data-i25="460" data-i20="510" data-r="0.214">266 MCM-Patridge</option>
-                      <option data-i40="540" data-i25="670" data-i20="740" data-r="0.1194">477 MCM-Hawk</option>
+                      <option value="swallow" data-d="7.14" data-r="1.074">3 AWG-Swallow</option>
+                      <option value="raven" data-d="10.11" data-r="0.536">1/0 AWG-Raven</option>
+                      <option value="pigeon" data-d="12.75" data-r="0.337">3/0 AWG-Pigeon</option>
+                      <option value="partridge" data-d="16.28" data-r="0.214">266,8 kcmil-Partridge</option>
+                      <option value="hawk" data-d="21.77" data-r="0.119">477 kcmil-Hawk</option>
                     </select>
                   </td>
                   <td>
@@ -282,6 +282,25 @@ Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonu�
                 </tr>
               </tbody>
             </table>
+<div class="bilgilendirme" id="hhReferans">
+<b>Referans koşulları:</b> Çıplak ACSR iletken, kararlı yük, iletken sıcaklığı 75 °C; ortam sıcaklığı tablodan seçilir.
+Deniz seviyesi, iletkene dik 0,6 m/s rüzgâr; iletkenin izdüşümüne dik 1.000 W/m² güneş ışınımı.
+Güneş soğurma ve ısıl yayma katsayıları 0,5; güç katsayısı cos φ = 0,95 sabittir.
+<br><b>Hesap:</b> I = √[(qc + qr − qs) / R75]. qc taşınımla, qr ışınımla kaybedilen; qs güneşten kazanılan ısıdır (W/m).
+R75 = R20 × [1 + 0,00403 × (75 − 20)]; direnç akım hesabında Ω/m'ye çevrilir.
+Gerilim akım sınırını değiştirmez; dengeli üç faz güç hesabına girer: P = √3 × U × I × 0,95.
+<br>Akım değerleri hazır tablodan alınmaz. Çap ve R20, iletkenin fiziksel referans verileridir; bunlar hâlâ ürün yapısına bağlıdır.
+Bu yaklaşık hesapta DC direnç kullanılır; AC deri/yakınlık etkileri ve çelik özün ek manyetik kayıpları hesaba katılmaz.
+Bu eksikler akım kapasitesini olduğundan yüksek gösterebilir. Sehim, yerden açıklık ve bağlantı sınırları ayrıca değerlendirilmelidir.
+<details><summary>Yöntem ve fiziksel veri kaynakları</summary>
+<p>Taşınım için doğal ve iki zorlanmış taşınım bağıntısının en büyüğü alınır; hava özellikleri iletken/ortam ortalama sıcaklığından hesaplanır.
+Işınım Stefan–Boltzmann bağıntısıyla, güneş kazancı qs = 0,5 × 1.000 × D ile bulunur; D metre cinsinden dış çaptır.
+Hava koşulları model kabulleridir; tam IEEE 738 uygunluğu veya üretici kapasite onayı anlamına gelmez.</p>
+<ul><li><a href="https://openohl.ch/docs/theory/thermal.html" target="_blank" rel="noopener">OpenOHL: IEEE 738 ısıl denge yönteminin uygulama açıklaması</a></li>
+<li><a href="https://vatan.com.tr/upl/vatan%20kablo%20english.pdf" target="_blank" rel="noopener">Vatan Kablo: ACSR dış çap ve 20 °C DC direnç verileri</a></li></ul>
+<p>Swallow: 7,14 mm / 1,074 Ω/km; Raven: 10,11 mm / 0,536 Ω/km; Pigeon: 12,75 mm / 0,337 Ω/km;
+Partridge: 16,28 mm / 0,214 Ω/km; Hawk: 21,77 mm / 0,119 Ω/km.</p>
+</details></div>
           </div>
 
           <div class="bilgiBandi">Buradaki sonuçlar genel bilgilendirme amaçlıdır. Nihai proje, koruma, sıcaklık, döşeme şekli ve standart kontrolleri ayrıca değerlendirilmelidir.</div>
@@ -293,7 +312,10 @@ Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonu�
 Kesit ve malzeme, iletken direncini; sabit geometri ve ortam koşulları, ısının uzaklaştırılmasını belirler.
 Akım, 90 °C iletken sıcaklığında oluşan kayıplarla ısı geçişinin dengelenmesiyle hesaplanır.
 Gerilim dielektrik kaybı ve güç hesabına girer. Referans koşulları ve modelin kapsamı XLPE tablosunun altında verilmiştir.</p>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Havai Hat İletkenleri (AWG/MCM):</b> AWG (American Wire Gauge) ve MCM (Bin Daire Mil) iletken kesitini tanımlayan iki farklı standarttır; sayı küçüldükçe (AWG) veya büyüdükçe (MCM) iletken kalınlaşır. Ortam sıcaklığı arttıkça iletkenin direnci de artar — hesap aracımız bunu <b>R(T) = R20 × (1 + 0,00403 × (T − 20))</b> formülüyle (alüminyum için tipik sıcaklık katsayısı) hesaba katar, bu yüzden farklı ortam sıcaklıkları farklı akım taşıma kapasitesi verir.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b>Havai Hat İletkenleri:</b>
+Akım, 75 °C iletken sıcaklığında elektrik ve güneş kaynaklı ısınmanın taşınım ve ışınımla dengelenmesinden hesaplanır.
+Ortam sıcaklığı yükseldiğinde soğuma azalır ve hesaplanan akım kapasitesi düşer.
+Direnç ortam sıcaklığında değil, sabit 75 °C iletken sıcaklığında gösterilir. Koşullar ve model sınırları tablonun altındadır.</p>
           </div>
 
           <div class="card">
@@ -347,7 +369,7 @@ Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV to
 
           <div class="bilgilendirme">
             * Primer ve Sekonder akım hesaplamaları formüller doğrultusunda yapılmaktadır.
-            <br>* XLPE sonuçları belirtilen sabit koşullardaki yaklaşık ısıl modelden, havai hat akımları örnek tablodan üretilir; kesin seçim için kullanılamaz.
+            <br>* XLPE ve havai hat sonuçları belirtilen koşullardaki yaklaşık ısıl modellerden üretilir; kesin kablo/iletken seçimi için kullanılamaz.
             <br>* Cos φ değeri kablo ve iletken hesaplamalarında 0.95 olarak kabul edilmiştir.
             <br>* Tüketim hesabı, yüklenen 4 Nisan 2026 tarife tablosunun AG tek terimli mesken verilerini kullanır. Sonuçlar %5 BTV ve %10 KDV dahil hesaplanır.
             <a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank" rel="noopener">EPDK Fatura Hesaplama</a>
@@ -461,24 +483,28 @@ tuketimIds.map(k=>k+"tuketim")
 .forEach(id=>$(id).addEventListener("input",ctuketimhesap));
 trhesap(); kablohesap(); ctuketimhesap();
 
-function hhFmt(n,d){ return (+n).toLocaleString("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d});}
-
-function hhHesap(){
-  const opt  = document.querySelector("#hhKesit option:checked");
-  if(!opt) return;
-  const V      = Number($("hhGerilim").value);
-  const T      = Number($("hhOrtam").value);
-  const I      = Number(opt.dataset["i"+T]);
-  const R20    = Number(opt.dataset.r);
-  const alpha  = 0.00403;
-  const RT     = R20 * (1 + alpha * (T - 20));
-  const P      = Math.sqrt(3) * V * I * 0.95 / 1000;
-
-  $("hhR").textContent = `${hhFmt(RT,4)} Ω/km`;
-  $("hhI").textContent = `${hhFmt(I,0)} A`;
-  $("hhP").textContent = `${hhFmt(P,2)} MW`;
+// IEEE 738 taşınım/ışınım bağıntıları; doğrudan güneş girdisi, yaklaşık DC direnç modeli.
+function hhIsi(D,Ta,Ts=75,ruzgar=0.6,gunes=1000,emisyon=0.5,sogurma=0.5){
+const film=(Ts+Ta)/2,delta=Ts-Ta,rho=1.293/(1+0.00367*film);
+const mu=1.458e-6*(film+273)**1.5/(film+383.4),kf=0.02424+7.477e-5*film-4.407e-9*film*film;
+const re=D*rho*ruzgar/mu;
+const dogal=3.645*Math.sqrt(rho)*D**0.75*Math.max(0,delta)**1.25;
+const zor1=(1.01+1.35*re**0.52)*kf*delta,zor2=0.754*re**0.6*kf*delta;
+const qc=Math.max(0,dogal,zor1,zor2),qr=17.8*D*emisyon*(((Ts+273)/100)**4-((Ta+273)/100)**4);
+const qs=sogurma*gunes*D;return {qc,qr,qs};
 }
-
+function hhModel(Dmm,R20,Ta,U){
+const r75=R20*(1+0.00403*55),isi=hhIsi(Dmm/1000,Ta),net=isi.qc+isi.qr-isi.qs;
+const akim=Math.sqrt(Math.max(0,net)/(r75/1000)),guc=Math.sqrt(3)*U*akim*0.95/1000;
+return {r75,akim,guc,...isi};
+}
+function hhHesap(){
+const opt=$("hhKesit").selectedOptions[0];if(!opt)return;
+const sonuc=hhModel(Number(opt.dataset.d),Number(opt.dataset.r),Number($("hhOrtam").value),Number($("hhGerilim").value));
+$("hhR").textContent=`${fmt(sonuc.r75,4)} Ω/km`;
+$("hhI").textContent=`≈ ${fmt(sonuc.akim,0)} A`;
+$("hhP").textContent=`≈ ${fmt(sonuc.guc,2)} MW`;
+}
 document.getElementById("hhKesit")?.addEventListener("change",hhHesap);
 document.getElementById("hhGerilim")?.addEventListener("change",hhHesap);
 document.getElementById("hhOrtam")?.addEventListener("change",hhHesap);
