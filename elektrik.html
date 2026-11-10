@@ -105,6 +105,8 @@ footer {
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
 #tuketimHata{color:#b91c1c;font-size:13px}
+details.bilgilendirme>summary{cursor:pointer;font-weight:600;color:var(--txt)}
+.referans-icerik{margin-top:10px}
 </style>
   <link rel="stylesheet" href="/inc/site-quality.css">
   <script defer src="/inc/site-quality.js"></script>
@@ -224,28 +226,7 @@ footer {
                 </tr>
               </tbody>
             </table>
-<div class="bilgilendirme" id="kabloReferans">
-<b>Sabit referans koşulları:</b> 50 Hz, dengeli üç faz, tek damarlı yuvarlak iletkenli XLPE kablolar; iletken sıcaklığı 90 °C.
-Hava 30 °C, toprak 20 °C; doğrudan gömme derinliği 0,8 m, toprak ısıl direnci 1,5 K·m/W.
-Üç faz yatay, merkezler arası 0,5 m; toprakta ortadaki fazın karşılıklı ısınması hesaba katılır. Havada güneş ve rüzgâr yoktur.
-Modelde XLPE kalınlığı 10 mm, dış PE kılıf 2,5 mm; hava için eşdeğer ısı geçiş katsayısı 10 W/(m²·K) sabittir.
-Gerilim, fazlar arası işletme gerilimidir; yalıtım geometrisi değişmez. Bu model gerilim sınıfı veya yalıtım dayanımı doğrulamaz.
-<br><b>Yöntem:</b> I = √[(ΔT − Wd × (Tyalıtım / 2 + Tdış)) / (Rac × (Tyalıtım + Tdış))].
-Rac, 90 °C DC direncine yuvarlak iletkenin deri etkisi eklenerek bulunur. Wd, faz-toprak geriliminden hesaplanan dielektrik kayıptır.
-P-Toprak = √3 × U × I-Toprak × 0,95. Toprak ve hava kapasiteleri ayrı ısıl dengeyle hesaplanır.
-<br>Bu, idealize edilmiş geometriye ait yaklaşık modeldir; katalog kapasitesi veya tam IEC 60287 hesabı değildir.
-Ekran tek noktadan topraklı, zırh yok kabul edilir; ekran girdap kayıpları, yakınlık etkisi, ek devreler ve toprağın kuruması modellenmez.
-Gerçek kablo seçimi için ürün yapısı ve döşeme koşulları ayrıca doğrulanmalıdır.
-<details><summary>Model sabitleri ve kaynaklar</summary>
-<p>ρ20: Cu 0,017241, Al 0,028264 Ω·mm²/m; α20: Cu 0,00393, Al 0,00403 1/K.
-İletken çapı d = √(4A/π). XLPE ve PE ısıl direnci 3,5 K·m/W; bağıl permitivite 2,5, kayıp tanjantı 0,001 model kabulüdür.
-Silindirik katman: T = ρth × ln(D/d)/(2π). Havada Tdış = Tkılıf + 1/(hπD).
-Toprakta Tdış = Tkılıf + ρtoprak/(2π) × [acosh(2L/D) + 2ln(√(s² + 4L²)/s)].
-L = 0,8 m, s = 0,5 m; bütün boyutlar ısıl hesapta metreye çevrilir.</p>
-<p><a href="https://webstore.iec.ch/en/publication/68118" target="_blank" rel="noopener">IEC 60287-1-1: kayıplar ve akım hesabının kapsamı</a> ·
-<a href="https://webstore.iec.ch/en/publication/68134" target="_blank" rel="noopener">IEC 60287-2-1: ısıl direnç hesabının kapsamı</a>.
-Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonuçlarını onaylayan ürün belgesi değildir.</p>
-</details></div>
+
           </div>
 
           <div class="card">
@@ -261,8 +242,8 @@ Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonu�
                       <option value="swallow" data-d="7.14" data-r="1.074">3 AWG-Swallow</option>
                       <option value="raven" data-d="10.11" data-r="0.536">1/0 AWG-Raven</option>
                       <option value="pigeon" data-d="12.75" data-r="0.337">3/0 AWG-Pigeon</option>
-                      <option value="partridge" data-d="16.28" data-r="0.214">266,8 kcmil-Partridge</option>
-                      <option value="hawk" data-d="21.77" data-r="0.119">477 kcmil-Hawk</option>
+                      <option value="partridge" data-d="16.28" data-r="0.214">266,8 MCM-Partridge</option>
+                      <option value="hawk" data-d="21.77" data-r="0.119">477 MCM-Hawk</option>
                     </select>
                   </td>
                   <td>
@@ -282,25 +263,7 @@ Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonu�
                 </tr>
               </tbody>
             </table>
-<div class="bilgilendirme" id="hhReferans">
-<b>Referans koşulları:</b> Çıplak ACSR iletken, kararlı yük, iletken sıcaklığı 75 °C; ortam sıcaklığı tablodan seçilir.
-Deniz seviyesi, iletkene dik 0,6 m/s rüzgâr; iletkenin izdüşümüne dik 1.000 W/m² güneş ışınımı.
-Güneş soğurma ve ısıl yayma katsayıları 0,5; güç katsayısı cos φ = 0,95 sabittir.
-<br><b>Hesap:</b> I = √[(qc + qr − qs) / R75]. qc taşınımla, qr ışınımla kaybedilen; qs güneşten kazanılan ısıdır (W/m).
-R75 = R20 × [1 + 0,00403 × (75 − 20)]; direnç akım hesabında Ω/m'ye çevrilir.
-Gerilim akım sınırını değiştirmez; dengeli üç faz güç hesabına girer: P = √3 × U × I × 0,95.
-<br>Akım değerleri hazır tablodan alınmaz. Çap ve R20, iletkenin fiziksel referans verileridir; bunlar hâlâ ürün yapısına bağlıdır.
-Bu yaklaşık hesapta DC direnç kullanılır; AC deri/yakınlık etkileri ve çelik özün ek manyetik kayıpları hesaba katılmaz.
-Bu eksikler akım kapasitesini olduğundan yüksek gösterebilir. Sehim, yerden açıklık ve bağlantı sınırları ayrıca değerlendirilmelidir.
-<details><summary>Yöntem ve fiziksel veri kaynakları</summary>
-<p>Taşınım için doğal ve iki zorlanmış taşınım bağıntısının en büyüğü alınır; hava özellikleri iletken/ortam ortalama sıcaklığından hesaplanır.
-Işınım Stefan–Boltzmann bağıntısıyla, güneş kazancı qs = 0,5 × 1.000 × D ile bulunur; D metre cinsinden dış çaptır.
-Hava koşulları model kabulleridir; tam IEEE 738 uygunluğu veya üretici kapasite onayı anlamına gelmez.</p>
-<ul><li><a href="https://openohl.ch/docs/theory/thermal.html" target="_blank" rel="noopener">OpenOHL: IEEE 738 ısıl denge yönteminin uygulama açıklaması</a></li>
-<li><a href="https://vatan.com.tr/upl/vatan%20kablo%20english.pdf" target="_blank" rel="noopener">Vatan Kablo: ACSR dış çap ve 20 °C DC direnç verileri</a></li></ul>
-<p>Swallow: 7,14 mm / 1,074 Ω/km; Raven: 10,11 mm / 0,536 Ω/km; Pigeon: 12,75 mm / 0,337 Ω/km;
-Partridge: 16,28 mm / 0,214 Ω/km; Hawk: 21,77 mm / 0,119 Ω/km.</p>
-</details></div>
+
           </div>
 
           <div class="bilgiBandi">Buradaki sonuçlar genel bilgilendirme amaçlıdır. Nihai proje, koruma, sıcaklık, döşeme şekli ve standart kontrolleri ayrıca değerlendirilmelidir.</div>
@@ -311,11 +274,56 @@ Partridge: 16,28 mm / 0,214 Ω/km; Hawk: 21,77 mm / 0,119 Ω/km.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b>Kablo Akım Taşıma Kapasitesi:</b>
 Kesit ve malzeme, iletken direncini; sabit geometri ve ortam koşulları, ısının uzaklaştırılmasını belirler.
 Akım, 90 °C iletken sıcaklığında oluşan kayıplarla ısı geçişinin dengelenmesiyle hesaplanır.
-Gerilim dielektrik kaybı ve güç hesabına girer. Referans koşulları ve modelin kapsamı XLPE tablosunun altında verilmiştir.</p>
+Gerilim dielektrik kaybı ve güç hesabına girer. Referans koşulları ve modelin kapsamı aşağıdaki açılır başlıkta verilmiştir.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b>Havai Hat İletkenleri:</b>
 Akım, 75 °C iletken sıcaklığında elektrik ve güneş kaynaklı ısınmanın taşınım ve ışınımla dengelenmesinden hesaplanır.
 Ortam sıcaklığı yükseldiğinde soğuma azalır ve hesaplanan akım kapasitesi düşer.
-Direnç ortam sıcaklığında değil, sabit 75 °C iletken sıcaklığında gösterilir. Koşullar ve model sınırları tablonun altındadır.</p>
+Direnç ortam sıcaklığında değil, sabit 75 °C iletken sıcaklığında gösterilir. Koşullar ve model sınırları aşağıdaki açılır başlıkta verilmiştir.</p>
+<details class="bilgilendirme" id="kabloReferans">
+<summary>XLPE kablolar: referans koşulları, yöntem ve kaynaklar</summary>
+<div class="referans-icerik">
+<b>Sabit referans koşulları:</b> 50 Hz, dengeli üç faz, tek damarlı yuvarlak iletkenli XLPE kablolar; iletken sıcaklığı 90 °C.
+Hava 30 °C, toprak 20 °C; doğrudan gömme derinliği 0,8 m, toprak ısıl direnci 1,5 K·m/W.
+Üç faz yatay, merkezler arası 0,5 m; toprakta ortadaki fazın karşılıklı ısınması hesaba katılır. Havada güneş ve rüzgâr yoktur.
+Modelde XLPE kalınlığı 10 mm, dış PE kılıf 2,5 mm; hava için eşdeğer ısı geçiş katsayısı 10 W/(m²·K) sabittir.
+Gerilim, fazlar arası işletme gerilimidir; yalıtım geometrisi değişmez. Bu model gerilim sınıfı veya yalıtım dayanımı doğrulamaz.
+<br><b>Yöntem:</b> I = √[(ΔT − Wd × (Tyalıtım / 2 + Tdış)) / (Rac × (Tyalıtım + Tdış))].
+Rac, 90 °C DC direncine yuvarlak iletkenin deri etkisi eklenerek bulunur. Wd, faz-toprak geriliminden hesaplanan dielektrik kayıptır.
+P-Toprak = √3 × U × I-Toprak × 0,95. Toprak ve hava kapasiteleri ayrı ısıl dengeyle hesaplanır.
+<br>Bu, idealize edilmiş geometriye ait yaklaşık modeldir; katalog kapasitesi veya tam IEC 60287 hesabı değildir.
+Ekran tek noktadan topraklı, zırh yok kabul edilir; ekran girdap kayıpları, yakınlık etkisi, ek devreler ve toprağın kuruması modellenmez.
+Gerçek kablo seçimi için ürün yapısı ve döşeme koşulları ayrıca doğrulanmalıdır.
+<p><b>Model sabitleri ve kaynaklar</b></p>
+<p>ρ20: Cu 0,017241, Al 0,028264 Ω·mm²/m; α20: Cu 0,00393, Al 0,00403 1/K.
+İletken çapı d = √(4A/π). XLPE ve PE ısıl direnci 3,5 K·m/W; bağıl permitivite 2,5, kayıp tanjantı 0,001 model kabulüdür.
+Silindirik katman: T = ρth × ln(D/d)/(2π). Havada Tdış = Tkılıf + 1/(hπD).
+Toprakta Tdış = Tkılıf + ρtoprak/(2π) × [acosh(2L/D) + 2ln(√(s² + 4L²)/s)].
+L = 0,8 m, s = 0,5 m; bütün boyutlar ısıl hesapta metreye çevrilir.</p>
+<p><a href="https://webstore.iec.ch/en/publication/68118" target="_blank" rel="noopener">IEC 60287-1-1: kayıplar ve akım hesabının kapsamı</a> ·
+<a href="https://webstore.iec.ch/en/publication/68134" target="_blank" rel="noopener">IEC 60287-2-1: ısıl direnç hesabının kapsamı</a>.
+Bu bağlantılar yöntemin kapsamını açıklar; modelin sabitlerini veya sonuçlarını onaylayan ürün belgesi değildir.</p>
+</div></details>
+<details class="bilgilendirme" id="hhReferans">
+<summary>Havai hat iletkenleri: referans koşulları, yöntem ve kaynaklar</summary>
+<div class="referans-icerik">
+<b>Referans koşulları:</b> Çıplak ACSR iletken, kararlı yük, iletken sıcaklığı 75 °C; ortam sıcaklığı tablodan seçilir.
+Deniz seviyesi, iletkene dik 0,6 m/s rüzgâr; iletkenin izdüşümüne dik 1.000 W/m² güneş ışınımı.
+Güneş soğurma ve ısıl yayma katsayıları 0,5; güç katsayısı cos φ = 0,95 sabittir.
+<br><b>Hesap:</b> I = √[(qc + qr − qs) / R75]. qc taşınımla, qr ışınımla kaybedilen; qs güneşten kazanılan ısıdır (W/m).
+R75 = R20 × [1 + 0,00403 × (75 − 20)]; direnç akım hesabında Ω/m'ye çevrilir.
+Gerilim akım sınırını değiştirmez; dengeli üç faz güç hesabına girer: P = √3 × U × I × 0,95.
+<br>Akım değerleri hazır tablodan alınmaz. Çap ve R20, iletkenin fiziksel referans verileridir; bunlar hâlâ ürün yapısına bağlıdır.
+Bu yaklaşık hesapta DC direnç kullanılır; AC deri/yakınlık etkileri ve çelik özün ek manyetik kayıpları hesaba katılmaz.
+Bu eksikler akım kapasitesini olduğundan yüksek gösterebilir. Sehim, yerden açıklık ve bağlantı sınırları ayrıca değerlendirilmelidir.
+<p><b>Yöntem ve fiziksel veri kaynakları</b></p>
+<p>Taşınım için doğal ve iki zorlanmış taşınım bağıntısının en büyüğü alınır; hava özellikleri iletken/ortam ortalama sıcaklığından hesaplanır.
+Işınım Stefan–Boltzmann bağıntısıyla, güneş kazancı qs = 0,5 × 1.000 × D ile bulunur; D metre cinsinden dış çaptır.
+Hava koşulları model kabulleridir; tam IEEE 738 uygunluğu veya üretici kapasite onayı anlamına gelmez.</p>
+<ul><li><a href="https://openohl.ch/docs/theory/thermal.html" target="_blank" rel="noopener">OpenOHL: IEEE 738 ısıl denge yönteminin uygulama açıklaması</a></li>
+<li><a href="https://vatan.com.tr/upl/vatan%20kablo%20english.pdf" target="_blank" rel="noopener">Vatan Kablo: ACSR dış çap ve 20 °C DC direnç verileri</a></li></ul>
+<p>Swallow: 7,14 mm / 1,074 Ω/km; Raven: 10,11 mm / 0,536 Ω/km; Pigeon: 12,75 mm / 0,337 Ω/km;
+Partridge: 16,28 mm / 0,214 Ω/km; Hawk: 21,77 mm / 0,119 Ω/km.</p>
+</div></details>
           </div>
 
           <div class="card">
@@ -384,7 +392,7 @@ Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV to
 
 <section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>XLPE hesabında Rdc(90) = ρ20/A × [1 + α20 × (90 − 20)] kullanılır; deri etkisiyle Rac elde edilir.
 Tablodaki direnç 90 °C AC model direncidir (Ω/km). Akım kapasitesi için idealize edilmiş kablo geometrisi ve ısıl denge kullanılır.
-Model sabitleri, formüller ve hariç tutulan etkiler XLPE tablosunun altındadır.</p><p>Aylık tahmini tüketim = yıllık etiket tüketimi / 365 × 30. Tek zamanlı meskende günlük 8 kWh sınırı korunur; 30 günde ilk 240 kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
+Model sabitleri, formüller ve hariç tutulan etkiler hesaplama açıklamalarındaki açılır başlıklardadır.</p><p>Aylık tahmini tüketim = yıllık etiket tüketimi / 365 × 30. Tek zamanlı meskende günlük 8 kWh sınırı korunur; 30 günde ilk 240 kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
 Dağıtım bedeli tüm tüketime eklenir. Kaynak: kullanıcı tarafından sağlanan “Tarife Tablosu”, 4 Nisan 2026, E20:I21 ve B32:B34. Dosyadaki fiyatlar vergiler hariçtir; hesapta enerjiye %5 BTV ve enerji + dağıtım + BTV toplamına %10 KDV eklenir.
 Vergi uygulaması: <a href="https://www.ckbogazici.com.tr/tr/45-soruda-elektrik-tuketicisi-olmak">CK Boğaziçi</a> ve
 <a href="https://gib.gov.tr/mevzuat/kanun/436/ozelge/32121">GİB KDV matrahı açıklaması</a>.
