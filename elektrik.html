@@ -104,6 +104,11 @@ footer {
 }
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
+.tuketim-ayar{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
+.tuketim-ayar[hidden]{display:none}
+.tuketim-ayar label{display:flex;flex-direction:column;gap:5px;font-size:12px}
+.tuketim-ayar select:not(#mselect){width:auto;max-width:100%}
+#tuketimHata{color:#b91c1c;font-size:13px}
 </style>
   <link rel="stylesheet" href="/inc/site-quality.css">
   <script defer src="/inc/site-quality.js"></script>
@@ -272,18 +277,22 @@ footer {
 
           <div class="card">
             <h3>Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
-            <table class="tbl" style="margin-bottom:8px">
-              <thead>
-                <tr><th>Tarih</th><th>Kullanıcı</th><th>Birim Fiyat</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Örnek birim fiyat</td><td>Mesken</td><td><input id="meskentl" onchange="ctuketimhesap(this)" type="text" value="3,24" aria-label="Birim Fiyat" /> &#8378</td></tr>
-              </tbody>
-            </table>
-            
+<p class="bilgiBandi">4 Nisan 2026 tarifesi · AG tek terimli mesken · Vergiler dahil tahmini tüketim bedeli</p>
+<div class="tuketim-ayar">
+<label>Fatura dönemi (gün)<input id="faturaGun" type="number" min="1" max="366" step="1" value="30"></label>
+<label>Tarife<select id="tuketimTarife"><option value="tek">Tek zamanlı (kademeli)</option><option value="cok">Çok zamanlı</option></select></label>
+<label>Diğer tüketim (kWh/dönem)<input id="digerTuketim" type="text" inputmode="decimal" value="0"></label>
+</div>
+<div id="zamanAyar" class="tuketim-ayar" hidden>
+<label>Gündüz payı (%)<input id="gunduzPay" type="text" inputmode="decimal" value="50"></label>
+<label>Puant payı (%)<input id="puantPay" type="text" inputmode="decimal" value="25"></label>
+<label>Gece payı (%)<input id="gecePay" type="text" inputmode="decimal" value="25"></label>
+</div>
+<p id="tuketimHata" role="alert" hidden></p>
+<p id="tarifeAciklama" class="bilgilendirme"></p>
             <table class="tbl beyazesya">
               <thead>
-                <tr><th class="besya">Eşya</th><th>Etiket kWh/yıl</th><th>Aylık Faturaya Etkisi</th></tr>
+                <tr><th class="besya">Eşya</th><th>Etiket kWh/yıl</th><th>Dönem bedeli (vergiler dahil)</th></tr>
               </thead>
               <tbody>
                 <tr><td class="besya">Bulaşık Makinesi</td><td><input id="bultuketim" type="text" value="275" aria-label="Bulaşık Makinesi Tüketim" /></td><td><span id="bultl" class="pill">—</span></td></tr>
@@ -299,19 +308,24 @@ footer {
                 <tr><td class="besya">Ütü</td><td><input id="ututuketim" type="text" value="125" aria-label="Ütü Tüketim" /></td><td><span id="ututl" class="pill">—</span></td></tr>
                 <tr><td class="besya">Lambalar (LED)</td><td><input id="lambatuketim" type="text" value="120" aria-label="Lamba Tüketim" /></td><td><span id="lambatl" class="pill">—</span></td></tr>
                 <tr>
-                  <td class="toplam">Toplam</td>
+                  <td class="toplam">Dönem toplamı (diğer tüketim dahil)</td>
                   <td class="toplam"><span id="toplamtuketim" class="pill">—</span></td>
                   <td class="toplam"><span id="toplamtl" class="pill">—</span></td>
                 </tr>
               </tbody>
             </table>
+<p id="tuketimDokum" class="bilgilendirme" aria-live="polite"></p>
+<p class="bilgilendirme">Cihazların dönem tüketimi = yıllık etiket tüketimi / 365 × gün sayısı. Cihaz bedelleri, toplam bedelin tüketim oranında paylaştırılmasıdır.
+Çok zamanlı tarifede girilen saat payları tüm cihazlara uygulanır; gerçek sayaç dağılımı farklı olabilir. Etiket değerleri başlangıç için tahminidir.
+Yeni etiketlerdeki kWh/100 çevrim değerini doğrudan yıllık tüketim olarak girmeyin.
+Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV toplamına %10 KDV eklenir. SKTT ve özel tedarik sözleşmeleri bu hesabın kapsamı dışındadır.</p>
           </div>
 
           <div class="card">
             <h3>kWh ve Watt Arasındaki Fark Nedir?</h3>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Watt (W):</b> Bir cihazın <b>anlık</b> güç tüketimini gösterir. Örneğin 2.000 W anlık güç çeken bir cihazın gücü 2 kW'tır; klimanın gerçek çekişi çalışma koşullarına göre değişebilir.</p>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Kilowatt-saat (kWh):</b> Bir cihazın belirli bir <b>süre boyunca</b> tükettiği toplam enerjidir; faturanız kWh üzerinden hesaplanır. Sabit 2.000 W çeken bir cihaz 1 saat çalışırsa 2 kWh, 3 saat çalışırsa 6 kWh tüketmiş olur.</p>
-            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Tek Zamanlı / Çok Zamanlı Tarife:</b> Tek zamanlı tarifede gün boyu aynı birim fiyat uygulanır. Çok zamanlı (gündüz/puant/gece) tarifede ise gece saatlerinde (genellikle 22:00-06:00 arası) fiyat daha düşük olur; çamaşır/bulaşık makinesi gibi cihazları gece çalıştırmak bu tarifede tasarruf sağlayabilir.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0"><b style="color:var(--txt)">Tek Zamanlı / Çok Zamanlı Tarife:</b> Tek zamanlı tarifede gün boyu aynı birim fiyat uygulanır. Çok zamanlı (gündüz/puant/gece) tarifede ise sayaç saatine göre gece döneminde (saat ayrıntıları yöntem bölümündedir) fiyat daha düşük olur; çamaşır/bulaşık makinesi gibi cihazları gece çalıştırmak bu tarifede tasarruf sağlayabilir.</p>
 
             <h3 style="margin-top:18px">Elektrik Faturasını Düşürmenin Pratik Yolları</h3>
             <p style="font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 10px"><b style="color:var(--txt)">Bekleme (standby) tüketimi:</b> Prizde takılı ama kullanılmayan modem, televizyon, şarj cihazı gibi ürünler sürekli düşük seviyede elektrik çeker; kullanılmadığında fişten çekmek yıllık tüketimde fark yaratabilir.</p>
@@ -325,9 +339,8 @@ footer {
             <br>* Alüminyum(Al) kablolar için akım taşıma kapasiteleri Bakır(Cu) kabloların 0.62 katı olarak hesaplanmaktadır.
             <br>* Havada akım taşıma kapasiteleri toprağın 1.2 katı olarak alınmıştır.
             <br>* Cos φ değeri kablo ve iletken hesaplamalarında 0.95 olarak kabul edilmiştir.
-            <br>* Beyaz Eşya ve Elektrikli Küçük Ev Aletleri hesaplamaları görünen birim fiyat (kullanıcının girdiği TL/kWh varsayımı) üzerinden yapılmaktadır, girilen fiyat vergi ve fonları içeriyorsa bunlar dahil yaklaşık bedeli gösterir, elle değiştirebilirsiniz. 
-            <a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank" rel="noopener">EPDK Fatura Hesaplama Sitesi</a>
-            <br>* İlk Etiket değerleri tahmini değerlerdir, etiket değerlerini bildiğiniz cihazlar için değerleri değiştirebilirsiniz. Tarife uygulamaları nedeniyle daha düşük veya daha fazla ücretler ortaya çıkabilir.
+            <br>* Tüketim hesabı, yüklenen 4 Nisan 2026 tarife tablosunun AG tek terimli mesken verilerini kullanır. Sonuçlar %5 BTV ve %10 KDV dahil hesaplanır.
+            <a href="https://lisans.epdk.gov.tr/epvys-web/faces/pages/online/tarifeFatura/tarifeFatura.xhtml" target="_blank" rel="noopener">EPDK Fatura Hesaplama</a>
           </div>
         </div>
       </div>
@@ -337,7 +350,14 @@ footer {
   </div>
 </main>
 
-<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Direnç hesabı R = ρ × 1.000 / A formülünü kullanır; A seçilen gerçek kesittir (mm²), sonuç Ω/km cinsindedir. Örneğin 630 mm² bakır için bu modelde ρ = 0,017857 alınır ve R ≈ 0,0283 Ω/km bulunur. AC etkileri ve iletken sıcaklığı bu kablo hesabına dahil değildir.</p><p>Aylık enerji maliyeti = yıllık tüketim / 12 × TL/kWh. Örneğin 240 kWh/yıl ve varsayımsal 3 TL/kWh için aylık ortalama 60 TL olur. Mevsimsellik, tüketim kademeleri ve tedarik sözleşmesi gerçek faturayı değiştirebilir; birim fiyatı kendi faturanızdan girin.</p><ul><li><a href="https://tr.prysmian.com/tr/medya/teknik-makaleler/orta-gerilim-kablo-akim-tasima-kapasite-hesabi">Prysmian: akım taşıma hesabının koşulları</a> — yöntem kaynağıdır; örnek tablodaki sayıları onaylayan bir ürün kataloğu değildir.</li><li><a href="https://www.epdk.gov.tr/Detay/Icerik/3-0-1/elektrik">EPDK elektrik piyasası ve tarife bilgileri</a></li></ul><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-09-17">17 Eylül 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Direnç hesabı R = ρ × 1.000 / A formülünü kullanır; A seçilen gerçek kesittir (mm²), sonuç Ω/km cinsindedir. Örneğin 630 mm² bakır için bu modelde ρ = 0,017857 alınır ve R ≈ 0,0283 Ω/km bulunur. AC etkileri ve iletken sıcaklığı bu kablo hesabına dahil değildir.</p><p>Dönem tüketimi = yıllık etiket tüketimi / 365 × dönem gün sayısı. Tek zamanlı meskende ilk 8 × gün kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
+Dağıtım bedeli tüm tüketime eklenir. Kaynak: kullanıcı tarafından sağlanan “Tarife Tablosu”, 4 Nisan 2026, E20:I21 ve B32:B34. Dosyadaki fiyatlar vergiler hariçtir; hesapta enerjiye %5 BTV ve enerji + dağıtım + BTV toplamına %10 KDV eklenir.
+Vergi uygulaması: <a href="https://www.ckbogazici.com.tr/tr/45-soruda-elektrik-tuketicisi-olmak">CK Boğaziçi</a> ve
+<a href="https://gib.gov.tr/mevzuat/kanun/436/ozelge/32121">GİB KDV matrahı açıklaması</a>.
+EPDK hesaplayıcısında 04.04.2026–04.05.2026, tek zamanlı mesken ve 300 kWh için 1.068,55 TL sonucu kontrol edilmiştir.
+Hesap BTV uygulanan standart mesken içindir; muafiyetler ve fatura yuvarlamaları farklılık yaratabilir.
+Çok zamanlı saatler, yaz saatine güncellenmiş sayaçlarda yıl boyunca gündüz 06–17, puant 17–22, gece 22–06'dır.
+Güncellenmemiş sayaçlarda ekimin son pazarı ile martın son pazarı arasında sırasıyla 07–18, 18–23 ve 23–07 uygulanır; diğer dönemde 06–17, 17–22 ve 22–06 geçerlidir.</p><ul><li><a href="https://tr.prysmian.com/tr/medya/teknik-makaleler/orta-gerilim-kablo-akim-tasima-kapasite-hesabi">Prysmian: akım taşıma hesabının koşulları</a> — yöntem kaynağıdır; örnek tablodaki sayıları onaylayan bir ürün kataloğu değildir.</li><li><a href="https://www.epdk.gov.tr/Detay/Icerik/3-0-1/elektrik">EPDK elektrik piyasası ve tarife bilgileri</a></li></ul><p>Hatalı bir bilgi veya hesaplama fark ederseniz <a href="/iletisim">sayfa adı ve örnekle bildirin</a>. İçerik düzenlemesi: <time datetime="2026-11-10">10 Kasım 2026</time>. Bu tarih, dış kaynaklardaki her fiyatın aynı gün doğrulandığı anlamına gelmez.</p></section>
 <footer>
   <div class="footer-wrap">
     <div>&copy; 2026 NESEL (nesel.tr). Tüm hakları saklıdır.</div>
@@ -377,23 +397,46 @@ function kablohesap(){
   $("kabguc").textContent=`${fmt(P,1)} MW`;
 }
 
-function ctuketimhesap(){
-  const tl=n($("meskentl").value);
-  const ids=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi","lamba"];
-  let sumK=0,sumTL=0;
-  ids.forEach(k=>{
-    const kwh=n($(k+"tuketim").value); const tut=(kwh/12)*tl; sumK+=kwh; sumTL+=tut;
-    $(k+"tl").textContent=`₺ ${fmt(tut,1)}`;
-  });
-  $("toplamtuketim").textContent=`${fmt(sumK,0)} kWh`;
-  $("toplamtl").textContent=`₺ ${fmt(sumTL,1)}`;
+const tuketimIds=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi","lamba"];
+// Kaynak: Tarife Tablosu E20:I21, B32:B34. Birim dönüşümü: kr/kWh / 100 = TL/kWh.
+const meskenTarife={dusuk:0.494065,yuksek:1.895808,dagitim:2.4249,gunduz:1.95064,puant:3.747551,gece:0.513656};
+function tuketimSayi(id){
+const raw=$(id).value.trim().replace(",",".");if(!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw))return NaN;
+const value=Number(raw);return Number.isFinite(value)&&value>=0?value:NaN;
 }
-
+function meskenBedel(kwh,gun,pay=null){
+const t=meskenTarife,alt=Math.min(kwh,8*gun),ust=Math.max(0,kwh-alt);
+const enerji=pay?kwh*(pay[0]*t.gunduz+pay[1]*t.puant+pay[2]*t.gece)/100:alt*t.dusuk+ust*t.yuksek;
+const dagitim=kwh*t.dagitim,btv=enerji*0.05,kdv=(enerji+dagitim+btv)*0.10;
+return {alt,ust,enerji,dagitim,btv,kdv,toplam:enerji+dagitim+btv+kdv};
+}
+function ctuketimhesap(){
+const gun=tuketimSayi("faturaGun"),cok=$("tuketimTarife").value==="cok",diger=tuketimSayi("digerTuketim");
+const yillik=tuketimIds.map(k=>tuketimSayi(k+"tuketim")),pay=cok?["gunduzPay","puantPay","gecePay"].map(tuketimSayi):null;
+$("zamanAyar").hidden=!cok;
+let hata=!Number.isInteger(gun)||gun<1||gun>366?"Fatura dönemi 1–366 arasında tam gün olmalıdır.":"";
+if(!Number.isFinite(diger)||yillik.some(v=>!Number.isFinite(v)))hata="Tüketim alanlarına sıfır veya pozitif sayı girin.";
+if(cok&&(pay.some(v=>!Number.isFinite(v)||v>100)||Math.abs(pay.reduce((a,b)=>a+b,0)-100)>0.000001))hata="Saat paylarının toplamı %100 olmalıdır.";
+$("tuketimHata").hidden=!hata;$("tuketimHata").textContent=hata;
+const t=meskenTarife;
+$("tarifeAciklama").textContent=cok?
+`Enerji: gündüz ${fmt(t.gunduz,6)}, puant ${fmt(t.puant,6)}, gece ${fmt(t.gece,6)} TL/kWh. Dağıtım: ${fmt(t.dagitim,4)} TL/kWh.`:
+`Enerji: günlük ilk 8 kWh için ${fmt(t.dusuk,6)}, aşan kısım için ${fmt(t.yuksek,6)} TL/kWh. Dağıtım: ${fmt(t.dagitim,4)} TL/kWh.`;
+if(hata){
+tuketimIds.forEach(k=>$(k+"tl").textContent="—");
+$("toplamtuketim").textContent="—";$("toplamtl").textContent="—";$("tuketimDokum").textContent="Hesaplama için girişleri düzeltin.";return;
+}
+const miktar=yillik.map(v=>v/365*gun),kwh=miktar.reduce((a,b)=>a+b,0)+diger,bedel=meskenBedel(kwh,gun,pay);
+tuketimIds.forEach((k,i)=>$(k+"tl").textContent=`₺ ${fmt(kwh?bedel.toplam*miktar[i]/kwh:0,2)}`);
+$("toplamtuketim").textContent=`${fmt(kwh,2)} kWh`;
+$("toplamtl").textContent=`₺ ${fmt(bedel.toplam,2)}`;
+const kademe=cok?"Çok zamanlı tarifede kademe uygulanmaz.":`Alt kademe: ${fmt(bedel.alt,2)} kWh; üst kademe: ${fmt(bedel.ust,2)} kWh (sınır: ${8*gun} kWh).`;
+$("tuketimDokum").textContent=`${kademe} Enerji: ₺ ${fmt(bedel.enerji,2)}; dağıtım: ₺ ${fmt(bedel.dagitim,2)}; BTV (%5): ₺ ${fmt(bedel.btv,2)}; KDV (%10): ₺ ${fmt(bedel.kdv,2)}; diğer tüketim: ${fmt(diger,2)} kWh. Vergiler dahil.`;
+}
 ["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
 ["kabkesit","kabseviye","kabtipi"].forEach(id=>$(id).addEventListener("change",kablohesap));
-["meskentl","buztuketim","camtuketim","bultuketim","lambatuketim","tvtuketim","firintuketim","ututuketim","supurgetuketim","modemtuketim","sactuketim","klimatuketim","kombituketim"]
+["faturaGun","tuketimTarife","digerTuketim","gunduzPay","puantPay","gecePay",...tuketimIds.map(k=>k+"tuketim")]
 .forEach(id=>$(id).addEventListener("input",ctuketimhesap));
-
 trhesap(); kablohesap(); ctuketimhesap();
 
 function hhFmt(n,d){ return (+n).toLocaleString("tr-TR",{minimumFractionDigits:d,maximumFractionDigits:d});}
