@@ -104,10 +104,6 @@ footer {
 }
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
-.tuketim-ayar{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
-.tuketim-ayar[hidden]{display:none}
-.tuketim-ayar label{display:flex;flex-direction:column;gap:5px;font-size:12px}
-.tuketim-ayar select:not(#mselect){width:auto;max-width:100%}
 #tuketimHata{color:#b91c1c;font-size:13px}
 </style>
   <link rel="stylesheet" href="/inc/site-quality.css">
@@ -278,21 +274,12 @@ footer {
           <div class="card">
             <h3>Beyaz Eşya ve Elektrikli Küçük Ev Aletleri</h3>
 <p class="bilgiBandi">4 Nisan 2026 tarifesi · AG tek terimli mesken · Vergiler dahil tahmini tüketim bedeli</p>
-<div class="tuketim-ayar">
-<label>Fatura dönemi (gün)<input id="faturaGun" type="number" min="1" max="366" step="1" value="30"></label>
-<label>Tarife<select id="tuketimTarife"><option value="tek">Tek zamanlı (kademeli)</option><option value="cok">Çok zamanlı</option></select></label>
-<label>Diğer tüketim (kWh/dönem)<input id="digerTuketim" type="text" inputmode="decimal" value="0"></label>
-</div>
-<div id="zamanAyar" class="tuketim-ayar" hidden>
-<label>Gündüz payı (%)<input id="gunduzPay" type="text" inputmode="decimal" value="50"></label>
-<label>Puant payı (%)<input id="puantPay" type="text" inputmode="decimal" value="25"></label>
-<label>Gece payı (%)<input id="gecePay" type="text" inputmode="decimal" value="25"></label>
-</div>
+<p class="bilgilendirme">30 günlük tüketim ve tek zamanlı kademeli mesken tarifesi esas alınmıştır.</p>
 <p id="tuketimHata" role="alert" hidden></p>
 <p id="tarifeAciklama" class="bilgilendirme"></p>
             <table class="tbl beyazesya">
               <thead>
-                <tr><th class="besya">Eşya</th><th>Etiket kWh/yıl</th><th>Dönem bedeli (vergiler dahil)</th></tr>
+                <tr><th class="besya">Eşya</th><th>Etiket kWh/yıl</th><th>Aylık tahmini maliyet (vergiler dahil)</th></tr>
               </thead>
               <tbody>
                 <tr><td class="besya">Bulaşık Makinesi</td><td><input id="bultuketim" type="text" value="275" aria-label="Bulaşık Makinesi Tüketim" /></td><td><span id="bultl" class="pill">—</span></td></tr>
@@ -308,15 +295,15 @@ footer {
                 <tr><td class="besya">Ütü</td><td><input id="ututuketim" type="text" value="125" aria-label="Ütü Tüketim" /></td><td><span id="ututl" class="pill">—</span></td></tr>
                 <tr><td class="besya">Lambalar (LED)</td><td><input id="lambatuketim" type="text" value="120" aria-label="Lamba Tüketim" /></td><td><span id="lambatl" class="pill">—</span></td></tr>
                 <tr>
-                  <td class="toplam">Dönem toplamı (diğer tüketim dahil)</td>
+                  <td class="toplam">Aylık toplam</td>
                   <td class="toplam"><span id="toplamtuketim" class="pill">—</span></td>
                   <td class="toplam"><span id="toplamtl" class="pill">—</span></td>
                 </tr>
               </tbody>
             </table>
 <p id="tuketimDokum" class="bilgilendirme" aria-live="polite"></p>
-<p class="bilgilendirme">Cihazların dönem tüketimi = yıllık etiket tüketimi / 365 × gün sayısı. Cihaz bedelleri, toplam bedelin tüketim oranında paylaştırılmasıdır.
-Çok zamanlı tarifede girilen saat payları tüm cihazlara uygulanır; gerçek sayaç dağılımı farklı olabilir. Etiket değerleri başlangıç için tahminidir.
+<p class="bilgilendirme">Cihazların aylık tahmini tüketimi = yıllık etiket tüketimi / 365 × 30. Cihaz bedelleri, toplam bedelin tüketim oranında paylaştırılmasıdır.
+Etiket değerleri başlangıç için tahminidir. 240 kWh kademe sınırı listedeki cihazların toplam aylık tüketimine uygulanır.
 Yeni etiketlerdeki kWh/100 çevrim değerini doğrudan yıllık tüketim olarak girmeyin.
 Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV toplamına %10 KDV eklenir. SKTT ve özel tedarik sözleşmeleri bu hesabın kapsamı dışındadır.</p>
           </div>
@@ -350,7 +337,7 @@ Enerji bedeline %5 Elektrik Tüketim Vergisi (BTV), enerji + dağıtım + BTV to
   </div>
 </main>
 
-<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Direnç hesabı R = ρ × 1.000 / A formülünü kullanır; A seçilen gerçek kesittir (mm²), sonuç Ω/km cinsindedir. Örneğin 630 mm² bakır için bu modelde ρ = 0,017857 alınır ve R ≈ 0,0283 Ω/km bulunur. AC etkileri ve iletken sıcaklığı bu kablo hesabına dahil değildir.</p><p>Dönem tüketimi = yıllık etiket tüketimi / 365 × dönem gün sayısı. Tek zamanlı meskende ilk 8 × gün kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
+<section id="kaynaklar" class="source-note" aria-labelledby="kaynak-baslik"><h2 id="kaynak-baslik">Yöntem, kapsam ve kaynaklar</h2><p>Direnç hesabı R = ρ × 1.000 / A formülünü kullanır; A seçilen gerçek kesittir (mm²), sonuç Ω/km cinsindedir. Örneğin 630 mm² bakır için bu modelde ρ = 0,017857 alınır ve R ≈ 0,0283 Ω/km bulunur. AC etkileri ve iletken sıcaklığı bu kablo hesabına dahil değildir.</p><p>Aylık tahmini tüketim = yıllık etiket tüketimi / 365 × 30. Tek zamanlı meskende günlük 8 kWh sınırı korunur; 30 günde ilk 240 kWh düşük, kalanı yüksek enerji bedeliyle hesaplanır.
 Dağıtım bedeli tüm tüketime eklenir. Kaynak: kullanıcı tarafından sağlanan “Tarife Tablosu”, 4 Nisan 2026, E20:I21 ve B32:B34. Dosyadaki fiyatlar vergiler hariçtir; hesapta enerjiye %5 BTV ve enerji + dağıtım + BTV toplamına %10 KDV eklenir.
 Vergi uygulaması: <a href="https://www.ckbogazici.com.tr/tr/45-soruda-elektrik-tuketicisi-olmak">CK Boğaziçi</a> ve
 <a href="https://gib.gov.tr/mevzuat/kanun/436/ozelge/32121">GİB KDV matrahı açıklaması</a>.
@@ -399,45 +386,41 @@ function kablohesap(){
 
 const tuketimIds=["buz","cam","bul","tv","firin","utu","supurge","modem","sac","klima","kombi","lamba"];
 // Kaynak: Tarife Tablosu E20:I21, B32:B34. Birim dönüşümü: kr/kWh / 100 = TL/kWh.
-const meskenTarife={dusuk:0.494065,yuksek:1.895808,dagitim:2.4249,gunduz:1.95064,puant:3.747551,gece:0.513656};
+const meskenTarife={dusuk:0.494065,yuksek:1.895808,dagitim:2.4249};
 function tuketimSayi(id){
 const raw=$(id).value.trim().replace(",",".");if(!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw))return NaN;
 const value=Number(raw);return Number.isFinite(value)&&value>=0?value:NaN;
 }
-function meskenBedel(kwh,gun,pay=null){
+function meskenBedel(kwh){
+const gun=30;
 const t=meskenTarife,alt=Math.min(kwh,8*gun),ust=Math.max(0,kwh-alt);
-const enerji=pay?kwh*(pay[0]*t.gunduz+pay[1]*t.puant+pay[2]*t.gece)/100:alt*t.dusuk+ust*t.yuksek;
+const enerji=alt*t.dusuk+ust*t.yuksek;
 const dagitim=kwh*t.dagitim,btv=enerji*0.05,kdv=(enerji+dagitim+btv)*0.10;
 return {alt,ust,enerji,dagitim,btv,kdv,toplam:enerji+dagitim+btv+kdv};
 }
 function ctuketimhesap(){
-const gun=tuketimSayi("faturaGun"),cok=$("tuketimTarife").value==="cok",diger=tuketimSayi("digerTuketim");
-const yillik=tuketimIds.map(k=>tuketimSayi(k+"tuketim")),pay=cok?["gunduzPay","puantPay","gecePay"].map(tuketimSayi):null;
-$("zamanAyar").hidden=!cok;
-let hata=!Number.isInteger(gun)||gun<1||gun>366?"Fatura dönemi 1–366 arasında tam gün olmalıdır.":"";
-if(!Number.isFinite(diger)||yillik.some(v=>!Number.isFinite(v)))hata="Tüketim alanlarına sıfır veya pozitif sayı girin.";
-if(cok&&(pay.some(v=>!Number.isFinite(v)||v>100)||Math.abs(pay.reduce((a,b)=>a+b,0)-100)>0.000001))hata="Saat paylarının toplamı %100 olmalıdır.";
+const gun=30,yillik=tuketimIds.map(k=>tuketimSayi(k+"tuketim"));
+const hata=yillik.some(v=>!Number.isFinite(v))?"Tüketim alanlarına sıfır veya pozitif sayı girin.":"";
 $("tuketimHata").hidden=!hata;$("tuketimHata").textContent=hata;
 const t=meskenTarife;
 const birimFiyat=enerji=>fmt((enerji*1.05+t.dagitim)*1.10,2);
-$("tarifeAciklama").textContent=cok?
-`Vergiler dahil birim fiyatlar: gündüz ${birimFiyat(t.gunduz)}, puant ${birimFiyat(t.puant)}, gece ${birimFiyat(t.gece)} TL/kWh. Dağıtım bedeli dahildir.`:
+$("tarifeAciklama").textContent=
 `Vergiler dahil birim fiyatlar: düşük kademe ${birimFiyat(t.dusuk)} TL/kWh, yüksek kademe ${birimFiyat(t.yuksek)} TL/kWh. Dağıtım bedeli dahildir. `+
-`Günlük ilk 8 kWh düşük, aşan kısım yüksek kademeden hesaplanır.`;
+`Günlük 8 kWh sınırına göre, 30 günde ilk 240 kWh düşük, aşan kısım yüksek kademeden hesaplanır.`;
 if(hata){
 tuketimIds.forEach(k=>$(k+"tl").textContent="—");
 $("toplamtuketim").textContent="—";$("toplamtl").textContent="—";$("tuketimDokum").textContent="Hesaplama için girişleri düzeltin.";return;
 }
-const miktar=yillik.map(v=>v/365*gun),kwh=miktar.reduce((a,b)=>a+b,0)+diger,bedel=meskenBedel(kwh,gun,pay);
+const miktar=yillik.map(v=>v/365*gun),kwh=miktar.reduce((a,b)=>a+b,0),bedel=meskenBedel(kwh);
 tuketimIds.forEach((k,i)=>$(k+"tl").textContent=`₺ ${fmt(kwh?bedel.toplam*miktar[i]/kwh:0,2)}`);
 $("toplamtuketim").textContent=`${fmt(kwh,2)} kWh`;
 $("toplamtl").textContent=`₺ ${fmt(bedel.toplam,2)}`;
-const kademe=cok?"Çok zamanlı tarifede kademe uygulanmaz.":`Alt kademe: ${fmt(bedel.alt,2)} kWh; üst kademe: ${fmt(bedel.ust,2)} kWh (sınır: ${8*gun} kWh).`;
-$("tuketimDokum").textContent=`${kademe} Enerji: ₺ ${fmt(bedel.enerji,2)}; dağıtım: ₺ ${fmt(bedel.dagitim,2)}; BTV (%5): ₺ ${fmt(bedel.btv,2)}; KDV (%10): ₺ ${fmt(bedel.kdv,2)}; diğer tüketim: ${fmt(diger,2)} kWh. Vergiler dahil.`;
+const kademe=`Alt kademe: ${fmt(bedel.alt,2)} kWh; üst kademe: ${fmt(bedel.ust,2)} kWh (sınır: ${8*gun} kWh).`;
+$("tuketimDokum").textContent=`${kademe} Enerji: ₺ ${fmt(bedel.enerji,2)}; dağıtım: ₺ ${fmt(bedel.dagitim,2)}; BTV (%5): ₺ ${fmt(bedel.btv,2)}; KDV (%10): ₺ ${fmt(bedel.kdv,2)}. Vergiler dahil.`;
 }
 ["ogtr","ogseviyeP","ogseviyeS"].forEach(id=>$(id).addEventListener("change",trhesap));
 ["kabkesit","kabseviye","kabtipi"].forEach(id=>$(id).addEventListener("change",kablohesap));
-["faturaGun","tuketimTarife","digerTuketim","gunduzPay","puantPay","gecePay",...tuketimIds.map(k=>k+"tuketim")]
+tuketimIds.map(k=>k+"tuketim")
 .forEach(id=>$(id).addEventListener("input",ctuketimhesap));
 trhesap(); kablohesap(); ctuketimhesap();
 
