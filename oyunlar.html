@@ -50,7 +50,7 @@ main{padding-top:var(--ustH)}
   #ortaAlan{width:100%}
 }
 
-#oyunWrap{max-width:520px;margin:0 auto;padding:6px}
+#oyunWrap{width:100%;margin:0;padding:6px}
 #oyunBar{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:8px;align-items:center;margin:0 0 8px}
 #msg{min-width:48px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px;font-weight:600}
 #info{white-space:nowrap;color:var(--muted);text-align:right;font-size:13px}
@@ -95,11 +95,6 @@ footer {
 }
 .footer-links { display: flex; gap: 14px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
-#btnHint{margin-top:10px;padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:#eff6ff;color:#1d4ed8;cursor:pointer}
-.sekil-sec{display:flex;flex-direction:column;gap:5px;font-size:13px;margin-bottom:12px}
-#shapeSelect{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--txt)}
-.ipucu{font-size:13px;line-height:1.6;padding:10px;border:1px solid #fcd34d;border-radius:8px;background:#fffbeb;color:#78350f}
-#btnHint:disabled{opacity:.5;cursor:default}
 </style>
   <link rel="stylesheet" href="/inc/site-quality.css">
   <script defer src="/inc/site-quality.js"></script>
@@ -147,9 +142,8 @@ footer {
       <div class="frameWrap">
         <div class="frameBox">
           <div id="oyunWrap">
-            <div class="bilgiBandi">2 kolay, 6 orta ve 8 zor bulmacayı, her kenarı yalnızca bir kez kullanarak tamamlayın. Şekli listeden veya ◀ ▶ tuşlarıyla seçin; takıldığınızda İpucu düğmesini kullanın.</div>
+            <div class="bilgiBandi">2 kolay, 6 orta, 8 zor: 16 bulmacayı her çizgiden bir kez geçerek tamamlayın. Şekiller arasında ◀ ▶ tuşlarıyla geçin.</div>
             
-            <label class="sekil-sec" for="shapeSelect">Bulmaca seçin<select id="shapeSelect"></select></label>
             <div id="oyunBar">
               <button id="btnReset" type="button">Sıfırla</button>
               <span id="msg" role="status">Seç</span>
@@ -159,8 +153,6 @@ footer {
             </div>    
             
             <canvas id="game" aria-label="Tek çizgi bulmacası; noktaları seçerek çizgileri tamamlayın"></canvas>
-            <button id="btnHint" type="button">İpucu</button>
-            <p id="hintText" class="ipucu" aria-live="polite" hidden></p>
           </div>
 
           <div class="bilgilendirme">
@@ -199,7 +191,6 @@ footer {
 
       <h3>Pratik İpucu: Doğru Başlangıç Noktasını Nasıl Bulursunuz?</h3>
       <p>Her noktadan çıkan çizgileri sayın. İki noktada tek sayıda çizgi varsa bunlardan biriyle başlayın; tüm sayılar çiftse herhangi bir nokta uygundur.
-İpucu düğmesi başlangıçta uygun noktaları işaretler. Oyun sırasında kalan bağlantılar hakkında yönlendirme verir; tam rotayı veya bir sonraki hamleyi göstermez.
 Üzerinde nokta bulunmayan çizgi kesişimleri bağlantı sayılmaz.</p>
 
       <table class="tanim-tablo">
@@ -253,7 +244,6 @@ setUstH();
   const msg=document.getElementById("msg"),info=document.getElementById("info"),btn=document.getElementById("btnReset");
   const prev=document.getElementById("btnPrev"),next=document.getElementById("btnNext");
 
-  const hintBtn=document.getElementById("btnHint"),hintText=document.getElementById("hintText"),picker=document.getElementById("shapeSelect");
   const S={pad:70,r:10,hit:18};
   const SHAPES=[
     {"name":"Kare ve Köşegen","level":"Kolay","pts":[
@@ -338,7 +328,7 @@ setUstH();
     ]}
   ];
 
-  let hintNodes=[],shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
+  let shapeId=0,nodes=[],selected=-1,walk=[],visitedE=new Set(),lastEdge=null,dead=false,edges=[];
 
   const DPR=()=>Math.max(1,Math.min(2,window.devicePixelRatio||1));
   const R=()=>cv.getBoundingClientRect();
@@ -352,7 +342,7 @@ setUstH();
   }
 
   function buildNodes(){
-    const w=R().width,h=R().height,mx=0.10,my=0.07,sw=w*(1-2*mx),sh=h*(1-2*my),ox=w*mx,oy=h*my;
+    const w=R().width,h=R().height,sw=Math.min(w,h)*0.9,sh=sw,ox=(w-sw)/2,oy=(h-sh)/2;
     nodes=SHAPES[shapeId].pts.map(p=>({x:ox+p[0]*sw,y:oy+p[1]*sh}));
   }
 
@@ -375,7 +365,7 @@ setUstH();
     });
   }
 
-  function ui(){const s=SHAPES[shapeId];picker.value=String(shapeId);info.textContent=`${shapeId+1}/${SHAPES.length} · ${s.name} · ${s.level}`;}
+  function ui(){const s=SHAPES[shapeId];info.textContent=`${shapeId+1}/${SHAPES.length} · ${s.name} · ${s.level}`;}
   
   function draw(){
     const w=R().width,h=R().height;ctx.clearRect(0,0,w,h);
@@ -401,9 +391,6 @@ setUstH();
     if(walk.length>1)ctx.stroke();
 
     nodes.forEach((p,i)=>{
-      if(hintNodes.includes(i)){
-      ctx.beginPath();ctx.arc(p.x,p.y,S.r+6,0,Math.PI*2);ctx.lineWidth=3;ctx.strokeStyle="#d97706";ctx.stroke();
-      }
       ctx.beginPath();
       ctx.fillStyle=i===selected?"#f59e0b":"#0f172a";
       ctx.arc(p.x,p.y,S.r,0,Math.PI*2);
@@ -415,14 +402,14 @@ setUstH();
   }
 
   function winCheck(){
-    if(visitedE.size===edges.length){msg.textContent=TXT.win;dead=true;hintBtn.disabled=true;}
+    if(visitedE.size===edges.length){msg.textContent=TXT.win;dead=true;}
   }
   function deadCheck(){
     if(visitedE.size===edges.length)return;
     if(possibleMoves(selected).length===0){msg.textContent=TXT.lose;dead=true;}
   }
   function reset(){
-    clearHint();hintBtn.disabled=false;edges=SHAPES[shapeId].edges;
+    edges=SHAPES[shapeId].edges;
     buildNodes();
     selected=-1;walk=[];visitedE=new Set();lastEdge=null;dead=false;
     msg.textContent=TXT.start;
@@ -435,7 +422,6 @@ setUstH();
     const n=hitNode(x,y);
     if(n<0)return;
 
-    clearHint();
     if(selected<0){ selected=n;walk=[n]; msg.textContent=TXT.move; draw();return; }
 
     if(n===selected)return;
@@ -456,37 +442,6 @@ setUstH();
     deadCheck();
   });
 
-  function clearHint(){hintNodes=[];hintText.hidden=true;hintText.textContent="";}
-  function remainingGraph(){
-    const adj=nodes.map(()=>[]);
-    edges.forEach(([a,b])=>{if(!visitedE.has(key(a,b))){adj[a].push(b);adj[b].push(a);}});return adj;
-  }
-  function reachable(adj,start){
-    const seen=new Set([start]),queue=[start];
-    for(const a of queue)for(const b of adj[a])if(!seen.has(b)){seen.add(b);queue.push(b);}return seen;
-  }
-  function showHint(){
-    clearHint();const adj=remainingGraph(),odd=adj.map((a,i)=>a.length%2?i:-1).filter(i=>i>=0);
-    if(selected<0){
-    hintNodes=odd.length?odd:nodes.map((_,i)=>i);
-    hintText.textContent=odd.length?"Turuncu halkalı iki noktadan biriyle başlayın; bu noktalardan tek sayıda çizgi çıkıyor.":
-    "Her noktadan çift sayıda çizgi çıkıyor. İstediğiniz noktadan başlayın; başladığınız noktada bitirmelisiniz.";
-    }else{
-    const seen=reachable(adj,selected),active=adj.map((a,i)=>a.length?i:-1).filter(i=>i>=0);
-    const uygun=active.every(i=>seen.has(i))&&(odd.length===0||(odd.length===2&&odd.includes(selected)));
-    if(!uygun){hintText.textContent="Kalan çizgiler bu noktadan tek seferde tamamlanamıyor. Sıfırlayıp başlangıç veya geçiş sırasını değiştirin.";}
-    else if(adj[selected].length===1){hintText.textContent="Bulunduğunuz noktadan kullanılmamış tek bir bağlantı kalmış. Bu bağlantıyı takip edebilirsiniz.";}
-    else{hintText.textContent="Önce bulunduğunuz taraftaki döngüleri tamamlamayı düşünün. Başka çizgiler varken iki bölümü bağlayan son geçişi erken kullanmayın.";}
-    }
-    hintText.hidden=false;draw();
-  }
-  for(const level of ["Kolay","Orta","Zor"]){
-    const group=document.createElement("optgroup");group.label=level;
-    SHAPES.forEach((shape,i)=>{if(shape.level!==level)return;const option=document.createElement("option");
-    option.value=String(i);option.textContent=`${i+1}. ${shape.name}`;group.appendChild(option);});picker.appendChild(group);
-  }
-  picker.addEventListener("change",()=>{shapeId=Number(picker.value);reset();});
-  hintBtn.addEventListener("click",showHint);
   btn.addEventListener("click",reset);
   prev.addEventListener("click",()=>{shapeId=(shapeId-1+SHAPES.length)%SHAPES.length;reset();});
   next.addEventListener("click",()=>{shapeId=(shapeId+1)%SHAPES.length;reset();});
